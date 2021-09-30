@@ -27,8 +27,8 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@modern-js/module-tools": "^0.1.12",
-    "@modern-js/plugin-testing": "^0.1.12",
+    "@modern-js/module-tools": "^1.0.0-rc.2",
+    "@modern-js/plugin-testing": "^1.0.0-rc.2",
     "@types/jest": "^26",
     "@types/lodash": "^4",
     "@types/node": "^14",
