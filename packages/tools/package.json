@@ -1,0 +1,51 @@
+{
+  "name": "@modern-js/codesmith-tools",
+  "version": "1.0.0-rc.3",
+  "jsnext:source": "./src/index.ts",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/js/node/index.js",
+  "bin": {
+    "csmith-tools": "./bin/run"
+  },
+  "files": [
+    "/bin",
+    "/dist"
+  ],
+  "exports": {
+    ".": {
+      "node": {
+        "import": "./dist/js/modern/index.js",
+        "require": "./dist/js/node/index.js"
+      },
+      "default": "./dist/js/treeshaking/index.js"
+    }
+  },
+  "scripts": {
+    "prepare": "pnpm build",
+    "new": "modern new",
+    "build": "modern build",
+    "test": "modern test --passWithNoTests"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7",
+    "commander": "^8.0.0",
+    "ora": "^5.4.1",
+    "webpack": "^5.33.2"
+  },
+  "devDependencies": {
+    "@modern-js/module-tools": "^0.1.12",
+    "@modern-js/plugin-testing": "^0.1.12",
+    "@types/commander": "^2.12.2",
+    "@types/jest": "^26",
+    "@types/node": "^14",
+    "ts-node": "^10.1.0",
+    "typescript": "^4"
+  },
+  "modernConfig": {
+    "output": {
+      "packageMode": "node-js",
+      "disableSourceMap": true
+    }
+  },
+  "sideEffects": false
+}

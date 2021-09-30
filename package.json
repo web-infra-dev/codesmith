@@ -1,0 +1,58 @@
+{
+  "private": true,
+  "name": "monorepo",
+  "scripts": {
+    "new": "modern new",
+    "reset": "npm run reset",
+    "lint": "modern lint",
+    "lint:error": "modern lint --quiet",
+    "change": "modern change",
+    "bump": "modern bump"
+  },
+  "engines": {
+    "node": ">=12.13.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "pnpm exec eslint --fix --color --cache --quiet",
+      "git add"
+    ],
+    "*.{js,jsx,mjs,mjsx,cjs,cjsx}": [
+      "pnpm exec eslint --fix --color --cache --quiet",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "@modern-js"
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "dist/"
+  ],
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "examples/*",
+      "services/*",
+      "features/*",
+      "packages/*"
+    ]
+  },
+  "devDependencies": {
+    "@modern-js/monorepo-tools": "^0.1.12",
+    "@modern-js/plugin-jarvis": "^0.1.12"
+  }
+}
