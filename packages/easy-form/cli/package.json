@@ -1,9 +1,12 @@
 {
   "name": "@modern-js/easy-form-cli",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.10",
   "jsnext:source": "./src/index.ts",
   "types": "./dist/types/index.d.ts",
   "main": "./dist/js/node/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "node": {
@@ -22,7 +25,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7",
-    "@modern-js/easy-form-core": "workspace:^1.0.0-rc.3",
+    "@modern-js/easy-form-core": "workspace:^1.0.0-rc.10",
     "inquirer": "8.1.3",
     "lodash": "^4.17.21",
     "rxjs": "^6.6.7"

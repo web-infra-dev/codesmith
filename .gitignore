@@ -38,3 +38,4 @@ output_resource/
 **/*/adapters/**/index.js
 
 pnpm-lock.yaml
+.changeset/pre.json

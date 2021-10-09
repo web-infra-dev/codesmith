@@ -48,7 +48,9 @@
       "examples/*",
       "services/*",
       "features/*",
-      "packages/*"
+      "packages/*",
+      "packages/api/*",
+      "packages/easy-form/*"
     ]
   },
   "devDependencies": {

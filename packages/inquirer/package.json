@@ -1,9 +1,12 @@
 {
   "name": "@modern-js/inquirer-types",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.10",
   "jsnext:source": "./src/index.ts",
   "types": "./dist/types/index.d.ts",
   "main": "./dist/js/node/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "node": {
