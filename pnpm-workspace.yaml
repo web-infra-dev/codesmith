@@ -4,3 +4,5 @@ packages:
   - 'services/**'
   - 'features/**'
   - 'packages/**'
+  - 'packages/api/**'
+  - 'packages/easy-form/**'

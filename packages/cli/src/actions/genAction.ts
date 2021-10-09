@@ -44,19 +44,17 @@ export async function genAction(generator: string, genOptions: LocalOptions) {
     {
       name: generator,
       config: {
-        language: getLocalLanguage(),
+        locale: getLocalLanguage(),
         ...targetConfig,
       },
     },
   ];
 
   await smith.forge({
-    tasks: tasks.map(runner => {
-      return {
-        generator: runner.name,
-        config: runner.config,
-      };
-    }),
+    tasks: tasks.map(runner => ({
+      generator: runner.name,
+      config: runner.config,
+    })),
     pwd: runPwd,
   });
 }
