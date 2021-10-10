@@ -143,7 +143,7 @@ export class List extends Base<Question & { loop: boolean }> {
         this.opt.choices.getChoice(this.selected) as Choice,
       );
       const realIndexPosition =
-        this.opt.choices.choices.reduce(function (acc, value, i) {
+        this.opt.choices.choices.reduce((acc, value, i) => {
           // Dont count lines past the choice we are looking at
           if (i > indexPosition) {
             return acc;

@@ -3,13 +3,13 @@ import { EventEmitter } from 'events';
 import ora from 'ora';
 import chalk from 'chalk';
 import fs, { WriteFileOptions } from 'fs-extra';
+import { GeneratorContext, RuntimeCurrent } from './constants';
 import { Logger } from '@/logger';
 import { ILogger } from '@/logger/constants';
 import { MaterialsManager } from '@/materials';
 import { FsMaterial } from '@/materials/FsMaterial';
 import { nodeRequire } from '@/utils/nodeRequire';
 import { getGeneratorDir } from '@/utils/getGeneratorDir';
-import { GeneratorContext, RuntimeCurrent } from './constants';
 
 interface ICreateOptions {
   logger: Logger;

@@ -30,8 +30,7 @@ export function forEach<T>(
 ): void {
   for (const key in from) {
     if (hasOwnProperty.call(from, key)) {
-      // eslint-disable-next-line callback-return
-      const result = callback({ key, value: (from as any)[key] }, function () {
+      const result = callback({ key, value: (from as any)[key] }, () => {
         delete (from as any)[key];
       });
       if (result === false) {
