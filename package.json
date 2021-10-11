@@ -8,7 +8,8 @@
     "lint:error": "modern lint --quiet",
     "change": "modern change",
     "bump": "modern bump",
-    "changeset": "changeset"
+    "pre": "modern pre",
+    "release": "modern release"
   },
   "engines": {
     "node": ">=12.13.0"
