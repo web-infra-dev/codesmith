@@ -86,42 +86,37 @@ export class BaseCliReader {
     this.cliHandler = handlers;
   }
 
-  analyRootNode = ({ result, schema }: { result: any; schema: Schema }) => {
-    return this.cliHandler[CliNodeHandlers.ANALY_ROOT]({
+  analyRootNode = ({ result, schema }: { result: any; schema: Schema }) =>
+    this.cliHandler[CliNodeHandlers.ANALY_ROOT]({
       childQuestionHandler: result,
       schema,
       nodeInfo: getNodeInfo(schema, this.answers, this.extra),
     });
-  };
 
-  analyFormNode = ({ result, schema }: { result: any; schema: Schema }) => {
-    return this.cliHandler[CliNodeHandlers.ANALY_FORM]({
+  analyFormNode = ({ result, schema }: { result: any; schema: Schema }) =>
+    this.cliHandler[CliNodeHandlers.ANALY_FORM]({
       schema,
       childQuestionHandler: result,
       nodeInfo: getNodeInfo(schema, this.answers, this.extra),
     });
-  };
 
-  analyChildNode = ({ result, schema }: { result: any; schema: Schema }) => {
-    return this.cliHandler[CliNodeHandlers.ANALY_CHILD]({
+  analyChildNode = ({ result, schema }: { result: any; schema: Schema }) =>
+    this.cliHandler[CliNodeHandlers.ANALY_CHILD]({
       schema,
       childQuestionHandler: result,
       nodeInfo: getNodeInfo(schema, this.answers, this.extra),
     });
-  };
 
-  analyNoneNode = (schema: Schema) => {
-    return this.cliHandler[CliNodeHandlers.ANALY_NONE_ITEM]({
+  analyNoneNode = (schema: Schema) =>
+    this.cliHandler[CliNodeHandlers.ANALY_NONE_ITEM]({
       nodeInfo: getNodeInfo(schema, this.answers, this.extra),
     });
-  };
 
-  analyValueNode = (schema: Schema) => {
-    return this.cliHandler[CliNodeHandlers.ANALY_INPUT]({
+  analyValueNode = (schema: Schema) =>
+    this.cliHandler[CliNodeHandlers.ANALY_INPUT]({
       schema,
       nodeInfo: getNodeInfo(schema, this.answers, this.extra),
     });
-  };
 
   private readonly getChildNodes = (
     options: {
@@ -216,9 +211,7 @@ export class BaseCliReader {
     // }
   }
 
-  private readonly hasValue = (key: string) => {
-    return this.answers.hasOwnProperty(key);
-  };
+  private readonly hasValue = (key: string) => this.answers.hasOwnProperty(key);
 
   public askQuestionHandler(): QuestionHandler[] {
     if (!this.schema) {

@@ -13,12 +13,13 @@ import {
   QuestionHandler,
 } from '../ICli';
 
-export const getMessage = (
-  schema: Schema,
-  answers: Record<string, unknown>,
-  extra?: Record<string, unknown>,
-) => {
-  return (answer: any) => {
+export const getMessage =
+  (
+    schema: Schema,
+    answers: Record<string, unknown>,
+    extra?: Record<string, unknown>,
+  ) =>
+  (answer: any) => {
     if (typeof schema.label === 'function') {
       return schema.label(
         {
@@ -30,7 +31,6 @@ export const getMessage = (
     }
     return schema.label || '';
   };
-};
 
 export const getDefaultValue = (
   nodeInfo: NodeInfo,
@@ -95,12 +95,13 @@ export const getChoices = (options: {
   };
 };
 
-export const getValidate = (
-  schema: Schema,
-  answers: Record<string, unknown>,
-  extra?: Record<string, unknown>,
-) => {
-  return async (answer: any) => {
+export const getValidate =
+  (
+    schema: Schema,
+    answers: Record<string, unknown>,
+    extra?: Record<string, unknown>,
+  ) =>
+  async (answer: any) => {
     if (typeof schema.validate === 'function') {
       const result = await schema.validate(answer, answers, extra);
       if (!result.success) {
@@ -110,7 +111,6 @@ export const getValidate = (
     }
     return true;
   };
-};
 
 export const getFilter = (
   nodeInfo: NodeInfo,
@@ -136,23 +136,16 @@ export const getFilter = (
     return _answer;
   };
 };
-export const getTransformer = (
-  nodeInfo: NodeInfo,
-  answers: Record<string, unknown>,
-) => {
-  return (answer: any) => {
+export const getTransformer =
+  (nodeInfo: NodeInfo, answers: Record<string, unknown>) => (answer: any) => {
     if (typeof nodeInfo.state?.transformer === 'function') {
       return nodeInfo.state?.transformer(answer, answers);
     }
     return answer;
   };
-};
 
-export const getWhen = (
-  nodeInfo: NodeInfo,
-  answers: Record<string, unknown>,
-) => {
-  return (answer: any) => {
+export const getWhen =
+  (nodeInfo: NodeInfo, answers: Record<string, unknown>) => (answer: any) => {
     if (typeof nodeInfo.when === 'function') {
       return nodeInfo.when(
         {
@@ -164,7 +157,6 @@ export const getWhen = (
     }
     return true;
   };
-};
 
 export const getQuestion = (options: {
   schema: Schema;
@@ -251,8 +243,8 @@ export const toPromiseQuestionHandler = (
     customChoice,
   } = options;
 
-  const ask = (question: Question): Promise<boolean> => {
-    return new Promise(resolve => {
+  const ask = (question: Question): Promise<boolean> =>
+    new Promise(resolve => {
       prompts.next(question);
       promptModule.ui.process.subscribe((answer: Answers) => {
         if (answer.name === schema.key) {
@@ -260,7 +252,6 @@ export const toPromiseQuestionHandler = (
         }
       });
     });
-  };
   return (answers: Record<string, unknown>) => {
     try {
       if (!when(schema, answers, nodeInfo.extra)) {
@@ -284,12 +275,11 @@ export const toPromiseQuestionHandler = (
   };
 };
 
-export const toPromiseQuestionHandlerLoop = (
-  questionHandlers: QuestionHandler[],
-): QuestionHandler => {
-  return (answers: Record<string, unknown>) => {
+export const toPromiseQuestionHandlerLoop =
+  (questionHandlers: QuestionHandler[]): QuestionHandler =>
+  (answers: Record<string, unknown>) =>
     // The root node itself is not a problem, so the sub-elements question are executed in order
-    return new Promise(resolve => {
+    new Promise(resolve => {
       try {
         const askQuestion = async (questionHandler?: QuestionHandler) => {
           if (!questionHandler) {
@@ -310,5 +300,3 @@ export const toPromiseQuestionHandlerLoop = (
         resolve(true);
       }
     });
-  };
-};

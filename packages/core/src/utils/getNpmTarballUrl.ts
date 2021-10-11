@@ -1,6 +1,6 @@
 import packageJson, { Options } from 'package-json';
-import { NPM_API_TIMEOUT } from '@/constants';
 import { timeoutPromise } from './timeoutPromise';
+import { NPM_API_TIMEOUT } from '@/constants';
 
 export async function getNpmTarballUrl(
   pkgName: string,

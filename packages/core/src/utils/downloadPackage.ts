@@ -1,12 +1,12 @@
 import os from 'os';
 import fs from 'fs-extra';
 import axios from 'axios';
-import { CATCHE_VALIDITY_PREIOD } from '@/constants';
 import tar from 'tar';
 import { getNpmTarballUrl } from './getNpmTarballUrl';
 import { getNpmVersion } from './getNpmVersion';
 import { fsExists } from './fsExists';
 import { runInstall } from './packageManager';
+import { CATCHE_VALIDITY_PREIOD } from '@/constants';
 
 async function isValidCache(cacheDir: string) {
   /* generator cache can use

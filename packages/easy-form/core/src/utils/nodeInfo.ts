@@ -17,9 +17,7 @@ export const getSchemaLabel = (
   schema: Schema,
   data: Record<string, unknown>,
   extra?: Record<string, unknown>,
-) => {
-  return fieldValue('label', schema, data, extra) || '';
-};
+) => fieldValue('label', schema, data, extra) || '';
 
 export const getSchemaDisabled = (
   schema: Schema,
@@ -60,18 +58,16 @@ export const getNodeInfo = (
   schema: Schema,
   data: Record<string, unknown>, // Form data
   extra?: Record<string, unknown>,
-): NodeInfo => {
-  return {
-    label: getSchemaLabel(schema, data, extra),
-    state: schema.state,
-    formState: data,
-    type: getSchemaType(schema),
-    ...getSchemaDefaultState(schema),
-    disabled: getSchemaDisabled(schema, data, extra),
-    id: schema.key,
-    validate: schema.validate,
-    when: schema.when,
-    desc: schema.desc,
-    extra,
-  };
-};
+): NodeInfo => ({
+  label: getSchemaLabel(schema, data, extra),
+  state: schema.state,
+  formState: data,
+  type: getSchemaType(schema),
+  ...getSchemaDefaultState(schema),
+  disabled: getSchemaDisabled(schema, data, extra),
+  id: schema.key,
+  validate: schema.validate,
+  when: schema.when,
+  desc: schema.desc,
+  extra,
+});

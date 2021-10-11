@@ -19,9 +19,8 @@ export const setSchemaInitValue = (schema: Schema, initValue: any) => {
     if (typeof value.action === 'function') {
       schema.state.value = {
         effectedByFields: value.effectedByFields,
-        action: (data: Record<string, unknown>, lastValue: any) => {
-          return value.action(data, lastValue || initValue);
-        },
+        action: (data: Record<string, unknown>, lastValue: any) =>
+          value.action(data, lastValue || initValue),
       };
     }
   } else {
@@ -84,12 +83,11 @@ export const getItemValue = (node: {
   schemaValue?: SchemaValueType;
   key: string;
   type?: string[];
-}) => {
-  return booleanToString(
+}) =>
+  booleanToString(
     getNoTypeNodeDefaultValue({
       schemaValue: node.schemaValue,
       key: node.key,
       type: node.type,
     }),
   );
-};

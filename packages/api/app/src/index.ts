@@ -1,5 +1,5 @@
 import fs from 'fs-extra';
-import ora from 'ora';
+// import ora from 'ora';
 import semver from 'semver';
 import execa from 'execa';
 import { merge } from 'lodash';
@@ -83,27 +83,27 @@ export class AppAPI {
     if (process.env.NoNeedInstall) {
       return;
     }
-    const spinner = ora('Install...').start();
-    spinner.color = 'yellow';
-    try {
-      let intallPromise;
-      if (command) {
-        intallPromise = execa(command);
-      } else if (packageManager === 'pnpm') {
-        intallPromise = this.npmApi.pnpmInstall();
-      } else if (packageManager === 'yarn') {
-        intallPromise = this.npmApi.yarnInstall();
-      } else {
-        intallPromise = this.npmApi.npmInstall();
-      }
-      await intallPromise;
-      this.generatorCore.logger.info(i18n.t(localeKeys.install.success));
-      spinner.stop();
-      return;
-    } catch (e) {
-      spinner.stop();
-      throw e;
+    // const spinner = ora('Install...').start();
+    // spinner.color = 'yellow';
+    // try {
+    let intallPromise;
+    if (command) {
+      intallPromise = execa(command);
+    } else if (packageManager === 'pnpm') {
+      intallPromise = this.npmApi.pnpmInstall();
+    } else if (packageManager === 'yarn') {
+      intallPromise = this.npmApi.yarnInstall();
+    } else {
+      intallPromise = this.npmApi.npmInstall();
     }
+    await intallPromise;
+    this.generatorCore.logger.info(i18n.t(localeKeys.install.success));
+    // spinner.stop();
+
+    // } catch (e) {
+    //   // spinner.stop();
+    //   throw e;
+    // }
   }
 
   // custom install func

@@ -123,13 +123,11 @@ export class CliReader extends BaseCliReader {
     return CliReader.customQuestions[key];
   }
 
-  private readonly getBaseOptions = () => {
-    return {
-      prompts: this.prompts,
-      promptModule: this.promptModule,
-      inquirer: this.inquirer,
-    };
-  };
+  private readonly getBaseOptions = () => ({
+    prompts: this.prompts,
+    promptModule: this.promptModule,
+    inquirer: this.inquirer,
+  });
 
   rootNodeHandler = (data: RootNodeParams) => {
     const config = this.getCustomCliConfig(data.nodeInfo.id);
