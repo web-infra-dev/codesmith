@@ -5,12 +5,7 @@ import execa from 'execa';
 import { merge } from 'lodash';
 import { parse, stringify } from 'comment-json';
 import { GeneratorCore, GeneratorContext } from '@modern-js/codesmith';
-import {
-  NpmAPI,
-  canUseNvm,
-  canUsePnpm,
-  canUseYarn,
-} from '@modern-js/codesmith-api-npm';
+import { NpmAPI, canUsePnpm, canUseYarn } from '@modern-js/codesmith-api-npm';
 import { GitAPI } from '@modern-js/codesmith-api-git';
 import { HandlebarsAPI } from '@modern-js/codesmith-api-handlebars';
 import {
@@ -57,13 +52,6 @@ export class AppAPI {
     if (semver.lt(process.versions.node, '12.17.0')) {
       this.generatorCore.logger.warn(
         i18n.t(localeKeys.environment.node_version),
-      );
-      return false;
-    }
-    if (!(await canUseNvm())) {
-      this.generatorCore.logger.debug("can't use nvm");
-      this.generatorCore.logger.warn(
-        i18n.t(localeKeys.environment.nvm_install),
       );
       return false;
     }
