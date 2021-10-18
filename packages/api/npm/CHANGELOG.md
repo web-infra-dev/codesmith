@@ -1,5 +1,13 @@
 # @modern-js/codesmith-api-npm
 
+## 1.0.0-rc.15
+
+### Patch Changes
+
+- 1e2e787: feat: initial
+- Updated dependencies [1e2e787]
+  - @modern-js/codesmith@1.0.0-rc.15
+
 ## 1.0.0-rc.14
 
 ### Patch Changes
