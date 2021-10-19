@@ -68,7 +68,7 @@ export class AppAPI {
     const {
       config: { packageManager },
     } = this.generatorContext;
-    if (process.env.NoNeedInstall) {
+    if (process.env.NoNeedInstall === 'true') {
       return;
     }
     // const spinner = ora('Install...').start();

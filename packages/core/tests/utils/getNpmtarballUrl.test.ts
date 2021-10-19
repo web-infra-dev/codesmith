@@ -8,7 +8,7 @@ describe('getNpmTarballUrl function test', () => {
   it('package not exists', async () => {
     try {
       await getNpmTarballUrl('lodash', '4.1.2');
-    } catch (e) {
+    } catch (e: any) {
       expect(e.message).toContain(
         'Version `4.1.2` for package `lodash` could not be found',
       );
