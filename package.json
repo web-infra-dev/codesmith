@@ -1,6 +1,17 @@
 {
   "private": true,
-  "name": "monorepo",
+  "name": "codesmith-monorepo",
+  "description": "The meta-framework suite designed from scratch for frontend-focused modern web development.",
+  "homepage": "https://modernjs.dev",
+  "bugs": "https://github.com/modern-js-dev/codesmith/issues",
+  "repository": "modern-js-dev/codesmith",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "framework",
+    "modern",
+    "modern.js"
+  ],
   "scripts": {
     "new": "modern new",
     "reset": "npm run reset",
