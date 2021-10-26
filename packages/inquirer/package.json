@@ -1,7 +1,7 @@
 {
   "name": "@modern-js/inquirer-types",
   "description": "codesmith inquirer plugin to custom question",
-  "version": "1.0.0-rc.15",
+  "version": "1.0.1",
   "jsnext:source": "./src/index.ts",
   "types": "./dist/types/index.d.ts",
   "main": "./dist/js/node/index.js",
