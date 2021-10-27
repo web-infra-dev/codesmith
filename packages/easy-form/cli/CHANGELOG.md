@@ -1,5 +1,13 @@
 # @modern-js/easy-form-cli
 
+## 1.0.2
+
+### Patch Changes
+
+- a6a1c5c: feat: remove run install '--ignore-scripts' params
+- Updated dependencies [a6a1c5c]
+  - @modern-js/easy-form-core@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes
