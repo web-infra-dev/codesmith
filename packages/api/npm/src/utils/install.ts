@@ -18,7 +18,7 @@ export function execaWithStreamLog(
 export async function npmInstall(cwd: string, registryUrl?: string) {
   const canUse = await canUseNpm();
   if (canUse) {
-    const params = ['install', '--ignore-scripts'];
+    const params = ['install'];
     if (registryUrl) {
       params.push(`--registry=${registryUrl}`);
     }
@@ -33,7 +33,7 @@ export async function npmInstall(cwd: string, registryUrl?: string) {
 export async function yarnInstall(cwd: string, registryUrl?: string) {
   const canUse = await canUseYarn();
   if (canUse) {
-    const params = ['install', '--ignore-scripts'];
+    const params = ['install'];
     if (registryUrl) {
       params.push(`--registry=${registryUrl}`);
     }
@@ -45,7 +45,7 @@ export async function yarnInstall(cwd: string, registryUrl?: string) {
 export async function pnpmInstall(cwd: string, registryUrl?: string) {
   const canUse = await canUsePnpm();
   if (canUse) {
-    const params = ['install', '--ignore-scripts'];
+    const params = ['install'];
     if (registryUrl) {
       params.push(`--registry=${registryUrl}`);
     }
