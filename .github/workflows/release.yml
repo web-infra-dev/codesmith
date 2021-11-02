@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-version:
+        description: 'Release Version(canary, pre, latest)'
+        required: true
+        default: 'canary'
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Init
+        run: npm install -g pnpm && pnpm run setup
+
+      - name: Prepare
+        run: pnpm run prepare
+
+      - name: Bump Canary Version
+        if: ${{  github.event.inputs.release-version == 'canary' }}
+        run: pnpm run bump -- --snapshot canary && npx changeset publish --tag canary
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Bump Pre Versin
+        if: ${{  github.event.inputs.release-version == 'pre' }}
+        run: npx changeset publish --tag next
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish Latest Version
+        if: ${{  github.event.inputs.release-version == 'latest' }}
+        run: npx changeset publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
