@@ -39,3 +39,4 @@ output_resource/
 
 pnpm-lock.yaml
 .changeset/pre.json
+.pnpm-store/
