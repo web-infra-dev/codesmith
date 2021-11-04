@@ -84,8 +84,17 @@ export class AppAPI {
     } else {
       intallPromise = this.npmApi.npmInstall();
     }
-    await intallPromise;
-    this.generatorCore.logger.info(i18n.t(localeKeys.install.success));
+    try {
+      await intallPromise;
+      this.generatorCore.logger.info(i18n.t(localeKeys.install.success));
+    } catch (e) {
+      this.generatorCore.logger.warn(
+        i18n.t(localeKeys.install.failed, {
+          command: command || `${packageManager} install`,
+        }),
+      );
+    }
+
     // spinner.stop();
 
     // } catch (e) {
@@ -116,8 +125,9 @@ export class AppAPI {
       }
     } catch (e) {
       this.generatorCore.logger.debug('Dependencies install failed', e);
-      this.generatorCore.logger.error(i18n.t(localeKeys.install.failed));
-      throw e;
+      this.generatorCore.logger.warn(
+        i18n.t(localeKeys.install.failed_no_command),
+      );
     }
 
     try {
@@ -127,8 +137,7 @@ export class AppAPI {
       }
     } catch (e) {
       this.generatorCore.logger.debug('Git repository create failed', e);
-      this.generatorCore.logger.error(i18n.t(localeKeys.git.failed));
-      throw new Error('Git repository create failed');
+      this.generatorCore.logger.warn(i18n.t(localeKeys.git.failed));
     }
   }
 
