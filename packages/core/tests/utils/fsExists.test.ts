@@ -4,6 +4,11 @@ import fs from 'fs-extra';
 import { fsExists } from '@/utils';
 
 describe('fsExists function test', () => {
+  beforeEach(() => {
+    const tmpDir = os.tmpdir();
+    fs.removeSync(path.join(tmpDir, '_codesmith_test'));
+  });
+
   it('file exists', async () => {
     const tmpDir = os.tmpdir();
     const fileName = 'tmp.txt';
