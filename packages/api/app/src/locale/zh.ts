@@ -5,11 +5,13 @@ export const ZH_LOCALE = {
     yarn_pnpm: '检测到环境中未安装 yarn 或者 pnpm，请先安装 yarn 或 pnpm',
   },
   install: {
-    failed: '依赖自动安装失败，请手动执行 install 命令进行安装',
+    failed: '依赖自动安装失败，请手动执行 `{command}` 命令进行安装',
+    failed_no_command: '依赖自动安装失败，请手动执行 install 命令进行安装',
     success: '依赖自动安装成功',
   },
   git: {
-    failed: 'git 仓库初始化失败',
+    failed:
+      'git 仓库初始化失败， 请确认是否安装 git 且初始化 git username 和 email',
     success: 'git 仓库初始化成功',
   },
   templated: {
