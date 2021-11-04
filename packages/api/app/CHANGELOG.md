@@ -1,5 +1,19 @@
 # @modern-js/codesmith-api-app
 
+## 1.0.3
+
+### Patch Changes
+
+- 9364e30: feat: install dependence and git init error only show warning
+- 3ef5a43: feat: add release workflow
+- Updated dependencies [3ef5a43]
+  - @modern-js/codesmith-api-git@1.0.3
+  - @modern-js/codesmith-api-handlebars@1.0.3
+  - @modern-js/codesmith-api-npm@1.0.3
+  - @modern-js/codesmith@1.0.3
+  - @modern-js/easy-form-cli@1.0.3
+  - @modern-js/inquirer-types@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes

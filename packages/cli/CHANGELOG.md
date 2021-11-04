@@ -1,5 +1,11 @@
 # @modern-js/codesmith-cli
 
+## 1.0.3
+
+### Patch Changes
+
+- 3ef5a43: feat: add release workflow
+
 ## 1.0.2
 
 ### Patch Changes

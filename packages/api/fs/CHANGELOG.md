@@ -1,5 +1,13 @@
 # @modern-js/codesmith-api-fs
 
+## 1.0.3
+
+### Patch Changes
+
+- 3ef5a43: feat: add release workflow
+- Updated dependencies [3ef5a43]
+  - @modern-js/codesmith@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes
