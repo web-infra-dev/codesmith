@@ -3,7 +3,6 @@
  * Link yourself, not allowed
  */
 
-// eslint-disable-next-line max-classes-per-file
 import { SchemaEffectedValueType, SchemaValueType } from '../interface/ISchema';
 import { isEffectedValue } from '../utils';
 import { Graph, Node } from './graph';

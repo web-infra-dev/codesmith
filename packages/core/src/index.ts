@@ -9,3 +9,5 @@ export type { GeneratorContext } from './generator/constants';
 export { MaterialsManager } from './materials';
 export { FsMaterial } from './materials/FsMaterial';
 export { FsResource, FS_RESOURCE } from './materials/FsResource';
+
+export * from './utils';

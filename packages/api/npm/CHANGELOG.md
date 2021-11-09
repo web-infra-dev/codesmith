@@ -1,5 +1,13 @@
 # @modern-js/codesmith-api-npm
 
+## 1.0.4
+
+### Patch Changes
+
+- feat: export codesmith utils
+- Updated dependencies [undefined]
+  - @modern-js/codesmith@1.0.4
+
 ## 1.0.3
 
 ### Patch Changes
