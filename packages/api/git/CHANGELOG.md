@@ -1,5 +1,13 @@
 # @modern-js/codesmith-api-git
 
+## 1.0.5
+
+### Patch Changes
+
+- fix: build product
+- Updated dependencies [undefined]
+  - @modern-js/codesmith@1.0.5
+
 ## 1.0.4
 
 ### Patch Changes
