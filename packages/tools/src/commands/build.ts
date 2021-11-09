@@ -17,5 +17,9 @@ export async function build() {
       spinner.stop();
       resolve();
     });
+  }).catch(err => {
+    if (err) {
+      throw err
+    }
   });
 }
