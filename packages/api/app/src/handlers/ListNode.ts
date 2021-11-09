@@ -14,7 +14,7 @@ import { List } from '@modern-js/inquirer-types';
 
 import { CLI_TYPE } from './constant';
 
-const registerJupiterListPrompt = (inquirer: Inquirer) => {
+const registerListPrompt = (inquirer: Inquirer) => {
   try {
     inquirer.registerPrompt(CLI_TYPE.LISTNODE, List);
   } catch (error) {}
@@ -23,7 +23,7 @@ const registerJupiterListPrompt = (inquirer: Inquirer) => {
 export const listNode = (options: IListNodeOptions) => {
   const { schema, nodeInfo, prompts, inquirer, promptModule, childNodes } =
     options;
-  registerJupiterListPrompt(inquirer);
+  registerListPrompt(inquirer);
   return async (answers: Record<string, unknown>) => {
     const listHandler = toPromiseQuestionHandler({
       schema,
