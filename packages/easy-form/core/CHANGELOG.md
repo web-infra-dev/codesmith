@@ -1,5 +1,11 @@
 # @modern-js/easy-form-core
 
+## 1.0.5
+
+### Patch Changes
+
+- fix: build product
+
 ## 1.0.4
 
 ### Patch Changes
