@@ -1,5 +1,11 @@
 # @modern-js/codesmith-cli
 
+## 1.0.4
+
+### Patch Changes
+
+- feat: export codesmith utils
+
 ## 1.0.3
 
 ### Patch Changes
