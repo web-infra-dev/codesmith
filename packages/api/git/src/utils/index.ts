@@ -21,8 +21,8 @@ export async function isInGitRepo(cwd: string) {
   }
 }
 
-export async function initGitRepo(cwd: string) {
-  await execa('git', ['init'], {
+export async function initGitRepo(cwd: string, defaultBranch: string) {
+  await execa('git', ['init', `--initial-branch=${defaultBranch}`], {
     env: process.env,
     cwd,
   });

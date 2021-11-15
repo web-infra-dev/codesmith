@@ -1,4 +1,4 @@
-import { GeneratorCore } from '@modern-js/codesmith';
+import { GeneratorContext, GeneratorCore } from '@modern-js/codesmith';
 import {
   canUseGit,
   isInGitRepo,
@@ -10,8 +10,14 @@ import {
 export class GitAPI {
   protected readonly generatorCore: GeneratorCore;
 
-  constructor(generatorCore: GeneratorCore) {
+  protected readonly generatorContext?: GeneratorContext;
+
+  constructor(
+    generatorCore: GeneratorCore,
+    generatorContext?: GeneratorContext,
+  ) {
     this.generatorCore = generatorCore;
+    this.generatorContext = generatorContext;
   }
 
   public async isInGitRepo(cwd: string = this.generatorCore.outputPath) {
@@ -33,7 +39,10 @@ export class GitAPI {
       return;
     }
     try {
-      await initGitRepo(cwd);
+      const {
+        config: { defaultBranch = 'master' },
+      } = this.generatorContext || { config: { defaultBranch: 'master' } };
+      await initGitRepo(cwd, defaultBranch);
     } catch (e) {
       this.generatorCore.logger.debug('[GitAPI.error]:', e);
       throw e;

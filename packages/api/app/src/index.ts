@@ -44,7 +44,7 @@ export class AppAPI {
     this.generatorCore = generatorCore;
     this.generatorContext = generatorContext;
     this.npmApi = new NpmAPI(generatorCore);
-    this.gitApi = new GitAPI(generatorCore);
+    this.gitApi = new GitAPI(generatorCore, generatorContext);
     this.handlebarsAPI = new HandlebarsAPI(this.generatorCore);
   }
 
