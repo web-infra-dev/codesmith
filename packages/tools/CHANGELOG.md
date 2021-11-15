@@ -1,5 +1,11 @@
 # @modern-js/codesmith-tools
 
+## 1.0.6
+
+### Patch Changes
+
+- 0af3795: feat: support change git init branch
+
 ## 1.0.5
 
 ### Patch Changes

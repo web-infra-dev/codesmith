@@ -1,5 +1,13 @@
 # @modern-js/easy-form-cli
 
+## 1.0.6
+
+### Patch Changes
+
+- 0af3795: feat: support change git init branch
+- Updated dependencies [0af3795]
+  - @modern-js/easy-form-core@1.0.6
+
 ## 1.0.5
 
 ### Patch Changes
