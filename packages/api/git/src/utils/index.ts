@@ -21,11 +21,22 @@ export async function isInGitRepo(cwd: string) {
   }
 }
 
-export async function initGitRepo(cwd: string) {
+export async function initGitRepo(cwd: string, defaultBranch: string) {
   await execa('git', ['init'], {
     env: process.env,
     cwd,
   });
+  const { stdout } = await execa('git', ['symbolic-ref', '--short', 'HEAD'], {
+    env: process.env,
+    cwd,
+  });
+
+  if (stdout !== defaultBranch) {
+    await execa('git', ['checkout', '-b', defaultBranch], {
+      env: process.env,
+      cwd,
+    });
+  }
 }
 
 export async function gitAdd(cwd: string) {
