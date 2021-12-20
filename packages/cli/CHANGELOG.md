@@ -1,5 +1,11 @@
 # @modern-js/codesmith-cli
 
+## 1.0.7
+
+### Patch Changes
+
+- d1f4956: feat: support noNeedInstall params
+
 ## 1.0.6
 
 ### Patch Changes
