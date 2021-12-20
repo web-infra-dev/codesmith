@@ -66,9 +66,9 @@ export class AppAPI {
   // support custom install command
   public async runInstall(command?: string) {
     const {
-      config: { packageManager },
+      config: { packageManager, noNeedInstall },
     } = this.generatorContext;
-    if (process.env.NoNeedInstall === 'true') {
+    if (noNeedInstall || process.env.NoNeedInstall === 'true') {
       return;
     }
     // const spinner = ora('Install...').start();
