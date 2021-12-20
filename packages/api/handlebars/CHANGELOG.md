@@ -1,5 +1,13 @@
 # @modern-js/codesmith-api-handlebars
 
+## 1.0.7
+
+### Patch Changes
+
+- d1f4956: feat: support noNeedInstall params
+- Updated dependencies [d1f4956]
+  - @modern-js/codesmith@1.0.7
+
 ## 1.0.6
 
 ### Patch Changes
