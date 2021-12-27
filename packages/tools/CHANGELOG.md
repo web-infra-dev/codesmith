@@ -1,5 +1,11 @@
 # @modern-js/codesmith-tools
 
+## 1.0.8
+
+### Patch Changes
+
+- cb866f1: fix csmith tools webpack config external vm2
+
 ## 1.0.7
 
 ### Patch Changes
