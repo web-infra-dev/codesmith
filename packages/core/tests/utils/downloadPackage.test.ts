@@ -3,6 +3,8 @@ import os from 'os';
 import fs from 'fs-extra';
 import { downloadPackage } from '@/utils';
 
+jest.setTimeout(100000);
+
 describe('downloadPackage function test', () => {
   beforeEach(() => {
     fs.removeSync(path.join(os.tmpdir(), 'csmith-generator'));

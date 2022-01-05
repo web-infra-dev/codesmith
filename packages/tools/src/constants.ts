@@ -12,6 +12,9 @@ export const getWebpackConfig = (pwd: string) =>
       path: path.resolve(pwd, './dist/js/node'),
       libraryTarget: 'commonjs2',
     },
+    externals: {
+      vm2: 'commonjs vm2',
+    },
     optimization: {
       minimize: false,
     },
