@@ -33,7 +33,7 @@
     "prepublishOnly": "pnpm build -- --platform",
     "new": "modern new",
     "build": "modern build",
-    "test": "modern test"
+    "test": "modern test --env=node"
   },
   "dependencies": {
     "@babel/runtime": "^7",
