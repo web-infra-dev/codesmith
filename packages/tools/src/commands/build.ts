@@ -7,12 +7,11 @@ export async function build() {
   spinner.color = 'yellow';
   spinner.text = 'Building';
   const pwd = process.cwd();
-
   return new Promise<void>((resolve, reject) => {
     webpack(getWebpackConfig(pwd), (error, stats) => {
       if (error || stats?.hasErrors()) {
         spinner.stop();
-        reject(error);
+        reject(error || stats?.compilation.errors.join('\n'));
       }
       spinner.stop();
       resolve();
