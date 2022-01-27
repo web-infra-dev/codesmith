@@ -1,5 +1,11 @@
 # @modern-js/codesmith-tools
 
+## 1.0.9
+
+### Patch Changes
+
+- 6fda689: fix: build tools error
+
 ## 1.0.8
 
 ### Patch Changes
