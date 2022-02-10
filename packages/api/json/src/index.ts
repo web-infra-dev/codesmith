@@ -42,7 +42,7 @@ export class JsonAPI {
   ) {
     await editJson(this.generatorCore, resource, text => {
       try {
-        const jsonContent = commentJSON.parse(text);
+        const jsonContent = commentJSON.parse(text) as Record<string, any>;
         declarationUpdate.query(jsonContent, operation.query, operation.update);
         const jsonIntent = 2;
         return Promise.resolve(

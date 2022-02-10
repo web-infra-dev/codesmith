@@ -28,7 +28,7 @@ describe('Utils cases', () => {
     expect(alreadyInit).toBe(false);
   });
   test('initGitRepo test', async () => {
-    await initGitRepo(cwd);
+    await initGitRepo(cwd, 'main');
     const alreadyInit = await isInGitRepo(cwd);
     expect(alreadyInit).toBe(true);
   });
