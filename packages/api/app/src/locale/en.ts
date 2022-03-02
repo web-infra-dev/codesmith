@@ -2,7 +2,7 @@ export const EN_LOCALE = {
   environment: {
     node_version: 'please upgrade node to lts version',
     nvm_install: 'please install nvm first',
-    yarn_pnpm: 'please install yarn or pnpm first',
+    yarn_pnpm_npm: 'please install yarn or pnpm or npm first',
   },
   install: {
     failed:
