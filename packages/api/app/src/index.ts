@@ -5,7 +5,12 @@ import execa from 'execa';
 import { merge } from 'lodash';
 import { parse, stringify } from 'comment-json';
 import { GeneratorCore, GeneratorContext } from '@modern-js/codesmith';
-import { NpmAPI, canUsePnpm, canUseYarn } from '@modern-js/codesmith-api-npm';
+import {
+  NpmAPI,
+  canUsePnpm,
+  canUseYarn,
+  canUseNpm,
+} from '@modern-js/codesmith-api-npm';
 import { GitAPI } from '@modern-js/codesmith-api-git';
 import { HandlebarsAPI } from '@modern-js/codesmith-api-handlebars';
 import {
@@ -55,9 +60,15 @@ export class AppAPI {
       );
       return false;
     }
-    if (!(await canUseYarn()) && !(await canUsePnpm())) {
-      this.generatorCore.logger.debug("can't use yarn or pnpm");
-      this.generatorCore.logger.warn(i18n.t(localeKeys.environment.yarn_pnpm));
+    if (
+      !(await canUseYarn()) &&
+      !(await canUsePnpm()) &&
+      !(await canUseNpm())
+    ) {
+      this.generatorCore.logger.debug("can't use yarn or pnpm or npm");
+      this.generatorCore.logger.warn(
+        i18n.t(localeKeys.environment.yarn_pnpm_npm),
+      );
       return false;
     }
     return true;
