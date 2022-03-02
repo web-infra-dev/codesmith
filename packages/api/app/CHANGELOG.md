@@ -1,5 +1,11 @@
 # @modern-js/codesmith-api-app
 
+## 1.0.8
+
+### Patch Changes
+
+- feat: env check add npm
+
 ## 1.0.7
 
 ### Patch Changes
