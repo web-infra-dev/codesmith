@@ -16,7 +16,6 @@ export async function timeoutPromise(
   ms: number,
   reason = 'Operation',
 ) {
-  // eslint-disable-next-line promise/prefer-await-to-then
   const timeout = delayPromise(ms).then(() => {
     throw new Error(`${reason} timed out after ${ms}ms`);
   });

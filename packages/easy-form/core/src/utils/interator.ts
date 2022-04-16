@@ -41,7 +41,6 @@ export const forEach = (
     defaultHandlers: {
       setSchemaInitValue: typeof setSchemaInitValue;
     },
-    // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
   ) => boolean | undefined | void, // Return true to terminate the loop
 ) => {
   const doForeach = (_schema: Schema) => {

@@ -16,7 +16,6 @@ export async function build() {
       spinner.stop();
       resolve();
     });
-    // eslint-disable-next-line promise/prefer-await-to-then
   }).catch(err => {
     if (err) {
       throw err;

@@ -97,7 +97,6 @@ export class EffectUtil {
     return result;
   };
 
-  // eslint-disable-next-line max-statements
   private readonly buildGraph = (nodeKeys: string[]) => {
     const graph = new Graph<EffectInfo>(_data => _data.key);
 
