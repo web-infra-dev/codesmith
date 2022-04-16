@@ -199,7 +199,7 @@ export class AppAPI {
     }
 
     const content = await fs.readFile(filePath);
-    const workspace = parse(content.toString());
+    const workspace = parse(content.toString()) as Record<string, any>;
     workspace.folders = [folder, ...(workspace.folders || [])];
     const indent = 2;
     await fs.writeFile(filePath, stringify(workspace, null, indent), {
