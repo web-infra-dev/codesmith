@@ -1,5 +1,11 @@
 # @modern-js/codesmith-tools
 
+## 1.1.0
+
+### Minor Changes
+
+- 22c7a69: fix: csmith tools build @modern-js/utils/lodash error
+
 ## 1.0.9
 
 ### Patch Changes
