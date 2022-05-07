@@ -39,8 +39,6 @@
     "@babel/runtime": "^7",
     "@modern-js/utils": "^1.7.0",
     "axios": "^0.21.1",
-    "glob": "^7.1.7",
-    "glob-promise": "^4.2.0",
     "package-json": "^7.0.0",
     "tar": "^6.1.1"
   },
