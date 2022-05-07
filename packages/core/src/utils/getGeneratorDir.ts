@@ -1,5 +1,5 @@
 import path from 'path';
-import fs from 'fs-extra';
+import { fs } from '@modern-js/utils';
 import { fsExists } from './fsExists';
 
 const MaxTimes = 5;

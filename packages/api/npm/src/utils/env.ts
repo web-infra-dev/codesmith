@@ -1,4 +1,4 @@
-import execa from 'execa';
+import { execa } from '@modern-js/utils';
 
 export async function canUseNvm() {
   try {

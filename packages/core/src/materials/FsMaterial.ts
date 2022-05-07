@@ -1,6 +1,17 @@
 import path from 'path';
-import glob from 'glob-promise';
+import { glob } from '@modern-js/utils';
 import { FsResource } from './FsResource';
+
+const promisifyGlob = function (
+  pattern: string,
+  options: glob.IOptions,
+): Promise<string[]> {
+  return new Promise((resolve, reject) => {
+    glob(pattern, options, (err, files) =>
+      err === null ? resolve(files) : reject(err),
+    );
+  });
+};
 
 export class FsMaterial {
   basePath: string;
@@ -24,7 +35,7 @@ export class FsMaterial {
       ignore?: string | readonly string[];
     },
   ): Promise<Record<string, FsResource>> {
-    const matches = await glob(globStr, {
+    const matches = await promisifyGlob(globStr, {
       cwd: path.resolve(this.basePath),
       nodir: options?.nodir,
       dot: options?.dot,

@@ -1,5 +1,5 @@
 import os from 'os';
-import fs from 'fs-extra';
+import { fs } from '@modern-js/utils';
 import axios from 'axios';
 import tar from 'tar';
 import { getNpmTarballUrl } from './getNpmTarballUrl';

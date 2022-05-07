@@ -1,6 +1,6 @@
 import os from 'os';
 import path from 'path';
-import fs from 'fs-extra';
+import { fs } from '@modern-js/utils';
 import { canUseNvm, canUseNpm, canUseYarn } from '@/utils/env';
 import { npmInstall, yarnInstall, pnpmInstall } from '@/utils/install';
 

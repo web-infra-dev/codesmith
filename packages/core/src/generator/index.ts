@@ -1,8 +1,6 @@
 import path from 'path';
 import { EventEmitter } from 'events';
-import ora from 'ora';
-import chalk from 'chalk';
-import fs, { WriteFileOptions } from 'fs-extra';
+import { fs, ora, chalk } from '@modern-js/utils';
 import { GeneratorContext, RuntimeCurrent } from './constants';
 import { Logger } from '@/logger';
 import { ILogger } from '@/logger/constants';
@@ -28,7 +26,7 @@ export class GeneratorCore {
     fs: (
       file: string | number,
       data: any,
-      options?: WriteFileOptions | string,
+      options?: fs.WriteFileOptions | string,
     ) => Promise<void>;
   } = {
     fs: async (file, content, options) => {

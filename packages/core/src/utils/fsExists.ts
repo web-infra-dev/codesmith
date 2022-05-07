@@ -1,4 +1,4 @@
-import fs from 'fs-extra';
+import { fs } from '@modern-js/utils';
 
 /**
  * when the path can read successfully, the function will return true

@@ -1,4 +1,4 @@
-import { Command } from 'commander';
+import { Command } from '@modern-js/utils';
 import { build } from './commands';
 
 export default function () {
