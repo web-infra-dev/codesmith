@@ -1,5 +1,4 @@
 import fs from 'fs-extra';
-// import ora from 'ora';
 import semver from 'semver';
 import execa from 'execa';
 import { merge } from 'lodash';

@@ -1,5 +1,5 @@
 import webpack from 'webpack';
-import ora from 'ora';
+import { ora } from '@modern-js/utils';
 import { getWebpackConfig } from '../constants';
 
 export async function build() {

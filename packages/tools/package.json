@@ -43,8 +43,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7",
+    "@modern-js/utils": "^1.7.0",
     "commander": "^8.0.0",
-    "ora": "^5.4.1",
     "webpack": "^5.33.2"
   },
   "devDependencies": {

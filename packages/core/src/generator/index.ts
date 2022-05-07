@@ -1,7 +1,6 @@
 import path from 'path';
 import { EventEmitter } from 'events';
-import ora from 'ora';
-import chalk from 'chalk';
+import { ora, chalk } from '@modern-js/utils';
 import fs, { WriteFileOptions } from 'fs-extra';
 import { GeneratorContext, RuntimeCurrent } from './constants';
 import { Logger } from '@/logger';
