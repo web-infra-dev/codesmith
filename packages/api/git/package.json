@@ -40,13 +40,11 @@
   "dependencies": {
     "@babel/runtime": "^7",
     "@modern-js/utils": "^1.7.0",
-    "@modern-js/codesmith": "workspace:^1.0.7",
-    "fs-extra": "^10.0.0"
+    "@modern-js/codesmith": "workspace:^1.0.7"
   },
   "devDependencies": {
     "@modern-js/module-tools": "^1.0.0",
     "@modern-js/plugin-testing": "^1.0.0",
-    "@types/fs-extra": "^9.0.12",
     "@types/jest": "^26",
     "@types/node": "^14",
     "typescript": "^4"

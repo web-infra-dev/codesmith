@@ -1,5 +1,4 @@
-import fs from 'fs-extra';
-import { execa, semver } from '@modern-js/utils';
+import { fs, execa, semver } from '@modern-js/utils';
 import { merge } from 'lodash';
 import { parse, stringify } from 'comment-json';
 import { GeneratorCore, GeneratorContext } from '@modern-js/codesmith';
