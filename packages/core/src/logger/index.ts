@@ -1,6 +1,6 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable no-console */
-import chalk from 'chalk';
+import { chalk } from '@modern-js/utils';
 import { ILogger, LevelPriority, LoggerLevel } from './constants';
 
 export class Logger implements ILogger {

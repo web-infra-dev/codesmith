@@ -1,7 +1,7 @@
 import { Interface as ReadLineInterface } from 'readline';
 import { isNumber, findIndex } from 'lodash';
 import { Question, Answers } from 'inquirer';
-import chalk from 'chalk';
+import { chalk } from '@modern-js/utils';
 import cliCursor from 'cli-cursor';
 import runAsync from 'run-async';
 import Base from 'inquirer/lib/prompts/base';

@@ -1,5 +1,5 @@
 import { Answers } from 'inquirer';
-import chalk from 'chalk';
+import { chalk } from '@modern-js/utils';
 import OriginChoices from 'inquirer/lib/objects/choices';
 import { pointer as pointerCharacter } from './pointer';
 
