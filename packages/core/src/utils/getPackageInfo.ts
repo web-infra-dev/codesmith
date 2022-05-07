@@ -1,4 +1,4 @@
-import semver from 'semver';
+import { semver } from '@modern-js/utils';
 
 /**
  * get package name and package version from package name string
