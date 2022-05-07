@@ -1,7 +1,7 @@
 import os from 'os';
 import path from 'path';
 import fs from 'fs-extra';
-import execa from 'execa';
+import { execa } from '@modern-js/utils';
 import {
   canUseGit,
   initGitRepo,

@@ -1,5 +1,5 @@
 import path from 'path';
-import execa from 'execa';
+import { execa } from '@modern-js/utils';
 import fs from 'fs-extra';
 
 export async function canUseYarn() {

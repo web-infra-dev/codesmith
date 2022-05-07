@@ -1,4 +1,4 @@
-import execa from 'execa';
+import { execa } from '@modern-js/utils';
 import { canUseNpm, canUsePnpm, canUseYarn } from './env';
 
 export function execaWithStreamLog(
