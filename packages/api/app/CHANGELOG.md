@@ -1,5 +1,16 @@
 # @modern-js/codesmith-api-app
 
+## 1.0.9
+
+### Patch Changes
+
+- 4791c02: feat: using prebundled deps from @modern-js/utils
+- Updated dependencies [4791c02]
+  - @modern-js/codesmith-api-git@1.0.8
+  - @modern-js/codesmith-api-npm@1.0.8
+  - @modern-js/codesmith@1.0.9
+  - @modern-js/inquirer-types@1.0.8
+
 ## 1.0.8
 
 ### Patch Changes

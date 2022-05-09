@@ -1,5 +1,11 @@
 # @modern-js/codesmith-cli
 
+## 1.0.8
+
+### Patch Changes
+
+- 4791c02: feat: using prebundled deps from @modern-js/utils
+
 ## 1.0.7
 
 ### Patch Changes
