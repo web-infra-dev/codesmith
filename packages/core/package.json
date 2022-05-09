@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7",
-    "@modern-js/utils": "^1.7.0",
+    "@modern-js/utils": "^1.7.1",
     "axios": "^0.21.1",
     "package-json": "^7.0.0",
     "tar": "^6.1.1"

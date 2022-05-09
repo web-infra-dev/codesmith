@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7",
-    "@modern-js/utils": "^1.7.0",
+    "@modern-js/utils": "^1.7.1",
     "webpack": "^5.33.2"
   },
   "devDependencies": {
