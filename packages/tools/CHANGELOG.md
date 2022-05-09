@@ -1,5 +1,11 @@
 # @modern-js/codesmith-tools
 
+## 1.1.1
+
+### Patch Changes
+
+- 4791c02: feat: using prebundled deps from @modern-js/utils
+
 ## 1.1.0
 
 ### Minor Changes
