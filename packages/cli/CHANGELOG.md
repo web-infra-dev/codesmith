@@ -1,5 +1,11 @@
 # @modern-js/codesmith-cli
 
+## 1.0.9
+
+### Patch Changes
+
+- c40ea75: feat: bump @modern-js/utils version
+
 ## 1.0.8
 
 ### Patch Changes
