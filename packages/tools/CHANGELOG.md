@@ -1,5 +1,11 @@
 # @modern-js/codesmith-tools
 
+## 1.1.2
+
+### Patch Changes
+
+- c40ea75: feat: bump @modern-js/utils version
+
 ## 1.1.1
 
 ### Patch Changes

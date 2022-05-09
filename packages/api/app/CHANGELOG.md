@@ -1,5 +1,16 @@
 # @modern-js/codesmith-api-app
 
+## 1.0.10
+
+### Patch Changes
+
+- c40ea75: feat: bump @modern-js/utils version
+- Updated dependencies [c40ea75]
+  - @modern-js/codesmith-api-git@1.0.9
+  - @modern-js/codesmith-api-npm@1.0.9
+  - @modern-js/codesmith@1.0.10
+  - @modern-js/inquirer-types@1.0.9
+
 ## 1.0.9
 
 ### Patch Changes
