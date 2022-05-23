@@ -50,8 +50,8 @@ export class AppAPI {
     this.handlebarsAPI = new HandlebarsAPI(this.generatorCore);
   }
 
-  public async checkEnvironment() {
-    if (semver.lt(process.versions.node, '12.17.0')) {
+  public async checkEnvironment(nodeVersion?: string) {
+    if (semver.lt(process.versions.node, nodeVersion || '12.22.12')) {
       this.generatorCore.logger.warn(
         i18n.t(localeKeys.environment.node_version),
       );
@@ -113,7 +113,7 @@ export class AppAPI {
 
   // custom install func
   public async runGitAndInstall(
-    commitMessage: string,
+    commitMessage?: string,
     installFunc?: () => Promise<void>,
   ) {
     const {
