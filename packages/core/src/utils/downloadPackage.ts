@@ -120,7 +120,7 @@ export async function downloadPackage(
   await downloadAndDecompressTargz(tarballPkg, targetDir);
 
   if (install) {
-    await runInstall(targetDir);
+    await runInstall(targetDir, registryUrl);
   }
 
   // write completed flag
