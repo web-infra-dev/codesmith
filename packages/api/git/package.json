@@ -40,7 +40,7 @@
   "dependencies": {
     "@babel/runtime": "^7",
     "@modern-js/utils": "^1.7.1",
-    "@modern-js/codesmith": "workspace:^1.0.10"
+    "@modern-js/codesmith": "workspace:^1.2.1"
   },
   "devDependencies": {
     "@modern-js/module-tools": "^1.0.0",
