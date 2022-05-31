@@ -1,5 +1,11 @@
 # @modern-js/codesmith-api-app
 
+## 1.2.4
+
+### Patch Changes
+
+- 1fddc7a: feat: support noNeedGit params
+
 ## 1.0.10
 
 ### Patch Changes
