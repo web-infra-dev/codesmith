@@ -117,11 +117,14 @@ export class AppAPI {
     installFunc?: () => Promise<void>,
   ) {
     const {
-      config: { isMonorepoSubProject = false },
+      config: { isMonorepoSubProject = false, noNeedGit },
     } = this.generatorContext;
+
+    const customNoNeedGit = noNeedGit || process.env.NoNeedGit === 'true';
+
     const inGitRepo = isMonorepoSubProject || (await this.gitApi.isInGitRepo());
 
-    if (!inGitRepo) {
+    if (!inGitRepo && !customNoNeedGit) {
       await this.gitApi.initGitRepo();
     }
 
@@ -139,7 +142,7 @@ export class AppAPI {
     }
 
     try {
-      if (!isMonorepoSubProject) {
+      if (!isMonorepoSubProject && !customNoNeedGit) {
         await this.gitApi.addAndCommit(commitMessage || 'feat: init');
         this.generatorCore.logger.info(i18n.t(localeKeys.git.success));
       }
