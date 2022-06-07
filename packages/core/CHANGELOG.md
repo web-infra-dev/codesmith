@@ -1,5 +1,11 @@
 # @modern-js/codesmith
 
+## 1.2.2
+
+### Patch Changes
+
+- fdf8b16: fix: delayPromise not clear timeout
+
 ## 1.0.10
 
 ### Patch Changes
