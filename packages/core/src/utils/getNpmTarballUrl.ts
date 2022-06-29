@@ -30,6 +30,8 @@ export async function getNpmTarballUrl(
     const pkgDistInfo = JSON.parse(stdout);
     return pkgDistInfo.tarball;
   } catch (e) {
-    throw new Error(`get pkg info error`);
+    throw new Error(
+      `Version \`${pkgVersion}\` for package \`${pkgName}\` could not be found`,
+    );
   }
 }

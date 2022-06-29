@@ -8,8 +8,8 @@ describe('getNpmVersion function test', () => {
   it('package not exists', async () => {
     try {
       await getNpmVersion('lodash_xx');
-    } catch (e) {
-      expect(e.message).toContain('Package `lodash_xx` could not be found');
+    } catch (e: any) {
+      expect(e.message).toContain(`lodash_xx@latest' is not in this registry`);
     }
   });
 });
