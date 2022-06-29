@@ -11,17 +11,19 @@ export async function timeoutPromise(
   reason = 'Operation',
 ) {
   let timeoutId: NodeJS.Timeout | null = null;
-  const delayPromise = (ms: number) => {
-    return new Promise(resolve => {
+  const delayPromise = (ms: number) =>
+    new Promise(resolve => {
       timeoutId = setTimeout(resolve, ms);
     });
-  };
   const timeout = delayPromise(ms).then(() => {
     throw new Error(`${reason} timed out after ${ms}ms`);
   });
-  const result = await Promise.race([promise, timeout]);
-  if (timeoutId) {
-    clearTimeout(timeoutId);
+  try {
+    const result = await Promise.race([promise, timeout]);
+    return result;
+  } finally {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
   }
-  return result;
 }

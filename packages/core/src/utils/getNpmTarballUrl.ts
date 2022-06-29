@@ -1,33 +1,37 @@
-import packageJson, { Options } from 'package-json';
+import { execa } from '@modern-js/utils';
 import { timeoutPromise } from './timeoutPromise';
 import { NPM_API_TIMEOUT } from '@/constants';
+
+interface Options {
+  registryUrl?: string;
+}
 
 export async function getNpmTarballUrl(
   pkgName: string,
   pkgVersion: string,
   options?: Options,
 ): Promise<string> {
-  const pkgJson: any = await timeoutPromise(
-    packageJson(pkgName.toLowerCase(), {
-      ...options,
-      fullMetadata: true,
-      version: pkgVersion,
-    }),
+  const { registryUrl } = options || {};
+  const params = ['view', `${pkgName}@${pkgVersion}`, 'dist', '--json'];
+
+  if (registryUrl) {
+    params.push('--registry');
+    params.push(registryUrl);
+  }
+
+  const getPkgInfoPromise = execa('npm', params);
+  const { stdout } = await timeoutPromise(
+    getPkgInfoPromise,
     NPM_API_TIMEOUT,
-    `Get npm tarball url of '${pkgName}'`,
+    `Get npm tarball of '${pkgName}'`,
   );
 
-  if (typeof pkgJson.version !== 'string') {
-    throw new Error('version not found in package');
+  try {
+    const pkgDistInfo = JSON.parse(stdout);
+    return pkgDistInfo.tarball;
+  } catch (e) {
+    throw new Error(
+      `Version \`${pkgVersion}\` for package \`${pkgName}\` could not be found`,
+    );
   }
-
-  if (!pkgJson.version) {
-    throw new Error('version not found');
-  }
-
-  const tarball = pkgJson?.dist?.tarball;
-  if (!tarball) {
-    throw new Error('tarball not found');
-  }
-  return tarball;
 }
