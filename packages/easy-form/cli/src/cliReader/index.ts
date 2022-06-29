@@ -85,7 +85,7 @@ export class CliReader extends BaseCliReader {
     });
     this.prompts = new Rx.Subject();
     this.inquirer = inquirer;
-    this.promptModule = this.inquirer.prompt(this.prompts);
+    this.promptModule = this.inquirer.prompt(this.prompts as any);
   }
 
   startQuestion(options: {
