@@ -22,7 +22,8 @@
     "change": "modern change",
     "bump": "modern bump",
     "pre": "modern pre",
-    "release": "modern release --ignore-scripts"
+    "release": "modern release --ignore-scripts",
+    "gen-release-note": "modern gen-release-note"
   },
   "engines": {
     "node": ">=12.13.0"
