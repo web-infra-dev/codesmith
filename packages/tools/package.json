@@ -43,17 +43,17 @@
   },
   "dependencies": {
     "@babel/runtime": "^7",
-    "@modern-js/utils": "^1.7.1",
+    "@modern-js/utils": "^1.7.8",
     "webpack": "^5.33.2"
   },
   "devDependencies": {
-    "@modern-js/module-tools": "^1.0.0",
-    "@modern-js/plugin-testing": "^1.0.0",
+    "@modern-js/module-tools": "^1.5.7",
+    "@modern-js/plugin-testing": "^1.5.6",
     "@types/jest": "^26",
     "@types/node": "^14",
+    "lodash": "^4.17.21",
     "ts-node": "^10.1.0",
-    "typescript": "^4",
-    "lodash": "^4.17.21"
+    "typescript": "^4"
   },
   "modernConfig": {
     "output": {

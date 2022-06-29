@@ -11,12 +11,10 @@ export async function timeoutPromise(
   reason = 'Operation',
 ) {
   let timeoutId: NodeJS.Timeout | null = null;
-  // eslint-disable-next-line @typescript-eslint/no-shadow
   const delayPromise = (ms: number) =>
     new Promise(resolve => {
       timeoutId = setTimeout(resolve, ms);
     });
-  // eslint-disable-next-line promise/prefer-await-to-then
   const timeout = delayPromise(ms).then(() => {
     throw new Error(`${reason} timed out after ${ms}ms`);
   });
