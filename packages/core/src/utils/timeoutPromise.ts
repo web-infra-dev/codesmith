@@ -18,9 +18,12 @@ export async function timeoutPromise(
   const timeout = delayPromise(ms).then(() => {
     throw new Error(`${reason} timed out after ${ms}ms`);
   });
-  const result = await Promise.race([promise, timeout]);
-  if (timeoutId) {
-    clearTimeout(timeoutId);
+  try {
+    const result = await Promise.race([promise, timeout]);
+    return result;
+  } finally {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
   }
-  return result;
 }
