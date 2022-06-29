@@ -1,5 +1,11 @@
 # @modern-js/easy-form-cli
 
+## 1.2.2
+
+### Patch Changes
+
+- 7430860: fix: rxjs version
+
 ## 1.0.7
 
 ### Patch Changes
