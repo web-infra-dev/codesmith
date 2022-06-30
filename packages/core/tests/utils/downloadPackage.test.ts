@@ -9,7 +9,7 @@ describe('downloadPackage function test', () => {
   beforeEach(() => {
     fs.removeSync(path.join(os.tmpdir(), 'csmith-generator'));
   });
-  it('download lodash package', async () => {
+  it.skip('download lodash package', async () => {
     const packageDir = await downloadPackage('lodash');
     expect(packageDir).toContain('csmith-generator/lodash');
   });
