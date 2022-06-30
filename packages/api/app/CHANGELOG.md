@@ -1,5 +1,16 @@
 # @modern-js/codesmith-api-app
 
+## 1.2.5
+
+### Patch Changes
+
+- 7430860: fix: rxjs version
+- Updated dependencies [7430860]
+- Updated dependencies [7bfff71]
+  - @modern-js/inquirer-types@1.2.2
+  - @modern-js/easy-form-cli@1.2.2
+  - @modern-js/codesmith@1.3.0
+
 ## 1.2.4
 
 ### Patch Changes

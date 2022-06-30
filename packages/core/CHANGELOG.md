@@ -1,5 +1,11 @@
 # @modern-js/codesmith
 
+## 1.3.0
+
+### Minor Changes
+
+- 7bfff71: feat: remove pacakge-json package dependence
+
 ## 1.2.2
 
 ### Patch Changes
