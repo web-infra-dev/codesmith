@@ -12,7 +12,7 @@ export async function editJson(
   if (!newJsonString) {
     throw new Error('get new json string is undefined');
   }
-  await generatorCore.output.fs(resource.resourceKey, newJsonString, {
+  await generatorCore.output.fs(resource.filePath, newJsonString, {
     encoding: 'utf-8',
   });
   return newJsonString;
