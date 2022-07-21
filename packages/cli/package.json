@@ -13,10 +13,9 @@
   ],
   "version": "1.3.0",
   "jsnext:source": "./src/index.ts",
-  "types": "./dist/types/index.d.ts",
-  "main": "./dist/js/node/main.js",
+  "main": "./dist/index.js",
   "bin": {
-    "codesmith": "./bin/run"
+    "codesmith": "./bin/run.js"
   },
   "files": [
     "/bin",
@@ -27,30 +26,22 @@
     "access": "public"
   },
   "scripts": {
-    "prepare": "pnpm build && pnpm build:csmith",
+    "prepare": "pnpm build",
     "new": "modern new",
     "build": "modern build",
-    "build:csmith": "csmith-tools build",
     "test": "modern test --passWithNoTests"
   },
   "devDependencies": {
     "@babel/runtime": "^7",
     "@modern-js/codesmith": "workspace:^1.4.0",
-    "@modern-js/codesmith-tools": "workspace:^1.3.0",
-    "@modern-js/i18n-cli-language-detector": "^1.2.4",
-    "@modern-js/module-tools": "^1.5.7",
-    "@modern-js/plugin-testing": "^1.5.6",
-    "@modern-js/utils": "^1.7.8",
+    "@modern-js/plugin-i18n": "^1.3.0",
+    "@modern-js/module-tools": "^1.7.1",
+    "@modern-js/plugin-testing": "^1.6.0",
+    "@modern-js/utils": "^1.7.12",
     "@types/jest": "^26",
     "@types/node": "^14",
     "ts-node": "^10.1.0",
     "typescript": "^4"
-  },
-  "modernConfig": {
-    "output": {
-      "packageMode": "node-js",
-      "disableSourceMap": true
-    }
   },
   "sideEffects": false
 }
