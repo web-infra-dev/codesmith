@@ -1,5 +1,13 @@
 # @modern-js/codesmith
 
+## 1.4.0
+
+### Minor Changes
+
+- e71e509: feat: adjust `package.json` field, delete `module` and `exports` field
+
+  feat: 调整 `package.json` 中字段，删除 `module` 和 `exports` 字段
+
 ## 1.3.0
 
 ### Minor Changes
