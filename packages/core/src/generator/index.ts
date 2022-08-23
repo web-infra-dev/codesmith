@@ -46,6 +46,7 @@ export class GeneratorCore {
     this.materialsManager = materialsManager;
     this.outputPath = outputPath;
     this.event = new EventEmitter();
+    this.event.setMaxListeners(15);
     this._context = {
       materials: {},
       config: {},

@@ -37,6 +37,5 @@ output_resource/
 **/*/adapters/**/index.ts
 **/*/adapters/**/index.js
 
-pnpm-lock.yaml
 .changeset/pre.json
 .pnpm-store/

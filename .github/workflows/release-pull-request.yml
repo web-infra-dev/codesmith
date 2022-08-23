@@ -33,7 +33,7 @@ jobs:
         with:
           # this expects you to have a script called release which does a build for your packages and calls changeset publish
           version: ${{ github.event.inputs.version }}
-          versionNumber: ${{ github.event.inputs.versionNumber }}
+          versionNumber: 'auto'
           type: 'pull request'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
