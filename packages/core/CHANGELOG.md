@@ -1,5 +1,11 @@
 # @modern-js/codesmith
 
+## 1.5.0
+
+### Patch Changes
+
+- 19a912a: feat: set event max listeners to 15
+
 ## 1.4.0
 
 ### Minor Changes
