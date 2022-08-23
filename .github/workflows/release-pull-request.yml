@@ -13,9 +13,7 @@ on:
         - alpha
         - pre
         - latest
-      versionNumber:
-        description: 'Release Version(v1.0.0)'
-        required: true
+
 
 jobs:
   release:
