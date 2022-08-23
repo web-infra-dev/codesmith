@@ -1,5 +1,13 @@
 # @modern-js/codesmith-cli
 
+## 1.5.0
+
+### Minor Changes
+
+- 0135187: feat: use module tools to bundle codesmith cli
+
+  feat: 使用 module-tools 打包 codesmith cli
+
 ## 1.3.0
 
 ### Minor Changes
