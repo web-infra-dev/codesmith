@@ -267,6 +267,7 @@ export class AppAPI {
       schema: setInitValues(schema, initValue),
       extra: configValue,
     });
+    reader.setAnswers(configValue);
     return new Promise<Record<string, unknown>>((resolve, reject) => {
       reader.startQuestion({
         onComplete: (answers: Record<string, unknown>) => {

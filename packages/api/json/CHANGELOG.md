@@ -1,5 +1,11 @@
 # @modern-js/codesmith-api-json
 
+## 1.5.1
+
+### Patch Changes
+
+- @modern-js/codesmith@1.5.1
+
 ## 1.5.0
 
 ### Patch Changes
