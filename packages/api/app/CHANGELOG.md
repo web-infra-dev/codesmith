@@ -1,5 +1,17 @@
 # @modern-js/codesmith-api-app
 
+## 1.5.1
+
+### Patch Changes
+
+- fix: getInputBySchema config value not set to answers
+  - @modern-js/codesmith-api-git@1.5.1
+  - @modern-js/codesmith-api-handlebars@1.5.1
+  - @modern-js/codesmith-api-npm@1.5.1
+  - @modern-js/codesmith@1.5.1
+  - @modern-js/easy-form-cli@1.5.1
+  - @modern-js/inquirer-types@1.5.1
+
 ## 1.5.0
 
 ### Patch Changes

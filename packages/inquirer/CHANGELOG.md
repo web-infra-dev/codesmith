@@ -1,5 +1,7 @@
 # @modern-js/inquirer-types
 
+## 1.5.1
+
 ## 1.5.0
 
 ## 1.3.0
