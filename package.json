@@ -16,8 +16,8 @@
     "new": "modern new",
     "setup": "npm run reset && pnpm install --ignore-scripts",
     "reset": "pnpm -r exec rm -rf ./node_modules",
-    "test": "pnpm run test --filter ./packages -- --detectOpenHandles",
-    "prepare": "pnpm run prepare --filter ./packages",
+    "test": "pnpm run --filter './packages/**' test --detectOpenHandles",
+    "prepare": "pnpm run --filter './packages/**' prepare",
     "lint": "modern lint",
     "change": "modern change",
     "bump": "modern bump",
@@ -70,7 +70,8 @@
     ]
   },
   "devDependencies": {
-    "@modern-js/monorepo-tools": "^1.15.0",
-    "@modern-js/plugin-jarvis": "^1.15.0"
+    "@modern-js/monorepo-tools": "1.19.0",
+    "@modern-js/plugin-jarvis": "1.19.0",
+    "@modern-js/tsconfig": "1.19.0"
   }
 }
