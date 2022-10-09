@@ -1,18 +1,19 @@
-import inquirer, { Question } from 'inquirer';
+import { prompt } from './prompt';
+import { Schema } from './transform';
 
 export interface ICLIReaderOptions {
-  questions: Question[];
+  schema: Schema;
 }
 export class CLIReader<
   T extends Record<string, unknown> = Record<string, unknown>,
 > {
-  questions: Question[] = [];
+  schema: Schema | null = null;
 
   answers: Record<string, unknown> = {};
 
   constructor(options: ICLIReaderOptions) {
-    const { questions } = options;
-    this.questions = questions;
+    const { schema } = options;
+    this.schema = schema;
   }
 
   getAnswers() {
@@ -24,7 +25,10 @@ export class CLIReader<
   }
 
   async start() {
-    const answers = await inquirer.prompt<T>(this.questions);
+    if (!this.schema) {
+      throw Error('schema is not valid');
+    }
+    const answers = await prompt<T>(this.schema);
     this.setAnswers(answers);
     return answers;
   }

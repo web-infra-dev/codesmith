@@ -1,21 +1,54 @@
 {
-  "name": "@modern-js/formly-cli",
-  "description": "codesmith inquirer plugin to custom question",
+  "name": "@modern-js/codesmith-formly",
+  "description": "codesmith support formly schema to inquirer question",
   "homepage": "https://modernjs.dev",
   "bugs": "https://github.com/modern-js-dev/codesmith/issues",
   "repository": "modern-js-dev/codesmith",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "framework",
+    "modern",
+    "modern.js"
+  ],
+  "version": "1.5.1",
+  "jsnext:source": "./src/index.ts",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/js/node/index.js",
+  "module": "./dist/js/treeshaking/index.js",
+  "jsnext:modern": "./dist/js/modern/index.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "node": {
+        "import": "./dist/js/modern/index.js",
+        "require": "./dist/js/node/index.js"
+      },
+      "default": "./dist/js/treeshaking/index.js"
+    }
+  },
+  "scripts": {
+    "prepare": "pnpm build",
+    "prepublishOnly": "pnpm build -- --platform",
+    "new": "modern new",
+    "build": "modern build",
+    "test": "modern test --passWithNoTests"
+  },
   "dependencies": {
     "@babel/runtime": "^7",
     "@modern-js/utils": "^1.15.0",
     "inquirer": "^8",
-    "@formily/json-schema": "^2.2.3"
+    "@formily/json-schema": "^2.2.3",
+    "@formily/validator": "^2.2.6"
   },
   "devDependencies": {
-    "@modern-js/module-tools": "^1.15.0",
-    "@modern-js/plugin-testing": "^1.15.0",
+    "@modern-js/module-tools": "^1.19.0",
+    "@modern-js/plugin-testing": "^1.19.0",
     "@types/inquirer": "^7.3.3",
     "@types/jest": "^26",
-    "@types/lodash": "^4.14.172",
     "@types/node": "^14",
     "typescript": "^4"
   },
