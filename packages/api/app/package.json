@@ -32,6 +32,7 @@
     "@modern-js/codesmith": "workspace:^1.5.1",
     "@modern-js/codesmith-api-git": "workspace:^1.5.1",
     "@modern-js/codesmith-api-handlebars": "workspace:^1.5.1",
+    "@modern-js/codesmith-api-ejs": "workspace:^1.5.1",
     "@modern-js/codesmith-api-npm": "workspace:^1.5.1",
     "@modern-js/easy-form-cli": "workspace:^1.5.1",
     "@modern-js/inquirer-types": "workspace:^1.5.1",

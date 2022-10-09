@@ -10,6 +10,7 @@ import {
 } from '@modern-js/codesmith-api-npm';
 import { GitAPI } from '@modern-js/codesmith-api-git';
 import { HandlebarsAPI } from '@modern-js/codesmith-api-handlebars';
+import { EjsAPI } from '@modern-js/codesmith-api-ejs';
 import {
   Schema,
   setInitValues,
@@ -39,6 +40,8 @@ export class AppAPI {
 
   private readonly handlebarsAPI: HandlebarsAPI;
 
+  private readonly ejsAPI: EjsAPI;
+
   constructor(
     generatorContext: GeneratorContext,
     generatorCore: GeneratorCore,
@@ -47,7 +50,8 @@ export class AppAPI {
     this.generatorContext = generatorContext;
     this.npmApi = new NpmAPI(generatorCore);
     this.gitApi = new GitAPI(generatorCore, generatorContext);
-    this.handlebarsAPI = new HandlebarsAPI(this.generatorCore);
+    this.handlebarsAPI = new HandlebarsAPI(generatorCore);
+    this.ejsAPI = new EjsAPI(generatorCore);
   }
 
   public async checkEnvironment(nodeVersion?: string) {
@@ -157,6 +161,7 @@ export class AppAPI {
     filter?: (resourceKey: string) => boolean,
     rename?: (resourceKey: string) => string,
     parameters?: Record<string, any>,
+    type: 'handlebars' | 'ejs' = 'handlebars',
   ) {
     try {
       const { material } = this.generatorContext.current!;
@@ -165,6 +170,10 @@ export class AppAPI {
         dot: true,
       });
       if (resourceMap) {
+        const renderTemplate =
+          type === 'ejs'
+            ? this.ejsAPI.renderTemplate
+            : this.handlebarsAPI.renderTemplate;
         await Promise.all(
           Object.keys(resourceMap)
             .filter(resourceKey => (filter ? filter(resourceKey) : true))
@@ -177,14 +186,10 @@ export class AppAPI {
                 : resourceKey
                     .replace(`templates/`, '')
                     .replace('.handlebars', '');
-              await this.handlebarsAPI.renderTemplate(
-                material.get(resourceKey),
-                target,
-                {
-                  ...(this.generatorContext.data || {}),
-                  ...(parameters || {}),
-                },
-              );
+              await renderTemplate(material.get(resourceKey), target, {
+                ...(this.generatorContext.data || {}),
+                ...(parameters || {}),
+              });
             }),
         );
       }

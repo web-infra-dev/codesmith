@@ -16,6 +16,7 @@ importers:
     specifiers:
       '@babel/runtime': ^7
       '@modern-js/codesmith': workspace:^1.5.1
+      '@modern-js/codesmith-api-ejs': workspace:^1.5.1
       '@modern-js/codesmith-api-git': workspace:^1.5.1
       '@modern-js/codesmith-api-handlebars': workspace:^1.5.1
       '@modern-js/codesmith-api-npm': workspace:^1.5.1
@@ -37,6 +38,7 @@ importers:
     dependencies:
       '@babel/runtime': 7.17.2
       '@modern-js/codesmith': link:../../core
+      '@modern-js/codesmith-api-ejs': link:../ejs
       '@modern-js/codesmith-api-git': link:../git
       '@modern-js/codesmith-api-handlebars': link:../handlebars
       '@modern-js/codesmith-api-npm': link:../npm
