@@ -128,7 +128,7 @@ export async function prompt<
   initValue: Record<string, unknown>,
 ): Promise<T> {
   const questions = transformForm(schema, configValue, validateMap, initValue);
-  let answers = {};
+  let answers = configValue;
 
   for (const question of questions) {
     const xReactions = question?.origin?.['x-reactions'] || [];

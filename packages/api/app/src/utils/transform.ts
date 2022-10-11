@@ -2,7 +2,7 @@ import { isString } from '@modern-js/utils/lodash';
 import { Question } from 'inquirer';
 
 export function transformInquirerSchema(
-  schema: Question[],
+  questions: Question[],
   configValue: Record<string, unknown> = {},
   validateMap: Record<
     string,
@@ -13,11 +13,12 @@ export function transformInquirerSchema(
   > = {},
   initValue: Record<string, any> = {},
 ) {
-  return schema.map(question => {
+  for (const question of questions) {
     question.default = initValue[question.name!] || question.default;
+    const originValidate = question.validate;
     question.validate = async (input, answers) => {
-      if (question.validate) {
-        const result = await question.validate(input, answers);
+      if (originValidate) {
+        const result = await originValidate(input, answers);
         if (isString(result)) {
           return result;
         }
@@ -33,6 +34,6 @@ export function transformInquirerSchema(
     if (configValue[question.name!]) {
       question.when = false;
     }
-    return question;
-  });
+  }
+  return questions;
 }

@@ -87,6 +87,7 @@ export function getQuestionFromSchema(
       default: initValue[field] || defaultValue,
       origin: extra,
       validate: (input: unknown) => questionValidate(field, input),
+      when: !configValue[field],
     };
     if (items) {
       if (isArray(defaultValue)) {

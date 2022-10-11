@@ -22,9 +22,9 @@ import {
   CLIReader as FormilyCLIReader,
 } from '@modern-js/codesmith-formily';
 import inquirer, { Question } from 'inquirer';
+import { I18n, i18n, localeKeys } from './locale';
 import * as handlers from './handlers';
 import { transformInquirerSchema } from './utils/transform';
-import { I18n, i18n, localeKeys } from '@/locale';
 
 export { forEach } from '@modern-js/easy-form-cli';
 
@@ -296,7 +296,7 @@ export class AppAPI {
       reader.setAnswers(configValue);
       return reader.start();
     } else {
-      return inquirer.prompt(
+      const result = await inquirer.prompt(
         transformInquirerSchema(
           schema as Question[],
           configValue,
@@ -304,6 +304,10 @@ export class AppAPI {
           initValue,
         ),
       );
+      return {
+        ...configValue,
+        ...result,
+      };
     }
   }
 }
