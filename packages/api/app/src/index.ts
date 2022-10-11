@@ -21,8 +21,9 @@ import {
   Schema as FormilySchema,
   CLIReader as FormilyCLIReader,
 } from '@modern-js/codesmith-formily';
-
+import inquirer, { Question } from 'inquirer';
 import * as handlers from './handlers';
+import { transformInquirerSchema } from './utils/transform';
 import { I18n, i18n, localeKeys } from '@/locale';
 
 export { forEach } from '@modern-js/easy-form-cli';
@@ -248,7 +249,7 @@ export class AppAPI {
    * @returns
    */
   public async getInputBySchema(
-    schema: Schema | FormilySchema,
+    schema: Schema | FormilySchema | Question[],
     configValue: Record<string, unknown> = {},
     validateMap: Record<
       string,
@@ -295,7 +296,14 @@ export class AppAPI {
       reader.setAnswers(configValue);
       return reader.start();
     } else {
-      return {};
+      return inquirer.prompt(
+        transformInquirerSchema(
+          schema as Question[],
+          configValue,
+          validateMap,
+          initValue,
+        ),
+      );
     }
   }
 }
