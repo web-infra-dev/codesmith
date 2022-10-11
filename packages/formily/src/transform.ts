@@ -1,6 +1,6 @@
 import { Schema as FormilySchema } from '@formily/json-schema';
 import { isObject, flattenDeep, isArray } from '@modern-js/utils/lodash';
-import { QuestionCollection } from 'inquirer';
+import { Question as InquirerQuestion } from 'inquirer';
 import { validate } from '@formily/validator';
 
 export type Schema = Partial<
@@ -12,7 +12,7 @@ export type Schema = Partial<
   properties?: Record<string, Schema>;
 };
 
-export type Question = QuestionCollection & { origin: Schema };
+export type Question = InquirerQuestion & { origin: Schema };
 
 function validateSchema(schema: Schema) {
   const { type, properties } = schema;
