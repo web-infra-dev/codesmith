@@ -115,8 +115,19 @@ const handleXReactions = async (
 
 export async function prompt<
   T extends Record<string, unknown> = Record<string, unknown>,
->(schema: Schema): Promise<T> {
-  const questions = transformForm(schema);
+>(
+  schema: Schema,
+  configValue: Record<string, unknown> = {},
+  validateMap: Record<
+    string,
+    (
+      input: unknown,
+      data?: Record<string, unknown>,
+    ) => { success: boolean; error?: string }
+  >,
+  initValue: Record<string, unknown>,
+): Promise<T> {
+  const questions = transformForm(schema, configValue, validateMap, initValue);
   let answers = {};
 
   for (const question of questions) {

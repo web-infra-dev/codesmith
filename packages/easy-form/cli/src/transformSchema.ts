@@ -1,5 +1,5 @@
-import { Schema, forEach } from '@modern-js/easy-form-cli';
-import { isUndefined } from 'lodash';
+import { forEach, Schema, setInitValues } from '@modern-js/easy-form-core';
+import { isUndefined } from '@modern-js/utils/lodash';
 
 export function transformSchema(
   schema: Schema,
@@ -11,6 +11,7 @@ export function transformSchema(
       data?: Record<string, unknown>,
     ) => { success: boolean; error?: string }
   > = {},
+  initValue: Record<string, unknown> = {},
 ) {
   forEach(schema, schemaItem => {
     if (schemaItem?.state?.cliLabel) {
@@ -45,4 +46,5 @@ export function transformSchema(
       };
     };
   });
+  return setInitValues(schema, initValue);
 }

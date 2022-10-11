@@ -1,5 +1,5 @@
 import { fs, execa, semver } from '@modern-js/utils';
-import { merge } from 'lodash';
+import { merge } from '@modern-js/utils/lodash';
 import { parse, stringify } from 'comment-json';
 import { GeneratorCore, GeneratorContext } from '@modern-js/codesmith';
 import {
@@ -13,16 +13,18 @@ import { HandlebarsAPI } from '@modern-js/codesmith-api-handlebars';
 import { EjsAPI } from '@modern-js/codesmith-api-ejs';
 import {
   Schema,
-  setInitValues,
   CliReader,
   setCliQuestionsHandlers,
+  transformSchema,
 } from '@modern-js/easy-form-cli';
+import {
+  Schema as FormilySchema,
+  CLIReader as FormilyCLIReader,
+} from '@modern-js/codesmith-formily';
 
-import { transformSchema } from './utils/transformSchema';
 import * as handlers from './handlers';
 import { I18n, i18n, localeKeys } from '@/locale';
 
-export { transformSchema };
 export { forEach } from '@modern-js/easy-form-cli';
 
 setCliQuestionsHandlers(handlers);
@@ -83,9 +85,6 @@ export class AppAPI {
     if (noNeedInstall || process.env.NoNeedInstall === 'true') {
       return;
     }
-    // const spinner = ora('Install...').start();
-    // spinner.color = 'yellow';
-    // try {
     let intallPromise;
     if (command) {
       intallPromise = execa(command);
@@ -106,13 +105,6 @@ export class AppAPI {
         }),
       );
     }
-
-    // spinner.stop();
-
-    // } catch (e) {
-    //   // spinner.stop();
-    //   throw e;
-    // }
   }
 
   // custom install func
@@ -256,7 +248,7 @@ export class AppAPI {
    * @returns
    */
   public async getInputBySchema(
-    schema: Schema,
+    schema: Schema | FormilySchema,
     configValue: Record<string, unknown> = {},
     validateMap: Record<
       string,
@@ -266,27 +258,44 @@ export class AppAPI {
       ) => { success: boolean; error?: string }
     > = {},
     initValue: Record<string, any> = {},
+    type: 'easy-form' | 'formily' | 'inquirer' = 'easy-form',
   ) {
-    transformSchema(schema, configValue, validateMap);
-    const reader = new CliReader({
-      schema: setInitValues(schema, initValue),
-      extra: configValue,
-    });
-    reader.setAnswers(configValue);
-    return new Promise<Record<string, unknown>>((resolve, reject) => {
-      reader.startQuestion({
-        onComplete: (answers: Record<string, unknown>) => {
-          const inputData = merge(answers, configValue);
-          this.generatorContext.config = merge(
-            this.generatorContext.config,
-            inputData,
-          );
-          resolve(inputData);
-        },
-        onError: (error: any) => {
-          reject(error);
-        },
+    if (type === 'easy-form') {
+      const reader = new CliReader({
+        schema: transformSchema(
+          schema as Schema,
+          configValue,
+          validateMap,
+          initValue,
+        ),
+        extra: configValue,
       });
-    });
+      reader.setAnswers(configValue);
+      return new Promise<Record<string, unknown>>((resolve, reject) => {
+        reader.startQuestion({
+          onComplete: (answers: Record<string, unknown>) => {
+            const inputData = merge(answers, configValue);
+            this.generatorContext.config = merge(
+              this.generatorContext.config,
+              inputData,
+            );
+            resolve(inputData);
+          },
+          onError: (error: any) => {
+            reject(error);
+          },
+        });
+      });
+    } else if (type === 'formily') {
+      const reader = new FormilyCLIReader({
+        schema: schema as FormilySchema,
+        validateMap,
+        initValue,
+      });
+      reader.setAnswers(configValue);
+      return reader.start();
+    } else {
+      return {};
+    }
   }
 }
