@@ -18,7 +18,7 @@ describe('transform form', () => {
         },
       },
     };
-    const questions = transformForm(schema);
+    const questions = transformForm(schema, {}, {}, {});
     expect(removeValidate(questions)).toEqual([
       {
         type: 'input',
@@ -26,6 +26,7 @@ describe('transform form', () => {
         message: '开发语言',
         default: 'ts',
         origin: {},
+        when: true,
       },
     ]);
   });
@@ -44,7 +45,7 @@ describe('transform form', () => {
         },
       },
     };
-    const questions = transformForm(schema);
+    const questions = transformForm(schema, {}, {}, {});
 
     expect(removeValidate(questions)).toEqual([
       {
@@ -52,6 +53,7 @@ describe('transform form', () => {
         name: 'language',
         message: '开发语言',
         default: 'ts',
+        when: true,
         choices: [
           {
             type: 'choice',
