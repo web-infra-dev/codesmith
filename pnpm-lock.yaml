@@ -15,14 +15,14 @@ importers:
   packages/api/app:
     specifiers:
       '@babel/runtime': ^7
-      '@modern-js/codesmith': workspace:^1.6.0
-      '@modern-js/codesmith-api-ejs': workspace:^1.6.0
-      '@modern-js/codesmith-api-git': workspace:^1.6.0
-      '@modern-js/codesmith-api-handlebars': workspace:^1.6.0
-      '@modern-js/codesmith-api-npm': workspace:^1.6.0
-      '@modern-js/codesmith-formily': workspace:^1.6.0
-      '@modern-js/easy-form-cli': workspace:^1.6.0
-      '@modern-js/inquirer-types': workspace:^1.6.0
+      '@modern-js/codesmith': workspace:^1.6.1
+      '@modern-js/codesmith-api-ejs': workspace:^1.6.1
+      '@modern-js/codesmith-api-git': workspace:^1.6.1
+      '@modern-js/codesmith-api-handlebars': workspace:^1.6.1
+      '@modern-js/codesmith-api-npm': workspace:^1.6.1
+      '@modern-js/codesmith-formily': workspace:^1.6.1
+      '@modern-js/easy-form-cli': workspace:^1.6.1
+      '@modern-js/inquirer-types': workspace:^1.6.1
       '@modern-js/module-tools': ^1.19.0
       '@modern-js/plugin-i18n': ^1.19.0
       '@modern-js/plugin-testing': ^1.19.0
@@ -60,7 +60,7 @@ importers:
   packages/api/ejs:
     specifiers:
       '@babel/runtime': ^7
-      '@modern-js/codesmith': workspace:^1.6.0
+      '@modern-js/codesmith': workspace:^1.6.1
       '@modern-js/module-tools': ^1.19.0
       '@modern-js/plugin-testing': ^1.19.0
       '@types/ejs': ^3.1.1
@@ -83,7 +83,7 @@ importers:
   packages/api/fs:
     specifiers:
       '@babel/runtime': ^7
-      '@modern-js/codesmith': workspace:^1.6.0
+      '@modern-js/codesmith': workspace:^1.6.1
       '@modern-js/module-tools': ^1.19.0
       '@modern-js/plugin-testing': ^1.19.0
       '@types/jest': ^26
@@ -102,7 +102,7 @@ importers:
   packages/api/git:
     specifiers:
       '@babel/runtime': ^7
-      '@modern-js/codesmith': workspace:^1.6.0
+      '@modern-js/codesmith': workspace:^1.6.1
       '@modern-js/module-tools': ^1.19.0
       '@modern-js/plugin-testing': ^1.19.0
       '@modern-js/utils': ^1.19.0
@@ -123,7 +123,7 @@ importers:
   packages/api/handlebars:
     specifiers:
       '@babel/runtime': ^7
-      '@modern-js/codesmith': workspace:^1.6.0
+      '@modern-js/codesmith': workspace:^1.6.1
       '@modern-js/module-tools': ^1.19.0
       '@modern-js/plugin-testing': ^1.19.0
       '@types/jest': ^26
@@ -144,7 +144,7 @@ importers:
   packages/api/json:
     specifiers:
       '@babel/runtime': ^7
-      '@modern-js/codesmith': workspace:^1.6.0
+      '@modern-js/codesmith': workspace:^1.6.1
       '@modern-js/module-tools': ^1.19.0
       '@modern-js/plugin-testing': ^1.19.0
       '@types/jest': ^26
@@ -167,7 +167,7 @@ importers:
   packages/api/npm:
     specifiers:
       '@babel/runtime': ^7
-      '@modern-js/codesmith': workspace:^1.6.0
+      '@modern-js/codesmith': workspace:^1.6.1
       '@modern-js/module-tools': ^1.19.0
       '@modern-js/plugin-testing': ^1.19.0
       '@modern-js/utils': ^1.19.0
@@ -188,7 +188,7 @@ importers:
   packages/cli:
     specifiers:
       '@babel/runtime': ^7
-      '@modern-js/codesmith': workspace:^1.6.0
+      '@modern-js/codesmith': workspace:^1.6.1
       '@modern-js/module-tools': ^1.19.0
       '@modern-js/plugin-i18n': ^1.19.0
       '@modern-js/plugin-testing': ^1.19.0
@@ -237,7 +237,7 @@ importers:
   packages/easy-form/cli:
     specifiers:
       '@babel/runtime': ^7
-      '@modern-js/easy-form-core': workspace:^1.6.0
+      '@modern-js/easy-form-core': workspace:^1.6.1
       '@modern-js/module-tools': ^1.19.0
       '@modern-js/plugin-testing': ^1.19.0
       '@modern-js/utils': ^1.19.0

@@ -1,5 +1,19 @@
 # @modern-js/codesmith-api-app
 
+## 1.6.1
+
+### Patch Changes
+
+- d693a30: fix: template api this not found
+  - @modern-js/codesmith-api-ejs@1.6.1
+  - @modern-js/codesmith-api-git@1.6.1
+  - @modern-js/codesmith-api-handlebars@1.6.1
+  - @modern-js/codesmith-api-npm@1.6.1
+  - @modern-js/codesmith@1.6.1
+  - @modern-js/easy-form-cli@1.6.1
+  - @modern-js/codesmith-formily@1.6.1
+  - @modern-js/inquirer-types@1.6.1
+
 ## 1.6.0
 
 ### Minor Changes
