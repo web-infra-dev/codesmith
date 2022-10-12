@@ -1,5 +1,30 @@
 # @modern-js/codesmith-api-app
 
+## 1.6.0
+
+### Minor Changes
+
+- 9489253: feat: handle input schema support formily and inquirer
+
+  feat: codesmith 问题输入支持 formily 和 inquirer
+
+- 20343f3: feat: support ejs template
+
+  feat: 支持使用 ejs 模板
+
+### Patch Changes
+
+- Updated dependencies [9489253]
+- Updated dependencies [20343f3]
+  - @modern-js/easy-form-cli@1.6.0
+  - @modern-js/codesmith-formily@1.6.0
+  - @modern-js/codesmith-api-ejs@1.6.0
+  - @modern-js/codesmith-api-git@1.6.0
+  - @modern-js/codesmith-api-handlebars@1.6.0
+  - @modern-js/codesmith-api-npm@1.6.0
+  - @modern-js/codesmith@1.6.0
+  - @modern-js/inquirer-types@1.6.0
+
 ## 1.5.1
 
 ### Patch Changes
