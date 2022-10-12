@@ -163,10 +163,7 @@ export class AppAPI {
         dot: true,
       });
       if (resourceMap) {
-        const renderTemplate =
-          type === 'ejs'
-            ? this.ejsAPI.renderTemplate
-            : this.handlebarsAPI.renderTemplate;
+        const api = type === 'ejs' ? this.ejsAPI : this.handlebarsAPI;
         await Promise.all(
           Object.keys(resourceMap)
             .filter(resourceKey => (filter ? filter(resourceKey) : true))
@@ -179,7 +176,7 @@ export class AppAPI {
                 : resourceKey
                     .replace(`templates/`, '')
                     .replace('.handlebars', '');
-              await renderTemplate(material.get(resourceKey), target, {
+              await api.renderTemplate(material.get(resourceKey), target, {
                 ...(this.generatorContext.data || {}),
                 ...(parameters || {}),
               });
