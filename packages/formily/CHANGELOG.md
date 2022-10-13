@@ -1,5 +1,13 @@
 # @modern-js/codesmith-formily
 
+## 1.6.2
+
+### Patch Changes
+
+- d986eb1: feat: add getInputBySchemaFunc api
+
+  feat: 添加 getInputBySchemaFunc api
+
 ## 1.6.1
 
 ## 1.6.0
