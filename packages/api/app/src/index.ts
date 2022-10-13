@@ -237,6 +237,40 @@ export class AppAPI {
     }
   }
 
+  private mergeAnswers(
+    answers: Record<string, any>,
+    configValue: Record<string, any>,
+  ) {
+    const inputData = merge(answers, configValue);
+    this.generatorContext.config = merge(
+      this.generatorContext.config,
+      inputData,
+    );
+    return inputData;
+  }
+
+  public async getInputBySchemaFunc(
+    schemaFunc: (config?: Record<string, any>) => FormilySchema,
+    configValue: Record<string, unknown> = {},
+    validateMap: Record<
+      string,
+      (
+        input: unknown,
+        data?: Record<string, unknown>,
+      ) => { success: boolean; error?: string }
+    > = {},
+    initValue: Record<string, any> = {},
+  ) {
+    const reader = new FormilyCLIReader({
+      schema: schemaFunc(configValue),
+      validateMap,
+      initValue,
+    });
+    reader.setAnswers(configValue);
+    const answers = await reader.start();
+    return this.mergeAnswers(answers, configValue);
+  }
+
   /**
    * questions input
    * @param schema Questions schema
@@ -272,12 +306,7 @@ export class AppAPI {
       return new Promise<Record<string, unknown>>((resolve, reject) => {
         reader.startQuestion({
           onComplete: (answers: Record<string, unknown>) => {
-            const inputData = merge(answers, configValue);
-            this.generatorContext.config = merge(
-              this.generatorContext.config,
-              inputData,
-            );
-            resolve(inputData);
+            resolve(this.mergeAnswers(answers, configValue));
           },
           onError: (error: any) => {
             reject(error);
@@ -291,9 +320,10 @@ export class AppAPI {
         initValue,
       });
       reader.setAnswers(configValue);
-      return reader.start();
+      const answers = await reader.start();
+      return this.mergeAnswers(answers, configValue);
     } else {
-      const result = await inquirer.prompt(
+      const answers = await inquirer.prompt(
         transformInquirerSchema(
           schema as Question[],
           configValue,
@@ -301,10 +331,7 @@ export class AppAPI {
           initValue,
         ),
       );
-      return {
-        ...configValue,
-        ...result,
-      };
+      return this.mergeAnswers(answers, configValue);
     }
   }
 }

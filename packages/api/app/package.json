@@ -22,7 +22,7 @@
   },
   "scripts": {
     "prepare": "pnpm build",
-    "prepublishOnly": "pnpm build -- --platform",
+    "prepublishOnly": "pnpm build --platform",
     "new": "modern new",
     "build": "modern build",
     "test": "modern test --passWithNoTests"
