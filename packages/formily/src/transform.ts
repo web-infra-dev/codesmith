@@ -1,5 +1,10 @@
 import { Schema as FormilySchema } from '@formily/json-schema';
-import { isObject, flattenDeep, isArray } from '@modern-js/utils/lodash';
+import {
+  isObject,
+  flattenDeep,
+  isArray,
+  isFunction,
+} from '@modern-js/utils/lodash';
 import { Question as InquirerQuestion } from 'inquirer';
 import { validate } from '@formily/validator';
 
@@ -55,7 +60,7 @@ export function getQuestionFromSchema(
       'x-validate': fieldValidate,
       ...extra
     } = properties![field];
-    if (type === 'void') {
+    if (type === 'void' || type === 'object') {
       return getQuestionFromSchema(
         properties![field],
         configValue,
@@ -68,7 +73,12 @@ export function getQuestionFromSchema(
     }
     const questionValidate = async (field: string, input: unknown) => {
       if (fieldValidate) {
-        const result = await validate(input, fieldValidate);
+        const result = await validate(
+          input,
+          isFunction(fieldValidate)
+            ? { validator: fieldValidate }
+            : fieldValidate,
+        );
         if (result.error?.length) {
           return result.error.join(';');
         }
