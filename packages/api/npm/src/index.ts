@@ -9,15 +9,51 @@ export class NpmAPI {
     this.generatorCore = generatorCore;
   }
 
-  public npmInstall(cwd: string = this.generatorCore.outputPath) {
-    return npmInstall(cwd);
+  public npmInstall({
+    cwd,
+    registryUrl,
+    ignoreScripts,
+  }: {
+    cwd?: string;
+    registryUrl?: string;
+    ignoreScripts?: boolean;
+  }) {
+    return npmInstall({
+      cwd: cwd || this.generatorCore.outputPath,
+      registryUrl,
+      ignoreScripts,
+    });
   }
 
-  public yarnInstall(cwd: string = this.generatorCore.outputPath) {
-    return yarnInstall(cwd);
+  public yarnInstall({
+    cwd,
+    registryUrl,
+    ignoreScripts,
+  }: {
+    cwd?: string;
+    registryUrl?: string;
+    ignoreScripts?: boolean;
+  }) {
+    return yarnInstall({
+      cwd: cwd || this.generatorCore.outputPath,
+      registryUrl,
+      ignoreScripts,
+    });
   }
 
-  public pnpmInstall(cwd: string = this.generatorCore.outputPath) {
-    return pnpmInstall(cwd);
+  public pnpmInstall({
+    cwd,
+    registryUrl,
+    ignoreScripts,
+  }: {
+    cwd?: string;
+    registryUrl?: string;
+    ignoreScripts?: boolean;
+  }) {
+    return pnpmInstall({
+      cwd: cwd || this.generatorCore.outputPath,
+      registryUrl,
+      ignoreScripts,
+    });
   }
 }
