@@ -79,7 +79,14 @@ export class AppAPI {
   }
 
   // support custom install command
-  public async runInstall(command?: string) {
+  public async runInstall(
+    command?: string,
+    options?: {
+      cwd?: string;
+      registryUrl?: string;
+      ignoreScripts?: boolean;
+    },
+  ) {
     const {
       config: { packageManager, noNeedInstall },
     } = this.generatorContext;
@@ -90,11 +97,11 @@ export class AppAPI {
     if (command) {
       intallPromise = execa(command);
     } else if (packageManager === 'pnpm') {
-      intallPromise = this.npmApi.pnpmInstall();
+      intallPromise = this.npmApi.pnpmInstall(options || {});
     } else if (packageManager === 'yarn') {
-      intallPromise = this.npmApi.yarnInstall();
+      intallPromise = this.npmApi.yarnInstall(options || {});
     } else {
-      intallPromise = this.npmApi.npmInstall();
+      intallPromise = this.npmApi.npmInstall(options || {});
     }
     try {
       await intallPromise;
