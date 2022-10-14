@@ -1,5 +1,15 @@
 # @modern-js/codesmith-api-npm
 
+## 1.6.3
+
+### Patch Changes
+
+- 0a105e7: feat: install api support ignoreScripts params
+
+  feat: 安装依赖 API 支持 ignoreScripts 参数
+
+  - @modern-js/codesmith@1.6.3
+
 ## 1.6.2
 
 ### Patch Changes
