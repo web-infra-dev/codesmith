@@ -2,7 +2,7 @@
   "$schema": "https://unpkg.com/@changesets/config@1.6.0/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
-  "fixed": [["@modern-js/*"]],
+  "fixed": [["@modern-js/easy-form-*"], ["!(@modern-js/easy-form-*)"]],
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",

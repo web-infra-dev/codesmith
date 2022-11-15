@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7",
-    "@modern-js/codesmith": "workspace:^1.6.3",
+    "@modern-js/codesmith": "workspace:*",
     "comment-json": "^4.1.1",
     "declaration-update": "^0.0.2"
   },
