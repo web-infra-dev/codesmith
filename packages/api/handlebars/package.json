@@ -29,10 +29,13 @@
   },
   "dependencies": {
     "@babel/runtime": "^7",
-    "@modern-js/codesmith": "workspace:^1.6.3",
     "handlebars": "^4.7.7"
   },
+  "peerDependencies": {
+    "@modern-js/codesmith": "workspace:^2"
+  },
   "devDependencies": {
+    "@modern-js/codesmith": "workspace: *",
     "@modern-js/module-tools": "^1.19.0",
     "@modern-js/plugin-testing": "^1.19.0",
     "@types/jest": "^26",

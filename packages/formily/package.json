@@ -44,7 +44,11 @@
     "@formily/json-schema": "^2.2.3",
     "@formily/validator": "^2.2.6"
   },
+  "peerDependencies": {
+    "@modern-js/codesmith": "workspace:^2"
+  },
   "devDependencies": {
+    "@modern-js/codesmith": "workspace:*",
     "@modern-js/module-tools": "^1.19.0",
     "@modern-js/plugin-testing": "^1.19.0",
     "@types/inquirer": "^7.3.3",

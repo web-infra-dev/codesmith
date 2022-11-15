@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@babel/runtime": "^7",
-    "@modern-js/codesmith": "workspace:^1.6.3",
+    "@modern-js/codesmith": "workspace:*",
     "@modern-js/module-tools": "^1.19.0",
     "@modern-js/plugin-i18n": "^1.19.0",
     "@modern-js/plugin-testing": "^1.19.0",
