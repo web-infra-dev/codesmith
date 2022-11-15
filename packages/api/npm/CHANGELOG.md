@@ -1,5 +1,16 @@
 # @modern-js/codesmith-api-npm
 
+## 2.0.0
+
+### Major Changes
+
+- 7fef6ae: feat: adjust codesmith peerDependencies
+
+### Patch Changes
+
+- Updated dependencies [7fef6ae]
+  - @modern-js/codesmith@2.0.0
+
 ## 1.6.3
 
 ### Patch Changes

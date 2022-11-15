@@ -1,5 +1,11 @@
 # @modern-js/easy-form-core
 
+## 1.6.4
+
+### Patch Changes
+
+- 7fef6ae: fix: workspace version
+
 ## 1.6.3
 
 ## 1.6.2
