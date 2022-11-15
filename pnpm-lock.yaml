@@ -21,8 +21,6 @@ importers:
       '@modern-js/codesmith-api-handlebars': workspace:*
       '@modern-js/codesmith-api-npm': workspace:*
       '@modern-js/codesmith-formily': workspace:*
-      '@modern-js/easy-form-cli': workspace:*
-      '@modern-js/inquirer-types': workspace:*
       '@modern-js/module-tools': ^1.19.0
       '@modern-js/plugin-i18n': ^1.19.0
       '@modern-js/plugin-testing': ^1.19.0
@@ -41,8 +39,6 @@ importers:
       '@modern-js/codesmith-api-handlebars': link:../handlebars
       '@modern-js/codesmith-api-npm': link:../npm
       '@modern-js/codesmith-formily': link:../../formily
-      '@modern-js/easy-form-cli': link:../../easy-form/cli
-      '@modern-js/inquirer-types': link:../../inquirer
       '@modern-js/plugin-i18n': 1.19.0
       '@modern-js/utils': 1.19.0
       comment-json: 4.2.2

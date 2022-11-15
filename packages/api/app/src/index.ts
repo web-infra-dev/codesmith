@@ -12,23 +12,12 @@ import { GitAPI } from '@modern-js/codesmith-api-git';
 import { HandlebarsAPI } from '@modern-js/codesmith-api-handlebars';
 import { EjsAPI } from '@modern-js/codesmith-api-ejs';
 import {
-  Schema,
-  CliReader,
-  setCliQuestionsHandlers,
-  transformSchema,
-} from '@modern-js/easy-form-cli';
-import {
   Schema as FormilySchema,
   CLIReader as FormilyCLIReader,
 } from '@modern-js/codesmith-formily';
 import inquirer, { Question } from 'inquirer';
 import { I18n, i18n, localeKeys } from './locale';
-import * as handlers from './handlers';
 import { transformInquirerSchema } from './utils/transform';
-
-export { forEach } from '@modern-js/easy-form-cli';
-
-setCliQuestionsHandlers(handlers);
 
 export class AppAPI {
   i18n: I18n = i18n;
@@ -287,7 +276,8 @@ export class AppAPI {
    * @returns
    */
   public async getInputBySchema(
-    schema: Schema | FormilySchema | Question[],
+    schema: FormilySchema | Question[],
+    type: 'formily' | 'inquirer' = 'formily',
     configValue: Record<string, unknown> = {},
     validateMap: Record<
       string,
@@ -297,30 +287,8 @@ export class AppAPI {
       ) => { success: boolean; error?: string }
     > = {},
     initValue: Record<string, any> = {},
-    type: 'easy-form' | 'formily' | 'inquirer' = 'easy-form',
   ) {
-    if (type === 'easy-form') {
-      const reader = new CliReader({
-        schema: transformSchema(
-          schema as Schema,
-          configValue,
-          validateMap,
-          initValue,
-        ),
-        extra: configValue,
-      });
-      reader.setAnswers(configValue);
-      return new Promise<Record<string, unknown>>((resolve, reject) => {
-        reader.startQuestion({
-          onComplete: (answers: Record<string, unknown>) => {
-            resolve(this.mergeAnswers(answers, configValue));
-          },
-          onError: (error: any) => {
-            reject(error);
-          },
-        });
-      });
-    } else if (type === 'formily') {
+    if (type === 'formily') {
       const reader = new FormilyCLIReader({
         schema: schema as FormilySchema,
         validateMap,
@@ -335,7 +303,6 @@ export class AppAPI {
           schema as Question[],
           configValue,
           validateMap,
-          // eslint-disable-next-line max-lines
           initValue,
         ),
       );
