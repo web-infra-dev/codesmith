@@ -1,5 +1,11 @@
 # @modern-js/codesmith
 
+## 2.0.1
+
+### Patch Changes
+
+- 18d3864: feat: change load generator loading text and color
+
 ## 2.0.0
 
 ### Major Changes
