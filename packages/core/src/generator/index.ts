@@ -200,7 +200,10 @@ check path: ${chalk.blue.underline(
   }
 
   async runGenerator(generator: string, config: Record<string, unknown> = {}) {
-    const spinner = ora('Load Generator...').start();
+    const spinner = ora({
+      text: 'Load Generator...',
+      spinner: 'runner',
+    }).start();
     const { materialKey, generatorPkg, generatorScript } =
       await this.loadGenerator(generator);
     if (!materialKey || !generatorPkg) {
@@ -223,7 +226,10 @@ check path: ${chalk.blue.underline(
     relativePwdPath = '',
     config?: Record<string, any>,
   ) {
-    const spinner = ora('Load Generator...').start();
+    const spinner = ora({
+      text: 'Load Generator...',
+      spinner: 'runner',
+    }).start();
     const { materialKey, generatorPkg, generatorScript } =
       await this.loadGenerator(subGenerator);
     if (!materialKey || !generatorPkg) {
