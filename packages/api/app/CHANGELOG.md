@@ -1,5 +1,18 @@
 # @modern-js/codesmith-api-app
 
+## 2.0.2
+
+### Patch Changes
+
+- f63b59a: feat: support renderTemplateByFileType func
+  - @modern-js/codesmith-api-ejs@2.0.2
+  - @modern-js/codesmith-api-fs@2.0.2
+  - @modern-js/codesmith-api-git@2.0.2
+  - @modern-js/codesmith-api-handlebars@2.0.2
+  - @modern-js/codesmith-api-npm@2.0.2
+  - @modern-js/codesmith@2.0.2
+  - @modern-js/codesmith-formily@2.0.2
+
 ## 2.0.1
 
 ### Patch Changes
