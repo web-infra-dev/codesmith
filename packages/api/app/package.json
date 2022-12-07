@@ -32,6 +32,7 @@
     "@modern-js/codesmith-api-git": "workspace:*",
     "@modern-js/codesmith-api-handlebars": "workspace:*",
     "@modern-js/codesmith-api-ejs": "workspace:*",
+    "@modern-js/codesmith-api-fs": "workspace:*",
     "@modern-js/codesmith-api-npm": "workspace:*",
     "@modern-js/codesmith-formily": "workspace:*",
     "@modern-js/plugin-i18n": "^1.19.0",

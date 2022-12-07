@@ -11,6 +11,7 @@ import {
 import { GitAPI } from '@modern-js/codesmith-api-git';
 import { HandlebarsAPI } from '@modern-js/codesmith-api-handlebars';
 import { EjsAPI } from '@modern-js/codesmith-api-ejs';
+import { FsAPI } from '@modern-js/codesmith-api-fs';
 import {
   Schema as FormilySchema,
   CLIReader as FormilyCLIReader,
@@ -34,6 +35,8 @@ export class AppAPI {
 
   private readonly ejsAPI: EjsAPI;
 
+  private readonly fsAPI: FsAPI;
+
   constructor(
     generatorContext: GeneratorContext,
     generatorCore: GeneratorCore,
@@ -44,6 +47,7 @@ export class AppAPI {
     this.gitApi = new GitAPI(generatorCore, generatorContext);
     this.handlebarsAPI = new HandlebarsAPI(generatorCore);
     this.ejsAPI = new EjsAPI(generatorCore);
+    this.fsAPI = new FsAPI(generatorCore);
   }
 
   public async checkEnvironment(nodeVersion?: string) {
@@ -176,6 +180,68 @@ export class AppAPI {
                 ...(this.generatorContext.data || {}),
                 ...(parameters || {}),
               });
+            }),
+        );
+      }
+    } catch (e) {
+      this.generatorCore.logger.debug('base forging failed:', e);
+      this.generatorCore.logger.warn(i18n.t(localeKeys.templated.failed));
+      throw new Error('base forging failed');
+    }
+  }
+
+  public async forgeTemplateWithFileType(
+    templatePattern: string,
+    filter?: (resourceKey: string) => boolean,
+    rename?: (resourceKey: string) => string,
+    parameters?: Record<string, any>,
+  ) {
+    try {
+      const { material } = this.generatorContext.current!;
+      const resourceMap = await material.find(templatePattern, {
+        nodir: true,
+        dot: true,
+      });
+      if (resourceMap) {
+        await Promise.all(
+          Object.keys(resourceMap)
+            .filter(resourceKey => (filter ? filter(resourceKey) : true))
+            .map(async resourceKey => {
+              this.generatorCore.logger.debug(
+                `[renderDir] resourceKey=${resourceKey}`,
+              );
+              if (resourceKey.includes('.handlebars')) {
+                const target = rename
+                  ? rename(resourceKey)
+                  : resourceKey
+                      .replace(`templates/`, '')
+                      .replace('.handlebars', '');
+                await this.handlebarsAPI.renderTemplate(
+                  material.get(resourceKey),
+                  target,
+                  {
+                    ...(this.generatorContext.data || {}),
+                    ...(parameters || {}),
+                  },
+                );
+              } else if (resourceKey.includes('.ejs')) {
+                const target = rename
+                  ? rename(resourceKey)
+                  : resourceKey.replace(`templates/`, '').replace('.ejs', '');
+                await this.ejsAPI.renderTemplate(
+                  material.get(resourceKey),
+                  target,
+                  {
+                    ...(this.generatorContext.data || {}),
+                    ...(parameters || {}),
+                  },
+                );
+              } else {
+                const target = rename
+                  ? rename(resourceKey)
+                  : resourceKey.replace(`templates/`, '');
+                await this.fsAPI.renderFile(material.get(resourceKey), target);
+              }
             }),
         );
       }
