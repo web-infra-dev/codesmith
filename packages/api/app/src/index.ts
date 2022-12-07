@@ -190,7 +190,7 @@ export class AppAPI {
     }
   }
 
-  public async forgeTemplateWithFileType(
+  public async renderTemplateByFileType(
     templatePattern: string,
     filter?: (resourceKey: string) => boolean,
     rename?: (resourceKey: string) => string,
