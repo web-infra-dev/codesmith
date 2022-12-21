@@ -4,16 +4,16 @@ import { execa, fs, semver } from '@modern-js/utils';
 import { canUseNvm } from '@modern-js/codesmith-api-npm';
 import { execaWithStreamLog } from '@modern-js/codesmith-api-npm/dist/types/utils/install';
 
-const NODE_VERSION_MAP: Record<string, string> = {
-  'lts/*': '18.12.1',
-  'lts/argon': '4.9.1',
-  'lts/boron': '6.17.1',
-  'lts/carbon': '8.17.0',
-  'lts/dubnium': '10.24.1',
-  'lts/erbium': '12.22.12',
-  'lts/fermium': '14.21.2',
-  'lts/gallium': '16.19.0',
-  'lts/hydrogen': '18.12.1',
+const NODE_MAJOR_VERSION_MAP: Record<string, number> = {
+  'lts/*': 18,
+  'lts/argon': 4,
+  'lts/boron': 6,
+  'lts/carbon': 8,
+  'lts/dubnium': 10,
+  'lts/erbium': 12,
+  'lts/fermium': 14,
+  'lts/gallium': 16,
+  'lts/hydrogen': 18,
 };
 
 export async function getNoteVersion() {
@@ -27,9 +27,10 @@ export async function checkUseNvm(cwd: string, logger: ILogger) {
   }
   // check current node version and expect node version
   const nvmrcContent = await fs.readFile(path.join(cwd, '.nvmrc'), 'utf-8');
-  const expectNodeVersion = NODE_VERSION_MAP[nvmrcContent] || nvmrcContent;
+  const expectNodeVersion =
+    NODE_MAJOR_VERSION_MAP[nvmrcContent] || nvmrcContent;
   const currentNodeVersion = await getNoteVersion();
-  if (semver.major(expectNodeVersion) === semver.major(currentNodeVersion)) {
+  if (expectNodeVersion === semver.major(currentNodeVersion)) {
     return false;
   }
   // check nvm exist
