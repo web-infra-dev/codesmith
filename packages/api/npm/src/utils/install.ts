@@ -15,14 +15,29 @@ export function execaWithStreamLog(
   return promise;
 }
 
+export async function runInstallWithNvm(
+  command: string,
+  options: Record<string, any>,
+) {
+  await execa(`~/.nvm/nvm-exec ${command}`, {
+    ...options,
+    shell: true,
+    stdin: 'inherit',
+    stdout: 'inherit',
+    stderr: 'inherit',
+  });
+}
+
 export async function npmInstall({
   cwd,
   registryUrl,
   ignoreScripts,
+  useNvm,
 }: {
   cwd: string;
   registryUrl?: string;
   ignoreScripts?: boolean;
+  useNvm?: boolean;
 }) {
   const canUse = await canUseNpm();
   if (canUse) {
@@ -32,6 +47,12 @@ export async function npmInstall({
     }
     if (ignoreScripts) {
       params.push('--ignore-scripts');
+    }
+    if (useNvm) {
+      return runInstallWithNvm(`npm ${params.join(' ')}`, {
+        cwd,
+        env: process.env,
+      });
     }
     return execaWithStreamLog('npm', params, {
       cwd,
@@ -45,10 +66,12 @@ export async function yarnInstall({
   cwd,
   registryUrl,
   ignoreScripts,
+  useNvm,
 }: {
   cwd: string;
   registryUrl?: string;
   ignoreScripts?: boolean;
+  useNvm?: boolean;
 }) {
   const canUse = await canUseYarn();
   if (canUse) {
@@ -59,6 +82,12 @@ export async function yarnInstall({
     if (ignoreScripts) {
       params.push('--ignore-scripts');
     }
+    if (useNvm) {
+      return runInstallWithNvm(`yarn ${params.join(' ')}`, {
+        cwd,
+        env: process.env,
+      });
+    }
     return execaWithStreamLog('yarn', params, { cwd, env: process.env });
   }
   throw new Error('please install yarn first');
@@ -68,10 +97,12 @@ export async function pnpmInstall({
   cwd,
   registryUrl,
   ignoreScripts,
+  useNvm,
 }: {
   cwd: string;
   registryUrl?: string;
   ignoreScripts?: boolean;
+  useNvm?: boolean;
 }) {
   const canUse = await canUsePnpm();
   if (canUse) {
@@ -81,6 +112,12 @@ export async function pnpmInstall({
     }
     if (ignoreScripts) {
       params.push('--ignore-scripts');
+    }
+    if (useNvm) {
+      return runInstallWithNvm(`yarn ${params.join(' ')}`, {
+        cwd,
+        env: process.env,
+      });
     }
     return execaWithStreamLog('pnpm', params, { cwd, env: process.env });
   }

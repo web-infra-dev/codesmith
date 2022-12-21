@@ -17,6 +17,7 @@ export class NpmAPI {
     cwd?: string;
     registryUrl?: string;
     ignoreScripts?: boolean;
+    useNvm?: boolean;
   }) {
     return npmInstall({
       cwd: cwd || this.generatorCore.outputPath,
@@ -33,6 +34,7 @@ export class NpmAPI {
     cwd?: string;
     registryUrl?: string;
     ignoreScripts?: boolean;
+    useNvm?: boolean;
   }) {
     return yarnInstall({
       cwd: cwd || this.generatorCore.outputPath,
@@ -49,6 +51,7 @@ export class NpmAPI {
     cwd?: string;
     registryUrl?: string;
     ignoreScripts?: boolean;
+    useNvm?: boolean;
   }) {
     return pnpmInstall({
       cwd: cwd || this.generatorCore.outputPath,

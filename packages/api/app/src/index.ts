@@ -19,6 +19,7 @@ import {
 import inquirer, { Question } from 'inquirer';
 import { I18n, i18n, localeKeys } from './locale';
 import { transformInquirerSchema } from './utils/transform';
+import { checkUseNvm } from './utils/checkUseNvm';
 
 export class AppAPI {
   i18n: I18n = i18n;
@@ -81,20 +82,28 @@ export class AppAPI {
     },
   ) {
     const {
-      config: { packageManager, noNeedInstall },
+      config: { packageManager, noNeedInstall, noNeedCheckNvm },
     } = this.generatorContext;
     if (noNeedInstall || process.env.NoNeedInstall === 'true') {
       return;
+    }
+    let useNvm = false;
+    if (!noNeedCheckNvm && process.env.NoNeedCheckNvm !== 'true') {
+      // check nvm
+      useNvm = await checkUseNvm(
+        options?.cwd || this.generatorCore.outputPath,
+        this.generatorCore.logger,
+      );
     }
     let intallPromise;
     if (command) {
       intallPromise = execa(command);
     } else if (packageManager === 'pnpm') {
-      intallPromise = this.npmApi.pnpmInstall(options || {});
+      intallPromise = this.npmApi.pnpmInstall({ ...(options || {}), useNvm });
     } else if (packageManager === 'yarn') {
-      intallPromise = this.npmApi.yarnInstall(options || {});
+      intallPromise = this.npmApi.yarnInstall({ ...(options || {}), useNvm });
     } else {
-      intallPromise = this.npmApi.npmInstall(options || {});
+      intallPromise = this.npmApi.npmInstall({ ...(options || {}), useNvm });
     }
     try {
       await intallPromise;

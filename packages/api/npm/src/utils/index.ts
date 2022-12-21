@@ -1,2 +1,8 @@
 export { canUseNvm, canUseNpm, canUseYarn, canUsePnpm } from './env';
-export { npmInstall, yarnInstall, pnpmInstall } from './install';
+export {
+  npmInstall,
+  yarnInstall,
+  pnpmInstall,
+  execaWithStreamLog,
+  runInstallWithNvm,
+} from './install';
