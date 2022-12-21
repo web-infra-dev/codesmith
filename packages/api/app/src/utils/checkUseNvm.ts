@@ -20,6 +20,10 @@ export async function getNoteVersion() {
   return result.stdout.slice(1);
 }
 export async function checkUseNvm(cwd: string, logger: ILogger) {
+  // check windows
+  if (process.platform.startsWith('win')) {
+    return false;
+  }
   // exist .nvmrc file
   if (!(await fsExists(path.join(cwd, '.nvmrc')))) {
     return false;
