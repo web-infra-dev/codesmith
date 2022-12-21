@@ -1,8 +1,7 @@
 import path from 'path';
 import { fsExists, ILogger } from '@modern-js/codesmith';
 import { execa, fs, semver } from '@modern-js/utils';
-import { canUseNvm } from '@modern-js/codesmith-api-npm';
-import { execaWithStreamLog } from '@modern-js/codesmith-api-npm/dist/types/utils/install';
+import { canUseNvm, execaWithStreamLog } from '@modern-js/codesmith-api-npm';
 
 const NODE_MAJOR_VERSION_MAP: Record<string, number> = {
   'lts/*': 18,
