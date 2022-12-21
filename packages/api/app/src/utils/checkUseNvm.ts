@@ -25,7 +25,9 @@ export async function checkUseNvm(cwd: string, logger: ILogger) {
     return false;
   }
   // check current node version and expect node version
-  const nvmrcContent = await fs.readFile(path.join(cwd, '.nvmrc'), 'utf-8');
+  const nvmrcContent = (
+    await fs.readFile(path.join(cwd, '.nvmrc'), 'utf-8')
+  ).replace('\n', '');
   const expectNodeVersion =
     NODE_MAJOR_VERSION_MAP[nvmrcContent] || nvmrcContent;
   const currentNodeVersion = await getNoteVersion();
