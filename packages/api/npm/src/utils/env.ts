@@ -2,7 +2,7 @@ import { execa } from '@modern-js/utils';
 
 export async function canUseNvm() {
   try {
-    await execa('nvm --version', {
+    await execa('source ~/.nvm/nvm.sh --version', {
       env: process.env,
       shell: true,
     });
