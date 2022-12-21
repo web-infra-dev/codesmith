@@ -43,7 +43,10 @@ export async function checkUseNvm(cwd: string, logger: ILogger) {
   }
   // run nvm install
   try {
-    await execaWithStreamLog('nvm', ['install'], {});
+    await execaWithStreamLog('source ~/.nvm/nvm.sh && nvm install', [], {
+      shell: true,
+      cwd,
+    });
     return true;
   } catch (e) {
     return false;
