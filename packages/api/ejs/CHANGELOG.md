@@ -1,5 +1,11 @@
 # @modern-js/codesmith-api-ejs
 
+## 2.0.3
+
+### Patch Changes
+
+- @modern-js/codesmith@2.0.3
+
 ## 2.0.2
 
 ### Patch Changes

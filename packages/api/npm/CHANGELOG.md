@@ -1,5 +1,12 @@
 # @modern-js/codesmith-api-npm
 
+## 2.0.3
+
+### Patch Changes
+
+- e6a907b: feat: install add nvm check
+  - @modern-js/codesmith@2.0.3
+
 ## 2.0.2
 
 ### Patch Changes
