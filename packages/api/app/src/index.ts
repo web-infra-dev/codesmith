@@ -82,16 +82,19 @@ export class AppAPI {
     },
   ) {
     const {
-      config: { packageManager, noNeedInstall },
+      config: { packageManager, noNeedInstall, noNeedCheckNvm },
     } = this.generatorContext;
     if (noNeedInstall || process.env.NoNeedInstall === 'true') {
       return;
     }
-    // check nvm
-    const useNvm = await checkUseNvm(
-      options?.cwd || this.generatorCore.outputPath,
-      this.generatorCore.logger,
-    );
+    let useNvm = false;
+    if (!noNeedCheckNvm && process.env.NoNeedCheckNvm !== 'true') {
+      // check nvm
+      useNvm = await checkUseNvm(
+        options?.cwd || this.generatorCore.outputPath,
+        this.generatorCore.logger,
+      );
+    }
     let intallPromise;
     if (command) {
       intallPromise = execa(command);
