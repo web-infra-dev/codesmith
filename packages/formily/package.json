@@ -39,18 +39,18 @@
   },
   "dependencies": {
     "@babel/runtime": "^7",
-    "@modern-js/utils": "^1.15.0",
-    "inquirer": "^8",
     "@formily/json-schema": "^2.2.3",
-    "@formily/validator": "^2.2.6"
+    "@formily/validator": "^2.2.6",
+    "@modern-js/utils": "^2.4.0",
+    "inquirer": "^8"
   },
   "peerDependencies": {
     "@modern-js/codesmith": "workspace:^2.0.3"
   },
   "devDependencies": {
     "@modern-js/codesmith": "workspace:*",
-    "@modern-js/module-tools": "^1.19.0",
-    "@modern-js/plugin-testing": "^1.19.0",
+    "@modern-js/module-tools": "^2.4.0",
+    "@modern-js/plugin-testing": "^2.4.0",
     "@types/inquirer": "^7.3.3",
     "@types/jest": "^26",
     "@types/node": "^14",
