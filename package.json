@@ -70,10 +70,11 @@
     ]
   },
   "devDependencies": {
+    "@modern-js-app/eslint-config": "2.4.0",
+    "@modern-js/build-config": "2.3.0-beta.0",
+    "@modern-js/eslint-config": "2.4.0",
     "@modern-js/monorepo-tools": "2.4.0",
     "@modern-js/plugin-lint": "2.4.0",
-    "@modern-js/tsconfig": "2.4.0",
-    "@modern-js-app/eslint-config": "2.4.0",
-    "@modern-js/eslint-config": "2.4.0"
+    "@modern-js/tsconfig": "2.4.0"
   }
 }

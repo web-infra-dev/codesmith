@@ -5,12 +5,14 @@ importers:
   .:
     specifiers:
       '@modern-js-app/eslint-config': 2.4.0
+      '@modern-js/build-config': 2.3.0-beta.0
       '@modern-js/eslint-config': 2.4.0
       '@modern-js/monorepo-tools': 2.4.0
       '@modern-js/plugin-lint': 2.4.0
       '@modern-js/tsconfig': 2.4.0
     devDependencies:
       '@modern-js-app/eslint-config': 2.4.0
+      '@modern-js/build-config': 2.3.0-beta.0
       '@modern-js/eslint-config': 2.4.0
       '@modern-js/monorepo-tools': 2.4.0
       '@modern-js/plugin-lint': 2.4.0
@@ -2606,6 +2608,10 @@ packages:
       lodash: 4.17.21
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@modern-js/build-config/2.3.0-beta.0:
+    resolution: {integrity: sha512-OohArXeopf8StTfWKm7zkYvPmrylzxSaj6W7CNswoAdEimkQHZrF4xFyYHlR48K7fa+/AKbFsx3V1a/kq0hGMQ==}
     dev: true
 
   /@modern-js/codesmith-formily/2.0.3_4fzkpiqwxepu7x7q3erulp7gvi:
