@@ -45,7 +45,6 @@ async function downloadAndDecompressTargz(
       `download tar package get bad status code: ${response.status}`,
     );
   }
-  const contentLength = Number(response.headers['content-length']);
   // create tmp file
   const randomId = Math.floor(Math.random() * 10000);
   const tempTgzFilePath = `${os.tmpdir()}/temp-${randomId}.tgz`;
@@ -61,9 +60,6 @@ async function downloadAndDecompressTargz(
       resolve();
     });
   });
-  if ((await fs.stat(tempTgzFilePath)).size !== contentLength) {
-    throw new Error('download tar package get bad content length');
-  }
   await new Promise<void>((resolve, reject) => {
     fs.createReadStream(tempTgzFilePath)
       .pipe(
