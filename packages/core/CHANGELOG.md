@@ -1,5 +1,11 @@
 # @modern-js/codesmith
 
+## 2.0.4
+
+### Patch Changes
+
+- e95bf71: feat: remove validate tar package length
+
 ## 2.0.3
 
 ## 2.0.2
