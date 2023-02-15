@@ -1,5 +1,11 @@
 # @modern-js/codesmith
 
+## 1.6.4
+
+### Patch Changes
+
+- 4dc2daa: feat: remove validate tar package length
+
 ## 1.6.3
 
 ## 1.6.2

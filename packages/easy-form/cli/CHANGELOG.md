@@ -1,5 +1,11 @@
 # @modern-js/easy-form-cli
 
+## 1.6.4
+
+### Patch Changes
+
+- @modern-js/easy-form-core@1.6.4
+
 ## 1.6.3
 
 ### Patch Changes
