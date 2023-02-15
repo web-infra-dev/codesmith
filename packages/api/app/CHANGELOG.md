@@ -1,5 +1,17 @@
 # @modern-js/codesmith-api-app
 
+## 1.5.2
+
+### Patch Changes
+
+- Updated dependencies [d102f8c]
+  - @modern-js/codesmith@1.5.2
+  - @modern-js/codesmith-api-git@1.5.2
+  - @modern-js/codesmith-api-handlebars@1.5.2
+  - @modern-js/codesmith-api-npm@1.5.2
+  - @modern-js/easy-form-cli@1.5.2
+  - @modern-js/inquirer-types@1.5.2
+
 ## 1.5.1
 
 ### Patch Changes

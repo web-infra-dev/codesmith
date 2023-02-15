@@ -1,5 +1,12 @@
 # @modern-js/codesmith-api-fs
 
+## 1.5.2
+
+### Patch Changes
+
+- Updated dependencies [d102f8c]
+  - @modern-js/codesmith@1.5.2
+
 ## 1.5.1
 
 ### Patch Changes
