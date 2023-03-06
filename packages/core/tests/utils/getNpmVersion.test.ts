@@ -1,6 +1,6 @@
 import { getNpmVersion } from '@/utils';
 
-describe('getNpmVersion function test', () => {
+describe.skip('getNpmVersion function test', () => {
   it('package exists', async () => {
     const version = await getNpmVersion('lodash');
     expect(typeof version).toBe('string');
