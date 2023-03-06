@@ -1,5 +1,12 @@
 # @modern-js/codesmith-api-handlebars
 
+## 2.0.5
+
+### Patch Changes
+
+- 1dc0b2d: feat: handlebars api support registry help
+  - @modern-js/codesmith@2.0.5
+
 ## 2.0.4
 
 ### Patch Changes

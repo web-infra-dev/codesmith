@@ -1,5 +1,11 @@
 # @modern-js/codesmith-api-fs
 
+## 2.0.5
+
+### Patch Changes
+
+- @modern-js/codesmith@2.0.5
+
 ## 2.0.4
 
 ### Patch Changes
