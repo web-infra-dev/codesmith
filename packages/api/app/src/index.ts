@@ -24,19 +24,19 @@ import { checkUseNvm } from './utils/checkUseNvm';
 export class AppAPI {
   i18n: I18n = i18n;
 
+  npmApi: NpmAPI;
+
+  gitApi: GitAPI;
+
+  handlebarsAPI: HandlebarsAPI;
+
+  ejsAPI: EjsAPI;
+
+  fsAPI: FsAPI;
+
   protected readonly generatorCore: GeneratorCore;
 
   protected readonly generatorContext: GeneratorContext;
-
-  private readonly npmApi: NpmAPI;
-
-  private readonly gitApi: GitAPI;
-
-  private readonly handlebarsAPI: HandlebarsAPI;
-
-  private readonly ejsAPI: EjsAPI;
-
-  private readonly fsAPI: FsAPI;
 
   constructor(
     generatorContext: GeneratorContext,

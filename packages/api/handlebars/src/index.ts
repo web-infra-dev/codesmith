@@ -21,7 +21,7 @@ export { renderString };
 export class HandlebarsAPI {
   protected readonly generatorCore: GeneratorCore;
 
-  protected readonly registers?: {
+  protected readonly registers: {
     helpers: Record<string, handlebars.HelperDelegate>;
     partials: Record<string, handlebars.Template>;
   };
@@ -35,6 +35,22 @@ export class HandlebarsAPI {
   ) {
     this.generatorCore = generatorCore;
     this.registers = registers || { helpers: {}, partials: {} };
+  }
+
+  public async registerHelp(
+    helpers: Record<string, handlebars.HelperDelegate>,
+  ) {
+    this.registers.helpers = {
+      ...this.registers.helpers,
+      ...helpers,
+    };
+  }
+
+  public async registerPartials(partials: Record<string, handlebars.Template>) {
+    this.registers.partials = {
+      ...this.registers.partials,
+      ...partials,
+    };
   }
 
   public async renderTemplate(
