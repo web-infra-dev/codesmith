@@ -109,6 +109,7 @@ export class AppAPI {
       await intallPromise;
       this.generatorCore.logger.info(i18n.t(localeKeys.install.success));
     } catch (e) {
+      this.generatorCore.logger.warn(e)
       this.generatorCore.logger.warn(
         i18n.t(localeKeys.install.failed, {
           command: command || `${packageManager} install`,
