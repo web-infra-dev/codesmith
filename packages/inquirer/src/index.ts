@@ -1,1 +1,3 @@
-export { List } from './list';
+export default function a () {
+  //
+}
