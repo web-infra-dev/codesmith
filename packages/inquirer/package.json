@@ -1,5 +1,5 @@
 {
-  "name": "@modern-js/inquirer-types",
+  "name": "@test/xxx",
   "description": "codesmith inquirer plugin to custom question",
   "homepage": "https://modernjs.dev",
   "bugs": "https://github.com/modern-js-dev/codesmith/issues",
@@ -11,7 +11,7 @@
     "modern",
     "modern.js"
   ],
-  "version": "2.0.5",
+  "version": "0.0.1",
   "jsnext:source": "./src/index.ts",
   "types": "./dist/types/index.d.ts",
   "main": "./dist/js/node/index.js",
