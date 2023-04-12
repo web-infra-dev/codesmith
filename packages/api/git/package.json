@@ -14,8 +14,8 @@
   "version": "2.0.5",
   "jsnext:source": "./src/index.ts",
   "types": "./dist/types/index.d.ts",
-  "main": "./dist/js/node/index.js",
-  "jsnext:modern": "./dist/js/modern/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
@@ -28,24 +28,19 @@
     "test": "modern test"
   },
   "dependencies": {
-    "@babel/runtime": "^7",
-    "@modern-js/utils": "^1.19.0"
+    "@babel/runtime": "^7.21.0",
+    "@modern-js/utils": "^2.12.0"
   },
   "peerDependencies": {
     "@modern-js/codesmith": "workspace:^2.0.5"
   },
   "devDependencies": {
     "@modern-js/codesmith": "workspace:*",
-    "@modern-js/module-tools": "^1.19.0",
-    "@modern-js/plugin-testing": "^1.19.0",
-    "@types/jest": "^26",
-    "@types/node": "^14",
-    "typescript": "^4"
-  },
-  "modernConfig": {
-    "output": {
-      "packageMode": "node-js"
-    }
+    "@modern-js/module-tools": "^2.12.0",
+    "@modern-js/plugin-testing": "^2.12.0",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^14.18.42",
+    "typescript": "^4.9.5"
   },
   "sideEffects": false
 }
