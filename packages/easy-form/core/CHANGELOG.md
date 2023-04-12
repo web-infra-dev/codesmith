@@ -1,5 +1,11 @@
 # @modern-js/easy-form-core
 
+## 1.7.0
+
+### Minor Changes
+
+- 1452195: feat: upgrade modern version to v2
+
 ## 1.6.4
 
 ### Patch Changes

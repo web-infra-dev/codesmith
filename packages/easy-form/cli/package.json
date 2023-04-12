@@ -11,7 +11,7 @@
     "modern",
     "modern.js"
   ],
-  "version": "1.6.4",
+  "version": "1.7.0",
   "jsnext:source": "./src/index.ts",
   "types": "./dist/types/index.d.ts",
   "main": "./dist/cjs/index.js",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.21.0",
-    "@modern-js/easy-form-core": "workspace:1.6.4",
+    "@modern-js/easy-form-core": "workspace:1.7.0",
     "@modern-js/utils": "^2.12.0",
     "inquirer": "8.1.3",
     "rxjs": "^7.8.0"

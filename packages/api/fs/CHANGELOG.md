@@ -1,5 +1,17 @@
 # @modern-js/codesmith-api-fs
 
+## 2.1.0
+
+### Minor Changes
+
+- 1452195: feat: upgrade modern version to v2
+
+### Patch Changes
+
+- Updated dependencies [1452195]
+- Updated dependencies [71a1e37]
+  - @modern-js/codesmith@2.1.0
+
 ## 2.0.5
 
 ### Patch Changes
