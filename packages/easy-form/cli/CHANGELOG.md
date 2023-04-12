@@ -1,5 +1,16 @@
 # @modern-js/easy-form-cli
 
+## 1.7.0
+
+### Minor Changes
+
+- 1452195: feat: upgrade modern version to v2
+
+### Patch Changes
+
+- Updated dependencies [1452195]
+  - @modern-js/easy-form-core@1.7.0
+
 ## 1.6.4
 
 ### Patch Changes
