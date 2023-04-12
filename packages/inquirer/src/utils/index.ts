@@ -7,7 +7,9 @@ export type ChoiceItem = Answers & {
   disabled: boolean | ((answers: Answers) => boolean);
 };
 
-export type Choices<T extends Answers> = OriginChoices<T> & { type?: 'separator' | 'choices' };
+export type Choices<T extends Answers> = OriginChoices<T> & {
+  type?: 'separator' | 'choices';
+};
 
 /**
  * Function for rendering list choices

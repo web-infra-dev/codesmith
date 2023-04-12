@@ -116,7 +116,7 @@ export class CliReader extends BaseCliReader {
   }
 
   private getCliQuestionHandler(key: string) {
-    if (!CliReader.customQuestions || !CliReader.customQuestions[key]) {
+    if (!CliReader.customQuestions?.[key]) {
       console.error('handler not found:', key);
       throw Error(`handler not found: ${key}`);
     }
