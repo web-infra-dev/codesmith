@@ -27,4 +27,4 @@
 
 ## Contributing
 
-- [Contributing Guide](https://github.com/modern-js-dev/codesmith/blob/main/CONTRIBUTING.md)
+- [Contributing Guide](https://github.com/web-infra-de/codesmith/blob/main/CONTRIBUTING.md)

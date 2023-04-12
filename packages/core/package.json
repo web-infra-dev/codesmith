@@ -2,8 +2,8 @@
   "name": "@modern-js/codesmith",
   "description": "codesmith core implement",
   "homepage": "https://modernjs.dev",
-  "bugs": "https://github.com/modern-js-dev/codesmith/issues",
-  "repository": "modern-js-dev/codesmith",
+  "bugs": "https://github.com/web-infra-dev/codesmith/issues",
+  "repository": "web-infra-dev/codesmith",
   "license": "MIT",
   "keywords": [
     "react",
