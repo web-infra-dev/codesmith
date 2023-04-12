@@ -133,9 +133,10 @@ export async function prompt<
   for (const question of questions) {
     const xReactions = question?.origin?.['x-reactions'] || [];
     let answer = {};
-
-    // handle x-reactions
-    if (xReactions.length) {
+    if (answers[question.name!]) {
+      answer = { [question.name!]: answers[question.name!] };
+    } else if (xReactions.length) {
+      // handle x-reactions
       answer = await handleXReactions(xReactions, answers, questions, question);
     } else {
       answer = await inquirer.prompt(question as QuestionCollection);
