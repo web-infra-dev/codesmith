@@ -27,22 +27,22 @@
     "test": "modern test --passWithNoTests"
   },
   "dependencies": {
-    "@babel/runtime": "^7",
-    "@modern-js/utils": "^1.19.0",
+    "@babel/runtime": "^7.21.0",
+    "@modern-js/utils": "^2.12.0",
     "cli-cursor": "^3.1.0",
     "inquirer": "8.1.3",
     "lodash": "^4.17.21",
     "run-async": "^2.4.1",
-    "rxjs": "^7.5.5"
+    "rxjs": "^7.8.0"
   },
   "devDependencies": {
-    "@modern-js/module-tools": "^1.19.0",
-    "@modern-js/plugin-testing": "^1.19.0",
+    "@modern-js/module-tools": "^2.12.0",
+    "@modern-js/plugin-testing": "^2.12.0",
     "@types/inquirer": "^7.3.3",
-    "@types/jest": "^26",
-    "@types/lodash": "^4.14.172",
-    "@types/node": "^14",
-    "typescript": "^4"
+    "@types/jest": "^26.0.24",
+    "@types/lodash": "^4.14.192",
+    "@types/node": "^14.18.42",
+    "typescript": "^4.9.5"
   },
   "modernConfig": {
     "output": {
