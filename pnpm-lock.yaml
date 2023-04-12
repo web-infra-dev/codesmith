@@ -237,7 +237,7 @@ importers:
   packages/easy-form/cli:
     specifiers:
       '@babel/runtime': ^7.21.0
-      '@modern-js/easy-form-core': workspace:1.6.4
+      '@modern-js/easy-form-core': workspace:1.7.0
       '@modern-js/module-tools': ^2.12.0
       '@modern-js/plugin-testing': ^2.12.0
       '@modern-js/utils': ^2.12.0

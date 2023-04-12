@@ -1,5 +1,11 @@
 # @modern-js/codesmith-cli
 
+## 3.0.0
+
+### Minor Changes
+
+- 1452195: feat: upgrade modern version to v2
+
 ## 2.0.5
 
 ## 2.0.4

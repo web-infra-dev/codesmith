@@ -1,5 +1,25 @@
 # @modern-js/codesmith-api-app
 
+## 3.0.0
+
+### Minor Changes
+
+- 1452195: feat: upgrade modern version to v2
+
+### Patch Changes
+
+- 71a1e37: fix: formily prompt config value not work
+- Updated dependencies [1452195]
+- Updated dependencies [71a1e37]
+- Updated dependencies [71a1e37]
+  - @modern-js/codesmith-api-handlebars@3.0.0
+  - @modern-js/codesmith-api-ejs@3.0.0
+  - @modern-js/codesmith-api-git@3.0.0
+  - @modern-js/codesmith-api-npm@3.0.0
+  - @modern-js/codesmith-formily@3.0.0
+  - @modern-js/codesmith-api-fs@3.0.0
+  - @modern-js/codesmith@3.0.0
+
 ## 2.0.5
 
 ### Patch Changes

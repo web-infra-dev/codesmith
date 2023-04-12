@@ -1,5 +1,15 @@
 # @modern-js/codesmith
 
+## 3.0.0
+
+### Minor Changes
+
+- 1452195: feat: upgrade modern version to v2
+
+### Patch Changes
+
+- 71a1e37: feat: show load generator error info
+
 ## 2.0.5
 
 ## 2.0.4
