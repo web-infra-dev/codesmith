@@ -1,5 +1,13 @@
 # @modern-js/codesmith-formily
 
+## 2.0.6
+
+### Patch Changes
+
+- 71a1e37: fix: formily prompt config value not work
+- Updated dependencies [71a1e37]
+  - @modern-js/codesmith@2.0.6
+
 ## 2.0.5
 
 ### Patch Changes

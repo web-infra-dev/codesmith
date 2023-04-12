@@ -1,5 +1,11 @@
 # @modern-js/codesmith
 
+## 2.0.6
+
+### Patch Changes
+
+- 71a1e37: feat: show load generator error info
+
 ## 2.0.5
 
 ## 2.0.4

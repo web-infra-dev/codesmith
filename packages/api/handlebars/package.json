@@ -11,7 +11,7 @@
     "modern",
     "modern.js"
   ],
-  "version": "2.0.5",
+  "version": "2.0.6",
   "jsnext:source": "./src/index.ts",
   "types": "./dist/types/index.d.ts",
   "main": "./dist/js/node/index.js",
@@ -32,7 +32,7 @@
     "handlebars": "^4.7.7"
   },
   "peerDependencies": {
-    "@modern-js/codesmith": "workspace:^2.0.5"
+    "@modern-js/codesmith": "workspace:^2.0.6"
   },
   "devDependencies": {
     "@modern-js/codesmith": "workspace: *",
