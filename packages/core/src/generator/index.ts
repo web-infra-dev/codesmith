@@ -132,10 +132,7 @@ check path: ${chalk.blue.underline(
       );
       return { generatorPkg, pkgJson, materialKey };
     } catch (e) {
-      this.logger.debug('load remote generator failed:', e);
-      this.logger.error(
-        `load remote generator failed: Package ${generator} could not be found or get timeout`,
-      );
+      this.logger.error(`load remote generator ${generator} failed:`, e);
       return { generatorPkg: null };
     }
   }
