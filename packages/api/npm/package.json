@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.21.0",
-    "@modern-js/codesmith": "workspace:2.0.5",
+    "@modern-js/codesmith": "workspace:*",
     "@modern-js/utils": "^2.12.0"
   },
   "devDependencies": {

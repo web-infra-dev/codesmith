@@ -13,13 +13,13 @@ importers:
   packages/api/app:
     specifiers:
       '@babel/runtime': ^7.21.0
-      '@modern-js/codesmith': workspace:2.0.5
-      '@modern-js/codesmith-api-ejs': workspace:2.0.5
-      '@modern-js/codesmith-api-fs': workspace:2.0.5
-      '@modern-js/codesmith-api-git': workspace:2.0.5
-      '@modern-js/codesmith-api-handlebars': workspace:2.0.5
-      '@modern-js/codesmith-api-npm': workspace:2.0.5
-      '@modern-js/codesmith-formily': workspace:2.0.5
+      '@modern-js/codesmith': workspace:*
+      '@modern-js/codesmith-api-ejs': workspace:*
+      '@modern-js/codesmith-api-fs': workspace:*
+      '@modern-js/codesmith-api-git': workspace:*
+      '@modern-js/codesmith-api-handlebars': workspace:*
+      '@modern-js/codesmith-api-npm': workspace:*
+      '@modern-js/codesmith-formily': workspace:*
       '@modern-js/module-tools': ^2.12.0
       '@modern-js/plugin-i18n': ^2.12.0
       '@modern-js/plugin-testing': ^2.12.0
@@ -56,7 +56,7 @@ importers:
   packages/api/ejs:
     specifiers:
       '@babel/runtime': ^7.21.0
-      '@modern-js/codesmith': workspace:2.0.5
+      '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.12.0
       '@modern-js/plugin-testing': ^2.12.0
       '@types/ejs': ^3.1.2
@@ -79,7 +79,7 @@ importers:
   packages/api/fs:
     specifiers:
       '@babel/runtime': ^7.21.0
-      '@modern-js/codesmith': workspace:2.0.5
+      '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.12.0
       '@modern-js/plugin-testing': ^2.12.0
       '@types/jest': ^26.0.24
@@ -98,7 +98,7 @@ importers:
   packages/api/git:
     specifiers:
       '@babel/runtime': ^7.21.0
-      '@modern-js/codesmith': workspace:2.0.5
+      '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.12.0
       '@modern-js/plugin-testing': ^2.12.0
       '@modern-js/utils': ^2.12.0
@@ -140,7 +140,7 @@ importers:
   packages/api/json:
     specifiers:
       '@babel/runtime': ^7.21.0
-      '@modern-js/codesmith': workspace:2.0.5
+      '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.12.0
       '@modern-js/plugin-testing': ^2.12.0
       '@types/jest': ^26.0.24
@@ -163,7 +163,7 @@ importers:
   packages/api/npm:
     specifiers:
       '@babel/runtime': ^7.21.0
-      '@modern-js/codesmith': workspace:2.0.5
+      '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.12.0
       '@modern-js/plugin-testing': ^2.12.0
       '@modern-js/utils': ^2.12.0
@@ -184,7 +184,7 @@ importers:
   packages/cli:
     specifiers:
       '@babel/runtime': ^7.21.0
-      '@modern-js/codesmith': workspace:2.0.5
+      '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.12.0
       '@modern-js/plugin-i18n': ^2.12.0
       '@modern-js/plugin-testing': ^2.12.0
@@ -283,7 +283,7 @@ importers:
       '@babel/runtime': ^7.21.0
       '@formily/json-schema': ^2.2.22
       '@formily/validator': ^2.2.22
-      '@modern-js/codesmith': workspace:2.0.5
+      '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.12.0
       '@modern-js/plugin-testing': ^2.12.0
       '@modern-js/utils': ^1.22.8

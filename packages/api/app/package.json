@@ -29,12 +29,12 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.21.0",
-    "@modern-js/codesmith-api-ejs": "workspace:2.0.5",
-    "@modern-js/codesmith-api-fs": "workspace:2.0.5",
-    "@modern-js/codesmith-api-git": "workspace:2.0.5",
-    "@modern-js/codesmith-api-handlebars": "workspace:2.0.5",
-    "@modern-js/codesmith-api-npm": "workspace:2.0.5",
-    "@modern-js/codesmith-formily": "workspace:2.0.5",
+    "@modern-js/codesmith-api-ejs": "workspace:*",
+    "@modern-js/codesmith-api-fs": "workspace:*",
+    "@modern-js/codesmith-api-git": "workspace:*",
+    "@modern-js/codesmith-api-handlebars": "workspace:*",
+    "@modern-js/codesmith-api-npm": "workspace:*",
+    "@modern-js/codesmith-formily": "workspace:*",
     "@modern-js/plugin-i18n": "^2.12.0",
     "@modern-js/utils": "^2.12.0",
     "comment-json": "^4.2.3",
@@ -45,7 +45,7 @@
     "@modern-js/codesmith": "workspace:^2.0.5"
   },
   "devDependencies": {
-    "@modern-js/codesmith": "workspace:2.0.5",
+    "@modern-js/codesmith": "workspace:*",
     "@modern-js/module-tools": "^2.12.0",
     "@modern-js/plugin-testing": "^2.12.0",
     "@types/inquirer": "^7.3.3",
