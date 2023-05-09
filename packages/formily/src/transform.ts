@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Schema as FormilySchema } from '@formily/json-schema';
 import {
   isObject,
@@ -152,3 +153,4 @@ export function transformForm(
 ): Question[] {
   return getQuestionFromSchema(schema, configValue, validateMap, initValue);
 }
+/* eslint-enable @typescript-eslint/naming-convention */
