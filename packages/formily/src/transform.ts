@@ -6,15 +6,16 @@ import {
   isFunction,
 } from '@modern-js/utils/lodash';
 import { Question as InquirerQuestion } from 'inquirer';
-import { validate } from '@formily/validator';
+import { Validator, validate } from '@formily/validator';
 
 export type Schema = Partial<
   Pick<
     FormilySchema,
-    'type' | 'title' | 'default' | 'enum' | 'x-validate' | 'x-reactions'
+    'type' | 'title' | 'default' | 'enum' | 'x-validator' | 'x-reactions'
   >
 > & {
   properties?: Record<string, Schema>;
+  'x-validate'?: Validator; // fix typo error
 };
 
 export type Question = InquirerQuestion & { origin: Schema };
@@ -57,9 +58,11 @@ export function getQuestionFromSchema(
       title,
       default: defaultValue,
       enum: items,
-      'x-validate': fieldValidate,
+      'x-validator': _fieldValidate_1,
+      'x-validate': _fieldValidate_2,
       ...extra
     } = properties![field];
+    const fieldValidate = _fieldValidate_1 || _fieldValidate_2;
     if (type === 'void' || type === 'object') {
       return getQuestionFromSchema(
         properties![field],
