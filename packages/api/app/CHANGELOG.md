@@ -1,5 +1,22 @@
 # @modern-js/codesmith-api-app
 
+## 2.2.0
+
+### Minor Changes
+
+- f7d3176: chore: bump modern version && fix @modern-js/utils version
+
+### Patch Changes
+
+- Updated dependencies [f7d3176]
+  - @modern-js/codesmith-api-handlebars@2.2.0
+  - @modern-js/codesmith-api-ejs@2.2.0
+  - @modern-js/codesmith-api-git@2.2.0
+  - @modern-js/codesmith-api-npm@2.2.0
+  - @modern-js/codesmith-formily@2.2.0
+  - @modern-js/codesmith-api-fs@2.2.0
+  - @modern-js/codesmith@2.2.0
+
 ## 2.1.1
 
 ### Patch Changes

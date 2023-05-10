@@ -1,5 +1,11 @@
 # @modern-js/easy-form-core
 
+## 1.8.0
+
+### Minor Changes
+
+- f7d3176: chore: bump modern version && fix @modern-js/utils version
+
 ## 1.7.0
 
 ### Minor Changes
