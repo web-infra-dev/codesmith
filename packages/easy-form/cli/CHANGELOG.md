@@ -1,5 +1,16 @@
 # @modern-js/easy-form-cli
 
+## 1.8.0
+
+### Minor Changes
+
+- f7d3176: chore: bump modern version && fix @modern-js/utils version
+
+### Patch Changes
+
+- Updated dependencies [f7d3176]
+  - @modern-js/easy-form-core@1.8.0
+
 ## 1.7.0
 
 ### Minor Changes

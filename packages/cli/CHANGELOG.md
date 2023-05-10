@@ -1,5 +1,11 @@
 # @modern-js/codesmith-cli
 
+## 2.2.0
+
+### Minor Changes
+
+- f7d3176: chore: bump modern version && fix @modern-js/utils version
+
 ## 2.1.1
 
 ## 2.1.0
