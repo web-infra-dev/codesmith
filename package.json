@@ -70,9 +70,9 @@
     ]
   },
   "devDependencies": {
-    "@modern-js/monorepo-tools": "2.12.0",
-    "@modern-js/tsconfig": "2.12.0",
-    "@modern-js-app/eslint-config": "2.12.0",
-    "@modern-js/eslint-config": "2.12.0"
+    "@modern-js/monorepo-tools": "2.18.0",
+    "@modern-js/tsconfig": "2.18.0",
+    "@modern-js-app/eslint-config": "2.18.0",
+    "@modern-js/eslint-config": "2.18.0"
   }
 }
