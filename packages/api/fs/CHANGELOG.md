@@ -1,5 +1,12 @@
 # @modern-js/codesmith-api-fs
 
+## 2.2.1
+
+### Patch Changes
+
+- efe7ada: fix: fs api renderFile use copy method && forgeTemplate rename func
+  - @modern-js/codesmith@2.2.1
+
 ## 2.2.0
 
 ### Minor Changes
