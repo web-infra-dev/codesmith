@@ -1,5 +1,12 @@
 # @modern-js/codesmith-api-fs
 
+## 2.2.2
+
+### Patch Changes
+
+- 5fad6e8: fix: fs render dir file error
+  - @modern-js/codesmith@2.2.2
+
 ## 2.2.1
 
 ### Patch Changes
