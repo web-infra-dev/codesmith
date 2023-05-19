@@ -185,7 +185,8 @@ export class AppAPI {
                 ? rename(resourceKey)
                 : resourceKey
                     .replace(`templates/`, '')
-                    .replace('.handlebars', '');
+                    .replace('.handlebars', '')
+                    .replace('.ejs', '');
               await api.renderTemplate(material.get(resourceKey), target, {
                 ...(this.generatorContext.data || {}),
                 ...(parameters || {}),
