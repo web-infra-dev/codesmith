@@ -30,7 +30,8 @@ export class FsAPI {
       this.generatorCore.outputPath,
       target.toString(),
     );
-    fs.copyFileSync(resource.filePath, filePath);
+    await fs.mkdirp(path.dirname(filePath));
+    await fs.copyFile(resource.filePath, filePath);
   }
 
   public async renderDir(
