@@ -1,5 +1,12 @@
 # @modern-js/codesmith-formily
 
+## 2.2.3
+
+### Patch Changes
+
+- 778c2a2: chore(deps): bump formily to v2.2.24
+  - @modern-js/codesmith@2.2.3
+
 ## 2.2.2
 
 ### Patch Changes

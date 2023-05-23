@@ -1,5 +1,11 @@
 # @modern-js/codesmith-api-handlebars
 
+## 2.2.3
+
+### Patch Changes
+
+- @modern-js/codesmith@2.2.3
+
 ## 2.2.2
 
 ### Patch Changes

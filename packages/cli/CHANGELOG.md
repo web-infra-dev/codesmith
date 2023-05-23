@@ -1,5 +1,7 @@
 # @modern-js/codesmith-cli
 
+## 2.2.3
+
 ## 2.2.2
 
 ## 2.2.1
