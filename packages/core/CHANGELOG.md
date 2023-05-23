@@ -1,5 +1,17 @@
 # @modern-js/codesmith
 
+## 2.2.2
+
+## 2.2.1
+
+## 2.2.0
+
+### Minor Changes
+
+- f7d3176: chore: bump modern version && fix @modern-js/utils version
+
+## 2.1.1
+
 ## 2.1.0
 
 ### Minor Changes

@@ -1,5 +1,36 @@
 # @modern-js/codesmith-api-fs
 
+## 2.2.2
+
+### Patch Changes
+
+- 5fad6e8: fix: fs render dir file error
+  - @modern-js/codesmith@2.2.2
+
+## 2.2.1
+
+### Patch Changes
+
+- efe7ada: fix: fs api renderFile use copy method && forgeTemplate rename func
+  - @modern-js/codesmith@2.2.1
+
+## 2.2.0
+
+### Minor Changes
+
+- f7d3176: chore: bump modern version && fix @modern-js/utils version
+
+### Patch Changes
+
+- Updated dependencies [f7d3176]
+  - @modern-js/codesmith@2.2.0
+
+## 2.1.1
+
+### Patch Changes
+
+- @modern-js/codesmith@2.1.1
+
 ## 2.1.0
 
 ### Minor Changes
