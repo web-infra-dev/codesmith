@@ -29,8 +29,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.21.0",
-    "@formily/json-schema": "^2.2.22",
-    "@formily/validator": "^2.2.22",
+    "@formily/json-schema": "^2.2.24",
+    "@formily/validator": "^2.2.24",
     "@modern-js/utils": "^1.22.8",
     "inquirer": "^8.2.5"
   },
