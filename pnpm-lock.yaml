@@ -287,8 +287,8 @@ importers:
   packages/formily:
     specifiers:
       '@babel/runtime': ^7.21.0
-      '@formily/json-schema': ^2.2.22
-      '@formily/validator': ^2.2.22
+      '@formily/json-schema': ^2.2.24
+      '@formily/validator': ^2.2.24
       '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.18.0
       '@modern-js/plugin-testing': ^2.18.0
@@ -300,8 +300,8 @@ importers:
       typescript: ^4.9.5
     dependencies:
       '@babel/runtime': 7.21.5
-      '@formily/json-schema': 2.2.23_typescript@4.9.5
-      '@formily/validator': 2.2.23
+      '@formily/json-schema': 2.2.24_typescript@4.9.5
+      '@formily/validator': 2.2.24
       '@modern-js/utils': 2.18.0
       inquirer: 8.2.5
     devDependencies:
@@ -2194,49 +2194,49 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@formily/core/2.2.23:
-    resolution: {integrity: sha512-/7JfHuuFqYBqWRTN9gTPFIeCXBTWOuMVs0h+HFVipxmXiyooatccG/JKEo+dZlISOdfInY6uJnfWQ6Y2nAxo4w==}
+  /@formily/core/2.2.24:
+    resolution: {integrity: sha512-FjyhtSwSxSK18C5L+D2U2uqkVh5J0BnWmk/OyvOGNoQ3gdCHJFyH8gr6NNt11B8xL2oXKIEpaC0nw8iOcGf8eA==}
     engines: {npm: '>=3.0.0'}
     dependencies:
-      '@formily/reactive': 2.2.23
-      '@formily/shared': 2.2.23
-      '@formily/validator': 2.2.23
+      '@formily/reactive': 2.2.24
+      '@formily/shared': 2.2.24
+      '@formily/validator': 2.2.24
 
-  /@formily/json-schema/2.2.23:
-    resolution: {integrity: sha512-MbFLmZJp0WA4KJcy7GEL5KkjqtIZ6W4KoYJfkpMSW06ziOW8QNxn0tkuuebuLSQwVayjrA6WN/hUybsnbPK2lQ==}
+  /@formily/json-schema/2.2.24:
+    resolution: {integrity: sha512-3aEMEO5D0B1p5rM/lzWmhx3rYqid4OKzCXAdxBsyicacFK9dVqxlOBt8d6auOsppMZ675q52jSVDxNSgh4xKqg==}
     engines: {npm: '>=3.0.0'}
     peerDependencies:
-      typescript: ^4.1.5
+      typescript: '>4.1.5'
     dependencies:
-      '@formily/core': 2.2.23
-      '@formily/reactive': 2.2.23
-      '@formily/shared': 2.2.23
+      '@formily/core': 2.2.24
+      '@formily/reactive': 2.2.24
+      '@formily/shared': 2.2.24
     dev: true
 
-  /@formily/json-schema/2.2.23_typescript@4.9.5:
-    resolution: {integrity: sha512-MbFLmZJp0WA4KJcy7GEL5KkjqtIZ6W4KoYJfkpMSW06ziOW8QNxn0tkuuebuLSQwVayjrA6WN/hUybsnbPK2lQ==}
+  /@formily/json-schema/2.2.24_typescript@4.9.5:
+    resolution: {integrity: sha512-3aEMEO5D0B1p5rM/lzWmhx3rYqid4OKzCXAdxBsyicacFK9dVqxlOBt8d6auOsppMZ675q52jSVDxNSgh4xKqg==}
     engines: {npm: '>=3.0.0'}
     peerDependencies:
-      typescript: ^4.1.5
+      typescript: '>4.1.5'
     dependencies:
-      '@formily/core': 2.2.23
-      '@formily/reactive': 2.2.23
-      '@formily/shared': 2.2.23
+      '@formily/core': 2.2.24
+      '@formily/reactive': 2.2.24
+      '@formily/shared': 2.2.24
       typescript: 4.9.5
 
-  /@formily/path/2.2.23:
-    resolution: {integrity: sha512-9kI9UcYWXefxto+xxnHnTKxwZfstLMceKC8Rh+rOyVvGgvtd7nB70BJKlV1IBMO+QW/7ClNX2FhqzJ8L/Xx/oA==}
+  /@formily/path/2.2.24:
+    resolution: {integrity: sha512-DrRBIPvlqGr7+xQ/74MY/j7WSbUzvWeHOsjfXTIllbijKAdUm+DovpQuHMXR16I3gnuQ8CvyMzCizP9RKVnhzw==}
     engines: {npm: '>=3.0.0'}
 
-  /@formily/reactive/2.2.23:
-    resolution: {integrity: sha512-KX/GFZmDZk4DgMboFTlGKkrBMwgHITBt9IP1uy/IKsOpv5WPPAtorgyMK4GSOvUSQm6FcZPiFXGgPE035KHppA==}
+  /@formily/reactive/2.2.24:
+    resolution: {integrity: sha512-b3+43v7pmUCC8C57XO27M0x+2aE8k6lNndaOuo15Du+tLQyr+g+JBpEZsbIJfy9ScgdK6mIttxIhJiU+xUAmvg==}
     engines: {npm: '>=3.0.0'}
 
-  /@formily/shared/2.2.23:
-    resolution: {integrity: sha512-pd54eUVf33F+siY2hGESXNaIv8T8DKRI1g8uwqs2Q7ph4MpAyDFoeUXtjHxpNoJ1ML9RXau0OQ/k9BSWGF38uA==}
+  /@formily/shared/2.2.24:
+    resolution: {integrity: sha512-PU3gBgbybSU6yv/Act2fn5sYnYTuiVJtpiYEMQGyn7wuWguOQfOpIkuaVim4h64PARO8WmnjENeDl5R5evgIYQ==}
     engines: {npm: '>=3.0.0'}
     dependencies:
-      '@formily/path': 2.2.23
+      '@formily/path': 2.2.24
       camel-case: 4.1.2
       lower-case: 2.0.2
       no-case: 3.0.4
@@ -2244,11 +2244,11 @@ packages:
       pascal-case: 3.1.2
       upper-case: 2.0.2
 
-  /@formily/validator/2.2.23:
-    resolution: {integrity: sha512-Kk4d57RZKLhZbc+oHyPydJCfhtdS8TuwMnpm9qvOpGvkp1EIEYIeoqd2zNxpk7Lku/aq5PJDiQwSki/MzyXHhg==}
+  /@formily/validator/2.2.24:
+    resolution: {integrity: sha512-EDZiArnLdDbp2k7/PHknjkX5FgsJXoqWbBrrhXCyzwC2ebBG4VTxWZUB+MWGT17A77Tl7xPsY7JPpJohcuQ+4Q==}
     engines: {npm: '>=3.0.0'}
     dependencies:
-      '@formily/shared': 2.2.23
+      '@formily/shared': 2.2.24
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
@@ -2782,8 +2782,8 @@ packages:
       '@modern-js/codesmith': ^2.1.0
     dependencies:
       '@babel/runtime': 7.21.5
-      '@formily/json-schema': 2.2.23
-      '@formily/validator': 2.2.23
+      '@formily/json-schema': 2.2.24
+      '@formily/validator': 2.2.24
       '@modern-js/codesmith': 2.1.0
       '@modern-js/utils': 1.22.8
       inquirer: 8.2.5
@@ -2797,8 +2797,8 @@ packages:
       '@modern-js/codesmith': ^2.1.0
     dependencies:
       '@babel/runtime': 7.21.5
-      '@formily/json-schema': 2.2.23_typescript@4.9.5
-      '@formily/validator': 2.2.23
+      '@formily/json-schema': 2.2.24_typescript@4.9.5
+      '@formily/validator': 2.2.24
       '@modern-js/codesmith': 2.1.0
       '@modern-js/utils': 1.22.8
       inquirer: 8.2.5
