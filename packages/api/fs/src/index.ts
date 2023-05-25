@@ -40,7 +40,10 @@ export class FsAPI {
     target: TargetFunction,
     options?: RenderDirOptions,
   ) {
-    const resourceMap = await material.find(findGlob, options);
+    const resourceMap = await material.find(findGlob, {
+      nodir: true,
+      ...options,
+    });
     await Promise.all(
       Object.keys(resourceMap).map(async resourceKey => {
         this.generatorCore.logger.debug(

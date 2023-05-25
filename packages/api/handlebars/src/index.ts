@@ -82,7 +82,10 @@ export class HandlebarsAPI {
     target: TargetFunction,
     options?: RenderTemplateDirOptions,
   ) {
-    const resourceMap = await material.find(findGlob, options);
+    const resourceMap = await material.find(findGlob, {
+      nodir: true,
+      ...options,
+    });
     await Promise.all(
       // resourceKey is relate path. example: in `garr-master/package.json`, package.json is resourceKey
       Object.keys(resourceMap).map(async resourceKey => {
