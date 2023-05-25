@@ -1,5 +1,12 @@
 # @modern-js/codesmith-api-ejs
 
+## 2.2.4
+
+### Patch Changes
+
+- 54a28a5: fix: find file add nodir option
+  - @modern-js/codesmith@2.2.4
+
 ## 2.2.3
 
 ### Patch Changes
