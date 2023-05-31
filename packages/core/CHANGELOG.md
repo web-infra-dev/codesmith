@@ -1,5 +1,12 @@
 # @modern-js/codesmith
 
+## 2.2.5
+
+### Patch Changes
+
+- cde9b37: feat: run generator support relative path
+- cde9b37: feat: when specifying a version number, ignore get the version number while downloading the generator package.
+
 ## 2.2.4
 
 ## 2.2.3
