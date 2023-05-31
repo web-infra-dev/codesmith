@@ -327,8 +327,8 @@ export class AppAPI {
     configValue: Record<string, unknown> = {},
     validateMap: Record<
       string,
+      // eslint-disable-next-line max-lines
       (
-        // eslint-disable-next-line max-lines
         input: unknown,
         data?: Record<string, unknown>,
       ) => { success: boolean; error?: string }

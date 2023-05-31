@@ -1,5 +1,5 @@
 import os from 'os';
-import { fs } from '@modern-js/utils';
+import { fs, semver } from '@modern-js/utils';
 import axios from 'axios';
 import tar from 'tar';
 import { getNpmTarballUrl } from './getNpmTarballUrl';
@@ -93,13 +93,18 @@ export async function downloadPackage(
   } = {},
 ) {
   const { registryUrl, install } = options;
-  // get pkgName version
-  const version = await getNpmVersion(pkgName, {
-    registryUrl,
-    version: pkgVersion,
-  });
-  if (version === undefined) {
-    throw new Error(`package ${pkgName}@${pkgVersion} not found in registry`);
+  let version;
+  if (!semver.valid(pkgVersion)) {
+    // get pkgName version
+    version = await getNpmVersion(pkgName, {
+      registryUrl,
+      version: pkgVersion,
+    });
+    if (version === undefined) {
+      throw new Error(`package ${pkgName}@${pkgVersion} not found in registry`);
+    }
+  } else {
+    version = pkgVersion;
   }
   const targetDir = `${os.tmpdir()}/csmith-generator/${pkgName}@${version}`;
   if ((await fsExists(targetDir)) && (await isValidCache(targetDir))) {
