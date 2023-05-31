@@ -22,6 +22,8 @@ export class GeneratorCore {
 
   outputPath: string;
 
+  basePath: string;
+
   output: {
     fs: (
       file: string | number,
@@ -45,6 +47,7 @@ export class GeneratorCore {
     this.logger = logger;
     this.materialsManager = materialsManager;
     this.outputPath = outputPath;
+    this.basePath = process.cwd();
     this.event = new EventEmitter();
     this.event.setMaxListeners(15);
     this._context = {
@@ -76,6 +79,10 @@ export class GeneratorCore {
 
   private setOutputPath(outputPath: string) {
     this.outputPath = outputPath;
+  }
+
+  private setbasePath(basePath: string) {
+    this.basePath = basePath;
   }
 
   private async loadLocalGenerator(generator: string) {
@@ -170,8 +177,12 @@ check path: ${chalk.blue.underline(
   }
 
   async loadGenerator(generator: string) {
-    const loadGeneratorPromise = path.isAbsolute(generator)
-      ? this.loadLocalGenerator(generator)
+    let generatorPath = generator;
+    if (generator.startsWith('file:')) {
+      generatorPath = path.join(this.basePath, generator.slice(5));
+    }
+    const loadGeneratorPromise = path.isAbsolute(generatorPath)
+      ? this.loadLocalGenerator(generatorPath)
       : this.loadRemoteGenerator(generator);
     const { generatorPkg, pkgJson, materialKey } = await loadGeneratorPromise;
     if (!generatorPkg || !pkgJson || !materialKey) {
@@ -214,6 +225,7 @@ check path: ${chalk.blue.underline(
       material: generatorPkg,
     });
     spinner.stop();
+    this.setbasePath(this._context.current!.material.basePath!);
     await generatorScript(this._context, this);
     this.setCurrent(null);
   }
@@ -249,9 +261,12 @@ check path: ${chalk.blue.underline(
     };
     this.logger.debug('subContext', subContext);
     const preOutputPath = this.outputPath;
+    const preBasePath = this.basePath;
     this.setOutputPath(path.resolve(this.outputPath, relativePwdPath || ''));
+    this.setbasePath(subContext.current.material.basePath);
     spinner.stop();
     await generatorScript(subContext, this);
     this.setOutputPath(preOutputPath);
+    this.setbasePath(preBasePath);
   }
 }
