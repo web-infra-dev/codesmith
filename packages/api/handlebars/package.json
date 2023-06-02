@@ -28,7 +28,7 @@
     "test": "modern test"
   },
   "dependencies": {
-    "@babel/runtime": "^7.21.0",
+    "@swc/helpers": "0.5.1",
     "handlebars": "^4.7.7"
   },
   "peerDependencies": {

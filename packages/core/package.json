@@ -28,7 +28,7 @@
     "test": "modern test --env=node"
   },
   "dependencies": {
-    "@babel/runtime": "^7.21.0",
+    "@swc/helpers": "0.5.1",
     "@modern-js/utils": "^2.22.0",
     "axios": "^0.21.4",
     "tar": "^6.1.13"

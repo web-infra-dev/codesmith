@@ -19,7 +19,6 @@ importers:
 
   packages/api/app:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@modern-js/codesmith': workspace:*
       '@modern-js/codesmith-api-ejs': workspace:*
       '@modern-js/codesmith-api-fs': workspace:*
@@ -31,6 +30,7 @@ importers:
       '@modern-js/plugin-i18n': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
       '@modern-js/utils': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/inquirer': ^7.3.3
       '@types/jest': ^26.0.24
       '@types/node': ^14.18.42
@@ -39,7 +39,6 @@ importers:
       inquirer: 8.1.3
       typescript: ^4.9.5
     dependencies:
-      '@babel/runtime': 7.22.3
       '@modern-js/codesmith-api-ejs': link:../ejs
       '@modern-js/codesmith-api-fs': link:../fs
       '@modern-js/codesmith-api-git': link:../git
@@ -48,6 +47,7 @@ importers:
       '@modern-js/codesmith-formily': link:../../formily
       '@modern-js/plugin-i18n': 2.22.0
       '@modern-js/utils': 2.22.0
+      '@swc/helpers': 0.5.1
       comment-json: 4.2.3
       extra: 0.2.1
       inquirer: 8.1.3
@@ -62,17 +62,17 @@ importers:
 
   packages/api/ejs:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/ejs': ^3.1.2
       '@types/jest': ^26.0.24
       '@types/node': ^14.18.42
       ejs: ^3.1.9
       typescript: ^4.9.5
     dependencies:
-      '@babel/runtime': 7.22.3
+      '@swc/helpers': 0.5.1
       ejs: 3.1.9
     devDependencies:
       '@modern-js/codesmith': link:../../core
@@ -85,16 +85,16 @@ importers:
 
   packages/api/fs:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
       '@modern-js/utils': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/jest': ^26.0.24
       '@types/node': ^14.18.42
       typescript: ^4.9.5
     dependencies:
-      '@babel/runtime': 7.22.3
+      '@swc/helpers': 0.5.1
     devDependencies:
       '@modern-js/codesmith': link:../../core
       '@modern-js/module-tools': 2.22.0_typescript@4.9.5
@@ -106,17 +106,17 @@ importers:
 
   packages/api/git:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
       '@modern-js/utils': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/jest': ^26.0.24
       '@types/node': ^14.18.42
       typescript: ^4.9.5
     dependencies:
-      '@babel/runtime': 7.22.3
       '@modern-js/utils': 2.22.0
+      '@swc/helpers': 0.5.1
     devDependencies:
       '@modern-js/codesmith': link:../../core
       '@modern-js/module-tools': 2.22.0_typescript@4.9.5
@@ -127,16 +127,16 @@ importers:
 
   packages/api/handlebars:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/jest': ^26.0.24
       '@types/node': ^14.18.42
       handlebars: ^4.7.7
       typescript: ^4.9.5
     dependencies:
-      '@babel/runtime': 7.22.3
+      '@swc/helpers': 0.5.1
       handlebars: 4.7.7
     devDependencies:
       '@modern-js/codesmith': link:../../core
@@ -148,18 +148,18 @@ importers:
 
   packages/api/json:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/jest': ^26.0.24
       '@types/node': ^14.18.42
       comment-json: ^4.2.3
       declaration-update: ^0.0.2
       typescript: ^4.9.5
     dependencies:
-      '@babel/runtime': 7.22.3
       '@modern-js/codesmith': link:../../core
+      '@swc/helpers': 0.5.1
       comment-json: 4.2.3
       declaration-update: 0.0.2
     devDependencies:
@@ -171,18 +171,18 @@ importers:
 
   packages/api/npm:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
       '@modern-js/utils': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/jest': ^26.0.24
       '@types/node': ^14.18.42
       typescript: ^4.9.5
     dependencies:
-      '@babel/runtime': 7.22.3
       '@modern-js/codesmith': link:../../core
       '@modern-js/utils': 2.22.0
+      '@swc/helpers': 0.5.1
     devDependencies:
       '@modern-js/module-tools': 2.22.0_typescript@4.9.5
       '@modern-js/plugin-testing': 2.22.0_pjb5dpt6oone62sfqu77666kre
@@ -192,23 +192,23 @@ importers:
 
   packages/cli:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.22.0
       '@modern-js/plugin-i18n': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
       '@modern-js/utils': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/jest': ^26.0.24
       '@types/node': ^14.18.42
       ts-node: ^10.9.1
       typescript: ^4.9.5
     devDependencies:
-      '@babel/runtime': 7.22.3
       '@modern-js/codesmith': link:../core
       '@modern-js/module-tools': 2.22.0_typescript@4.9.5
       '@modern-js/plugin-i18n': 2.22.0
       '@modern-js/plugin-testing': 2.22.0_6oxnpi7dzi3q4uo5vjycegwtri
       '@modern-js/utils': 2.22.0
+      '@swc/helpers': 0.5.1
       '@types/jest': 26.0.24
       '@types/node': 14.18.48
       ts-node: 10.9.1_pjb5dpt6oone62sfqu77666kre
@@ -216,10 +216,10 @@ importers:
 
   packages/core:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@modern-js/module-tools': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
       '@modern-js/utils': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/jest': ^26.0.24
       '@types/node': ^14.18.42
       '@types/tar': ^4.0.5
@@ -227,8 +227,8 @@ importers:
       tar: ^6.1.13
       typescript: ^4.9.5
     dependencies:
-      '@babel/runtime': 7.22.3
       '@modern-js/utils': 2.22.0
+      '@swc/helpers': 0.5.1
       axios: 0.21.4
       tar: 6.1.15
     devDependencies:
@@ -241,11 +241,11 @@ importers:
 
   packages/easy-form/cli:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@modern-js/easy-form-core': workspace:1.8.0
       '@modern-js/module-tools': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
       '@modern-js/utils': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/inquirer': ^7.3.3
       '@types/jest': ^26.0.24
       '@types/node': ^14.18.42
@@ -253,9 +253,9 @@ importers:
       rxjs: ^7.8.0
       typescript: ^4.9.5
     dependencies:
-      '@babel/runtime': 7.22.3
       '@modern-js/easy-form-core': link:../core
       '@modern-js/utils': 2.22.0
+      '@swc/helpers': 0.5.1
       inquirer: 8.1.3
       rxjs: 7.8.1
     devDependencies:
@@ -268,16 +268,16 @@ importers:
 
   packages/easy-form/core:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@modern-js/module-tools': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/jest': ^26.0.24
       '@types/lodash': ^4.14.192
       '@types/node': ^14.18.42
       lodash: ^4.17.21
       typescript: ^4.9.5
     dependencies:
-      '@babel/runtime': 7.22.3
+      '@swc/helpers': 0.5.1
       lodash: 4.17.21
     devDependencies:
       '@modern-js/module-tools': 2.22.0_typescript@4.9.5
@@ -289,23 +289,23 @@ importers:
 
   packages/formily:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@formily/json-schema': ^2.2.24
       '@formily/validator': ^2.2.24
       '@modern-js/codesmith': workspace:*
       '@modern-js/module-tools': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
       '@modern-js/utils': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/inquirer': ^7.3.3
       '@types/jest': ^26.0.24
       '@types/node': ^14.18.42
       inquirer: ^8.2.5
       typescript: ^4.9.5
     dependencies:
-      '@babel/runtime': 7.22.3
       '@formily/json-schema': 2.2.24_typescript@4.9.5
       '@formily/validator': 2.2.24
       '@modern-js/utils': 2.22.0
+      '@swc/helpers': 0.5.1
       inquirer: 8.2.5
     devDependencies:
       '@modern-js/codesmith': link:../core
@@ -318,10 +318,10 @@ importers:
 
   packages/inquirer:
     specifiers:
-      '@babel/runtime': ^7.21.0
       '@modern-js/module-tools': ^2.22.0
       '@modern-js/plugin-testing': ^2.22.0
       '@modern-js/utils': ^2.22.0
+      '@swc/helpers': 0.5.1
       '@types/inquirer': ^7.3.3
       '@types/jest': ^26.0.24
       '@types/lodash': ^4.14.192
@@ -333,8 +333,8 @@ importers:
       rxjs: ^7.8.0
       typescript: ^4.9.5
     dependencies:
-      '@babel/runtime': 7.22.3
       '@modern-js/utils': 2.22.0
+      '@swc/helpers': 0.5.1
       cli-cursor: 3.1.0
       inquirer: 8.1.3
       lodash: 4.17.21
@@ -1778,6 +1778,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
+    dev: true
 
   /@babel/template/7.21.9:
     resolution: {integrity: sha512-MK0X5k8NKOuWRamiEfc3KEJiHMTkGZNUjzMipqCGDDc6ijRl/B7RGSKVGncu4Ro/HdyzzY6cmoXuKI2Gffk7vQ==}

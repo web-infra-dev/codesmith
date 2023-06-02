@@ -28,7 +28,7 @@
     "test": "modern test --passWithNoTests"
   },
   "dependencies": {
-    "@babel/runtime": "^7.21.0",
+    "@swc/helpers": "0.5.1",
     "@modern-js/utils": "^2.22.0",
     "cli-cursor": "^3.1.0",
     "inquirer": "8.1.3",

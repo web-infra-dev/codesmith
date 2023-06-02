@@ -32,7 +32,7 @@
     "test": "modern test --passWithNoTests"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.21.0",
+    "@swc/helpers": "0.5.1",
     "@modern-js/codesmith": "workspace:*",
     "@modern-js/module-tools": "^2.22.0",
     "@modern-js/plugin-i18n": "^2.22.0",

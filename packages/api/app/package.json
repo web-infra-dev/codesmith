@@ -28,7 +28,7 @@
     "test": "modern test --passWithNoTests"
   },
   "dependencies": {
-    "@babel/runtime": "^7.21.0",
+    "@swc/helpers": "0.5.1",
     "@modern-js/codesmith-api-ejs": "workspace:*",
     "@modern-js/codesmith-api-fs": "workspace:*",
     "@modern-js/codesmith-api-git": "workspace:*",

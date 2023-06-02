@@ -28,7 +28,7 @@
     "test": "modern test --passWithNoTests"
   },
   "dependencies": {
-    "@babel/runtime": "^7.21.0"
+    "@swc/helpers": "0.5.1"
   },
   "peerDependencies": {
     "@modern-js/codesmith": "workspace:^2.2.5"
