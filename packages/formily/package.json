@@ -28,10 +28,10 @@
     "test": "modern test"
   },
   "dependencies": {
-    "@babel/runtime": "^7.21.0",
+    "@swc/helpers": "0.5.1",
     "@formily/json-schema": "^2.2.24",
     "@formily/validator": "^2.2.24",
-    "@modern-js/utils": "^2.18.0",
+    "@modern-js/utils": "^2.22.0",
     "inquirer": "^8.2.5"
   },
   "peerDependencies": {
@@ -39,8 +39,8 @@
   },
   "devDependencies": {
     "@modern-js/codesmith": "workspace:*",
-    "@modern-js/module-tools": "^2.18.0",
-    "@modern-js/plugin-testing": "^2.18.0",
+    "@modern-js/module-tools": "^2.22.0",
+    "@modern-js/plugin-testing": "^2.22.0",
     "@types/inquirer": "^7.3.3",
     "@types/jest": "^26.0.24",
     "@types/node": "^14.18.42",
