@@ -2,7 +2,12 @@ import os from 'os';
 import path from 'path';
 import { fs } from '@modern-js/utils';
 import { canUseNvm, canUseNpm, canUseYarn } from '@/utils/env';
-import { npmInstall, yarnInstall, pnpmInstall } from '@/utils/install';
+import {
+  npmInstall,
+  yarnInstall,
+  pnpmInstall,
+  execaWithStreamLog,
+} from '@/utils/install';
 
 describe('Env utils cases', () => {
   test('can use nvm', async () => {
@@ -47,17 +52,20 @@ describe('Install cases', () => {
   });
   test('npm install', async () => {
     const result = await npmInstall({ cwd });
-    expect(result.exitCode).toBe(0);
+    expect(result?.exitCode).toBe(0);
     expect(fs.existsSync(path.join(cwd, 'node_modules', 'lodash'))).toBe(true);
   });
   test('yarn install', async () => {
+    if (!(await canUseYarn())) {
+      await execaWithStreamLog('npm', ['install', '-g', 'yarn'], {});
+    }
     const result = await yarnInstall({ cwd });
-    expect(result.exitCode).toBe(0);
+    expect(result?.exitCode).toBe(0);
     expect(fs.existsSync(path.join(cwd, 'node_modules', 'lodash'))).toBe(true);
   });
   test('pnpm install', async () => {
     const result = await pnpmInstall({ cwd });
-    expect(result.exitCode).toBe(0);
+    expect(result?.exitCode).toBe(0);
     expect(fs.existsSync(path.join(cwd, 'node_modules', 'lodash'))).toBe(true);
   });
 });
