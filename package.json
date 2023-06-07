@@ -79,7 +79,7 @@
   },
   "pnpm": {
     "overrides": {
-      "@modern-js/plugin-changeset": "2.22.1-beta.4"
+      "@modern-js/plugin-changeset": "2.22.1-beta.5"
     }
   }
 }

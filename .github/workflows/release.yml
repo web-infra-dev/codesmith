@@ -48,7 +48,7 @@ jobs:
         run: pnpm run prepare
 
       - name: Release
-        uses: web-infra-dev/actions@v2
+        uses: web-infra-dev/actions@feat-release-provenance
         with:
           # this expects you to have a script called release which does a build for your packages and calls changeset publish
           version: ${{ github.event.inputs.version }}

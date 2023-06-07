@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  '@modern-js/plugin-changeset': 2.22.1-beta.4
+  '@modern-js/plugin-changeset': 2.22.1-beta.5
 
 importers:
 
@@ -3019,7 +3019,7 @@ packages:
       '@modern-js/libuild-plugin-swc': 0.12.4(@swc/helpers@0.5.1)
       '@modern-js/new-action': 2.22.0(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@modern-js/plugin': 2.22.0(react-dom@18.2.0)(react@18.2.0)
-      '@modern-js/plugin-changeset': 2.22.1-beta.4(react-dom@18.2.0)(react@18.2.0)
+      '@modern-js/plugin-changeset': 2.22.1-beta.5(react-dom@18.2.0)(react@18.2.0)
       '@modern-js/plugin-i18n': 2.22.0(react-dom@18.2.0)(react@18.2.0)
       '@modern-js/plugin-lint': 2.22.0(react-dom@18.2.0)(react@18.2.0)
       '@modern-js/upgrade': 2.22.0(react-dom@18.2.0)(react@18.2.0)
@@ -3041,7 +3041,7 @@ packages:
       '@modern-js/core': 2.22.0(react-dom@18.2.0)(react@18.2.0)
       '@modern-js/new-action': 2.22.0(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@modern-js/plugin': 2.22.0(react-dom@18.2.0)(react@18.2.0)
-      '@modern-js/plugin-changeset': 2.22.1-beta.4(react-dom@18.2.0)(react@18.2.0)
+      '@modern-js/plugin-changeset': 2.22.1-beta.5(react-dom@18.2.0)(react@18.2.0)
       '@modern-js/plugin-i18n': 2.22.0(react-dom@18.2.0)(react@18.2.0)
       '@modern-js/plugin-lint': 2.22.0(react-dom@18.2.0)(react@18.2.0)
       '@modern-js/upgrade': 2.22.0(react-dom@18.2.0)(react@18.2.0)
@@ -3088,8 +3088,8 @@ packages:
       - react-dom
     dev: true
 
-  /@modern-js/plugin-changeset@2.22.1-beta.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-p+LLVU+ncixBkR/W+b7bnz/79TGJbcEdnFFtXeHpoYIT//75UF6AAR8UhpZaHm+VvoW7U0w6NzyrpdiUevj8DQ==}
+  /@modern-js/plugin-changeset@2.22.1-beta.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-j5636cUFEbHMMBDAgAy8A2qqGCPEW2lV8uSGrhI6YhYkW05Ln9Vb9HOThqVb2UOLvKtcsT1JtTQ1FSwwe/y/aA==}
     dependencies:
       '@changesets/cli': 2.26.1
       '@changesets/git': 1.5.0
