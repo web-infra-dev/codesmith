@@ -29,8 +29,8 @@ jobs:
         run: git config --global user.email "modern@bytedance.com" && git config --global user.name "modern"
 
       # Runs a single command using the runners shell
-      - name: install pnpm
-        run: npm i -g pnpm@8
+      - name: Install Pnpm
+        run: corepack enable
 
       - name: install
         run: pnpm i --ignore-scripts
