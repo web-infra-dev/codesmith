@@ -30,7 +30,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: install pnpm
-        run: npm i -g pnpm@7.29.1
+        run: npm i -g pnpm@8
 
       - name: install
         run: pnpm i --ignore-scripts

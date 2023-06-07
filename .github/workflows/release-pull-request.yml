@@ -27,7 +27,7 @@ jobs:
           fetch-depth: 100
 
       - name: Install Pnpm
-        run: npm install -g pnpm@7
+        run: npm install -g pnpm@8
 
       - name: Setup Node.js 16
         uses: actions/setup-node@v3
