@@ -39,11 +39,15 @@ jobs:
       - name: Install Pnpm
         run: corepack enable
 
-      - name: Setup Node.js 16
+      - name: Setup Node.js 18
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
           cache: 'pnpm'
+
+      - run: npm install -g npm
+      - run: npm -v
+      - run: pnpm -v
 
       - name: Install Dependencies
         run: pnpm install --ignore-scripts
