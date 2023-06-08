@@ -18,7 +18,8 @@
   "module": "./dist/esm/index.js",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "scripts": {
     "prepare": "pnpm build",
