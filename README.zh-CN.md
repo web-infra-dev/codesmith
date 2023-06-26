@@ -14,18 +14,18 @@
   <img src="https://img.shields.io/npm/l/@modern-js/codesmith?style=flat-square&color=00a8f0" alt="License" />
 </p>
 
-English | [简体中文](./README.zh-CN.md)
+[English](./README.md) | 简体中文
 
-## Contributing
+## 参与贡献
 
-> New contributors welcome!
+> 欢迎参与 CodeSmith 贡献！
 
-Please read the [Contributing Guide](https://github.com/web-infra-dev/codesmith/blob/main/CONTRIBUTING.md).
+请阅读 [贡献指南](https://github.com/web-infra-dev/codesmith/blob/main/CONTRIBUTING.md) 来共同参与 CodeSmith 的建设。
 
-### Code of Conduct
+### 行为准则
 
-This repo has adopted the Bytedance Open Source Code of Conduct. Please check [Code of Conduct](./CODE_OF_CONDUCT.md) for more details.
+本仓库采纳了字节跳动的开源项目行为准则。请点击 [行为准则](./CODE_OF_CONDUCT.md) 查看更多的信息。
 
 ## License
 
-Modern.js is [MIT licensed](https://github.com/web-infra-dev/codesmith/blob/main/LICENSE).
+CodeSmith 项目基于 [MIT 协议](https://github.com/web-infra-dev/codesmith/blob/main/LICENSE)，请自由地享受和参与开源。
