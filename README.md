@@ -16,6 +16,22 @@
 
 English | [简体中文](./README.zh-CN.md)
 
+## Introduce
+
+CodeSmith is a code generation tool that uses the concept of micro-generators to complete the entire code generation process.
+
+Traditional scaffolding usually provides project-level generators based on templates, which are used once and then discarded. After generating the project, they do not help with subsequent business iterations.
+
+Micro-generators focus on the entire lifecycle of the project. They can generate file modules of various granularities and types in the project (such as entry, component, model, etc.), and can also generate abstract business logic (which may not create new files, but automatically refactor existing files). Micro-generators are not one-time tools used only when creating projects, but a toolbox that accompanies the project's subsequent iterative process.
+
+[`@modern-js/create`](https://www.npmjs.com/package/@modern-js/create) is based on CodeSmith and dynamically generates different initial files and codes or modifies and restructures existing files and codes based on different micro-generators loaded on demand during the Q&A process.
+
+The new command provided by Modern.js is also based on CodeSmith and is used to create project elements and enable functions during the project development process.
+
+## Quick Start
+
+Please read the [Quick Start](./document/en/start.md) to create a CodeSmith project.
+
 ## Contributing
 
 > New contributors welcome!
