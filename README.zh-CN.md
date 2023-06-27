@@ -20,7 +20,7 @@
 
 > 欢迎参与 CodeSmith 贡献！
 
-请阅读 [贡献指南](https://github.com/web-infra-dev/codesmith/blob/main/CONTRIBUTING.md) 来共同参与 CodeSmith 的建设。
+请阅读 [贡献指南](https://github.com/web-infra-dev/codesmith/blob/main/CONTRIBUTING.zh-CN.md) 来共同参与 CodeSmith 的建设。
 
 ### 行为准则
 
