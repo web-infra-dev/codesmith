@@ -1,5 +1,7 @@
 # FS API
 
+English | [简体中文](../../zh/api/fs.md)
+
 The FS API is provided by the `@modern-js/codesmith-api-fs` package, which provides methods for rendering single files and folders.
 
 ## Usage

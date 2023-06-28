@@ -1,5 +1,7 @@
 # 快速上手
 
+[English](../en/start.md) | 简体中文
+
 ## 创建项目
 
 ```bash

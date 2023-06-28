@@ -1,5 +1,7 @@
 # Concepts
 
+English | [简体中文](../zh/concept.md)
+
 Micro-generators will export a function by default, and the function takes `context` and `generator` as parameters. During the execution of the micro-generator, they will be automatically injected into the micro-generator.
 
 ```ts

@@ -1,5 +1,7 @@
 # API
 
+English | [简体中文](../../zh/api/index.md)
+
 CodeSmith API is provided by different NPM packages, and you can install different dependencies according to your needs to use the API.
 
 - [App API](./app.md)

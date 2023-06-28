@@ -1,5 +1,7 @@
 # JSON API
 
+English | [简体中文](../../zh/api/json.md)
+
 The JSON API is provided by the `@modern-js/codesmith-api-json` package, which provides methods for obtaining JSON file content, updating JSON files, etc.
 
 ## Usage

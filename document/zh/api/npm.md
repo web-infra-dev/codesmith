@@ -1,5 +1,7 @@
 # NPM API
 
+[English](../../zh/api/npm.md) | 简体中文
+
 NPM API 是由 `@modern-js/codesmith-api-npm` 包提供，该包提供了不同的包管理工具安装依赖的方法。
 
 ## 使用姿势

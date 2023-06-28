@@ -1,5 +1,7 @@
 # Quick Start
 
+English | [简体中文](../zh/start.md)
+
 ## Create Project
 
 ```bash

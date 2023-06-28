@@ -1,5 +1,7 @@
 # Git API
 
+English | [简体中文](../../zh/api/git.md)
+
 The Git API is provided by the `@modern-js/codesmith-api-git` package, which provides methods for initializing Git repositories, committing Git commits, etc.
 
 ## Usage

@@ -1,5 +1,7 @@
 # NPM API
 
+English | [简体中文](../../zh/api/npm.md)
+
 The NPM API is provided by the `@modern-js/codesmith-api-npm` package, which provides methods for installing dependencies using different package managers.
 
 ## Usage

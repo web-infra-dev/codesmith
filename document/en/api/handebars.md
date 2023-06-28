@@ -1,5 +1,7 @@
 # Handlebars API
 
+English | [简体中文](../../zh/api/handelbars.md)
+
 The Handlebars API is provided by the `@modern-js/codesmith-api-handlebars` package, which provides methods for rendering single files and folders using [Handlebars](https://handlebarsjs.com/).
 
 ## Usages

@@ -1,5 +1,7 @@
 # EJS API
 
+[English](../../zh/api/ejs.md) | 简体中文
+
 EJS API 是由 `@modern-js/codesmith-api-ejs` 包提供，该包提供了使用 [EJS](https://ejs.co/) 渲染单个文件及文件夹方法。
 
 ## 使用姿势

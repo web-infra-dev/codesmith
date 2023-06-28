@@ -1,5 +1,7 @@
 # EJS API
 
+English | [简体中文](../../zh/api/ejs.md)
+
 The EJS API is provided by the `@modern-js/codesmith-api-ejs` package, which provides methods for rendering single files and folders using [EJS](https://ejs.co/).
 
 ## Usage

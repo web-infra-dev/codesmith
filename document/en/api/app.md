@@ -1,5 +1,7 @@
 # App API
 
+English | [简体中文](../../zh/api/app.md)
+
 The App API is provided by the `@modern-js/codesmith-api-app` package and encapsulates commonly used APIs in the micro-generator development process, including batch file operations, git and NPM combination operations, etc.
 
 > When meeting the requirements, it is recommended to use the App API.
