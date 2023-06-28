@@ -1,5 +1,7 @@
 # Input
 
+English | [简体中文](../../zh/api/input.md)
+
 Each customized template provides a way to interact with users through Input, which is defined using JSON Schema:
 
 For example:

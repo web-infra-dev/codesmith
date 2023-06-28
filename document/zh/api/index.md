@@ -1,6 +1,6 @@
 # API
 
-[English](../../zh/api/index.md) | 简体中文
+[English](../../en/api/index.md) | 简体中文
 
 CodeSmith API 是由不同的 NPM 包提供的，可根据需求安装不同的依赖去使用对应的 API。
 

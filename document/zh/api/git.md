@@ -1,6 +1,6 @@
 # Git API
 
-[English](../../zh/api/git.md) | 简体中文
+[English](../../en/api/git.md) | 简体中文
 
 Git API 由 `@modern-js/codesmith-api-git` 包提供，该包提供了初始化 Git 仓库，提交 Git commit 等方法。
 
