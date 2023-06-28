@@ -1,5 +1,17 @@
 # @modern-js/inquirer-types
 
+## 2.2.6
+
+### Patch Changes
+
+- de1d271: feat: bump modern dependencies version
+
+  fea: 升级 modern 依赖版本
+
+- eb5ec83: chore: publishConfig add provenance config
+
+  chore: publishConfig 增加 provenance 配置
+
 ## 2.2.5
 
 ## 2.2.4
