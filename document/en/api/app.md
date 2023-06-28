@@ -55,7 +55,7 @@ getInputBySchema(
 ): Promise<Record<string, any>>;
 ```
 
-- `schema`: A list of questions that supports [Formily Schema](/guide/custom/input.html) and [inquirer Question](https://www.npmjs.com/package/inquirer).
+- `schema`: A list of questions that supports [Formily Schema](./input.md) and [inquirer Question](https://www.npmjs.com/package/inquirer).
 - `type`: The type of Schema, which is set to Formily Schema by default.
 - `configValue`: The default value of the schema. If this value is passed in, the question corresponding to the schema field will no longer interact with the user.
 - `validateMap`: Validation function for special fields in the schema.
@@ -85,7 +85,7 @@ getInputBySchemaFunc: (
 ) => Promise<Record<string, any>>;
 ```
 
-- `schemaFunc`: A function that returns a list of questions, with the current micro-generator config value as its parameter, and [Formily Schema](/guide/custom/input.html) as its return value.
+- `schemaFunc`: A function that returns a list of questions, with the current micro-generator config value as its parameter, and [Formily Schema](./input.md) as its return value.
 
 The other parameters are the same as those of `getInputBySchema`. This method can be used in scenarios where the Schema needs to be dynamically calculated based on the config.
 

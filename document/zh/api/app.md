@@ -55,7 +55,7 @@ getInputBySchema(
 ): Promise<Record<string, any>>;
 ```
 
-- `schema`：问题列表，支持 [Formily Schema](/guide/custom/input.html) 和 [inquirer Question](https://www.npmjs.com/package/inquirer)。
+- `schema`：问题列表，支持 [Formily Schema](./input.md) 和 [inquirer Question](https://www.npmjs.com/package/inquirer)。
 - `type`：Schema 类型，默认为 Formily Schema。
 - `configValue`：schema 默认值，传入该值的 schema 字段对应的问题将不再和用户交互。
 - `validateMap`： schema 中特殊字段的验证函数。

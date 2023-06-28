@@ -15,7 +15,7 @@ export default async (context: GeneratorContext, generator: GeneratorCore) => {
     query: {},
     update: {
       $set: {
-        'dependencies.@edenx/plugin-bff': `^2.0.0`,
+        'dependencies.@modern-js/plugin-bff': `^2.0.0`,
       },
     },
   });
