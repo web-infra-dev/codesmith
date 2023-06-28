@@ -1,5 +1,7 @@
 # Input
 
+[English](../../en/api/input.md) | 简体中文
+
 每个定制化模板都提供了 Input 的方式完成与用户的问题交互，使用 JSON Schema 的方式进行定义：
 
 例如：

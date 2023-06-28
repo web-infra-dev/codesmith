@@ -1,6 +1,6 @@
 # FS API
 
-[English](../../zh/api/fs.md) | 简体中文
+[English](../../en/api/fs.md) | 简体中文
 
 FS API 是由 `@modern-js/codesmith-api-fs` 包提供，该包提供了渲染单个文件及文件夹方法。
 

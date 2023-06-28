@@ -1,6 +1,6 @@
 # JSON API
 
-[English](../../zh/api/json.md) | 简体中文
+[English](../../en/api/json.md) | 简体中文
 
 JSON API 是由 `@modern-js/codesmith-api-json` 包提供，该包提供了获取 JSON 文件内容，更新 JSON 文件等方法。
 

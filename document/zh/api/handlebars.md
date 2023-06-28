@@ -1,6 +1,6 @@
 # Handlebars API
 
-[English](../../zh/api/handlebars.md) | 简体中文
+[English](../../en/api/handlebars.md) | 简体中文
 
 Handlebars API 是由 `@modern-js/codesmith-api-handlebars` 包提供，该包提供了使用 [Handlebars](https://handlebarsjs.com/) 渲染单个文件及文件夹方法。
 
