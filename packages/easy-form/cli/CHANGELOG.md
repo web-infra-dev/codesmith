@@ -1,5 +1,21 @@
 # @modern-js/easy-form-cli
 
+## 1.8.1
+
+### Patch Changes
+
+- de1d271: feat: bump modern dependencies version
+
+  fea: 升级 modern 依赖版本
+
+- eb5ec83: chore: publishConfig add provenance config
+
+  chore: publishConfig 增加 provenance 配置
+
+- Updated dependencies [de1d271]
+- Updated dependencies [eb5ec83]
+  - @modern-js/easy-form-core@1.8.1
+
 ## 1.8.0
 
 ### Minor Changes
