@@ -28,9 +28,11 @@ Micro-generators focus on the entire lifecycle of the project. They can generate
 
 The new command provided by Modern.js is also based on CodeSmith and is used to create project elements and enable functions during the project development process.
 
-## Quick Start
+## Document
 
-Please read the [Quick Start](./document/en/start.md) to create a CodeSmith project.
+- [Quick Start](./document/en/start.md)
+- [Concepts](./document/en/concept.md)
+- [API](./document/en/api/index.md)
 
 ## Contributing
 

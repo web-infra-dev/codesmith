@@ -168,6 +168,6 @@ await generator.runSubGenerator('@modern-js/generator-generator', 'apps', contex
 await generator.runSubGenerator('<path>/generator-generator', 'apps', context.config);
 ```
 
-除了 context 和 generator 参数，CodeSmith 还提供了很多 API 用于完成生成器开发，详细可查看 [API](./api.md)。
+除了 `context` 和 `generator` 参数，CodeSmith 还提供了很多 API 用于完成生成器开发，详细可查看 [API](./api/index.md)。
 
 > 微生成器中添加依赖需要放到 `devDependencies` 中，对应构建脚本会自动对依赖进行打包处理。

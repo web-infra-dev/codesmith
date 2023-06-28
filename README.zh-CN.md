@@ -28,9 +28,11 @@ CodeSmith 是一个代码生成工具，使用微生成器的理念来完成整�
 
 Modern.js 提供的 `new` 命令也是基于 CodeSmith 实现的，用于项目开发过程中新建项目元素、开启功能等。
 
-## 快速上手
+## 文档
 
-请阅读 [快速上手](./document/zh/start.md) 创建一个 CodeSmith 项目。
+- [快速上手](./document/zh/start.md)
+- [核心概念](./document/zh/concept.md)
+- [API](./document/zh/api/index.md)
 
 ## 参与贡献
 
