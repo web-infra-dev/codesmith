@@ -140,7 +140,7 @@ const smith = new CodeSmith({
 
 > debug 为 true 时将开发 Debug 模式，会打印对应的 debug 日志。
 
-- 调用 forge 方法运行微生成器#
+- 调用 forge 方法运行微生成器
 
 ```ts
 const smith = new CodeSmith({

@@ -1,18 +1,18 @@
-# 快速上手
+# Quick Start
 
-## 创建项目
+## Create Project
 
 ```bash
 mkdir generator-demo && cd generator demo
 npx @modern-js/codesmith-cli@latest @modern-js/generator-generator
-? 请填写项目名称 generator-demo
-? 请选择包管理工具 pnpm
-? 请选择开发语言 TS
+? Please fill in the project name: generator-demo
+? Please select the package manager: pnpm
+? Please select the programming language: TS
 ```
 
-## 目录结构
+## Project Structure
 
-创建完成后的项目目录结构
+After creating, we can take a look at the directory structure of this project:
 
 ```bash
 .
@@ -39,7 +39,7 @@ npx @modern-js/codesmith-cli@latest @modern-js/generator-generator
 └── tsconfig.json
 ```
 
-项目是基于 [Modern.js 模块项目](https://modernjs.dev/module-tools) 创建的，核心是下面几个文件：
+The project is based on the [Modern.js Module](https://modernjs.dev/module-tools/en) project, and the core files are as follows:
 
 ```bash
 .
@@ -49,9 +49,9 @@ npx @modern-js/codesmith-cli@latest @modern-js/generator-generator
 │   └── .gitkeep
 ```
 
-### src/index.ts
+## src/index.ts
 
-该文件用于完成微生成器的内容开发。
+This file is used to complete the content development of the micro generator.
 
 ```ts
 import { GeneratorContext, GeneratorCore } from '@modern-js/codesmith';
@@ -86,49 +86,51 @@ export default async (context: GeneratorContext, generator: GeneratorCore) => {
 };
 ```
 
-该文件默认导出一个函数，函数参数为 `context` 和 `generator`。`context` 上提供了微生成器运行的一些上下文信息，`generator` 上提供了一些生成器运行的工具和方法。
+This file exports a function by default, and the function takes `context` and `generator` as parameters. The `context` object provides some context information during the execution of the micro-generator, and the `generator` object provides some tools and methods for the execution of the generator.
 
-### templates
+## templates
 
-`templates` 目录存在当前微生成器的模板文件，支持 Handlebars 和 EJS 格式，微生成器提供了对应操作不同类型文件的 API。
+The `templates` directory contains template files for the current customization method, supporting [Handlebars](https://handlebarsjs.com/) and [EJS](https://ejs.co/) formats. Different rendering engines will be used for rendering according to the template file suffix. If there is no suffix, the template file will be copied directly to the target directory.
 
-如果模板文件为 `js`、`ts` 或者 `json` 文件，推荐直接使用 `.handlebars` 或者 `.ejs` 后缀，可避免项目 eslint 报错和在 Monorepo 中项目识别问题。
+If the template file is a `js`, `ts`, or `json` file, it is recommended to use the `.handlebars` or `.ejs` suffix directly to avoid project eslint errors and recognition issues in Monorepo projects.
 
-模板中 `.gitignore` 文件和 `.npmrc` 文件在发布 npm 包时会自动删除，需要使用 `.handlebars` 或者 `.ejs` 后缀将其保留。
+The `.gitignore` and `.npmrc` files in the template will be automatically deleted when publishing the npm package, so it is necessary to use the `.handlebars` or `.ejs` suffix to keep them.
 
-## 使用
+## Usage
 
-### 命令行运行
+### Using with command line
 
-CodeSmith 提供了 CLI 工具用于直接运行微生成器，支持两种格式：
+CodeSmith provides a CLI tool for running micro-generators directly.
 
-- 绝对路径
+`@modern-js/codesmith-cli` supports two formats:
 
-适用于本地开发调试，开发完成后，在微生成器执行 npm run build 构建项目，然后使用下面命令即可进行测试。
+- Absolute path
+
+Suitable for local development and debugging. After development is completed, build the project by executing `npm run build` in the micro-generator, and then use the following command for testing.
 
 ```bash
 npx @modern-js/codesmith-cli@latest <generatorPath>
 ```
 
-- npm 包
+- Npm package
 
-适用于微生成器发布于 bnpm 上，共享微生成器场景。
+Suitable for micro-generators published on `bnpm` to share micro-generator scenarios.
 
 ```bash
 npx @modern-js/codesmith-cli@latest <generatorPackage>
 ```
 
-### 使用 JS 执行
+### Using with JS
 
-除了使用 CLI 的方式执行微生成器，CodeSmith 还支持在代码中执行微生成器。
+In addition to using the CLI to execute micro-generators, CodeSmith also supports executing micro-generators in code.
 
-- 安装 CodeSmith 依赖
+- Install CodeSmith dependencies
 
 ```bash
 pnpm add @modern-js/codesmith
 ```
 
-- 创建 CodeSmith 实例
+- Create a CodeSmith instance
 
 ```ts
 import { CodeSmith } from '@modern-js/codesmith';
@@ -138,9 +140,9 @@ const smith = new CodeSmith({
 });
 ```
 
-> debug 为 true 时将开发 Debug 模式，会打印对应的 debug 日志。
+> When `debug` is `true`, it will enable debug mode for development and print corresponding debug logs.
 
-- 调用 forge 方法运行微生成器#
+- Call the `forge` method to run the micro-generator
 
 ```ts
 const smith = new CodeSmith({

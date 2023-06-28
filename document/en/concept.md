@@ -1,6 +1,6 @@
-# 核心概念
+# Concepts
 
-微生成器默认会导出一个函数，函数的参数为 `context` 和 `generator`，在微生成器执行过程中，它们会自动注入到微生成器中。
+Micro-generators will export a function by default, and the function takes `context` and `generator` as parameters. During the execution of the micro-generator, they will be automatically injected into the micro-generator.
 
 ```ts
 import { GeneratorContext, GeneratorCore } from '@modern-js/codesmith';
@@ -14,7 +14,7 @@ export default async (context: GeneratorContext, generator: GeneratorCore) => {
 
 ## Context
 
-context 上提供了微生成器运行过程中的上下文信息，其类型定义为：
+`context` provides context information during the execution of the micro-generator, and its type definition is as follows:
 
 ```ts
 export interface GeneratorContext {
@@ -27,11 +27,11 @@ export interface GeneratorContext {
 
 ### materials
 
-`materials` 是 CodeSmith 的文件抽象系统，当微生成器运行时，从这里可以获取到当前执行的微生成器的模板文件及目标项目文件，并对它们进行操作。
+`materials` is the file abstraction system of CodeSmith. When the micro-generator runs, it can obtain the template files and target project files of the current micro-generator from here and operate on them.
 
-`materials` 的 key 为微生成器的名称及版本，比如 `@modern-js/generator-generator@3.1.25`，当执行本地生成器时，为 `generator-demo@local`。
+The key of `materials` is the name and version of the micro-generator, such as `@modern-js/generator-generator@3.1.25`. When executing a local generator, it is `generator-demo@local`.
 
-`materials` 的 value 为 `FsMaterial`，其类型为：
+The value of `materials` is `FsMaterial`, and its type is:
 
 ```ts
 interface FsResource {
@@ -56,21 +56,21 @@ interface FsMaterial {
 }
 ```
 
-通过 `FsMaterial` 提供的 `get` 和 `find` 方法可以获取微生成器的模板文件。例如：
+The `get` and `find` methods provided by `FsMaterial` can be used to obtain the template files of the micro-generator. For example:
 
 ```ts
 const material = context.materials['generator-demo@local'];
 const content = (await material.get('package.json').value()).content;
 ```
 
-`materials` 上还提供了一个特殊的 key -- default，用于获取目标项目的文件资源，用于对目标项目进行文件操作。
+`materials` also provides a special key - `default`, which is used to obtain file resources of the target project and operate on the target project files.
 
 ```ts
 const content = (await context.materials.default.get('package.json').value())
   .content;
 ```
 
-当只需要目标项目根路径时：
+When only the root path of the target project is needed:
 
 ```ts
 const appDir = context.materials.default.basePath;
@@ -78,7 +78,7 @@ const appDir = context.materials.default.basePath;
 
 ### current
 
-用于存放当前正在执行的微生成器的文件信息，可以快速的获取到当前微生成器相关文件路径，其类型为：
+Used to store the file information of the micro-generator being executed, it can quickly obtain the relevant file paths of the current micro-generator, and its type is:
 
 ```ts
 export interface RuntimeCurrent {
@@ -86,7 +86,7 @@ export interface RuntimeCurrent {
 }
 ```
 
-上述获取 `generator-demo` 的 `package.json` 文件，可以通过下面方式快速获取：
+The `package.json` file of `generator-demo` can be quickly obtained in the following way:
 
 ```ts
 const { material } = this.generatorContext.current;
@@ -95,11 +95,11 @@ const content = (await material.get('package.json').value()).content;
 
 ### config
 
-用于存放微生成器执行时的 config 配置，该配置在微生成器执行过程中可以通过 context.config 获取到。
+Used to store the `config` configuration when the micro-generator is executed. This configuration can be obtained through `context.config` during the execution of the micro-generator.
 
 ## Generator
 
-`generator` 提供了微生成器运行时一些工具和方法，其类型定义为：
+`generator` provides some tools and methods during the execution of the micro-generator, and its type definition is as follows:
 
 ```ts
 interface GeneratorCore {
@@ -111,7 +111,7 @@ interface GeneratorCore {
 
 ### logger
 
-logger 上提供了打印日志的函数，支持 `info`、`warn`、`error`、`debug` 等多种类型。其类型定义为：
+`logger` provides functions for printing logs, supports multiple types such as `info`, `warn`, `error`, `debug`, etc., and its type definition is as follows:
 
 ```ts
 export declare enum LoggerLevel {
@@ -132,42 +132,42 @@ export interface ILogger {
 }
 ```
 
-当使用 `generator.logger.xx` 调用 loggger 函数时，会自动在提交的信息前面加上对应的类型信息，例如：
+When using `generator.logger.xx` to call the logger function, the corresponding type information will be automatically added in front of the submitted information, for example:
 
 ```ts
-generator.logger.info('创建成功');
+generator.logger.info('Success!');
 ```
 
-对应执行后会展示为：
+It will be displayed as:
 
 ```bash
-[INFO] 创建成功
+[INFO] Success!
 ```
 
-默认情况下，CodeSmith 执行时只会展示 `info`、`warn`、`error` 信息，在 debug 模式下会展示 debug 信息，使用 debug 日志可以用于开发调试及错误排查。
+By default, only `info`, `warn`, and `error` information will be displayed when CodeSmith is executed. Debug information will be displayed in debug mode. Using debug logs can be used for development debugging and error troubleshooting.
 
 ### outputPath
 
-微生成器执行的输出路径，也就是目标项目的路径，和 `context.materials.default.basePath` 指向同一个路径。
+The output path of the micro-generator execution, which is the path of the target project, is the same as `context.materials.default.basePath`.
 
-> `context.materials.default.basePath` 通常用于获取目标项目的文件资源，`generator.outputPath` 通常用于直接操作目标文件。
+> `context.materials.default.basePath` is usually used to obtain file resources of the target project, and `generator.outputPath` is usually used to directly operate on target files.
 
 ### runSubGenerator
 
-运行子微生成器方法。该方法支持在当前微生成器中调用其他微生成器，`subGenerator` 需要使用对应微生成器的 npm 包名或者绝对路径，`relativePwdPath` 为子微生成器执行的目标路径(相对于当前微生成器)。
+Method for running sub-micro-generators. This method supports calling other micro-generators in the current micro-generator. `subGenerator` needs to use the npm package name or absolute path of the corresponding micro-generator, and `relativePwdPath` is the target path (relative to the current micro-generator) where the sub-micro-generator will be executed.
 
-例如：
+For example:
 
 ```ts
 await generator.runSubGenerator('@modern-js/generator-generator', 'apps', context.config);
 ```
 
-或者
+OR
 
 ```ts
 await generator.runSubGenerator('<path>/generator-generator', 'apps', context.config);
 ```
 
-除了 context 和 generator 参数，CodeSmith 还提供了很多 API 用于完成生成器开发，详细可查看 [API](./api.md)。
+In addition to the `context` and `generator` parameters, CodeSmith also provides many APIs for completing generator development. For details, please refer to [API](./api/index.md).
 
-> 微生成器中添加依赖需要放到 `devDependencies` 中，对应构建脚本会自动对依赖进行打包处理。
+> Adding dependencies in micro-generators needs to be placed in `devDependencies`. The corresponding build script will automatically package the dependencies.

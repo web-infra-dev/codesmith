@@ -2,9 +2,7 @@
 
 App API 由 `@modern-js/codesmith-api-app` 包提供，是对微生成器开发过程中常用的 API 进行的封装，包括批量文件操作，git 和 NPM 组合操作等。
 
-:::info
-在满足需求时，推荐使用 App API。
-:::
+> 在满足需求时，推荐使用 App API。
 
 ## 使用姿势
 
@@ -61,9 +59,7 @@ getInputBySchema(
 - `validateMap`： schema 中特殊字段的验证函数。
 - `initValue`：schema 中字段的初始化值。
 
-:::info
-Schema 值在完成交互后会自动合并入微生成器 config 中。
-:::
+> Schema 值在完成交互后会自动合并入微生成器 config 中。
 
 ### getInputBySchemaFunc
 
