@@ -97,7 +97,13 @@ export class AppAPI {
     }
     let intallPromise;
     if (command) {
-      intallPromise = execa(command, [], { shell: true });
+      intallPromise = execa(command, [], {
+        shell: true,
+        stdin: 'inherit',
+        stdout: 'inherit',
+        stderr: 'inherit',
+        ...(options || {}),
+      });
     } else if (packageManager === 'pnpm') {
       intallPromise = this.npmApi.pnpmInstall({ ...(options || {}), useNvm });
     } else if (packageManager === 'yarn') {
@@ -327,7 +333,6 @@ export class AppAPI {
     configValue: Record<string, unknown> = {},
     validateMap: Record<
       string,
-      // eslint-disable-next-line max-lines
       (
         input: unknown,
         data?: Record<string, unknown>,
