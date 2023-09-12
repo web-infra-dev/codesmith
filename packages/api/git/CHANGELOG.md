@@ -1,5 +1,12 @@
 # @modern-js/codesmith-api-git
 
+## 2.2.7
+
+### Patch Changes
+
+- Updated dependencies [4844d9d]
+  - @modern-js/codesmith@2.2.7
+
 ## 2.2.6
 
 ### Patch Changes

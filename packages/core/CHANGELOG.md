@@ -1,5 +1,13 @@
 # @modern-js/codesmith
 
+## 2.2.7
+
+### Patch Changes
+
+- 4844d9d: feat: downloadAndDecompressTargz function support electron env
+
+  feat: downloadAndDecompressTargz 函数支持 electron 环境
+
 ## 2.2.6
 
 ### Patch Changes
