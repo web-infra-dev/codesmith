@@ -97,7 +97,7 @@ export class AppAPI {
     }
     let intallPromise;
     if (command) {
-      intallPromise = execa(command);
+      intallPromise = execa(command, [], { shell: true });
     } else if (packageManager === 'pnpm') {
       intallPromise = this.npmApi.pnpmInstall({ ...(options || {}), useNvm });
     } else if (packageManager === 'yarn') {
