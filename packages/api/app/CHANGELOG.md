@@ -1,5 +1,22 @@
 # @modern-js/codesmith-api-app
 
+## 2.2.7
+
+### Patch Changes
+
+- b0630e1: fix: custom install params
+
+  fix: 修复自定义 install 命令参数问题
+
+- Updated dependencies [4844d9d]
+  - @modern-js/codesmith@2.2.7
+  - @modern-js/codesmith-api-ejs@2.2.7
+  - @modern-js/codesmith-api-fs@2.2.7
+  - @modern-js/codesmith-api-git@2.2.7
+  - @modern-js/codesmith-api-handlebars@2.2.7
+  - @modern-js/codesmith-api-npm@2.2.7
+  - @modern-js/codesmith-formily@2.2.7
+
 ## 2.2.6
 
 ### Patch Changes
