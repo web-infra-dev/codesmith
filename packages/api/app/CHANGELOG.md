@@ -1,5 +1,21 @@
 # @modern-js/codesmith-api-app
 
+## 2.2.8
+
+### Patch Changes
+
+- 80b23b0: feat: custom install support show log
+
+  feat: 自定义安装命令支持展示日志信息
+
+  - @modern-js/codesmith-api-ejs@2.2.8
+  - @modern-js/codesmith-api-fs@2.2.8
+  - @modern-js/codesmith-api-git@2.2.8
+  - @modern-js/codesmith-api-handlebars@2.2.8
+  - @modern-js/codesmith-api-npm@2.2.8
+  - @modern-js/codesmith@2.2.8
+  - @modern-js/codesmith-formily@2.2.8
+
 ## 2.2.7
 
 ### Patch Changes
