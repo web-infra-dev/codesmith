@@ -1,5 +1,16 @@
 # @modern-js/easy-form-cli
 
+## 1.9.0
+
+### Minor Changes
+
+- 562a50f: feat: upgrade modern version && update module output path
+
+### Patch Changes
+
+- Updated dependencies [562a50f]
+  - @modern-js/easy-form-core@1.9.0
+
 ## 1.8.1
 
 ### Patch Changes

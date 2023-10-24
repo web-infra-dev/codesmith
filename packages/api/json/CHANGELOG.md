@@ -1,5 +1,16 @@
 # @modern-js/codesmith-api-json
 
+## 2.3.0
+
+### Minor Changes
+
+- 562a50f: feat: upgrade modern version && update module output path
+
+### Patch Changes
+
+- Updated dependencies [562a50f]
+  - @modern-js/codesmith@2.3.0
+
 ## 2.2.8
 
 ### Patch Changes

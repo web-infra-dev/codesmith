@@ -1,5 +1,22 @@
 # @modern-js/codesmith-api-app
 
+## 2.3.0
+
+### Minor Changes
+
+- 562a50f: feat: upgrade modern version && update module output path
+
+### Patch Changes
+
+- Updated dependencies [562a50f]
+  - @modern-js/codesmith-api-ejs@2.3.0
+  - @modern-js/codesmith-api-fs@2.3.0
+  - @modern-js/codesmith-api-git@2.3.0
+  - @modern-js/codesmith-api-handlebars@2.3.0
+  - @modern-js/codesmith-api-npm@2.3.0
+  - @modern-js/codesmith@2.3.0
+  - @modern-js/codesmith-formily@2.3.0
+
 ## 2.2.8
 
 ### Patch Changes
