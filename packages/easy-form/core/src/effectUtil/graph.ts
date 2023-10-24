@@ -91,7 +91,6 @@ export class Graph<T> {
   }
 
   printGraph() {
-    // eslint-disable-next-line no-console
     console.log('graph:', this.toString());
   }
 }

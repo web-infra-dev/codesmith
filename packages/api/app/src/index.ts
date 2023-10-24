@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { fs, execa, semver } from '@modern-js/utils';
 import { merge } from '@modern-js/utils/lodash';
 import { parse, stringify } from 'comment-json';

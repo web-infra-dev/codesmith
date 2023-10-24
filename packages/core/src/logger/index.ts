@@ -1,5 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable no-console */
 import { chalk } from '@modern-js/utils';
 import { ILogger, LevelPriority, LoggerLevel } from './constants';
 
