@@ -1,5 +1,11 @@
 # @modern-js/codesmith-cli
 
+## 2.3.0
+
+### Minor Changes
+
+- 562a50f: feat: upgrade modern version && update module output path
+
 ## 2.2.8
 
 ## 2.2.7
