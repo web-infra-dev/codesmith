@@ -1,5 +1,12 @@
 # @modern-js/codesmith
 
+## 2.3.1
+
+### Patch Changes
+
+- deb4a62: feat: add timing logger
+  feat: 增加时间日志
+
 ## 2.3.0
 
 ### Minor Changes
