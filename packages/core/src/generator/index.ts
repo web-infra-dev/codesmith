@@ -177,6 +177,7 @@ check path: ${chalk.blue.underline(
   }
 
   async loadGenerator(generator: string) {
+    this.logger.timing(`loadGenerator ${generator}`);
     let generatorPath = generator;
     if (generator.startsWith('file:')) {
       generatorPath = path.join(this.basePath, generator.slice(5));
@@ -189,6 +190,7 @@ check path: ${chalk.blue.underline(
       return {};
     }
     this.logger.debug('[runGenerator] task.generator loaded');
+    this.logger.timing(`loadGenerator ${generator}`, true);
 
     const generatorScript = nodeRequire(generatorPkg.basePath);
     if (typeof generatorScript !== 'function') {
@@ -208,6 +210,7 @@ check path: ${chalk.blue.underline(
   }
 
   async runGenerator(generator: string, config: Record<string, unknown> = {}) {
+    this.logger.timing(`runGenerator ${generator}`);
     const spinner = ora({
       text: 'Load Generator...',
       spinner: 'runner',
@@ -228,6 +231,7 @@ check path: ${chalk.blue.underline(
     this.setbasePath(this._context.current!.material.basePath!);
     await generatorScript(this._context, this);
     this.setCurrent(null);
+    this.logger.timing(`runGenerator ${generator}`, true);
   }
 
   async runSubGenerator(
@@ -235,6 +239,7 @@ check path: ${chalk.blue.underline(
     relativePwdPath = '',
     config?: Record<string, any>,
   ) {
+    this.logger.timing(`runSubGenerator ${subGenerator}`);
     const spinner = ora({
       text: 'Load Generator...',
       spinner: 'runner',
@@ -268,5 +273,6 @@ check path: ${chalk.blue.underline(
     await generatorScript(subContext, this);
     this.setOutputPath(preOutputPath);
     this.setbasePath(preBasePath);
+    this.logger.timing(`runSubGenerator ${subGenerator}`, true);
   }
 }

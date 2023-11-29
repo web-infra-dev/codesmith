@@ -44,6 +44,17 @@ export class Logger implements ILogger {
     console.log(chalk.blue('[DEBUG]'), ...meta);
   }
 
+  timing(key: string, end?: boolean) {
+    if (this.currentLevelIndex < this.getLevalIndex(LoggerLevel.Timing)) {
+      return;
+    }
+    if (end) {
+      console.timeEnd(key);
+    } else {
+      console.time(key);
+    }
+  }
+
   verbose(...meta: any[]) {
     if (this.currentLevelIndex < this.getLevalIndex(LoggerLevel.Verbose)) {
       return;
