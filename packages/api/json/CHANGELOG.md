@@ -1,5 +1,12 @@
 # @modern-js/codesmith-api-json
 
+## 2.3.1
+
+### Patch Changes
+
+- Updated dependencies [deb4a62]
+  - @modern-js/codesmith@2.3.1
+
 ## 2.3.0
 
 ### Minor Changes

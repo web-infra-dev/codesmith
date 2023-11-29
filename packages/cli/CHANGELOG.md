@@ -1,5 +1,7 @@
 # @modern-js/codesmith-cli
 
+## 2.3.1
+
 ## 2.3.0
 
 ### Minor Changes
