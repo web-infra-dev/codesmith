@@ -31,7 +31,7 @@ export class CodeSmith {
   }
 
   public async forge({ tasks, pwd }: ForgeOptions) {
-    this.logger.timing('CodeSmith all tasks');
+    this.logger?.timing?.('CodeSmith all tasks');
     this.core = new GeneratorCore({
       logger: this.logger,
       materialsManager: this.materialsManager,
@@ -49,7 +49,7 @@ export class CodeSmith {
       this.logger.error('run task error:', e);
       throw new Error('run task error');
     } finally {
-      this.logger.timing('CodeSmith all tasks', true);
+      this.logger?.timing?.('CodeSmith all tasks', true);
     }
   }
 
@@ -58,8 +58,8 @@ export class CodeSmith {
       throw new Error("no core in 'runTask'");
     }
     const { generator, config } = task;
-    this.logger.timing(`runTask ${generator}`);
+    this.logger?.timing?.(`runTask ${generator}`);
     await this.core.runGenerator(generator, config);
-    this.logger.timing(`runTask ${generator}`, true);
+    this.logger?.timing?.(`runTask ${generator}`, true);
   }
 }
