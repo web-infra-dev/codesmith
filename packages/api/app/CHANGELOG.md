@@ -1,5 +1,20 @@
 # @modern-js/codesmith-api-app
 
+## 2.3.2
+
+### Patch Changes
+
+- 58bd33e: fix: change timing to optional
+  fix: timing 改为可选
+- Updated dependencies [58bd33e]
+  - @modern-js/codesmith@2.3.2
+  - @modern-js/codesmith-api-ejs@2.3.2
+  - @modern-js/codesmith-api-fs@2.3.2
+  - @modern-js/codesmith-api-git@2.3.2
+  - @modern-js/codesmith-api-handlebars@2.3.2
+  - @modern-js/codesmith-api-npm@2.3.2
+  - @modern-js/codesmith-formily@2.3.2
+
 ## 2.3.1
 
 ### Patch Changes
