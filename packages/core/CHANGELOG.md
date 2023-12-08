@@ -1,5 +1,12 @@
 # @modern-js/codesmith
 
+## 2.3.2
+
+### Patch Changes
+
+- 58bd33e: fix: change timing to optional
+  fix: timing 改为可选
+
 ## 2.3.1
 
 ### Patch Changes
