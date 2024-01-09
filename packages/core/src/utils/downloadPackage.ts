@@ -39,7 +39,7 @@ async function downloadAndDecompressTargz(
     method: 'get',
     url: tarballPkg,
     responseType: 'stream',
-    adapter: require('axios/lib/adapters/http'),
+    adapter: 'http',
   });
   if (response.status !== 200) {
     throw new Error(
