@@ -1,5 +1,12 @@
 # @modern-js/codesmith
 
+## 2.3.3
+
+### Patch Changes
+
+- f8c1b50: fix: upgrade axios, CVE-2023-45857
+  fix: 升级 axios 版本, CVE-2023-45857
+
 ## 2.3.2
 
 ### Patch Changes
