@@ -29,13 +29,13 @@
     "test": "modern test --passWithNoTests"
   },
   "dependencies": {
-    "@swc/helpers": "0.5.1"
+    "@swc/helpers": "0.5.1",
+    "@modern-js/utils": "^2.37.2"
   },
   "peerDependencies": {
     "@modern-js/codesmith": "workspace:^2.3.3"
   },
   "devDependencies": {
-    "@modern-js/utils": "^2.37.2",
     "@modern-js/codesmith": "workspace:*",
     "@modern-js/module-tools": "^2.37.2",
     "@modern-js/plugin-testing": "^2.37.2",
