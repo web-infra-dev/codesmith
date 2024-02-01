@@ -1,5 +1,11 @@
 # @modern-js/codesmith-api-npm
 
+## 2.3.4
+
+### Patch Changes
+
+- @modern-js/codesmith@2.3.4
+
 ## 2.3.3
 
 ### Patch Changes

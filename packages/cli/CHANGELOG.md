@@ -1,5 +1,12 @@
 # @modern-js/codesmith-cli
 
+## 2.3.4
+
+### Patch Changes
+
+- 1ac22a4: fix: cli main path and dependencies
+  - @modern-js/codesmith@2.3.4
+
 ## 2.3.3
 
 ## 2.3.2
