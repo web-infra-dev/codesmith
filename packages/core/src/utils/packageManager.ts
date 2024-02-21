@@ -46,7 +46,6 @@ export async function runInstall(targetDir: string, registryUrl?: string) {
       'install',
       '--prod',
       '--reporter=silent',
-      '--prefer-offline',
       '--ignore-scripts',
     ];
     if (registryUrl) {
@@ -64,7 +63,6 @@ export async function runInstall(targetDir: string, registryUrl?: string) {
       'install',
       '--production',
       '--loglevel=error',
-      '--prefer-offline',
       '--ignore-scripts',
     ];
     if (registryUrl) {
