@@ -1,5 +1,12 @@
 # @modern-js/codesmith-api-ejs
 
+## 2.3.5
+
+### Patch Changes
+
+- Updated dependencies [bbe6434]
+  - @modern-js/codesmith@2.3.5
+
 ## 2.3.4
 
 ### Patch Changes
