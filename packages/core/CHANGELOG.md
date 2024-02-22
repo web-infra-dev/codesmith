@@ -1,5 +1,12 @@
 # @modern-js/codesmith
 
+## 2.3.5
+
+### Patch Changes
+
+- bbe6434: feat: remove npm option --prefer-offline
+  feat: 移除 npm --prefer-offline 参数
+
 ## 2.3.4
 
 ## 2.3.3
