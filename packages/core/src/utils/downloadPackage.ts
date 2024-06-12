@@ -2,11 +2,12 @@ import os from 'os';
 import { fs, semver } from '@modern-js/utils';
 import axios from 'axios';
 import tar from 'tar';
+import { fsExists } from './fsExists';
 import { getNpmTarballUrl } from './getNpmTarballUrl';
 import { getNpmVersion } from './getNpmVersion';
-import { fsExists } from './fsExists';
 import { runInstall } from './packageManager';
 import { CATCHE_VALIDITY_PREIOD } from '@/constants';
+import { Logger } from '@/logger';
 
 async function isValidCache(cacheDir: string) {
   /* generator cache can use
@@ -91,9 +92,10 @@ export async function downloadPackage(
   options: {
     registryUrl?: string;
     install?: boolean;
+    logger?: Logger;
   } = {},
 ) {
-  const { registryUrl, install } = options;
+  const { registryUrl, install, logger } = options;
   let version;
   if (!semver.valid(pkgVersion)) {
     // get pkgName version
@@ -108,6 +110,7 @@ export async function downloadPackage(
     version = pkgVersion;
   }
   const targetDir = `${os.tmpdir()}/csmith-generator/${pkgName}@${version}`;
+  logger?.debug?.(`Download package ${pkgName}@${version} to ${targetDir}`);
   if ((await fsExists(targetDir)) && (await isValidCache(targetDir))) {
     return targetDir;
   }
@@ -122,7 +125,7 @@ export async function downloadPackage(
   await downloadAndDecompressTargz(tarballPkg, targetDir);
 
   if (install) {
-    await runInstall(targetDir, registryUrl);
+    await runInstall(targetDir, registryUrl, logger);
   }
 
   // write completed flag

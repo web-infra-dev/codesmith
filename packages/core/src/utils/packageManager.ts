@@ -1,5 +1,6 @@
 import path from 'path';
 import { fs, execa } from '@modern-js/utils';
+import { Logger } from '@/logger';
 
 export async function canUseYarn() {
   try {
@@ -23,7 +24,11 @@ export async function canUsePnpm() {
   }
 }
 
-export async function runInstall(targetDir: string, registryUrl?: string) {
+export async function runInstall(
+  targetDir: string,
+  registryUrl?: string,
+  logger?: Logger,
+) {
   const options = {
     cwd: targetDir,
     env: process.env,
@@ -41,19 +46,27 @@ export async function runInstall(targetDir: string, registryUrl?: string) {
      * no handle
      */
   }
+
+  const showLog = logger?.level === 'debug';
+
   if (await canUsePnpm()) {
     const params = [
       'install',
       '--prod',
-      '--reporter=silent',
+      showLog ? null : '--reporter=silent', // if debug mode, console install log
       '--ignore-scripts',
-    ];
+    ].filter(Boolean) as string[];
     if (registryUrl) {
       params.push(`--registry=${registryUrl}`);
     }
     await execa('pnpm', params, options);
   } else if (await canUseYarn()) {
-    const params = ['install', '--production', '--silent', '--ignore-scripts'];
+    const params = [
+      'install',
+      '--production',
+      showLog ? null : '--silent',
+      '--ignore-scripts',
+    ].filter(Boolean) as string[];
     if (registryUrl) {
       params.push(`--registry=${registryUrl}`);
     }
