@@ -1,8 +1,8 @@
 import * as os from 'os';
 import * as path from 'path';
-import { fs } from '@modern-js/utils';
 import { fsExists } from '@/utils';
 import { getGeneratorDir } from '@/utils/getGeneratorDir';
+import { fs } from '@modern-js/utils';
 
 describe('getGeneratorDir function test', () => {
   it('normal', async () => {

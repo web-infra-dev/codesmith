@@ -1,7 +1,7 @@
-import path from 'path';
 import os from 'os';
-import { fs } from '@modern-js/utils';
+import path from 'path';
 import { downloadPackage } from '@/utils';
+import { fs } from '@modern-js/utils';
 
 jest.setTimeout(100000);
 

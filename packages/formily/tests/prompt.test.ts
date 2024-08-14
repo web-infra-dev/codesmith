@@ -1,5 +1,5 @@
-import type { Schema } from '../src/transform';
 import { prompt } from '../src/prompt';
+import type { Schema } from '../src/transform';
 
 describe('prompt test', () => {
   it('has config value', async () => {

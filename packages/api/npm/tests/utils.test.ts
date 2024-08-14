@@ -1,13 +1,13 @@
 import os from 'os';
 import path from 'path';
-import { fs } from '@modern-js/utils';
-import { canUseNvm, canUseNpm, canUseYarn } from '@/utils/env';
+import { canUseNpm, canUseNvm, canUseYarn } from '@/utils/env';
 import {
-  npmInstall,
-  yarnInstall,
-  pnpmInstall,
   execaWithStreamLog,
+  npmInstall,
+  pnpmInstall,
+  yarnInstall,
 } from '@/utils/install';
+import { fs } from '@modern-js/utils';
 
 describe('Env utils cases', () => {
   test('can use nvm', async () => {

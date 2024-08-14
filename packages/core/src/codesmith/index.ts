@@ -1,10 +1,10 @@
 import path from 'path';
-import type { ForgeOptions, ForgeTask } from './constants';
 import { GeneratorCore } from '@/generator';
 import { Logger } from '@/logger';
 import { LoggerLevel } from '@/logger/constants';
 import { MaterialsManager } from '@/materials';
 import { FsMaterial } from '@/materials/FsMaterial';
+import type { ForgeOptions, ForgeTask } from './constants';
 
 interface ICreateOptions {
   debug?: boolean;

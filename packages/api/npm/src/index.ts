@@ -1,5 +1,5 @@
 import type { GeneratorCore } from '@modern-js/codesmith';
-import { npmInstall, yarnInstall, pnpmInstall } from './utils';
+import { npmInstall, pnpmInstall, yarnInstall } from './utils';
 
 export * from './utils';
 export class NpmAPI {

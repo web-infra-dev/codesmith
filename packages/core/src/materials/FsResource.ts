@@ -1,5 +1,5 @@
-import path from 'path';
 import type { Buffer } from 'buffer';
+import path from 'path';
 import { fs } from '@modern-js/utils';
 import { IMAGE_EXT_LIST } from './constants';
 

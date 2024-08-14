@@ -1,4 +1,6 @@
 import os from 'os';
+import { CATCHE_VALIDITY_PREIOD } from '@/constants';
+import type { Logger } from '@/logger';
 import { fs, semver } from '@modern-js/utils';
 import axios from 'axios';
 import tar from 'tar';
@@ -6,8 +8,6 @@ import { fsExists } from './fsExists';
 import { getNpmTarballUrl } from './getNpmTarballUrl';
 import { getNpmVersion } from './getNpmVersion';
 import { runInstall } from './packageManager';
-import { CATCHE_VALIDITY_PREIOD } from '@/constants';
-import type { Logger } from '@/logger';
 
 async function isValidCache(cacheDir: string) {
   /* generator cache can use

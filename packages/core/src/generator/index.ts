@@ -1,13 +1,13 @@
-import path from 'path';
 import { EventEmitter } from 'events';
-import { fs, ora, chalk } from '@modern-js/utils';
-import type { GeneratorContext, RuntimeCurrent } from './constants';
+import path from 'path';
 import type { Logger } from '@/logger';
 import type { ILogger } from '@/logger/constants';
 import type { MaterialsManager } from '@/materials';
 import { FsMaterial } from '@/materials/FsMaterial';
-import { nodeRequire } from '@/utils/nodeRequire';
 import { getGeneratorDir } from '@/utils/getGeneratorDir';
+import { nodeRequire } from '@/utils/nodeRequire';
+import { fs, chalk, ora } from '@modern-js/utils';
+import type { GeneratorContext, RuntimeCurrent } from './constants';
 
 interface ICreateOptions {
   logger: Logger;

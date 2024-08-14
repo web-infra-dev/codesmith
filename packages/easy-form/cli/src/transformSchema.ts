@@ -1,4 +1,4 @@
-import { forEach, type Schema, setInitValues } from '@modern-js/easy-form-core';
+import { type Schema, forEach, setInitValues } from '@modern-js/easy-form-core';
 import { isUndefined } from '@modern-js/utils/lodash';
 
 export function transformSchema(

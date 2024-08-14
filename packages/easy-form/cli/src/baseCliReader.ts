@@ -1,25 +1,25 @@
 import {
   BaseReader,
-  getItems,
-  toBoolean,
   type Handler,
   type Schema,
-  getSchemaDefaultState,
+  getItems,
   getNodeInfo,
+  getSchemaDefaultState,
+  toBoolean,
 } from '@modern-js/easy-form-core';
 import type {
   CheckboxNodeHanlder,
   ChildNodeHandler,
-  ListNodeHandlder,
   FormNodeHandler,
   InputNodeHandler,
+  ListNodeHandlder,
   NoneNodeHandler,
-  RootNodeHandler,
   QuestionHandler,
+  RootNodeHandler,
 } from './ICli';
 
-import { CliNodeHandlers } from './constant';
 import type { CustomCliConfigs } from '.';
+import { CliNodeHandlers } from './constant';
 
 export type CliOptions = {
   schema: Schema;

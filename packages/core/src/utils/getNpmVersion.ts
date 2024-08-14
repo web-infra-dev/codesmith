@@ -1,6 +1,6 @@
+import { NPM_API_TIMEOUT } from '@/constants';
 import { execa } from '@modern-js/utils';
 import { timeoutPromise } from './timeoutPromise';
-import { NPM_API_TIMEOUT } from '@/constants';
 
 /**
  * get package version

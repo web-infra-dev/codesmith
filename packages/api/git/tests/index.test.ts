@@ -1,13 +1,13 @@
 import os from 'os';
 import path from 'path';
-import { fs, execa } from '@modern-js/utils';
 import {
   canUseGit,
-  initGitRepo,
-  isInGitRepo,
   gitAdd,
   gitCommit,
+  initGitRepo,
+  isInGitRepo,
 } from '@/utils';
+import { fs, execa } from '@modern-js/utils';
 
 const cwd = path.join(os.tmpdir(), 'codesmith_test', Math.random().toString());
 

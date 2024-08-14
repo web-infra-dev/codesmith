@@ -1,9 +1,9 @@
 import {
-  getNodeInfo,
-  isEffectedValue,
   type NodeInfo,
   type Schema,
   type SchemaEffectedValueType,
+  getNodeInfo,
+  isEffectedValue,
 } from '@modern-js/easy-form-core';
 import type { Answers } from 'inquirer';
 import type {

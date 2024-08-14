@@ -2,8 +2,6 @@ import type { Schema } from '@modern-js/easy-form-core';
 import inquirer, { type Answers, type Inquirer } from 'inquirer';
 import type PromptUI from 'inquirer/lib/ui/prompt';
 import * as Rx from 'rxjs';
-import { BaseCliReader, type CliOptions } from '../baseCliReader';
-import { CliNodeHandlers } from '../constant';
 import type {
   CheckboxNodeParams,
   ChildNodeParams,
@@ -13,6 +11,8 @@ import type {
   NoneNodeParams,
   RootNodeParams,
 } from '../ICli';
+import { BaseCliReader, type CliOptions } from '../baseCliReader';
+import { CliNodeHandlers } from '../constant';
 
 import type { CustomCliConfig, CustomCliConfigs } from '../ICliConfig';
 import * as questionsHandlers from './handlers';

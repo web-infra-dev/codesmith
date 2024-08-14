@@ -1,26 +1,26 @@
+import type { GeneratorContext, GeneratorCore } from '@modern-js/codesmith';
+import { EjsAPI } from '@modern-js/codesmith-api-ejs';
+import { FsAPI } from '@modern-js/codesmith-api-fs';
+import { GitAPI } from '@modern-js/codesmith-api-git';
+import { HandlebarsAPI } from '@modern-js/codesmith-api-handlebars';
+import {
+  NpmAPI,
+  canUseNpm,
+  canUsePnpm,
+  canUseYarn,
+} from '@modern-js/codesmith-api-npm';
+import {
+  CLIReader as FormilyCLIReader,
+  type Schema as FormilySchema,
+} from '@modern-js/codesmith-formily';
 /* eslint-disable max-lines */
 import { fs, execa, semver } from '@modern-js/utils';
 import { merge } from '@modern-js/utils/lodash';
 import { parse, stringify } from 'comment-json';
-import type { GeneratorCore, GeneratorContext } from '@modern-js/codesmith';
-import {
-  NpmAPI,
-  canUsePnpm,
-  canUseYarn,
-  canUseNpm,
-} from '@modern-js/codesmith-api-npm';
-import { GitAPI } from '@modern-js/codesmith-api-git';
-import { HandlebarsAPI } from '@modern-js/codesmith-api-handlebars';
-import { EjsAPI } from '@modern-js/codesmith-api-ejs';
-import { FsAPI } from '@modern-js/codesmith-api-fs';
-import {
-  type Schema as FormilySchema,
-  CLIReader as FormilyCLIReader,
-} from '@modern-js/codesmith-formily';
 import inquirer, { type Question } from 'inquirer';
 import { type I18n, i18n, localeKeys } from './locale';
-import { transformInquirerSchema } from './utils/transform';
 import { checkUseNvm } from './utils/checkUseNvm';
+import { transformInquirerSchema } from './utils/transform';
 
 export class AppAPI {
   i18n: I18n = i18n;

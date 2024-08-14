@@ -1,15 +1,15 @@
 import type { Interface as ReadLineInterface } from 'readline';
-import { isNumber, findIndex } from 'lodash';
-import type { Question, Answers } from 'inquirer';
 import { chalk } from '@modern-js/utils';
 import cliCursor from 'cli-cursor';
-import runAsync from 'run-async';
-import Base from 'inquirer/lib/prompts/base';
-import Paginator from 'inquirer/lib/utils/paginator';
-import observe from 'inquirer/lib/utils/events';
-import { mergeMap, map, take, takeUntil } from 'rxjs/operators';
-import incrementListIndex from 'inquirer/lib/utils/incrementListIndex';
+import type { Answers, Question } from 'inquirer';
 import type Choice from 'inquirer/lib/objects/choice';
+import Base from 'inquirer/lib/prompts/base';
+import observe from 'inquirer/lib/utils/events';
+import incrementListIndex from 'inquirer/lib/utils/incrementListIndex';
+import Paginator from 'inquirer/lib/utils/paginator';
+import { findIndex, isNumber } from 'lodash';
+import runAsync from 'run-async';
+import { map, mergeMap, take, takeUntil } from 'rxjs/operators';
 import { listRender } from './utils';
 
 export class List extends Base<Question & { loop: boolean }> {

@@ -1,6 +1,6 @@
 import path from 'path';
-import { fs, execa } from '@modern-js/utils';
 import type { Logger } from '@/logger';
+import { fs, execa } from '@modern-js/utils';
 
 export async function canUseYarn() {
   try {
