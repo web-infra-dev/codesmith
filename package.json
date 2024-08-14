@@ -6,12 +6,7 @@
   "bugs": "https://github.com/web-infra-dev/codesmith/issues",
   "repository": "web-infra-dev/codesmith",
   "license": "MIT",
-  "keywords": [
-    "react",
-    "framework",
-    "modern",
-    "modern.js"
-  ],
+  "keywords": ["react", "framework", "modern", "modern.js"],
   "scripts": {
     "new": "modern new",
     "setup": "npm run reset && pnpm install --ignore-scripts",
@@ -37,13 +32,12 @@
     }
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "extends": ["@commitlint/config-conventional"]
   },
   "lint-staged": {
     "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
-      "biome check --files-ignore-unknown=true"]
+      "biome check --files-ignore-unknown=true"
+    ]
   },
   "workspaces": {
     "packages": [

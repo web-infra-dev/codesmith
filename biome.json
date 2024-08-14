@@ -7,16 +7,25 @@
     "useIgnoreFile": true
   },
   "formatter": {
-    "enabled": false
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "arrowParentheses": "asNeeded",
+      "jsxQuoteStyle": "double",
+      "lineWidth": 80
+    }
   },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
       "style": {
-"useNodejsImportProtocol": "off",
-"noNonNullAssertion": "off",
-"useDefaultParameterLast": "off"
+        "useNodejsImportProtocol": "off",
+        "noNonNullAssertion": "off",
+        "useDefaultParameterLast": "off"
       },
       "suspicious": {
         "noExplicitAny": "off"

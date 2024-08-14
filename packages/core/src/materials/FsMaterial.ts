@@ -5,7 +5,8 @@ import { FsResource } from './FsResource';
 const promisifyGlob = (
   pattern: string,
   options: glob.IOptions,
-): Promise<string[]> => new Promise((resolve, reject) => {
+): Promise<string[]> =>
+  new Promise((resolve, reject) => {
     glob(pattern, options, (err, files) =>
       err === null ? resolve(files) : reject(err),
     );

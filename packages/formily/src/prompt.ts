@@ -1,4 +1,7 @@
-import { Schema as FormilySchema, type SchemaReaction } from '@formily/json-schema';
+import {
+  Schema as FormilySchema,
+  type SchemaReaction,
+} from '@formily/json-schema';
 import inquirer, { type QuestionCollection } from 'inquirer';
 import { type Question, type Schema, transformForm } from './transform';
 

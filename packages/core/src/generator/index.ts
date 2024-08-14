@@ -93,9 +93,8 @@ export class GeneratorCore {
     let pkgJson: Record<string, any>;
     try {
       const generatorDir = await getGeneratorDir(generator);
-      generatorPkg = await this.materialsManager.loadLocalGenerator(
-        generatorDir,
-      );
+      generatorPkg =
+        await this.materialsManager.loadLocalGenerator(generatorDir);
     } catch (e) {
       this.logger.debug('load local generator failed:', e);
       return { generatorPkg: null };
@@ -129,9 +128,8 @@ check path: ${chalk.blue.underline(
   private async loadRemoteGenerator(generator: string) {
     this.logger.debug('[runGenerator] task.generator is remote package');
     try {
-      const generatorPkg = await this.materialsManager.loadRemoteGenerator(
-        generator,
-      );
+      const generatorPkg =
+        await this.materialsManager.loadRemoteGenerator(generator);
       const pkgJson = nodeRequire(generatorPkg.get('package.json').filePath);
       const materialKey = `${pkgJson.name}@${pkgJson.version}`;
       this.logger.debug(
@@ -158,7 +156,7 @@ check path: ${chalk.blue.underline(
   ) {
     if (needWait) {
       this.event.emit(
-        "forged",
+        'forged',
         generatorName,
         context.materials.default.basePath,
         { ...context.data, ...context.config },
