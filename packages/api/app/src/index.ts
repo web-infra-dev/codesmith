@@ -156,7 +156,7 @@ export class AppAPI {
     }
 
     try {
-      if (!isMonorepoSubProject && !customNoNeedGit) {
+      if (!isMonorepoSubProject && !customNoNeedGit && !inGitRepo) {
         await this.gitApi.addAndCommit(commitMessage || 'feat: init');
         this.generatorCore.logger.info(i18n.t(localeKeys.git.success));
       }

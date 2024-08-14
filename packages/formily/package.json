@@ -32,7 +32,7 @@
     "@swc/helpers": "0.5.1",
     "@formily/json-schema": "^2.2.24",
     "@formily/validator": "^2.2.24",
-    "@modern-js/utils": "^2.37.2",
+    "@modern-js/utils": "^2.58.0",
     "inquirer": "^8.2.5"
   },
   "peerDependencies": {
@@ -40,8 +40,8 @@
   },
   "devDependencies": {
     "@modern-js/codesmith": "workspace:*",
-    "@modern-js/module-tools": "^2.37.2",
-    "@modern-js/plugin-testing": "^2.37.2",
+    "@modern-js/module-tools": "^2.58.0",
+    "@modern-js/plugin-testing": "^2.58.0",
     "@types/inquirer": "^7.3.3",
     "@types/jest": "^26.0.24",
     "@types/node": "^14.18.42",
