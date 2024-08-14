@@ -1,4 +1,4 @@
-import { Schema } from './interface/ISchema';
+import type { Schema } from './interface/ISchema';
 import { MESSAGE } from './constant';
 import { getItems, forEach } from './utils';
 
@@ -73,6 +73,7 @@ const checkRepeatItems = (schema: Schema, extra?: Record<string, unknown>) => {
     const keys = items.map(x => x.key);
     const tmp: string[] = [];
     const repeatKeys: string[] = [];
+    // biome-ignore lint/complexity/noForEach: <explanation>
     keys.forEach(x => {
       if (tmp.includes(x)) {
         repeatKeys.push(x);

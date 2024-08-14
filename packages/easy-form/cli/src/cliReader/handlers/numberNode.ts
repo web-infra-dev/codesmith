@@ -1,7 +1,8 @@
 import '../../ICliConfig';
-import { IInputNodeOptions, QuestionHandler } from '../../ICli';
+import type { IInputNodeOptions, QuestionHandler } from '../../ICli';
 import { toPromiseQuestionHandler } from '../utils';
 
+// biome-ignore lint/complexity/noBannedTypes: <explanation>
 export type NumberNodeConfig = {
   /** empty */
 };

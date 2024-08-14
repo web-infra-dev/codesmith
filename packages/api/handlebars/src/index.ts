@@ -1,10 +1,10 @@
 import {
-  FsMaterial,
-  FsResource,
+  type FsMaterial,
+  type FsResource,
   FS_RESOURCE,
-  GeneratorCore,
+  type GeneratorCore,
 } from '@modern-js/codesmith';
-import handlebars from 'handlebars';
+import type handlebars from 'handlebars';
 import { renderString } from './utils';
 
 type TargetFunction = (globMatch: string) => string;

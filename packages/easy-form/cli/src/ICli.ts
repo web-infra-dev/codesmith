@@ -1,9 +1,9 @@
-import { Schema, NodeInfo } from '@modern-js/easy-form-core';
-import Choice from 'inquirer/lib/objects/choice';
-import Separator from 'inquirer/lib/objects/separator';
-import PromptUI from 'inquirer/lib/ui/prompt';
-import * as Rx from 'rxjs';
-import { Inquirer } from 'inquirer';
+import type { Schema, NodeInfo } from '@modern-js/easy-form-core';
+import type Choice from 'inquirer/lib/objects/choice';
+import type Separator from 'inquirer/lib/objects/separator';
+import type PromptUI from 'inquirer/lib/ui/prompt';
+import type * as Rx from 'rxjs';
+import type { Inquirer } from 'inquirer';
 
 export type ChoiceType = Separator | Choice;
 

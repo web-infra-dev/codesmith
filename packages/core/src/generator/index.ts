@@ -1,10 +1,10 @@
 import path from 'path';
 import { EventEmitter } from 'events';
 import { fs, ora, chalk } from '@modern-js/utils';
-import { GeneratorContext, RuntimeCurrent } from './constants';
-import { Logger } from '@/logger';
-import { ILogger } from '@/logger/constants';
-import { MaterialsManager } from '@/materials';
+import type { GeneratorContext, RuntimeCurrent } from './constants';
+import type { Logger } from '@/logger';
+import type { ILogger } from '@/logger/constants';
+import type { MaterialsManager } from '@/materials';
 import { FsMaterial } from '@/materials/FsMaterial';
 import { nodeRequire } from '@/utils/nodeRequire';
 import { getGeneratorDir } from '@/utils/getGeneratorDir';
@@ -158,7 +158,7 @@ check path: ${chalk.blue.underline(
   ) {
     if (needWait) {
       this.event.emit(
-        `forged`,
+        "forged",
         generatorName,
         context.materials.default.basePath,
         { ...context.data, ...context.config },

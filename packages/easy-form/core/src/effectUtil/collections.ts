@@ -14,6 +14,7 @@ export interface INumberDictionary<V> {
   [idx: number]: V;
 }
 
+// biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
 const { hasOwnProperty } = Object.prototype;
 
 /**

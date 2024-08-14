@@ -1,10 +1,11 @@
 import '../../ICliConfig';
-import { IListNodeOptions, QuestionHandler } from '../../ICli';
+import type { IListNodeOptions, QuestionHandler } from '../../ICli';
 import {
   toPromiseQuestionHandler,
   toPromiseQuestionHandlerLoop,
 } from '../utils';
 
+// biome-ignore lint/complexity/noBannedTypes: <explanation>
 export type ListNodeConfig = {
   /** empty */
 };

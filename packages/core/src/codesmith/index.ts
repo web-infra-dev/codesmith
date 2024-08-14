@@ -1,5 +1,5 @@
 import path from 'path';
-import { ForgeOptions, ForgeTask } from './constants';
+import type { ForgeOptions, ForgeTask } from './constants';
 import { GeneratorCore } from '@/generator';
 import { Logger } from '@/logger';
 import { LoggerLevel } from '@/logger/constants';
@@ -19,7 +19,7 @@ export class CodeSmith {
   materialsManager: MaterialsManager;
 
   // current mode is debug mode
-  debug: boolean = false;
+  debug = false;
 
   logger: Logger;
 

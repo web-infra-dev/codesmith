@@ -1,5 +1,5 @@
 import path from 'path';
-import { fsExists, ILogger } from '@modern-js/codesmith';
+import { fsExists, type ILogger } from '@modern-js/codesmith';
 import { execa, fs, semver } from '@modern-js/utils';
 import { canUseNvm, execaWithStreamLog } from '@modern-js/codesmith-api-npm';
 

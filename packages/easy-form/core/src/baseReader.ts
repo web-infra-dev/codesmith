@@ -1,6 +1,6 @@
 import { checkSchema } from './checkSchema';
 import { MESSAGE, NODE_HANDLERS } from './constant';
-import {
+import type {
   ChildHandler,
   CoexitRelationHandler,
   FormHandler,
@@ -23,7 +23,7 @@ export class BaseReader {
 
   private readonly rulesHandler: { [key: string]: Handler }; // Develop custom interpretation rules for various situations
 
-  private isReady: boolean = false; // After the rule is set, the interpretation can be started
+  private isReady = false; // After the rule is set, the interpretation can be started
 
   private readonly extra: Record<string, unknown> = {};
 
@@ -147,6 +147,7 @@ export class BaseReader {
 
       if (_schema.items) {
         const items = getItems(_schema, this.data, this.extra);
+        // biome-ignore lint/complexity/noForEach: <explanation>
         items.forEach(each =>
           readDefaultValue(
             each,
@@ -273,12 +274,11 @@ export class BaseReader {
           schema,
           result,
         });
-      } else {
-        return this.runHandler(NODE_HANDLERS.READ_CHILD, {
-          schema,
-          result,
-        });
       }
+      return this.runHandler(NODE_HANDLERS.READ_CHILD, {
+        schema,
+        result,
+      });
     } else if (schema.coexit || schema.mutualExclusion) {
       result = this.readRelation(schema);
     }

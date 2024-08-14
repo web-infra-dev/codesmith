@@ -10,9 +10,24 @@
     "enabled": false
   },
   "linter": {
-    "enabled": false
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+"useNodejsImportProtocol": "off",
+"noNonNullAssertion": "off",
+"useDefaultParameterLast": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off"
+      }
+    }
   },
   "organizeImports": {
     "enabled": false
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "ignore": [".vscode/**/*", "node_modules/**/*", "dist/**/*"]
   }
 }

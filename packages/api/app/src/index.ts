@@ -2,7 +2,7 @@
 import { fs, execa, semver } from '@modern-js/utils';
 import { merge } from '@modern-js/utils/lodash';
 import { parse, stringify } from 'comment-json';
-import { GeneratorCore, GeneratorContext } from '@modern-js/codesmith';
+import type { GeneratorCore, GeneratorContext } from '@modern-js/codesmith';
 import {
   NpmAPI,
   canUsePnpm,
@@ -14,11 +14,11 @@ import { HandlebarsAPI } from '@modern-js/codesmith-api-handlebars';
 import { EjsAPI } from '@modern-js/codesmith-api-ejs';
 import { FsAPI } from '@modern-js/codesmith-api-fs';
 import {
-  Schema as FormilySchema,
+  type Schema as FormilySchema,
   CLIReader as FormilyCLIReader,
 } from '@modern-js/codesmith-formily';
-import inquirer, { Question } from 'inquirer';
-import { I18n, i18n, localeKeys } from './locale';
+import inquirer, { type Question } from 'inquirer';
+import { type I18n, i18n, localeKeys } from './locale';
 import { transformInquirerSchema } from './utils/transform';
 import { checkUseNvm } from './utils/checkUseNvm';
 
@@ -96,7 +96,7 @@ export class AppAPI {
         this.generatorCore.logger,
       );
     }
-    let intallPromise;
+    let intallPromise: any;
     if (command) {
       intallPromise = execa(command, [], {
         shell: true,
@@ -174,7 +174,7 @@ export class AppAPI {
     type: 'handlebars' | 'ejs' = 'handlebars',
   ) {
     try {
-      this.generatorCore.logger?.timing?.(`forgeTemplate`);
+      this.generatorCore.logger?.timing?.("forgeTemplate");
       const { material } = this.generatorContext.current!;
       const resourceMap = await material.find(templatePattern, {
         nodir: true,
@@ -192,7 +192,7 @@ export class AppAPI {
               const target = rename
                 ? rename(resourceKey)
                 : resourceKey
-                    .replace(`templates/`, '')
+                    .replace("templates/", '')
                     .replace('.handlebars', '')
                     .replace('.ejs', '');
               await api.renderTemplate(material.get(resourceKey), target, {
@@ -207,7 +207,7 @@ export class AppAPI {
       this.generatorCore.logger.warn(i18n.t(localeKeys.templated.failed));
       throw new Error('base forging failed');
     } finally {
-      this.generatorCore.logger?.timing?.(`forgeTemplate`, true);
+      this.generatorCore.logger?.timing?.("forgeTemplate", true);
     }
   }
 
@@ -218,7 +218,7 @@ export class AppAPI {
     parameters?: Record<string, any>,
   ) {
     try {
-      this.generatorCore.logger?.timing?.(`renderTemplateByFileType`);
+      this.generatorCore.logger?.timing?.("renderTemplateByFileType");
       const { material } = this.generatorContext.current!;
       const resourceMap = await material.find(templatePattern, {
         nodir: true,
@@ -236,7 +236,7 @@ export class AppAPI {
                 const target = rename
                   ? rename(resourceKey)
                   : resourceKey
-                      .replace(`templates/`, '')
+                      .replace("templates/", '')
                       .replace('.handlebars', '');
                 await this.handlebarsAPI.renderTemplate(
                   material.get(resourceKey),
@@ -249,7 +249,7 @@ export class AppAPI {
               } else if (resourceKey.includes('.ejs')) {
                 const target = rename
                   ? rename(resourceKey)
-                  : resourceKey.replace(`templates/`, '').replace('.ejs', '');
+                  : resourceKey.replace("templates/", '').replace('.ejs', '');
                 await this.ejsAPI.renderTemplate(
                   material.get(resourceKey),
                   target,
@@ -261,7 +261,7 @@ export class AppAPI {
               } else {
                 const target = rename
                   ? rename(resourceKey)
-                  : resourceKey.replace(`templates/`, '');
+                  : resourceKey.replace("templates/", '');
                 await this.fsAPI.renderFile(material.get(resourceKey), target);
               }
             }),
@@ -272,7 +272,7 @@ export class AppAPI {
       this.generatorCore.logger.warn(i18n.t(localeKeys.templated.failed));
       throw new Error('base forging failed');
     } finally {
-      this.generatorCore.logger?.timing?.(`renderTemplateByFileType`, true);
+      this.generatorCore.logger?.timing?.("renderTemplateByFileType", true);
     }
   }
 
@@ -387,16 +387,15 @@ export class AppAPI {
       reader.setAnswers(configValue);
       const answers = await reader.start();
       return this.mergeAnswers(answers, configValue);
-    } else {
-      const answers = await inquirer.prompt(
-        transformInquirerSchema(
-          schema as Question[],
-          configValue,
-          validateMap,
-          initValue,
-        ),
-      );
-      return this.mergeAnswers(answers, configValue);
     }
+    const answers = await inquirer.prompt(
+      transformInquirerSchema(
+        schema as Question[],
+        configValue,
+        validateMap,
+        initValue,
+      ),
+    );
+    return this.mergeAnswers(answers, configValue);
   }
 }

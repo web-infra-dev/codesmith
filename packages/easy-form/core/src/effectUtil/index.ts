@@ -3,9 +3,12 @@
  * Link yourself, not allowed
  */
 
-import { SchemaEffectedValueType, SchemaValueType } from '../interface/ISchema';
+import type {
+  SchemaEffectedValueType,
+  SchemaValueType,
+} from '../interface/ISchema';
 import { isEffectedValue } from '../utils';
-import { Graph, Node } from './graph';
+import { Graph, type Node } from './graph';
 import { isEmptyObject } from './types';
 
 // Circulation linkage of processing nodes
@@ -46,6 +49,7 @@ export class EffectUtil {
     const result: Record<string, unknown> = {};
     const roots = this.graph.roots('incoming');
     // Get unaffected initial value
+    // biome-ignore lint/complexity/noForEach: <explanation>
     roots.forEach(root => {
       result[root.data.key] = root.data.value;
     });
@@ -92,6 +96,7 @@ export class EffectUtil {
       }
       return result;
     };
+    // biome-ignore lint/complexity/noForEach: <explanation>
     rootNodes.forEach(x => doGetEffectedValue(x));
 
     return result;
@@ -134,6 +139,7 @@ export class EffectUtil {
 
   private getNodeData(nodeKeys: string[]) {
     const result: EffectData = {};
+    // biome-ignore lint/complexity/noForEach: <explanation>
     nodeKeys.forEach(x => {
       result[x] = this.effectData[x];
     });

@@ -1,8 +1,8 @@
 import {
-  FsMaterial,
-  FsResource,
+  type FsMaterial,
+  type FsResource,
   FS_RESOURCE,
-  GeneratorCore,
+  type GeneratorCore,
 } from '@modern-js/codesmith';
 import { renderString } from './utils';
 

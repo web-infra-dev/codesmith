@@ -1,4 +1,4 @@
-import { Schema } from '../types';
+import type { Schema } from '../types';
 
 // Only get items that meet the when condition
 export const getItems = (

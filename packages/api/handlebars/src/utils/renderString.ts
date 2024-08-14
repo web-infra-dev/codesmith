@@ -14,7 +14,9 @@ export function renderString(
   const partials: Record<string, handlebars.Template> = {
     ...registers?.partials,
   };
+  // biome-ignore lint/complexity/noForEach: <explanation>
   Object.keys(helpers).forEach(h => handlebars.registerHelper(h, helpers[h]));
+  // biome-ignore lint/complexity/noForEach: <explanation>
   Object.keys(partials).forEach(p =>
     handlebars.registerPartial(p, partials[p]),
   );

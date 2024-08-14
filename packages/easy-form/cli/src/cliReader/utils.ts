@@ -1,12 +1,12 @@
 import {
   getNodeInfo,
   isEffectedValue,
-  NodeInfo,
-  Schema,
-  SchemaEffectedValueType,
+  type NodeInfo,
+  type Schema,
+  type SchemaEffectedValueType,
 } from '@modern-js/easy-form-core';
-import { Answers } from 'inquirer';
-import {
+import type { Answers } from 'inquirer';
+import type {
   ChoiceType,
   IBaseNodeOptions,
   Question,
@@ -72,6 +72,7 @@ export const getChoices = (options: {
       choices = schema.items || [];
     }
     let result: ChoiceType[] = [];
+    // biome-ignore lint/complexity/noForEach: <explanation>
     choices.forEach(x => {
       const nodeInfo = getNodeInfo(x, answers, extra);
       if (customChoice) {
@@ -120,10 +121,11 @@ export const getFilter = (
   const isNumber = type === 'number';
   const getNumberAnswer = (value: any) => {
     let filteredValue = value;
-    if (isNaN(parseInt(value, 10))) {
+    // biome-ignore lint/suspicious/noGlobalIsNan: <explanation>
+    if (isNaN(Number.parseInt(value, 10))) {
       filteredValue = value;
     } else {
-      filteredValue = parseInt(value, 10);
+      filteredValue = Number.parseInt(value, 10);
     }
     return filteredValue;
   };
@@ -227,6 +229,7 @@ const when = (
     return schema.when(answers, extra);
   }
   // When exists, it will be based on the result of when, otherwise it will be displayed by default
+  // biome-ignore lint/suspicious/noPrototypeBuiltins: <explanation>
   return schema.hasOwnProperty('when') ? schema.when : true;
 };
 

@@ -1,6 +1,6 @@
-import { Schema as FormilySchema, SchemaReaction } from '@formily/json-schema';
-import inquirer, { QuestionCollection } from 'inquirer';
-import { Question, Schema, transformForm } from './transform';
+import { Schema as FormilySchema, type SchemaReaction } from '@formily/json-schema';
+import inquirer, { type QuestionCollection } from 'inquirer';
+import { type Question, type Schema, transformForm } from './transform';
 
 type XReaction = Exclude<SchemaReaction<any>, (field: any, scope: any) => void>;
 

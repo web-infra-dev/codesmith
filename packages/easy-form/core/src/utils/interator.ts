@@ -1,4 +1,4 @@
-import { Schema } from '../types';
+import type { Schema } from '../types';
 import { getItems } from './itemsField';
 import { setSchemaInitValue } from './stateField';
 
@@ -25,6 +25,7 @@ export const forEachWithKeyChain = (
       return;
     }
     if (_schema.items) {
+      // biome-ignore lint/complexity/noForEach: <explanation>
       getItems(_schema).forEach(each =>
         doForeach(each, keyChain ? `${keyChain}.${_schema.key}` : _schema.key),
       );
@@ -41,6 +42,7 @@ export const forEach = (
     defaultHandlers: {
       setSchemaInitValue: typeof setSchemaInitValue;
     },
+    // biome-ignore lint/suspicious/noConfusingVoidType: <explanation>
   ) => boolean | undefined | void, // Return true to terminate the loop
 ) => {
   const doForeach = (_schema: Schema) => {
@@ -51,6 +53,7 @@ export const forEach = (
       return;
     }
     if (_schema.items) {
+      // biome-ignore lint/complexity/noForEach: <explanation>
       getItems(_schema).forEach(each => doForeach(each));
     }
   };
@@ -70,6 +73,7 @@ export const filterNone = (schema: Schema, originData: any): any => {
   };
   const doSchema = (_schema: Schema) => {
     if (_schema.isObject) {
+      // biome-ignore lint/complexity/noForEach: <explanation>
       (_schema.items as any[]).forEach((each: Schema) => {
         doSchema(each);
       });
@@ -78,6 +82,7 @@ export const filterNone = (schema: Schema, originData: any): any => {
         needKeys.push(_schema.key);
       }
 
+      // biome-ignore lint/complexity/noForEach: <explanation>
       (_schema.items as any[]).forEach((each: Schema) => {
         doSchema(each);
       });
@@ -125,6 +130,7 @@ export const filter = (schema: Schema, originData: any): any => {
     };
 
     if (_schema.isObject) {
+      // biome-ignore lint/complexity/noForEach: <explanation>
       (_schema.items as any[]).forEach((each: Schema) => {
         doSchema(each);
       });

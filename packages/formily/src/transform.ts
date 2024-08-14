@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Schema as FormilySchema } from '@formily/json-schema';
+import type { Schema as FormilySchema } from '@formily/json-schema';
 import {
   isObject,
   flattenDeep,
   isArray,
   isFunction,
 } from '@modern-js/utils/lodash';
-import { Question as InquirerQuestion } from 'inquirer';
-import { Validator, validate } from '@formily/validator';
+import type { Question as InquirerQuestion } from 'inquirer';
+import { type Validator, validate } from '@formily/validator';
 
 export type Schema = Partial<
   Pick<

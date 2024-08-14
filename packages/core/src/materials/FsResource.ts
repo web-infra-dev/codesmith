@@ -1,5 +1,5 @@
 import path from 'path';
-import { Buffer } from 'buffer';
+import type { Buffer } from 'buffer';
 import { fs } from '@modern-js/utils';
 import { IMAGE_EXT_LIST } from './constants';
 
@@ -21,9 +21,8 @@ export class FsResource {
     if (IMAGE_EXT_LIST.includes(resourceFileExt)) {
       const buffer = await fs.readFile(path.resolve(this.filePath));
       return { content: buffer };
-    } else {
-      const text = await fs.readFile(path.resolve(this.filePath), 'utf8');
-      return { content: text };
     }
+    const text = await fs.readFile(path.resolve(this.filePath), 'utf8');
+    return { content: text };
   }
 }

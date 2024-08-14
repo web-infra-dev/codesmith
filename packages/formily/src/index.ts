@@ -1,7 +1,7 @@
 import { merge } from '@modern-js/utils/lodash';
-import { GeneratorContext } from '@modern-js/codesmith';
+import type { GeneratorContext } from '@modern-js/codesmith';
 import { CLIReader } from './inquirer';
-import { Schema } from './transform';
+import type { Schema } from './transform';
 
 export * from './inquirer';
 export type { Schema } from './transform';

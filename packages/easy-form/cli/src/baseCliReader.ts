@@ -2,12 +2,12 @@ import {
   BaseReader,
   getItems,
   toBoolean,
-  Handler,
-  Schema,
+  type Handler,
+  type Schema,
   getSchemaDefaultState,
   getNodeInfo,
 } from '@modern-js/easy-form-core';
-import {
+import type {
   CheckboxNodeHanlder,
   ChildNodeHandler,
   ListNodeHandlder,
@@ -19,7 +19,7 @@ import {
 } from './ICli';
 
 import { CliNodeHandlers } from './constant';
-import { CustomCliConfigs } from '.';
+import type { CustomCliConfigs } from '.';
 
 export type CliOptions = {
   schema: Schema;
@@ -127,6 +127,7 @@ export class BaseCliReader {
   ): QuestionHandler[] => {
     const { parent, doRead } = options;
     const childNodes: QuestionHandler[] = [];
+    // biome-ignore lint/complexity/noForEach: <explanation>
     getItems(parent, answers, this.extra).forEach((each: Schema) => {
       if (each.items) {
         const isDefault = getSchemaDefaultState(each).default;
@@ -196,6 +197,7 @@ export class BaseCliReader {
 
   updateAnswer(answer: Record<string, unknown>) {
     const keys = Object.keys(answer);
+    // biome-ignore lint/complexity/noForEach: <explanation>
     keys.forEach(x => {
       this.answers[x] = answer[x];
     });
@@ -211,6 +213,7 @@ export class BaseCliReader {
     // }
   }
 
+  // biome-ignore lint/suspicious/noPrototypeBuiltins: <explanation>
   private readonly hasValue = (key: string) => this.answers.hasOwnProperty(key);
 
   public askQuestionHandler(): QuestionHandler[] {

@@ -7,7 +7,7 @@ import { getNpmTarballUrl } from './getNpmTarballUrl';
 import { getNpmVersion } from './getNpmVersion';
 import { runInstall } from './packageManager';
 import { CATCHE_VALIDITY_PREIOD } from '@/constants';
-import { Logger } from '@/logger';
+import type { Logger } from '@/logger';
 
 async function isValidCache(cacheDir: string) {
   /* generator cache can use
@@ -96,7 +96,7 @@ export async function downloadPackage(
   } = {},
 ) {
   const { registryUrl, install, logger } = options;
-  let version;
+  let version: string | undefined;
   if (!semver.valid(pkgVersion)) {
     // get pkgName version
     version = await getNpmVersion(pkgName, {

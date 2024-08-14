@@ -1,4 +1,4 @@
-import { GeneratorCore } from '@modern-js/codesmith';
+import type { GeneratorCore } from '@modern-js/codesmith';
 import { npmInstall, yarnInstall, pnpmInstall } from './utils';
 
 export * from './utils';

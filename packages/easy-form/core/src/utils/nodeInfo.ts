@@ -1,5 +1,5 @@
-import { NodeInfo } from '../interface/ISchema';
-import { Schema, StateType } from '../types';
+import type { NodeInfo } from '../interface/ISchema';
+import type { Schema, StateType } from '../types';
 
 export const fieldValue = (
   key: keyof Schema,
@@ -28,6 +28,7 @@ export const getSchemaDisabled = (
     return false;
   }
   if (
+    // biome-ignore lint/suspicious/noPrototypeBuiltins: <explanation>
     schema.state.hasOwnProperty('disabled') &&
     typeof schema.state.disabled === 'function'
   ) {

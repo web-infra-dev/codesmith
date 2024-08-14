@@ -2,16 +2,14 @@ import path from 'path';
 import { glob } from '@modern-js/utils';
 import { FsResource } from './FsResource';
 
-const promisifyGlob = function (
+const promisifyGlob = (
   pattern: string,
   options: glob.IOptions,
-): Promise<string[]> {
-  return new Promise((resolve, reject) => {
+): Promise<string[]> => new Promise((resolve, reject) => {
     glob(pattern, options, (err, files) =>
       err === null ? resolve(files) : reject(err),
     );
   });
-};
 
 export class FsMaterial {
   basePath: string;

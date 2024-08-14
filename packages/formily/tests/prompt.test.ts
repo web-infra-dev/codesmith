@@ -1,4 +1,4 @@
-import { Schema } from '../src/transform';
+import type { Schema } from '../src/transform';
 import { prompt } from '../src/prompt';
 
 describe('prompt test', () => {

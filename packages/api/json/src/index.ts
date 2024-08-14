@@ -1,6 +1,6 @@
 import commentJSON from 'comment-json';
 import * as declarationUpdate from 'declaration-update';
-import { FsResource, GeneratorCore } from '@modern-js/codesmith';
+import type { FsResource, GeneratorCore } from '@modern-js/codesmith';
 import { editJson } from './utils';
 
 export class JsonAPI {
