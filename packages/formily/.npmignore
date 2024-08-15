@@ -36,6 +36,8 @@ output_resource/
 **/*/adapters/**/index.ts
 **/*/adapters/**/index.js
 
+src/
+
 modern.config.*
 tsconfig.json
 CHANGELOG.md
