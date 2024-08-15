@@ -35,3 +35,7 @@ output_resource/
 **/*/api/typings/auto-generated
 **/*/adapters/**/index.ts
 **/*/adapters/**/index.js
+
+modern.config.*
+tsconfig.json
+CHANGELOG.md
