@@ -39,7 +39,6 @@ export const setCliQuestionsHandlers = (questions: Record<string, unknown>) => {
     ...questions,
   };
   const questionNames = Object.keys(questions);
-  // biome-ignore lint/complexity/noForEach: <explanation>
   questionNames.forEach(x => {
     CLI_TYPE[x.toUpperCase()] = x;
   });
@@ -51,7 +50,6 @@ const validateCliQuestionsHandlers = (
 ) => {
   const coreNeed = Object.values(CLI_TYPE);
   const miss: string[] = [];
-  // biome-ignore lint/complexity/noForEach: <explanation>
   coreNeed.forEach(x => {
     if (!questions[x]) {
       miss.push(x);

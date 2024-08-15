@@ -73,7 +73,6 @@ const checkRepeatItems = (schema: Schema, extra?: Record<string, unknown>) => {
     const keys = items.map(x => x.key);
     const tmp: string[] = [];
     const repeatKeys: string[] = [];
-    // biome-ignore lint/complexity/noForEach: <explanation>
     keys.forEach(x => {
       if (tmp.includes(x)) {
         repeatKeys.push(x);

@@ -127,7 +127,6 @@ export class BaseCliReader {
   ): QuestionHandler[] => {
     const { parent, doRead } = options;
     const childNodes: QuestionHandler[] = [];
-    // biome-ignore lint/complexity/noForEach: <explanation>
     getItems(parent, answers, this.extra).forEach((each: Schema) => {
       if (each.items) {
         const isDefault = getSchemaDefaultState(each).default;
@@ -197,7 +196,6 @@ export class BaseCliReader {
 
   updateAnswer(answer: Record<string, unknown>) {
     const keys = Object.keys(answer);
-    // biome-ignore lint/complexity/noForEach: <explanation>
     keys.forEach(x => {
       this.answers[x] = answer[x];
     });

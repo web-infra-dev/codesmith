@@ -72,7 +72,6 @@ export const getChoices = (options: {
       choices = schema.items || [];
     }
     let result: ChoiceType[] = [];
-    // biome-ignore lint/complexity/noForEach: <explanation>
     choices.forEach(x => {
       const nodeInfo = getNodeInfo(x, answers, extra);
       if (customChoice) {

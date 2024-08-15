@@ -147,7 +147,6 @@ export class BaseReader {
 
       if (_schema.items) {
         const items = getItems(_schema, this.data, this.extra);
-        // biome-ignore lint/complexity/noForEach: <explanation>
         items.forEach(each =>
           readDefaultValue(
             each,

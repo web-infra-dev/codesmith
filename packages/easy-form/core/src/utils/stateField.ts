@@ -40,7 +40,6 @@ export const setInitValues = (schema: Schema, initValues: any): Schema => {
   const doSetInitValue = (_schema: Schema) => {
     setSchemaInitValue(_schema, initValues[_schema.key]);
     if (_schema.items) {
-      // biome-ignore lint/complexity/noForEach: <explanation>
       getItems(_schema).forEach(each => doSetInitValue(each));
     }
   };
