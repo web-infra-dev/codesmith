@@ -5,7 +5,12 @@
   "bugs": "https://github.com/web-infra-dev/codesmith/issues",
   "repository": "web-infra-dev/codesmith",
   "license": "MIT",
-  "keywords": ["react", "framework", "modern", "modern.js"],
+  "keywords": [
+    "react",
+    "framework",
+    "modern",
+    "modern.js"
+  ],
   "version": "1.9.0",
   "jsnext:source": "./src/index.ts",
   "types": "./dist/types/index.d.ts",
