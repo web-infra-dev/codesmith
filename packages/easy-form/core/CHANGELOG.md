@@ -1,5 +1,11 @@
 # @modern-js/easy-form-core
 
+## 1.9.1
+
+### Patch Changes
+
+- 798f3d9: feat: npm publish ignore src file
+
 ## 1.9.0
 
 ### Minor Changes

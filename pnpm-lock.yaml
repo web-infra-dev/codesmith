@@ -324,7 +324,7 @@ importers:
   packages/easy-form/cli:
     dependencies:
       '@modern-js/easy-form-core':
-        specifier: workspace:1.9.0
+        specifier: workspace:1.9.1
         version: link:../core
       '@modern-js/utils':
         specifier: ^2.58.0
