@@ -1,5 +1,7 @@
 # @modern-js/codesmith
 
+## 2.4.0
+
 ## 2.3.6
 
 ### Patch Changes
