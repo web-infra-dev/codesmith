@@ -6,7 +6,7 @@
   "repository": "web-infra-dev/codesmith",
   "license": "MIT",
   "keywords": ["react", "framework", "modern", "modern.js"],
-  "version": "2.3.6",
+  "version": "2.4.0",
   "jsnext:source": "./src/index.ts",
   "main": "./dist/cjs/index.js",
   "bin": {

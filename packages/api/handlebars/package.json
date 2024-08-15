@@ -6,7 +6,7 @@
   "repository": "web-infra-dev/codesmith",
   "license": "MIT",
   "keywords": ["react", "framework", "modern", "modern.js"],
-  "version": "2.3.6",
+  "version": "2.4.0",
   "jsnext:source": "./src/index.ts",
   "types": "./dist/types/index.d.ts",
   "main": "./dist/cjs/index.js",
@@ -28,7 +28,7 @@
     "handlebars": "^4.7.7"
   },
   "peerDependencies": {
-    "@modern-js/codesmith": "workspace:^2.3.6"
+    "@modern-js/codesmith": "workspace:^2.4.0"
   },
   "devDependencies": {
     "@modern-js/codesmith": "workspace:*",
