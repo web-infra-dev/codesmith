@@ -1,10 +1,10 @@
-import { GeneratorContext, GeneratorCore } from '@modern-js/codesmith';
+import type { GeneratorContext, GeneratorCore } from '@modern-js/codesmith';
 import {
   canUseGit,
-  isInGitRepo,
-  initGitRepo,
   gitAdd,
   gitCommit,
+  initGitRepo,
+  isInGitRepo,
 } from './utils';
 
 export class GitAPI {

@@ -1,6 +1,7 @@
 import '../../ICliConfig';
-import { IRootNodeOptions, QuestionHandler } from '../../ICli';
+import type { IRootNodeOptions, QuestionHandler } from '../../ICli';
 
+// biome-ignore lint/complexity/noBannedTypes: <explanation>
 export type RootNodeConfig = {
   /** empty */
 };

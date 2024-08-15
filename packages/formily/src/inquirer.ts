@@ -1,5 +1,5 @@
 import { prompt } from './prompt';
-import { Schema } from './transform';
+import type { Schema } from './transform';
 
 export interface ICLIReaderOptions {
   schema: Schema;

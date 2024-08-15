@@ -1,6 +1,10 @@
 // Helper functions related to the state field
 import { cloneDeep } from 'lodash';
-import { Schema, SchemaEffectedValueType, SchemaValueType } from '../types';
+import type {
+  Schema,
+  SchemaEffectedValueType,
+  SchemaValueType,
+} from '../types';
 import { getItems } from './itemsField';
 import { booleanToString, toBoolean } from './tools';
 
@@ -10,7 +14,9 @@ export const setSchemaInitValue = (schema: Schema, initValue: any) => {
   }
   schema.state = schema.state || {};
   if (
+    // biome-ignore lint/suspicious/noPrototypeBuiltins: <explanation>
     schema.state.value?.hasOwnProperty('effectedByFields') &&
+    // biome-ignore lint/suspicious/noPrototypeBuiltins: <explanation>
     schema.state.value?.hasOwnProperty('action')
   ) {
     // It is a side effect function, when setting the default value, the function form is still retained

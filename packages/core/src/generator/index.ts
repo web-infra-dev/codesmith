@@ -1,13 +1,13 @@
-import path from 'path';
 import { EventEmitter } from 'events';
-import { fs, ora, chalk } from '@modern-js/utils';
-import { GeneratorContext, RuntimeCurrent } from './constants';
-import { Logger } from '@/logger';
-import { ILogger } from '@/logger/constants';
-import { MaterialsManager } from '@/materials';
+import path from 'path';
+import type { Logger } from '@/logger';
+import type { ILogger } from '@/logger/constants';
+import type { MaterialsManager } from '@/materials';
 import { FsMaterial } from '@/materials/FsMaterial';
-import { nodeRequire } from '@/utils/nodeRequire';
 import { getGeneratorDir } from '@/utils/getGeneratorDir';
+import { nodeRequire } from '@/utils/nodeRequire';
+import { fs, chalk, ora } from '@modern-js/utils';
+import type { GeneratorContext, RuntimeCurrent } from './constants';
 
 interface ICreateOptions {
   logger: Logger;
@@ -93,9 +93,8 @@ export class GeneratorCore {
     let pkgJson: Record<string, any>;
     try {
       const generatorDir = await getGeneratorDir(generator);
-      generatorPkg = await this.materialsManager.loadLocalGenerator(
-        generatorDir,
-      );
+      generatorPkg =
+        await this.materialsManager.loadLocalGenerator(generatorDir);
     } catch (e) {
       this.logger.debug('load local generator failed:', e);
       return { generatorPkg: null };
@@ -129,9 +128,8 @@ check path: ${chalk.blue.underline(
   private async loadRemoteGenerator(generator: string) {
     this.logger.debug('[runGenerator] task.generator is remote package');
     try {
-      const generatorPkg = await this.materialsManager.loadRemoteGenerator(
-        generator,
-      );
+      const generatorPkg =
+        await this.materialsManager.loadRemoteGenerator(generator);
       const pkgJson = nodeRequire(generatorPkg.get('package.json').filePath);
       const materialKey = `${pkgJson.name}@${pkgJson.version}`;
       this.logger.debug(
@@ -158,7 +156,7 @@ check path: ${chalk.blue.underline(
   ) {
     if (needWait) {
       this.event.emit(
-        `forged`,
+        'forged',
         generatorName,
         context.materials.default.basePath,
         { ...context.data, ...context.config },

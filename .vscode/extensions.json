@@ -3,8 +3,6 @@
     "styled-components.vscode-styled-components",
     "cpylua.language-postcss",
     "EditorConfig.editorconfig",
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
     "drKnoxy.eslint-disable-snippets",
     "mkaufman.htmlhint",
     "streetsidesoftware.code-spell-checker",
@@ -13,6 +11,7 @@
     "jasonnutter.search-node-modules",
     "jock.svg",
     "mikestead.dotenv",
-    "vscode-icons-team.vscode-icons"
+    "vscode-icons-team.vscode-icons",
+    "biomejs.biome"
   ]
 }

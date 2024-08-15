@@ -6,19 +6,14 @@
   "bugs": "https://github.com/web-infra-dev/codesmith/issues",
   "repository": "web-infra-dev/codesmith",
   "license": "MIT",
-  "keywords": [
-    "react",
-    "framework",
-    "modern",
-    "modern.js"
-  ],
+  "keywords": ["react", "framework", "modern", "modern.js"],
   "scripts": {
     "new": "modern new",
     "setup": "npm run reset && pnpm install --ignore-scripts",
     "reset": "pnpm -r exec rm -rf ./node_modules",
     "test": "pnpm run --filter './packages/**' test --detectOpenHandles",
     "prepare": "pnpm run --filter './packages/**' prepare",
-    "lint": "modern lint",
+    "lint": "biome check",
     "change": "modern change",
     "bump": "modern bump",
     "pre": "modern pre",
@@ -37,29 +32,13 @@
     }
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "extends": ["@commitlint/config-conventional"]
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "pnpm exec eslint --fix --color --cache --quiet",
-      "git add"
-    ],
-    "*.{js,jsx,mjs,mjsx,cjs,cjsx}": [
-      "pnpm exec eslint --fix --color --cache --quiet",
-      "git add"
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+      "biome check --files-ignore-unknown=true"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "@modern-js"
-    ]
-  },
-  "eslintIgnore": [
-    "node_modules/",
-    "dist/"
-  ],
   "workspaces": {
     "packages": [
       "apps/*",
@@ -72,9 +51,8 @@
     ]
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@modern-js/monorepo-tools": "2.58.0",
-    "@modern-js/tsconfig": "2.58.0",
-    "@modern-js-app/eslint-config": "2.58.0",
-    "@modern-js/eslint-config": "2.58.0"
+    "@modern-js/tsconfig": "2.58.0"
   }
 }

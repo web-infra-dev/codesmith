@@ -1,7 +1,7 @@
 import path from 'path';
+import type { Logger } from '@/logger';
+import { downloadPackage, getPackageInfo, nodeRequire } from '@/utils';
 import { FsMaterial } from './FsMaterial';
-import { Logger } from '@/logger';
-import { getPackageInfo, downloadPackage, nodeRequire } from '@/utils';
 
 export class MaterialsManager {
   logger?: Logger;

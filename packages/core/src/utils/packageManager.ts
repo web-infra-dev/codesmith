@@ -1,6 +1,6 @@
 import path from 'path';
+import type { Logger } from '@/logger';
 import { fs, execa } from '@modern-js/utils';
-import { Logger } from '@/logger';
 
 export async function canUseYarn() {
   try {
@@ -37,7 +37,7 @@ export async function runInstall(
   try {
     const pkgPath = path.join(targetDir, 'package.json');
     const pkgJSON = JSON.parse(fs.readFileSync(pkgPath, { encoding: 'utf-8' }));
-    delete pkgJSON.devDependencies;
+    pkgJSON.devDependencies = undefined;
     fs.writeFileSync(pkgPath, JSON.stringify(pkgJSON, null, 2), {
       encoding: 'utf-8',
     });

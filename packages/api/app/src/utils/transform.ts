@@ -1,5 +1,5 @@
 import { isString } from '@modern-js/utils/lodash';
-import { Question } from 'inquirer';
+import type { Question } from 'inquirer';
 
 export function transformInquirerSchema(
   questions: Question[],

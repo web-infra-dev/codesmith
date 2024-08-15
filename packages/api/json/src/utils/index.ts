@@ -1,4 +1,4 @@
-import { FsResource, GeneratorCore } from '@modern-js/codesmith';
+import type { FsResource, GeneratorCore } from '@modern-js/codesmith';
 
 export async function editJson(
   generatorCore: GeneratorCore,

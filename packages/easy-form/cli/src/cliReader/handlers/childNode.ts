@@ -1,7 +1,8 @@
 import '../../ICliConfig';
-import { IChildNodeOptions, QuestionHandler } from '../../ICli';
+import type { IChildNodeOptions, QuestionHandler } from '../../ICli';
 import { toPromiseQuestionHandlerLoop } from '../utils';
 
+// biome-ignore lint/complexity/noBannedTypes: <explanation>
 export type ChildNodeConfig = {
   /** empty */
 };

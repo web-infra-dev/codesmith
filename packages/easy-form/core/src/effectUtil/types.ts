@@ -1,3 +1,4 @@
+// biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
 const { hasOwnProperty } = Object.prototype;
 
 export function isEmptyObject(obj: any): obj is any {

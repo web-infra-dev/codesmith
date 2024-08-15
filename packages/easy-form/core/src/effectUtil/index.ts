@@ -3,9 +3,12 @@
  * Link yourself, not allowed
  */
 
-import { SchemaEffectedValueType, SchemaValueType } from '../interface/ISchema';
+import type {
+  SchemaEffectedValueType,
+  SchemaValueType,
+} from '../interface/ISchema';
 import { isEffectedValue } from '../utils';
-import { Graph, Node } from './graph';
+import { Graph, type Node } from './graph';
 import { isEmptyObject } from './types';
 
 // Circulation linkage of processing nodes

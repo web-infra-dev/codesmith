@@ -1,4 +1,4 @@
-import { Schema } from '../types';
+import type { Schema } from '../types';
 import { getItems } from './itemsField';
 import { setSchemaInitValue } from './stateField';
 
@@ -41,6 +41,7 @@ export const forEach = (
     defaultHandlers: {
       setSchemaInitValue: typeof setSchemaInitValue;
     },
+    // biome-ignore lint/suspicious/noConfusingVoidType: <explanation>
   ) => boolean | undefined | void, // Return true to terminate the loop
 ) => {
   const doForeach = (_schema: Schema) => {

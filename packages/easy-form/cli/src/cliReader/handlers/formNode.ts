@@ -1,7 +1,8 @@
 import '../../ICliConfig';
-import { IFormNodeOptions, QuestionHandler } from '../../ICli';
+import type { IFormNodeOptions, QuestionHandler } from '../../ICli';
 import { toPromiseQuestionHandlerLoop } from '../utils';
 
+// biome-ignore lint/complexity/noBannedTypes: <explanation>
 export type FormNodeConfig = {
   /** empty */
 };

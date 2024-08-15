@@ -5,22 +5,14 @@
   "bugs": "https://github.com/web-infra-dev/codesmith/issues",
   "repository": "web-infra-dev/codesmith",
   "license": "MIT",
-  "keywords": [
-    "react",
-    "framework",
-    "modern",
-    "modern.js"
-  ],
+  "keywords": ["react", "framework", "modern", "modern.js"],
   "version": "2.3.6",
   "jsnext:source": "./src/index.ts",
   "main": "./dist/cjs/index.js",
   "bin": {
     "codesmith": "./bin/run.js"
   },
-  "files": [
-    "/bin",
-    "/dist"
-  ],
+  "files": ["/bin", "/dist"],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public",

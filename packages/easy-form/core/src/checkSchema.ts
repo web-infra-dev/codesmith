@@ -1,6 +1,6 @@
-import { Schema } from './interface/ISchema';
 import { MESSAGE } from './constant';
-import { getItems, forEach } from './utils';
+import type { Schema } from './interface/ISchema';
+import { forEach, getItems } from './utils';
 
 const checkFieldType = (schema: Schema) => {
   // field type detection

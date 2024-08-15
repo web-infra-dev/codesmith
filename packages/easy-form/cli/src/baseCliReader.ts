@@ -1,25 +1,25 @@
 import {
   BaseReader,
+  type Handler,
+  type Schema,
   getItems,
-  toBoolean,
-  Handler,
-  Schema,
-  getSchemaDefaultState,
   getNodeInfo,
+  getSchemaDefaultState,
+  toBoolean,
 } from '@modern-js/easy-form-core';
-import {
+import type {
   CheckboxNodeHanlder,
   ChildNodeHandler,
-  ListNodeHandlder,
   FormNodeHandler,
   InputNodeHandler,
+  ListNodeHandlder,
   NoneNodeHandler,
-  RootNodeHandler,
   QuestionHandler,
+  RootNodeHandler,
 } from './ICli';
 
+import type { CustomCliConfigs } from '.';
 import { CliNodeHandlers } from './constant';
-import { CustomCliConfigs } from '.';
 
 export type CliOptions = {
   schema: Schema;
@@ -211,6 +211,7 @@ export class BaseCliReader {
     // }
   }
 
+  // biome-ignore lint/suspicious/noPrototypeBuiltins: <explanation>
   private readonly hasValue = (key: string) => this.answers.hasOwnProperty(key);
 
   public askQuestionHandler(): QuestionHandler[] {

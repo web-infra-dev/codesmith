@@ -1,10 +1,11 @@
 import '../../ICliConfig';
-import { ICheckboxNodeOptions, QuestionHandler } from '../../ICli';
+import type { ICheckboxNodeOptions, QuestionHandler } from '../../ICli';
 import {
   toPromiseQuestionHandler,
   toPromiseQuestionHandlerLoop,
 } from '../utils';
 
+// biome-ignore lint/complexity/noBannedTypes: <explanation>
 export type CheckboxNodeConfig = {
   /** empty */
 };

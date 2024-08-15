@@ -1,11 +1,11 @@
 import path from 'path';
-import { fs } from '@modern-js/utils';
 import {
-  FsMaterial,
-  FsResource,
   FS_RESOURCE,
-  GeneratorCore,
+  type FsMaterial,
+  type FsResource,
+  type GeneratorCore,
 } from '@modern-js/codesmith';
+import { fs } from '@modern-js/utils';
 
 type RenderDirOptions = {
   nodir?: boolean;

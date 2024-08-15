@@ -1,4 +1,4 @@
-import { Question, Schema, transformForm } from '../src/transform';
+import { type Question, type Schema, transformForm } from '../src/transform';
 
 function removeValidate(questions: Question[]) {
   return questions.map(question => {

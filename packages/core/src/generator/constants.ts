@@ -1,4 +1,4 @@
-import { FsMaterial } from '@/materials/FsMaterial';
+import type { FsMaterial } from '@/materials/FsMaterial';
 
 export interface RuntimeCurrent {
   material: FsMaterial;
