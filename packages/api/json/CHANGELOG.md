@@ -1,5 +1,15 @@
 # @modern-js/codesmith-api-json
 
+## 2.4.2
+
+### Patch Changes
+
+- 8aedf8f: feat: json api support end with new line params
+
+  feat: json api 支持结尾配置换行
+
+  - @modern-js/codesmith@2.4.2
+
 ## 2.4.1
 
 ### Patch Changes
