@@ -27,6 +27,9 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: git init
+        run: git config --global user.email "modern@bytedance.com" && git config --global user.name "modern"
+
       # Runs a single command using the runners shell
       - name: Install Pnpm
         run: corepack enable
