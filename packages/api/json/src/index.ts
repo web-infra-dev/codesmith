@@ -21,14 +21,21 @@ export class JsonAPI {
     }
   }
 
-  public async extend(resource: FsResource, obj: Record<string, any>) {
+  public async extend(
+    resource: FsResource,
+    obj: Record<string, any>,
+    endWithNewLine = false,
+  ) {
     await editJson(this.generatorCore, resource, async () => {
       const originJsonValue = await resource.value();
       try {
         const origin = commentJSON.parse(originJsonValue.content as string);
         const newObj = commentJSON.assign(origin, obj);
         const jsonIntent = 2;
-        return commentJSON.stringify(newObj, undefined, jsonIntent);
+        return (
+          commentJSON.stringify(newObj, undefined, jsonIntent) +
+          (endWithNewLine ? '\n' : '')
+        );
       } catch (e) {
         this.generatorCore.logger.debug('[JSON API] parse json error:', e);
         throw new Error('resource content is not a legal json');
@@ -39,6 +46,7 @@ export class JsonAPI {
   public async update(
     resource: FsResource,
     operation: { query: Record<string, any>; update: Record<string, any> },
+    endWithNewLine = false,
   ) {
     await editJson(this.generatorCore, resource, text => {
       try {
@@ -46,7 +54,8 @@ export class JsonAPI {
         declarationUpdate.query(jsonContent, operation.query, operation.update);
         const jsonIntent = 2;
         return Promise.resolve(
-          commentJSON.stringify(jsonContent, undefined, jsonIntent),
+          commentJSON.stringify(jsonContent, undefined, jsonIntent) +
+            (endWithNewLine ? '\n' : ''),
         );
       } catch (e) {
         this.generatorCore.logger.debug('[JSON API] parse json error:', e);
