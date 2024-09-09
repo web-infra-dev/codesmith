@@ -1,5 +1,7 @@
 # @modern-js/inquirer-types
 
+## 2.4.2
+
 ## 2.4.1
 
 ### Patch Changes
