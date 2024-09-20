@@ -35,7 +35,7 @@ export class GitAPI {
     }
     const alreadyInit = await this.isInGitRepo(cwd);
     if (alreadyInit && !force) {
-      this.generatorCore.logger.debug('already in a git repo, skip init');
+      this.generatorCore.logger.debug('[Git Init]: Already init, Skip');
       return;
     }
     try {
@@ -44,7 +44,7 @@ export class GitAPI {
       } = this.generatorContext || { config: { defaultBranch: 'master' } };
       await initGitRepo(cwd, defaultBranch);
     } catch (e) {
-      this.generatorCore.logger.debug('[GitAPI.error]:', e);
+      this.generatorCore.logger.debug('[Git Init error]:', e);
       throw e;
     }
   }
@@ -61,7 +61,7 @@ export class GitAPI {
       await gitAdd(cwd);
       await gitCommit(cwd, commitMessage);
     } catch (e) {
-      this.generatorCore.logger.debug('[GitAPI.error]:', e);
+      this.generatorCore.logger.debug('[Git Add and Commit Error]:', e);
       throw e;
     }
   }

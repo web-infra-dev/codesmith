@@ -53,7 +53,7 @@ export class AppAPI {
   }
 
   public async checkEnvironment(nodeVersion?: string) {
-    if (semver.lt(process.versions.node, nodeVersion || '12.22.12')) {
+    if (semver.lt(process.versions.node, nodeVersion || '16.20.2')) {
       this.generatorCore.logger.warn(
         i18n.t(localeKeys.environment.node_version),
       );
@@ -64,7 +64,9 @@ export class AppAPI {
       !(await canUsePnpm()) &&
       !(await canUseNpm())
     ) {
-      this.generatorCore.logger.debug("can't use yarn or pnpm or npm");
+      this.generatorCore.logger.debug(
+        "[Check Environment] Can't use yarn or pnpm or npm",
+      );
       this.generatorCore.logger.warn(
         i18n.t(localeKeys.environment.yarn_pnpm_npm),
       );
@@ -149,7 +151,7 @@ export class AppAPI {
         await this.runInstall();
       }
     } catch (e) {
-      this.generatorCore.logger.debug('Dependencies install failed', e);
+      this.generatorCore.logger.debug('[Run Install Failed]:', e);
       this.generatorCore.logger.warn(
         i18n.t(localeKeys.install.failed_no_command),
       );
@@ -161,7 +163,7 @@ export class AppAPI {
         this.generatorCore.logger.info(i18n.t(localeKeys.git.success));
       }
     } catch (e) {
-      this.generatorCore.logger.debug('Git repository create failed', e);
+      this.generatorCore.logger.debug('[Git Add and Commit Failed]:', e);
       this.generatorCore.logger.warn(i18n.t(localeKeys.git.failed));
     }
   }
@@ -187,7 +189,7 @@ export class AppAPI {
             .filter(resourceKey => (filter ? filter(resourceKey) : true))
             .map(async resourceKey => {
               this.generatorCore.logger.debug(
-                `[renderDir] resourceKey=${resourceKey}`,
+                `[Forge Template]: resourceKey=${resourceKey}`,
               );
               const target = rename
                 ? rename(resourceKey)
@@ -203,9 +205,9 @@ export class AppAPI {
         );
       }
     } catch (e) {
-      this.generatorCore.logger.debug('base forging failed:', e);
+      this.generatorCore.logger.debug('[Forge Template Failed]:', e);
       this.generatorCore.logger.warn(i18n.t(localeKeys.templated.failed));
-      throw new Error('base forging failed');
+      throw new Error('Forge Template Failed');
     } finally {
       this.generatorCore.logger?.timing?.('forgeTemplate', true);
     }
@@ -230,7 +232,7 @@ export class AppAPI {
             .filter(resourceKey => (filter ? filter(resourceKey) : true))
             .map(async resourceKey => {
               this.generatorCore.logger.debug(
-                `[renderDir] resourceKey=${resourceKey}`,
+                `[Forge Template by Type]: resourceKey=${resourceKey}`,
               );
               if (resourceKey.includes('.handlebars')) {
                 const target = rename
@@ -268,9 +270,9 @@ export class AppAPI {
         );
       }
     } catch (e) {
-      this.generatorCore.logger.debug('base forging failed:', e);
+      this.generatorCore.logger.debug('[Forge Template by Type Failed]:', e);
       this.generatorCore.logger.warn(i18n.t(localeKeys.templated.failed));
-      throw new Error('base forging failed');
+      throw new Error('Forge Template by Type Failed');
     } finally {
       this.generatorCore.logger?.timing?.('renderTemplateByFileType', true);
     }
@@ -318,7 +320,11 @@ export class AppAPI {
       );
     } catch (e) {
       this.generatorCore.logger.warn(i18n.t(localeKeys.generator.failed));
-      this.generatorCore.logger.debug(i18n.t(localeKeys.generator.failed), e);
+      this.generatorCore.logger.debug(
+        '[Runtime sub Generator Failed]:',
+        subGenerator,
+        e,
+      );
       throw new Error('run sub generator failed');
     }
   }

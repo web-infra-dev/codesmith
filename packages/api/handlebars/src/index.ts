@@ -90,7 +90,7 @@ export class HandlebarsAPI {
       // resourceKey is relate path. example: in `garr-master/package.json`, package.json is resourceKey
       Object.keys(resourceMap).map(async resourceKey => {
         this.generatorCore.logger.debug(
-          `[renderDir] resourceKey=${resourceKey}`,
+          `[Handlebars Render Template Dir]: resourceKey=${resourceKey}`,
         );
         await this.renderTemplate(
           material.get(resourceKey),

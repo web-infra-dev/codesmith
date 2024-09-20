@@ -47,7 +47,7 @@ export class FsAPI {
     await Promise.all(
       Object.keys(resourceMap).map(async resourceKey => {
         this.generatorCore.logger.debug(
-          `[renderDir] resourceKey=${resourceKey}`,
+          `[FS Render Dir]: resourceKey=${resourceKey}`,
         );
         await this.renderFile(material.get(resourceKey), target(resourceKey));
       }),

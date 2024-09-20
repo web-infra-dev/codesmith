@@ -86,9 +86,7 @@ export class GeneratorCore {
   }
 
   private async loadLocalGenerator(generator: string) {
-    this.logger.debug(
-      '[runGenerator] generator is absolute, using local generator',
-    );
+    this.logger.debug('[Load Local Generator]:', generator);
     let generatorPkg: FsMaterial;
     let pkgJson: Record<string, any>;
     try {
@@ -96,14 +94,14 @@ export class GeneratorCore {
       generatorPkg =
         await this.materialsManager.loadLocalGenerator(generatorDir);
     } catch (e) {
-      this.logger.debug('load local generator failed:', e);
+      this.logger.debug('[Load Local Generator Error]:', e);
       return { generatorPkg: null };
     }
     // check package.json file exist
     try {
       pkgJson = nodeRequire(generatorPkg.get('package.json').filePath);
     } catch (e) {
-      this.logger.debug('nodeRequire fail:', e);
+      this.logger.debug('[Require Local Generator Failed]:', e);
       this.logger.error('can not require package.json');
       this.logger.warn(
         `generator need a package.json in top directory
@@ -115,9 +113,12 @@ check path: ${chalk.blue.underline(
         generatorPkg: null,
       };
     }
-    this.logger.debug(`[runGenerator] generator version is ${pkgJson.version}`);
+    this.logger.debug(
+      '[Load Local Generator Success]:',
+      generator,
+      pkgJson.version,
+    );
     const materialKey = `${pkgJson.name}@local`;
-    this.logger.debug(`[runGenerator] loaded local generator, ${generator}`);
     return {
       generatorPkg,
       pkgJson,
@@ -126,14 +127,16 @@ check path: ${chalk.blue.underline(
   }
 
   private async loadRemoteGenerator(generator: string) {
-    this.logger.debug('[runGenerator] task.generator is remote package');
+    this.logger.debug('[Load Remote Generator]:', generator);
     try {
       const generatorPkg =
         await this.materialsManager.loadRemoteGenerator(generator);
       const pkgJson = nodeRequire(generatorPkg.get('package.json').filePath);
       const materialKey = `${pkgJson.name}@${pkgJson.version}`;
       this.logger.debug(
-        `[runTask] loaded remote generator, ${pkgJson.name}@${pkgJson.version}`,
+        '[Load Remote Generator Success]:',
+        generator,
+        pkgJson.version,
       );
       return { generatorPkg, pkgJson, materialKey };
     } catch (e) {
@@ -193,7 +196,7 @@ check path: ${chalk.blue.underline(
     const generatorScript = nodeRequire(generatorPkg.basePath);
     if (typeof generatorScript !== 'function') {
       this.logger.debug(
-        `generator module [${pkgJson.name}] export default is not a function`,
+        `[Generator Error]: generator module [${pkgJson.name}] export default is not a function`,
         generatorScript,
       );
       throw new Error(
@@ -262,7 +265,7 @@ check path: ${chalk.blue.underline(
         material: generatorPkg,
       },
     };
-    this.logger.debug('subContext', subContext);
+    this.logger.debug('[Run Sub Generator Context]:', subContext);
     const preOutputPath = this.outputPath;
     const preBasePath = this.basePath;
     this.setOutputPath(path.resolve(this.outputPath, relativePwdPath || ''));
