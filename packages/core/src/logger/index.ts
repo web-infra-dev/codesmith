@@ -1,5 +1,5 @@
 import { chalk } from '@modern-js/utils';
-import { type ILogger, LevelPriority, LoggerLevel } from './constants';
+import { type ILogger, LoggerLevel } from './constants';
 
 export class Logger implements ILogger {
   level: LoggerLevel = LoggerLevel.Info;
@@ -8,44 +8,26 @@ export class Logger implements ILogger {
     this.level = level;
   }
 
-  get currentLevelIndex() {
-    return LevelPriority.indexOf(this.level);
-  }
-
-  private getLevalIndex(level: LoggerLevel) {
-    return LevelPriority.indexOf(level);
-  }
-
   error(...meta: any[]) {
-    if (this.currentLevelIndex < this.getLevalIndex(LoggerLevel.Error)) {
-      return;
-    }
     console.log(chalk.red('[ERROR]'), ...meta);
   }
 
   warn(...meta: any[]) {
-    if (this.currentLevelIndex < this.getLevalIndex(LoggerLevel.Warn)) {
-      return;
-    }
     console.log(chalk.yellow('[WARN]'), ...meta);
   }
 
   info(...meta: any[]) {
-    if (this.currentLevelIndex < this.getLevalIndex(LoggerLevel.Info)) {
-      return;
-    }
     console.log(chalk.green('[INFO]'), ...meta);
   }
 
   debug(...meta: any[]) {
-    if (this.currentLevelIndex < this.getLevalIndex(LoggerLevel.Debug)) {
-      return;
+    if (this.level === LoggerLevel.Debug) {
+      console.log(chalk.blue('[DEBUG]'), ...meta);
     }
-    console.log(chalk.blue('[DEBUG]'), ...meta);
   }
 
   timing(key: string, end?: boolean) {
-    if (this.currentLevelIndex < this.getLevalIndex(LoggerLevel.Timing)) {
+    if (this.level !== LoggerLevel.Timing) {
       return;
     }
     if (end) {
@@ -56,16 +38,14 @@ export class Logger implements ILogger {
   }
 
   verbose(...meta: any[]) {
-    if (this.currentLevelIndex < this.getLevalIndex(LoggerLevel.Verbose)) {
-      return;
+    if (this.level === LoggerLevel.Verbose) {
+      console.log('[VERBOSE]', ...meta);
     }
-    console.log('[VERBOSE]', ...meta);
   }
 
   stream(...meta: any[]) {
-    if (this.currentLevelIndex < this.getLevalIndex(LoggerLevel.Stream)) {
-      return;
+    if (this.level === LoggerLevel.Stream) {
+      console.log('[STREAM]', ...meta);
     }
-    console.log('[STREAM]', ...meta);
   }
 }

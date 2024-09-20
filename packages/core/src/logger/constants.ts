@@ -8,17 +8,6 @@ export enum LoggerLevel {
   Timing = 'timing',
 }
 
-// define log lever priprity
-export const LevelPriority = [
-  LoggerLevel.Error,
-  LoggerLevel.Warn,
-  LoggerLevel.Info,
-  LoggerLevel.Timing,
-  LoggerLevel.Debug,
-  LoggerLevel.Verbose,
-  LoggerLevel.Stream,
-];
-
 type LeveledLogMethod = (...meta: any[]) => void;
 
 type TimingMethod = (key: string, end?: boolean) => void;
