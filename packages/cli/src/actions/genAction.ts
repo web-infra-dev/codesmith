@@ -4,15 +4,17 @@ import { getLocalLanguage } from '../utils';
 
 interface LocalOptions {
   debug?: boolean;
+  time?: boolean;
   config: string;
   registry?: string;
   pwd?: string;
 }
 
 export async function genAction(generator: string, genOptions: LocalOptions) {
-  const { debug, config, registry, pwd } = genOptions;
+  const { debug, time, config, registry, pwd } = genOptions;
   const smith = new CodeSmith({
     debug,
+    time,
     registryUrl: registry,
   });
 

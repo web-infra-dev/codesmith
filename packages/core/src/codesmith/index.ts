@@ -8,6 +8,7 @@ import type { ForgeOptions, ForgeTask } from './constants';
 
 interface ICreateOptions {
   debug?: boolean;
+  time?: boolean;
   logger?: Logger;
   // custom npm registry
   registryUrl?: string;
@@ -24,11 +25,18 @@ export class CodeSmith {
 
   logger: Logger;
 
-  constructor({ debug, logger, registryUrl, namespace }: ICreateOptions) {
+  constructor({ debug, time, logger, registryUrl, namespace }: ICreateOptions) {
     this.debug = debug || false;
     this.logger =
       logger ||
-      new Logger(debug ? LoggerLevel.Debug : LoggerLevel.Info, namespace);
+      new Logger(
+        debug
+          ? LoggerLevel.Debug
+          : time
+            ? LoggerLevel.Timing
+            : LoggerLevel.Info,
+        namespace,
+      );
     this.materialsManager = new MaterialsManager(this.logger, registryUrl);
   }
 
