@@ -104,7 +104,7 @@ export class GeneratorCore {
       this.logger.debug('[Require Local Generator Failed]:', e);
       this.logger.error('can not require package.json');
       this.logger.warn(
-        `generator need a package.json in top directory
+        `[Load Local Generator Error]: generator need a \`package.json\` in top directory
 check path: ${chalk.blue.underline(
           generator,
         )} exist a package.json file or not`,
