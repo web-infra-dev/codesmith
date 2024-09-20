@@ -1,5 +1,5 @@
 export type { ILogger } from './logger/constants';
-export { LoggerLevel, LevelPriority } from './logger/constants';
+export { LoggerLevel } from './logger/constants';
 export { Logger } from './logger';
 
 export { CodeSmith } from './codesmith';
