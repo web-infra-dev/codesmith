@@ -32,6 +32,7 @@ export class MaterialsManager {
     const localPath = await downloadPackage(name, version, {
       registryUrl: this.registryUrl,
       install: true,
+      logger: this.logger,
     });
     const pkgJson = nodeRequire(`${localPath}/package.json`);
     const materialKey = `${pkgJson.name}@${pkgJson.version}`;
