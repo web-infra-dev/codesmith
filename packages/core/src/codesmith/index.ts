@@ -11,6 +11,7 @@ interface ICreateOptions {
   logger?: Logger;
   // custom npm registry
   registryUrl?: string;
+  namespace?: string;
 }
 
 export class CodeSmith {
@@ -23,10 +24,11 @@ export class CodeSmith {
 
   logger: Logger;
 
-  constructor({ debug, logger, registryUrl }: ICreateOptions) {
+  constructor({ debug, logger, registryUrl, namespace }: ICreateOptions) {
     this.debug = debug || false;
     this.logger =
-      logger || new Logger(debug ? LoggerLevel.Debug : LoggerLevel.Info);
+      logger ||
+      new Logger(debug ? LoggerLevel.Debug : LoggerLevel.Info, namespace);
     this.materialsManager = new MaterialsManager(this.logger, registryUrl);
   }
 

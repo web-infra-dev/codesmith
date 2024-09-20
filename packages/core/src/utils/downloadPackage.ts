@@ -110,7 +110,9 @@ export async function downloadPackage(
     version = pkgVersion;
   }
   const targetDir = `${os.tmpdir()}/csmith-generator/${pkgName}@${version}`;
-  logger?.debug?.(`Download package ${pkgName}@${version} to ${targetDir}`);
+  logger?.debug?.(
+    `[Download Generator Package]: ${pkgName}@${version} to ${targetDir}`,
+  );
   if ((await fsExists(targetDir)) && (await isValidCache(targetDir))) {
     return targetDir;
   }

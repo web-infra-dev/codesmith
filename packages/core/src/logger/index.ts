@@ -1,10 +1,10 @@
 import { type Debugger, debug } from 'debug';
+import { chalk } from '@modern-js/utils';
 import { type ILogger, LoggerLevel } from './constants';
 
 export { LoggerLevel };
 export class Logger implements ILogger {
   level: LoggerLevel = LoggerLevel.Info;
-  infoLogger: Debugger;
   errorLogger: Debugger;
   warningLogger: Debugger;
   debugLogger: Debugger;
@@ -18,17 +18,16 @@ export class Logger implements ILogger {
       debug.enable(process.env.DEBUG);
     }
     this.level = level;
-    this.infoLogger = debug(`${namespace}:info`);
+    this.warningLogger = debug(`${namespace}:warn`);
     this.errorLogger = debug(`${namespace}:error`);
-    this.warningLogger = debug(`${namespace}:warning`);
     this.debugLogger = debug(`${namespace}:debug`);
     this.timingLogger = debug(`${namespace}:timing`);
     this.verboseLogger = debug(`${namespace}:verbose`);
     this.streamLogger = debug(`${namespace}:stream`);
   }
 
-  info(message: string, ...args: any[]) {
-    this.infoLogger(message, ...args);
+  info(...meta: any[]) {
+    console.log(chalk.green('[INFO]'), ...meta);
   }
 
   error(message: string, ...args: any[]) {
