@@ -101,8 +101,7 @@ export class GeneratorCore {
     try {
       pkgJson = nodeRequire(generatorPkg.get('package.json').filePath);
     } catch (e) {
-      this.logger.debug('[Require Local Generator Failed]:', e);
-      this.logger.error('can not require package.json');
+      this.logger.error(`[Load Generator ${generator} Error]:`, e);
       this.logger.warn(
         `[Load Local Generator Error]: generator need a \`package.json\` in top directory
 check path: ${chalk.blue.underline(
@@ -140,7 +139,7 @@ check path: ${chalk.blue.underline(
       );
       return { generatorPkg, pkgJson, materialKey };
     } catch (e) {
-      this.logger.error(`load remote generator ${generator} failed:`, e);
+      this.logger.error(`[Load Generator ${generator} Error]:`, e);
       return { generatorPkg: null };
     }
   }

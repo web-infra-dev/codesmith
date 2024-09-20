@@ -37,7 +37,7 @@ export async function genAction(generator: string, genOptions: LocalOptions) {
   try {
     targetConfig = JSON.parse(config);
   } catch (e) {
-    smith.logger.error('Bad json for config: ', genOptions.config);
+    smith.logger.error('[Config Parse Error]:', e);
     return;
   }
 

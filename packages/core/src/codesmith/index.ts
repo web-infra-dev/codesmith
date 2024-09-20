@@ -46,7 +46,7 @@ export class CodeSmith {
         await this.runTask(task);
       }
     } catch (e: unknown) {
-      this.logger.error('run task error:', e);
+      this.logger.error('[Run Forge Generator Error]:', e);
       throw new Error('run task error');
     } finally {
       this.logger?.timing?.('CodeSmith all tasks', true);
