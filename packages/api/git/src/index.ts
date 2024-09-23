@@ -44,7 +44,7 @@ export class GitAPI {
       } = this.generatorContext || { config: { defaultBranch: 'master' } };
       await initGitRepo(cwd, defaultBranch);
     } catch (e) {
-      this.generatorCore.logger.debug('[Git Init error]:', e);
+      this.generatorCore.logger.debug('[Git Init Error]:', e);
       throw e;
     }
   }
