@@ -1,5 +1,19 @@
 # @modern-js/codesmith-api-fs
 
+## 2.5.0
+
+### Minor Changes
+
+- 6d271ef: feat: refactor codesmith logger
+
+  feat: 重构 codesmith 日志模块
+
+### Patch Changes
+
+- Updated dependencies [6d271ef]
+- Updated dependencies [28464e2]
+  - @modern-js/codesmith@2.5.0
+
 ## 2.4.2
 
 ### Patch Changes

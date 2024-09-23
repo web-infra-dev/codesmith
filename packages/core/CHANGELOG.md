@@ -1,5 +1,19 @@
 # @modern-js/codesmith
 
+## 2.5.0
+
+### Minor Changes
+
+- 6d271ef: feat: refactor codesmith logger
+
+  feat: 重构 codesmith 日志模块
+
+### Patch Changes
+
+- 28464e2: fix: install generator log not work
+
+  fix: 安装生成器日志不生效
+
 ## 2.4.2
 
 ## 2.4.1
