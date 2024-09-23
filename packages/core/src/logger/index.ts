@@ -1,5 +1,5 @@
-import { type Debugger, debug } from 'debug';
 import { chalk } from '@modern-js/utils';
+import { type Debugger, debug } from 'debug';
 import { type ILogger, LoggerLevel } from './constants';
 
 export { LoggerLevel };
