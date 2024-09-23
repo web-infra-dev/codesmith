@@ -41,7 +41,7 @@ export async function checkUseNvm(cwd: string, logger: ILogger) {
   // check nvm exist
   if (!(await canUseNvm())) {
     logger.warn(
-      `current node version is not expect, you should install ${expectNodeVersion}`,
+      `🟡 [Check nvm Error]: Current node version is not expect, you should install ${expectNodeVersion}`,
     );
     return false;
   }

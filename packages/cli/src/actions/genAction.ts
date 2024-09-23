@@ -4,31 +4,34 @@ import { getLocalLanguage } from '../utils';
 
 interface LocalOptions {
   debug?: boolean;
+  time?: boolean;
   config: string;
   registry?: string;
   pwd?: string;
 }
 
 export async function genAction(generator: string, genOptions: LocalOptions) {
-  const { debug, config, registry, pwd } = genOptions;
+  const { debug, time, config, registry, pwd } = genOptions;
   const smith = new CodeSmith({
     debug,
+    time,
     registryUrl: registry,
   });
 
-  smith.logger.debug('generator', generator);
-  smith.logger.debug('genOptions.debug', debug);
-  smith.logger.debug('genOptions.pwd', pwd);
-  smith.logger.debug('genOptions.config', config);
+  smith.logger.debug('💡 [Runtime Gen Action]');
+  smith.logger.debug('💡 [Generator Name]:', generator);
+  smith.logger.debug('💡 [Generator Pwd]:', pwd);
+  smith.logger.debug('💡 [Generator Debug]:', debug);
+  smith.logger.debug('💡 [Generator Options]:', config);
 
   let runPwd = process.cwd();
   if (pwd) {
     if (path.isAbsolute(pwd)) {
       runPwd = pwd;
-      smith.logger.debug('genOptions.pwd is absolute path', pwd);
+      smith.logger.debug('💡 [PWD is Absolute Path]:', pwd);
     } else {
       runPwd = path.join(process.cwd(), pwd);
-      smith.logger.debug('genOptions.pwd is relative path', pwd);
+      smith.logger.debug('💡 [PWD is Relative Path]:', pwd);
     }
   }
 
@@ -36,7 +39,7 @@ export async function genAction(generator: string, genOptions: LocalOptions) {
   try {
     targetConfig = JSON.parse(config);
   } catch (e) {
-    smith.logger.error('Bad json for config: ', genOptions.config);
+    smith.logger.error('🔴 [Config Parse Error]:', e);
     return;
   }
 

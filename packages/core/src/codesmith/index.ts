@@ -8,9 +8,11 @@ import type { ForgeOptions, ForgeTask } from './constants';
 
 interface ICreateOptions {
   debug?: boolean;
+  time?: boolean;
   logger?: Logger;
   // custom npm registry
   registryUrl?: string;
+  namespace?: string;
 }
 
 export class CodeSmith {
@@ -23,15 +25,23 @@ export class CodeSmith {
 
   logger: Logger;
 
-  constructor({ debug, logger, registryUrl }: ICreateOptions) {
+  constructor({ debug, time, logger, registryUrl, namespace }: ICreateOptions) {
     this.debug = debug || false;
     this.logger =
-      logger || new Logger(debug ? LoggerLevel.Debug : LoggerLevel.Info);
+      logger ||
+      new Logger(
+        debug
+          ? LoggerLevel.Debug
+          : time
+            ? LoggerLevel.Timing
+            : LoggerLevel.Info,
+        namespace,
+      );
     this.materialsManager = new MaterialsManager(this.logger, registryUrl);
   }
 
   public async forge({ tasks, pwd }: ForgeOptions) {
-    this.logger?.timing?.('CodeSmith all tasks');
+    this.logger?.timing?.('🕒 Codesmith Task');
     this.core = new GeneratorCore({
       logger: this.logger,
       materialsManager: this.materialsManager,
@@ -46,10 +56,10 @@ export class CodeSmith {
         await this.runTask(task);
       }
     } catch (e: unknown) {
-      this.logger.error('run task error:', e);
+      this.logger.error('🔴 [Run Forge Generator Error]:', e);
       throw new Error('run task error');
     } finally {
-      this.logger?.timing?.('CodeSmith all tasks', true);
+      this.logger?.timing?.('🕒 Codesmith Task', true);
     }
   }
 
@@ -58,8 +68,8 @@ export class CodeSmith {
       throw new Error("no core in 'runTask'");
     }
     const { generator, config } = task;
-    this.logger?.timing?.(`runTask ${generator}`);
+    this.logger?.timing?.(`🕒 RunTask ${generator}`);
     await this.core.runGenerator(generator, config);
-    this.logger?.timing?.(`runTask ${generator}`, true);
+    this.logger?.timing?.(`🕒 RunTask ${generator}`, true);
   }
 }

@@ -8,6 +8,7 @@ export default function () {
     .command('gen <generator>', { isDefault: true })
     .description('use csmith to generator something')
     .option('-d,--debug', 'using debug mode to log something', false)
+    .option('--time', 'show time logger', false)
     .option('-p,--pwd <pwd>', 'process working directory', process.cwd())
     .option('--config <config>', 'config for this generator(json string)', '{}')
     .option(
