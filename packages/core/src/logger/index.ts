@@ -52,10 +52,10 @@ export class Logger implements ILogger {
       return;
     }
     if (end) {
-      this.timingLogger(`[TimeEnd] ${key}`);
+      this.timingLogger(`[Time   End] ${key}`);
       console.timeEnd(key);
     } else {
-      this.timingLogger(`[TimeStart] ${key}`);
+      this.timingLogger(`[Time Start] ${key}`);
       console.time(key);
     }
   }
