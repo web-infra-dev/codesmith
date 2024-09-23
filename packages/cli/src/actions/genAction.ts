@@ -18,20 +18,20 @@ export async function genAction(generator: string, genOptions: LocalOptions) {
     registryUrl: registry,
   });
 
-  smith.logger.debug('[Runtime Gen Action]');
-  smith.logger.debug('[Generator Name]:', generator);
-  smith.logger.debug('[Generator Pwd]:', pwd);
-  smith.logger.debug('[Generator Debug]:', debug);
-  smith.logger.debug('[Generator Options]:', config);
+  smith.logger.debug('💡 [Runtime Gen Action]');
+  smith.logger.debug('💡 [Generator Name]:', generator);
+  smith.logger.debug('💡 [Generator Pwd]:', pwd);
+  smith.logger.debug('💡 [Generator Debug]:', debug);
+  smith.logger.debug('💡 [Generator Options]:', config);
 
   let runPwd = process.cwd();
   if (pwd) {
     if (path.isAbsolute(pwd)) {
       runPwd = pwd;
-      smith.logger.debug('[PWD is Absolute Path]:', pwd);
+      smith.logger.debug('💡 [PWD is Absolute Path]:', pwd);
     } else {
       runPwd = path.join(process.cwd(), pwd);
-      smith.logger.debug('[PWD is Relative Path]:', pwd);
+      smith.logger.debug('💡 [PWD is Relative Path]:', pwd);
     }
   }
 
@@ -39,7 +39,7 @@ export async function genAction(generator: string, genOptions: LocalOptions) {
   try {
     targetConfig = JSON.parse(config);
   } catch (e) {
-    smith.logger.error('[Config Parse Error]:', e);
+    smith.logger.error('🔴 [Config Parse Error]:', e);
     return;
   }
 

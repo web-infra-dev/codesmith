@@ -16,7 +16,7 @@ export class JsonAPI {
       const origin = commentJSON.parse(originJsonValue.content as string);
       return origin;
     } catch (e) {
-      this.generatorCore.logger.debug('[JSON Get Parse Error]:', e);
+      this.generatorCore.logger.debug('❗️ [JSON Get Parse Error]:', e);
       throw new Error('resource content is not a legal json');
     }
   }
@@ -37,7 +37,7 @@ export class JsonAPI {
           (endWithNewLine ? '\n' : '')
         );
       } catch (e) {
-        this.generatorCore.logger.debug('[JSON Extend Parse Error]:', e);
+        this.generatorCore.logger.debug('❗️ [JSON Extend Parse Error]:', e);
         throw new Error('resource content is not a legal json');
       }
     });
@@ -58,7 +58,7 @@ export class JsonAPI {
             (endWithNewLine ? '\n' : ''),
         );
       } catch (e) {
-        this.generatorCore.logger.debug('[JSON Update Parse Error]:', e);
+        this.generatorCore.logger.debug('❗️ [JSON Update Parse Error]:', e);
         throw new Error('resource content is not a legal json');
       }
     });

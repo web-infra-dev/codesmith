@@ -86,7 +86,7 @@ export class GeneratorCore {
   }
 
   private async loadLocalGenerator(generator: string) {
-    this.logger.debug('[Load Local Generator]:', generator);
+    this.logger.debug('⏳ [Load Local Generator]:', generator);
     let generatorPkg: FsMaterial;
     let pkgJson: Record<string, any>;
     try {
@@ -94,16 +94,16 @@ export class GeneratorCore {
       generatorPkg =
         await this.materialsManager.loadLocalGenerator(generatorDir);
     } catch (e) {
-      this.logger.debug('[Load Local Generator Error]:', e);
+      this.logger.debug('❗️[Load Local Generator Error]:', e);
       return { generatorPkg: null };
     }
     // check package.json file exist
     try {
       pkgJson = nodeRequire(generatorPkg.get('package.json').filePath);
     } catch (e) {
-      this.logger.error(`[Load Generator ${generator} Error]:`, e);
+      this.logger.error(`🔴 [Load Generator ${generator} Error]:`, e);
       this.logger.warn(
-        `[Load Local Generator Error]: generator need a \`package.json\` in top directory
+        `🟡 [Load Local Generator Error]: generator need a \`package.json\` in top directory
 check path: ${chalk.blue.underline(
           generator,
         )} exist a package.json file or not`,
@@ -113,9 +113,8 @@ check path: ${chalk.blue.underline(
       };
     }
     this.logger.debug(
-      '[Load Local Generator Success]:',
-      generator,
-      pkgJson.version,
+      '⌛ [Load Local Generator Success]:',
+      `v${pkgJson.version}`,
     );
     const materialKey = `${pkgJson.name}@local`;
     return {
@@ -126,20 +125,20 @@ check path: ${chalk.blue.underline(
   }
 
   private async loadRemoteGenerator(generator: string) {
-    this.logger.debug('[Load Remote Generator]:', generator);
+    this.logger.debug('💡 [Load Remote Generator]:', generator);
     try {
       const generatorPkg =
         await this.materialsManager.loadRemoteGenerator(generator);
       const pkgJson = nodeRequire(generatorPkg.get('package.json').filePath);
       const materialKey = `${pkgJson.name}@${pkgJson.version}`;
       this.logger.debug(
-        '[Load Remote Generator Success]:',
+        '🌟 [Load Remote Generator Success]:',
         generator,
         pkgJson.version,
       );
       return { generatorPkg, pkgJson, materialKey };
     } catch (e) {
-      this.logger.error(`[Load Generator ${generator} Error]:`, e);
+      this.logger.error(`❗️ [Load Generator ${generator} Error]:`, e);
       return { generatorPkg: null };
     }
   }
@@ -177,7 +176,7 @@ check path: ${chalk.blue.underline(
   }
 
   async loadGenerator(generator: string) {
-    this.logger?.timing?.(`loadGenerator ${generator}`);
+    this.logger?.timing?.(`🕒 LoadGenerator ${generator}`);
     let generatorPath = generator;
     if (generator.startsWith('file:')) {
       generatorPath = path.join(this.basePath, generator.slice(5));
@@ -189,13 +188,13 @@ check path: ${chalk.blue.underline(
     if (!generatorPkg || !pkgJson || !materialKey) {
       return {};
     }
-    this.logger.debug('[runGenerator] task.generator loaded');
-    this.logger?.timing?.(`loadGenerator ${generator}`, true);
+    this.logger.debug('💡 [runGenerator] task.generator loaded');
+    this.logger?.timing?.(`🕒 LoadGenerator ${generator}`, true);
 
     const generatorScript = nodeRequire(generatorPkg.basePath);
     if (typeof generatorScript !== 'function') {
       this.logger.debug(
-        `[Generator Error]: generator module [${pkgJson.name}] export default is not a function`,
+        `❗️ [Generator Error]: generator module [${pkgJson.name}] export default is not a function`,
         generatorScript,
       );
       throw new Error(
@@ -210,7 +209,7 @@ check path: ${chalk.blue.underline(
   }
 
   async runGenerator(generator: string, config: Record<string, unknown> = {}) {
-    this.logger?.timing?.(`runGenerator ${generator}`);
+    this.logger?.timing?.(`🕒 RunGenerator ${generator}`);
     const spinner = ora({
       text: 'Load Generator...\n',
       spinner: 'runner',
@@ -231,7 +230,7 @@ check path: ${chalk.blue.underline(
     this.setbasePath(this._context.current!.material.basePath!);
     await generatorScript(this._context, this);
     this.setCurrent(null);
-    this.logger?.timing?.(`runGenerator ${generator}`, true);
+    this.logger?.timing?.(`🕒 RunGenerator ${generator}`, true);
   }
 
   async runSubGenerator(
@@ -239,7 +238,7 @@ check path: ${chalk.blue.underline(
     relativePwdPath = '',
     config?: Record<string, any>,
   ) {
-    this.logger?.timing?.(`runSubGenerator ${subGenerator}`);
+    this.logger?.timing?.(`🕒 RunSubGenerator ${subGenerator}`);
     const spinner = ora({
       text: 'Load Generator...\n',
       spinner: 'runner',
@@ -272,6 +271,6 @@ check path: ${chalk.blue.underline(
     await generatorScript(subContext, this);
     this.setOutputPath(preOutputPath);
     this.setbasePath(preBasePath);
-    this.logger?.timing?.(`runSubGenerator ${subGenerator}`, true);
+    this.logger?.timing?.(`🕒 RunSubGenerator ${subGenerator}`, true);
   }
 }
