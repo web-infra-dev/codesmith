@@ -99,10 +99,12 @@ export async function downloadPackage(
   let version: string | undefined;
   if (!semver.valid(pkgVersion)) {
     // get pkgName version
+    logger?.timing(`🕒 get ${pkgName} version`);
     version = await getNpmVersion(pkgName, {
       registryUrl,
       version: pkgVersion,
     });
+    logger?.timing(`🕒 get ${pkgName} version`, true);
     if (version === undefined) {
       throw new Error(`package ${pkgName}@${pkgVersion} not found in registry`);
     }
@@ -119,23 +121,32 @@ export async function downloadPackage(
   await fs.remove(targetDir);
   await fs.mkdirp(targetDir);
 
+  logger?.timing(`🕒 get ${pkgName}@${version} tarball url`);
   // get package tarball
   const tarballPkg = await getNpmTarballUrl(pkgName, version, {
     registryUrl,
   });
+  logger?.timing(`🕒 get ${pkgName}@${version} tarball url`, true);
+
+  logger?.timing(`🕒 download ${pkgName}@${version} tarball`);
   // download tarball and compress it to target directory
   await downloadAndDecompressTargz(tarballPkg, targetDir);
+  logger?.timing(`🕒 download ${pkgName}@${version} tarball`, true);
 
   if (install) {
+    logger?.timing(`🕒 install ${pkgName}@${version}`);
     await runInstall(targetDir, registryUrl, logger);
+    logger?.timing(`🕒 install ${pkgName}@${version}`, true);
   }
 
+  logger?.timing(`🕒 write ${pkgName}@${version} cache`);
   // write completed flag
   await fs.writeFile(
     `${targetDir}/.codesmith.completed`,
     new Date().toISOString(),
     { encoding: 'utf-8' },
   );
+  logger?.timing(`🕒 write ${pkgName}@${version} cache`, true);
 
   return targetDir;
 }
