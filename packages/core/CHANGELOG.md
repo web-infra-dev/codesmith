@@ -1,5 +1,13 @@
 # @modern-js/codesmith
 
+## 2.5.1
+
+### Patch Changes
+
+- 71d0268: feat: download package add detail time log
+
+  feat: 下载 npm 包添加详细耗时日志
+
 ## 2.5.0
 
 ### Minor Changes

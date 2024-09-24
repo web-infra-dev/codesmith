@@ -1,5 +1,12 @@
 # @modern-js/codesmith-formily
 
+## 2.5.1
+
+### Patch Changes
+
+- Updated dependencies [71d0268]
+  - @modern-js/codesmith@2.5.1
+
 ## 2.5.0
 
 ### Patch Changes
