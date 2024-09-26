@@ -84,6 +84,7 @@ export class AppAPI {
       ignoreScripts?: boolean;
     },
   ) {
+    this.generatorCore.logger?.timing?.('🕒 Run Install');
     const {
       config: { packageManager, noNeedInstall, noNeedCheckNvm },
     } = this.generatorContext;
@@ -125,6 +126,7 @@ export class AppAPI {
         })}`,
       );
     }
+    this.generatorCore.logger?.timing?.('🕒 Run Install', true);
   }
 
   // custom install func
@@ -132,6 +134,7 @@ export class AppAPI {
     commitMessage?: string,
     installFunc?: () => Promise<void>,
   ) {
+    this.generatorCore.logger?.timing?.('🕒 Run Git and Install');
     const {
       config: { isMonorepoSubProject = false, noNeedGit },
     } = this.generatorContext;
@@ -166,6 +169,7 @@ export class AppAPI {
       this.generatorCore.logger.debug('❗️ [Git Add and Commit Failed]:', e);
       this.generatorCore.logger.warn(`🟡 ${i18n.t(localeKeys.git.failed)}`);
     }
+    this.generatorCore.logger?.timing?.('🕒 Run Git and Install', true);
   }
 
   public async forgeTemplate(
