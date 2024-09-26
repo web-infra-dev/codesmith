@@ -39,4 +39,19 @@ export class MaterialsManager {
     this.materialMap[materialKey] = new FsMaterial(localPath);
     return Promise.resolve(this.materialMap[materialKey]);
   }
+
+  async prepareGenerators(generators: string[]) {
+    this.logger?.timing?.('🕒 Prepare Generators');
+    await Promise.all(
+      generators.map(async generator => {
+        const { name, version } = getPackageInfo(generator);
+        const materialKey = `${name}@${version}`;
+        if (this.materialMap[materialKey] || generator.startsWith('file:')) {
+          return Promise.resolve();
+        }
+        await this.loadRemoteGenerator(materialKey);
+      }),
+    );
+    this.logger?.timing?.('🕒 Prepare Generators', true);
+  }
 }
