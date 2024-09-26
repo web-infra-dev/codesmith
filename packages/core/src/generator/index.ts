@@ -5,8 +5,8 @@ import type { ILogger } from '@/logger/constants';
 import type { MaterialsManager } from '@/materials';
 import { FsMaterial } from '@/materials/FsMaterial';
 import { getGeneratorDir } from '@/utils/getGeneratorDir';
-import { nodeRequire } from '@/utils/nodeRequire';
 import { fs, chalk, ora } from '@modern-js/utils';
+import { getPackageInfo, nodeRequire } from '@/utils';
 import type { GeneratorContext, RuntimeCurrent } from './constants';
 
 interface ICreateOptions {
@@ -127,10 +127,12 @@ check path: ${chalk.blue.underline(
   private async loadRemoteGenerator(generator: string) {
     this.logger.debug('💡 [Load Remote Generator]:', generator);
     try {
+      const { name, version } = getPackageInfo(generator);
+      const materialKey = `${name}@${version}`;
       const generatorPkg =
-        await this.materialsManager.loadRemoteGenerator(generator);
+        this.materialsManager.materialMap[materialKey] ||
+        (await this.materialsManager.loadRemoteGenerator(generator));
       const pkgJson = nodeRequire(generatorPkg.get('package.json').filePath);
-      const materialKey = `${pkgJson.name}@${pkgJson.version}`;
       this.logger.debug(
         '🌟 [Load Remote Generator Success]:',
         generator,
@@ -272,5 +274,9 @@ check path: ${chalk.blue.underline(
     this.setOutputPath(preOutputPath);
     this.setbasePath(preBasePath);
     this.logger?.timing?.(`🕒 RunSubGenerator ${subGenerator}`, true);
+  }
+
+  public async prepareGenerators(generators: string[]) {
+    await this.materialsManager.prepareGenerators(generators);
   }
 }
