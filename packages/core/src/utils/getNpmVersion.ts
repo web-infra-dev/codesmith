@@ -1,5 +1,5 @@
 import { NPM_API_TIMEOUT } from '@/constants';
-import { execa } from '@modern-js/utils';
+import axios from 'axios';
 import { timeoutPromise } from './timeoutPromise';
 
 /**
@@ -11,33 +11,23 @@ import { timeoutPromise } from './timeoutPromise';
 
 interface Options {
   registryUrl?: string;
-  version: string;
+  version?: string;
 }
 
 export async function getNpmVersion(
   packageName: string,
   options?: Options,
-): Promise<string | undefined> {
-  const { version, registryUrl } = options || {};
-  const params = ['view'];
-  if (version) {
-    params.push(`${packageName}@${version}`);
-  } else {
-    params.push(packageName);
-  }
+): Promise<string> {
+  const { version = 'latest', registryUrl = 'https://registry.npmjs.org' } =
+    options || {};
 
-  params.push('version');
+  const url = `${registryUrl}/${packageName}/${version}`;
 
-  if (registryUrl) {
-    params.push('--registry');
-    params.push(registryUrl);
-  }
-
-  const getPkgInfoPromise = execa('npm', params);
-  const { stdout } = await timeoutPromise(
-    getPkgInfoPromise,
+  const response = await timeoutPromise(
+    axios.get(url),
     NPM_API_TIMEOUT,
     `Get npm version of '${packageName}'`,
   );
-  return stdout;
+
+  return response.data.version;
 }
