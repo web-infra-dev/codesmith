@@ -1,17 +1,17 @@
 import os from 'os';
 import path from 'path';
 import {
-  canUseNpm,
-  canUseNvm,
-  canUseYarn,
-} from '@modern-js/codesmith-utils/npm';
-import {
   execaWithStreamLog,
   npmInstall,
   pnpmInstall,
   yarnInstall,
 } from '@/utils/install';
 import { fs } from '@modern-js/codesmith-utils/fs-extra';
+import {
+  canUseNpm,
+  canUseNvm,
+  canUseYarn,
+} from '@modern-js/codesmith-utils/npm';
 
 describe('Env utils cases', () => {
   test('can use nvm', async () => {
