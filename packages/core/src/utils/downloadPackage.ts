@@ -1,12 +1,12 @@
 import os from 'os';
-import pacote from 'pacote';
 import { CATCHE_VALIDITY_PREIOD } from '@/constants';
 import type { Logger } from '@/logger';
+import type { ILogger } from '@/logger/constants';
 import { fs, semver } from '@modern-js/utils';
+import pacote from 'pacote';
 import { fsExists } from './fsExists';
 import { getNpmVersion } from './getNpmVersion';
 import { runInstall } from './packageManager';
-import type { ILogger } from '@/logger/constants';
 
 async function isValidCache(cacheDir: string) {
   /* generator cache can use
