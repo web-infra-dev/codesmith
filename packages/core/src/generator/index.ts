@@ -124,20 +124,13 @@ check path: ${chalk.blue.underline(
     };
   }
 
-  private async loadRemoteGenerator(
-    generator: string,
-    options: {
-      registryUrl: string;
-      logger: Logger;
-    },
-  ) {
+  private async loadRemoteGenerator(generator: string) {
     this.logger.debug('💡 [Load Remote Generator]:', generator);
     try {
-      const { registryUrl, logger } = options;
       const { name, version: pkgVersion } = getPackageInfo(generator);
       const version = await getGeneratorVersion(name, pkgVersion, {
-        registryUrl: registryUrl,
-        logger: logger,
+        registryUrl: this.materialsManager.registryUrl,
+        logger: this.logger,
       });
       const materialKey = `${name}@${version}`;
       const generatorPkg =

@@ -6,6 +6,7 @@ import { fs, semver } from '@modern-js/utils';
 import { fsExists } from './fsExists';
 import { getNpmVersion } from './getNpmVersion';
 import { runInstall } from './packageManager';
+import type { ILogger } from '@/logger/constants';
 
 async function isValidCache(cacheDir: string) {
   /* generator cache can use
@@ -49,7 +50,7 @@ export async function getGeneratorVersion(
   options: {
     registryUrl?: string;
     install?: boolean;
-    logger?: Logger;
+    logger?: ILogger;
   } = {},
 ): Promise<string> {
   const cacheKey = `${pkgName}@${pkgVersion}`;
