@@ -1,6 +1,6 @@
 import type { GeneratorCore } from '@modern-js/codesmith';
-import { npmInstall, pnpmInstall, yarnInstall } from './utils';
 import type { ExecaReturnValue } from '@modern-js/codesmith-utils/execa';
+import { npmInstall, pnpmInstall, yarnInstall } from './utils';
 
 export * from './utils';
 export class NpmAPI {

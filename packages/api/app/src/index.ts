@@ -13,10 +13,10 @@ import {
   CLIReader as FormilyCLIReader,
   type Schema as FormilySchema,
 } from '@modern-js/codesmith-formily';
+import { execa } from '@modern-js/codesmith-utils/execa';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
 /* eslint-disable max-lines */
 import { merge } from '@modern-js/codesmith-utils/lodash';
-import { fs } from '@modern-js/codesmith-utils/fs-extra';
-import { execa } from '@modern-js/codesmith-utils/execa';
 import { semver } from '@modern-js/codesmith-utils/semver';
 import { parse, stringify } from 'comment-json';
 import inquirer, { type Question } from 'inquirer';
