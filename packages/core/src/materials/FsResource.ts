@@ -1,6 +1,6 @@
 import type { Buffer } from 'buffer';
 import path from 'path';
-import { fs } from '@modern-js/utils';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
 import { IMAGE_EXT_LIST } from './constants';
 
 export const FS_RESOURCE = '_codesmith_core_fs_resource';

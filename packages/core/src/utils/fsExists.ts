@@ -1,4 +1,4 @@
-import { fs } from '@modern-js/utils';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
 
 /**
  * when the path can read successfully, the function will return true

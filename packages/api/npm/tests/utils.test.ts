@@ -7,7 +7,7 @@ import {
   pnpmInstall,
   yarnInstall,
 } from '@/utils/install';
-import { fs } from '@modern-js/utils';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
 
 describe('Env utils cases', () => {
   test('can use nvm', async () => {

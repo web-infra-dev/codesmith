@@ -1,4 +1,4 @@
-import { isString } from '@modern-js/utils/lodash';
+import { isString } from '@modern-js/codesmith-utils/lodash';
 import type { Question } from 'inquirer';
 
 export function transformInquirerSchema(

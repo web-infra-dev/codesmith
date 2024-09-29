@@ -6,7 +6,9 @@ import type { MaterialsManager } from '@/materials';
 import { FsMaterial } from '@/materials/FsMaterial';
 import { getGeneratorVersion, getPackageInfo, nodeRequire } from '@/utils';
 import { getGeneratorDir } from '@/utils/getGeneratorDir';
-import { fs, chalk, ora } from '@modern-js/utils';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
+import { chalk } from '@modern-js/codesmith-utils/chalk';
+import { ora } from '@modern-js/codesmith-utils/ora';
 import type { GeneratorContext, RuntimeCurrent } from './constants';
 
 interface ICreateOptions {

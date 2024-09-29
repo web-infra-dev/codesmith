@@ -14,8 +14,10 @@ import {
   type Schema as FormilySchema,
 } from '@modern-js/codesmith-formily';
 /* eslint-disable max-lines */
-import { fs, execa, semver } from '@modern-js/utils';
-import { merge } from '@modern-js/utils/lodash';
+import { merge } from '@modern-js/codesmith-utils/lodash';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
+import { execa } from '@modern-js/codesmith-utils/execa';
+import { semver } from '@modern-js/codesmith-utils/semver';
 import { parse, stringify } from 'comment-json';
 import inquirer, { type Question } from 'inquirer';
 import { type I18n, i18n, localeKeys } from './locale';

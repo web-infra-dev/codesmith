@@ -1,4 +1,4 @@
-import { execa } from '@modern-js/utils';
+import { execa } from '@modern-js/codesmith-utils/execa';
 
 export async function canUseGit() {
   try {

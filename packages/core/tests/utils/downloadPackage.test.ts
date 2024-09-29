@@ -1,7 +1,7 @@
 import os from 'os';
 import path from 'path';
 import { downloadPackage } from '@/utils';
-import { fs } from '@modern-js/utils';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
 
 jest.setTimeout(100000);
 
