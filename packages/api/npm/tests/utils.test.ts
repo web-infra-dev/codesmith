@@ -1,6 +1,10 @@
 import os from 'os';
 import path from 'path';
-import { canUseNpm, canUseNvm, canUseYarn } from '@/utils/env';
+import {
+  canUseNpm,
+  canUseNvm,
+  canUseYarn,
+} from '@modern-js/codesmith-utils/npm';
 import {
   execaWithStreamLog,
   npmInstall,
