@@ -2,9 +2,9 @@ import path from 'path';
 import type { Logger } from '@/logger';
 import {
   downloadPackage,
+  getGeneratorVersion,
   getPackageInfo,
   nodeRequire,
-  getGeneratorVersion,
 } from '@/utils';
 import { FsMaterial } from './FsMaterial';
 
