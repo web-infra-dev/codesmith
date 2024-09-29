@@ -1,4 +1,4 @@
-import { execa, type ExecaReturnValue } from '@modern-js/codesmith-utils/execa';
+import { type ExecaReturnValue, execa } from '@modern-js/codesmith-utils/execa';
 import {
   canUseNpm,
   canUsePnpm,
