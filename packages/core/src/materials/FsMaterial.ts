@@ -1,5 +1,5 @@
 import path from 'path';
-import { glob } from '@modern-js/utils';
+import { glob } from '@modern-js/codesmith-utils/glob';
 import { FsResource } from './FsResource';
 
 const promisifyGlob = (

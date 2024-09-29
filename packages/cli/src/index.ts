@@ -1,4 +1,4 @@
-import { Command } from '@modern-js/utils';
+import { Command } from 'commander';
 import { genAction } from './actions/genAction';
 
 export default function () {

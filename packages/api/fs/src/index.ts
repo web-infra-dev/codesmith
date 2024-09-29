@@ -5,7 +5,7 @@ import {
   type FsResource,
   type GeneratorCore,
 } from '@modern-js/codesmith';
-import { fs } from '@modern-js/utils';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
 
 type RenderDirOptions = {
   nodir?: boolean;

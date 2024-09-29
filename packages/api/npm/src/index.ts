@@ -1,5 +1,6 @@
 import type { GeneratorCore } from '@modern-js/codesmith';
 import { npmInstall, pnpmInstall, yarnInstall } from './utils';
+import type { ExecaReturnValue } from '@modern-js/codesmith-utils/execa';
 
 export * from './utils';
 export class NpmAPI {
@@ -18,7 +19,7 @@ export class NpmAPI {
     registryUrl?: string;
     ignoreScripts?: boolean;
     useNvm?: boolean;
-  }) {
+  }): Promise<ExecaReturnValue> {
     return npmInstall({
       cwd: cwd || this.generatorCore.outputPath,
       registryUrl,
@@ -35,7 +36,7 @@ export class NpmAPI {
     registryUrl?: string;
     ignoreScripts?: boolean;
     useNvm?: boolean;
-  }) {
+  }): Promise<ExecaReturnValue> {
     return yarnInstall({
       cwd: cwd || this.generatorCore.outputPath,
       registryUrl,
@@ -52,7 +53,7 @@ export class NpmAPI {
     registryUrl?: string;
     ignoreScripts?: boolean;
     useNvm?: boolean;
-  }) {
+  }): Promise<ExecaReturnValue> {
     return pnpmInstall({
       cwd: cwd || this.generatorCore.outputPath,
       registryUrl,

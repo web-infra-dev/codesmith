@@ -32,7 +32,7 @@
     "@swc/helpers": "0.5.1",
     "@formily/json-schema": "^2.2.24",
     "@formily/validator": "^2.2.24",
-    "@modern-js/utils": "^2.58.0",
+    "@modern-js/codesmith-utils": "workspace:*",
     "inquirer": "^8.2.5"
   },
   "peerDependencies": {

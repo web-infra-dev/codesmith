@@ -1,6 +1,7 @@
 import path from 'path';
 import type { Logger } from '@/logger';
-import { fs, execa } from '@modern-js/utils';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
+import { execa } from '@modern-js/codesmith-utils/execa';
 
 export async function canUseYarn() {
   try {

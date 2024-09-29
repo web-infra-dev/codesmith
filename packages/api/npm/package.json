@@ -30,10 +30,13 @@
   },
   "dependencies": {
     "@swc/helpers": "0.5.1",
-    "@modern-js/codesmith": "workspace:*",
-    "@modern-js/utils": "^2.58.0"
+    "@modern-js/codesmith-utils": "workspace:*"
+  },
+  "peerDependencies": {
+    "@modern-js/codesmith": "workspace:^2.5.1"
   },
   "devDependencies": {
+    "@modern-js/codesmith": "workspace:*",
     "@modern-js/module-tools": "^2.58.0",
     "@modern-js/plugin-testing": "^2.58.0",
     "@types/jest": "^26.0.24",

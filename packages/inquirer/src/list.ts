@@ -1,5 +1,5 @@
 import type { Interface as ReadLineInterface } from 'readline';
-import { chalk } from '@modern-js/utils';
+import { chalk } from '@modern-js/codesmith-utils/chalk';
 import cliCursor from 'cli-cursor';
 import type { Answers, Question } from 'inquirer';
 import type Choice from 'inquirer/lib/objects/choice';

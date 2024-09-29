@@ -1,4 +1,9 @@
-export { canUseNvm, canUseNpm, canUseYarn, canUsePnpm } from './env';
+export {
+  canUseNvm,
+  canUseNpm,
+  canUseYarn,
+  canUsePnpm,
+} from '@modern-js/codesmith-utils/npm';
 export {
   npmInstall,
   yarnInstall,

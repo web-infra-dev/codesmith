@@ -1,4 +1,4 @@
-import { chalk } from '@modern-js/utils';
+import { chalk } from '@modern-js/codesmith-utils/chalk';
 import { type Debugger, debug } from 'debug';
 import { type ILogger, LoggerLevel } from './constants';
 
