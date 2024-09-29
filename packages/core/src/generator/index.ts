@@ -6,7 +6,7 @@ import type { MaterialsManager } from '@/materials';
 import { FsMaterial } from '@/materials/FsMaterial';
 import { getGeneratorDir } from '@/utils/getGeneratorDir';
 import { fs, chalk, ora } from '@modern-js/utils';
-import { getPackageInfo, nodeRequire } from '@/utils';
+import { getGeneratorVersion, getPackageInfo, nodeRequire } from '@/utils';
 import type { GeneratorContext, RuntimeCurrent } from './constants';
 
 interface ICreateOptions {
@@ -124,10 +124,21 @@ check path: ${chalk.blue.underline(
     };
   }
 
-  private async loadRemoteGenerator(generator: string) {
+  private async loadRemoteGenerator(
+    generator: string,
+    options: {
+      registryUrl: string;
+      logger: Logger;
+    },
+  ) {
     this.logger.debug('💡 [Load Remote Generator]:', generator);
     try {
-      const { name, version } = getPackageInfo(generator);
+      const { registryUrl, logger } = options;
+      const { name, version: pkgVersion } = getPackageInfo(generator);
+      const version = await getGeneratorVersion(name, pkgVersion, {
+        registryUrl: registryUrl,
+        logger: logger,
+      });
       const materialKey = `${name}@${version}`;
       const generatorPkg =
         this.materialsManager.materialMap[materialKey] ||
