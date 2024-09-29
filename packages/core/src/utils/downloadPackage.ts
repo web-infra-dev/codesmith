@@ -41,6 +41,52 @@ async function downloadAndDecompressTargz(
   });
 }
 
+const GeneratorVersionMap = new Map<string, string>();
+
+export async function getGeneratorVersion(
+  pkgName: string,
+  pkgVersion = 'latest',
+  options: {
+    registryUrl?: string;
+    install?: boolean;
+    logger?: Logger;
+  } = {},
+): Promise<string> {
+  const cacheKey = `${pkgName}@${pkgVersion}`;
+  const cachedVersion = GeneratorVersionMap.get(cacheKey);
+  if (cachedVersion) {
+    return cachedVersion;
+  }
+
+  const { registryUrl, logger } = options;
+  let version: string;
+
+  if (semver.valid(pkgVersion)) {
+    version = pkgVersion;
+  } else {
+    logger?.timing(`🕒 get ${pkgName} version`);
+    try {
+      version = await getNpmVersion(pkgName, {
+        registryUrl,
+        version: pkgVersion,
+      });
+    } catch (error: any) {
+      throw new Error(
+        `Failed to get version for package ${pkgName}@${pkgVersion}: ${error.message}`,
+      );
+    } finally {
+      logger?.timing(`🕒 get ${pkgName} version`, true);
+    }
+
+    if (!version) {
+      throw new Error(`Package ${pkgName}@${pkgVersion} not found in registry`);
+    }
+  }
+
+  GeneratorVersionMap.set(cacheKey, version);
+  return version;
+}
+
 /**
  * download npm package
  * @param {string} pkgName
@@ -58,21 +104,10 @@ export async function downloadPackage(
   } = {},
 ) {
   const { registryUrl, install, logger } = options;
-  let version: string | undefined;
-  if (!semver.valid(pkgVersion)) {
-    // get pkgName version
-    logger?.timing(`🕒 get ${pkgName} version`);
-    version = await getNpmVersion(pkgName, {
-      registryUrl,
-      version: pkgVersion,
-    });
-    logger?.timing(`🕒 get ${pkgName} version`, true);
-    if (version === undefined) {
-      throw new Error(`package ${pkgName}@${pkgVersion} not found in registry`);
-    }
-  } else {
-    version = pkgVersion;
-  }
+  const version = await getGeneratorVersion(pkgName, pkgVersion, {
+    registryUrl,
+    logger,
+  });
   const targetDir = `${os.tmpdir()}/csmith-generator/${pkgName}@${version}`;
   logger?.debug?.(
     `💡 [Download Generator Package]: ${pkgName}@${version} to ${targetDir}`,

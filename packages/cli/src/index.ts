@@ -14,7 +14,7 @@ export default function () {
     .option(
       '--registry <registry>',
       'set npm registry url to run npm command',
-      false,
+      undefined,
     )
     .action(genAction);
 
