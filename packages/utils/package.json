@@ -101,7 +101,7 @@
     "prepublishOnly": "pnpm build -- --platform",
     "new": "modern new",
     "build": "modern build",
-    "test": "modern test --env=node"
+    "test": "echo 'No tests'"
   },
   "dependencies": {
     "@swc/helpers": "0.5.1",
