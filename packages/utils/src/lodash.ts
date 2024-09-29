@@ -1,8 +1,8 @@
-import merge from 'lodash.merge';
+import flattenDeep from 'lodash.flattendeep';
+import get from 'lodash.get';
 import isFunction from 'lodash.isfunction';
 import isObject from 'lodash.isobject';
-import get from 'lodash.get';
 import isString from 'lodash.isstring';
-import flattenDeep from 'lodash.flattendeep';
+import merge from 'lodash.merge';
 
 export { merge, isFunction, isObject, get, isString, flattenDeep };
