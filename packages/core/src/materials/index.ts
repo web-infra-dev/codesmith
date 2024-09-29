@@ -1,6 +1,11 @@
 import path from 'path';
 import type { Logger } from '@/logger';
-import { downloadPackage, getPackageInfo, nodeRequire } from '@/utils';
+import {
+  downloadPackage,
+  getPackageInfo,
+  nodeRequire,
+  getGeneratorVersion,
+} from '@/utils';
 import { FsMaterial } from './FsMaterial';
 
 export class MaterialsManager {
@@ -44,7 +49,11 @@ export class MaterialsManager {
     this.logger?.timing?.('🕒 Prepare Generators');
     await Promise.all(
       generators.map(async generator => {
-        const { name, version } = getPackageInfo(generator);
+        const { name, version: pkgVersion } = getPackageInfo(generator);
+        const version = await getGeneratorVersion(name, pkgVersion, {
+          registryUrl: this.registryUrl,
+          logger: this.logger,
+        });
         const materialKey = `${name}@${version}`;
         if (this.materialMap[materialKey] || generator.startsWith('file:')) {
           return Promise.resolve();
