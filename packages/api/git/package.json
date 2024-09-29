@@ -37,8 +37,8 @@
   },
   "devDependencies": {
     "@modern-js/codesmith": "workspace:*",
-    "@modern-js/module-tools": "^2.58.0",
-    "@modern-js/plugin-testing": "^2.58.0",
+    "@modern-js/module-tools": "2.60.2",
+    "@modern-js/plugin-testing": "2.60.2",
     "@types/jest": "^26.0.24",
     "@types/node": "^14.18.42",
     "typescript": "^4.9.5"

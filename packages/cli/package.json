@@ -37,11 +37,11 @@
     "@swc/helpers": "0.5.1",
     "@modern-js/codesmith": "workspace:*",
     "@modern-js/codesmith-utils": "workspace:*",
-    "@modern-js/plugin-i18n": "^2.58.0"
+    "@modern-js/plugin-i18n": "2.60.3-alpha.0"
   },
   "devDependencies": {
-    "@modern-js/module-tools": "^2.58.0",
-    "@modern-js/plugin-testing": "^2.58.0",
+    "@modern-js/module-tools": "2.60.2",
+    "@modern-js/plugin-testing": "2.60.2",
     "@types/jest": "^26.0.24",
     "@types/node": "^14.18.42",
     "ts-node": "^10.9.1",
