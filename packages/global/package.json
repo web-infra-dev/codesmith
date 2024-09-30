@@ -1,0 +1,123 @@
+{
+  "name": "@modern-js/codesmith-global",
+  "description": "codesmith core implement",
+  "homepage": "https://modernjs.dev",
+  "bugs": "https://github.com/web-infra-dev/codesmith/issues",
+  "repository": "web-infra-dev/codesmith",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "framework",
+    "modern",
+    "modern.js"
+  ],
+  "version": "2.5.1",
+  "jsnext:source": "./src/index.ts",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm-node/index.js",
+  "exports": {
+    ".": {
+      "jsnext:source": "./src/index.ts",
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/cjs/index.js"
+    },
+    "./chalk": {
+      "jsnext:source": "./src/chalk.ts",
+      "import": "./dist/esm/chalk.js",
+      "default": "./dist/cjs/chalk.js"
+    },
+    "./execa": {
+      "jsnext:source": "./src/execa.ts",
+      "import": "./dist/esm/execa.js",
+      "default": "./dist/cjs/execa.js"
+    },
+    "./fs-extra": {
+      "jsnext:source": "./src/fs-extra.ts",
+      "import": "./dist/esm/fs-extra.js",
+      "default": "./dist/cjs/fs-extra.js"
+    },
+    "./glob": {
+      "jsnext:source": "./src/glob.ts",
+      "import": "./dist/esm/glob.js",
+      "default": "./dist/cjs/glob.js"
+    },
+    "./lodash": {
+      "jsnext:source": "./src/lodash.ts",
+      "import": "./dist/esm/lodash.js",
+      "default": "./dist/cjs/lodash.js"
+    },
+    "./ora": {
+      "jsnext:source": "./src/ora.ts",
+      "import": "./dist/esm/ora.js",
+      "default": "./dist/cjs/ora.js"
+    },
+    "./semver": {
+      "jsnext:source": "./src/semver.ts",
+      "import": "./dist/esm/semver.js",
+      "default": "./dist/cjs/semver.js"
+    },
+    "./npm": {
+      "jsnext:source": "./src/npm.ts",
+      "import": "./dist/esm/npm.js",
+      "default": "./dist/cjs/npm.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "chalk": [
+        "./dist/types/chalk.d.ts"
+      ],
+      "execa": [
+        "./dist/types/execa.d.ts"
+      ],
+      "fs-extra": [
+        "./dist/types/fs-extra.d.ts"
+      ],
+      "glob": [
+        "./dist/types/glob.d.ts"
+      ],
+      "lodash": [
+        "./dist/types/lodash.d.ts"
+      ],
+      "ora": [
+        "./dist/types/ora.d.ts"
+      ],
+      "semver": [
+        "./dist/types/semver.d.ts"
+      ],
+      "npm": [
+        "./dist/types/npm.d.ts"
+      ]
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "prepare": "pnpm build",
+    "prepublishOnly": "pnpm build -- --platform",
+    "new": "modern new",
+    "build": "modern build",
+    "test": "echo 'No tests'"
+  },
+  "devDependencies": {
+    "@modern-js/codesmith": "workspace:*",
+    "@modern-js/codesmith-api-app": "workspace:*",
+    "@modern-js/codesmith-api-git": "workspace:*",
+    "@modern-js/codesmith-api-npm": "workspace:*",
+    "@modern-js/codesmith-api-ejs": "workspace:*",
+    "@modern-js/codesmith-api-fs": "workspace:*",
+    "@modern-js/codesmith-api-handlebars": "workspace:*",
+    "@modern-js/codesmith-api-json": "workspace:*",
+    "@modern-js/codesmith-formily": "workspace:*",
+    "@modern-js/codesmith-utils": "workspace:*",
+    "@modern-js/plugin-i18n": "2.60.3-alpha.0",
+    "@modern-js/module-tools": "2.60.2",
+    "@types/node": "^14",
+    "typescript": "^5"
+  },
+  "sideEffects": false
+}
