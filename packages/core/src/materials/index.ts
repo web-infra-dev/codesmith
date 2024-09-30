@@ -63,4 +63,14 @@ export class MaterialsManager {
     );
     this.logger?.timing?.('🕒 Prepare Generators', true);
   }
+
+  async prepareGlobal() {
+    this.logger?.timing?.('🕒 Prepare Global');
+    const globalPkgName = '@modern-js/codesmith-global';
+    const globalResource = await this.loadRemoteGenerator(
+      `${globalPkgName}@latest`,
+    );
+    require(globalResource.basePath);
+    this.logger?.timing?.('🕒 Prepare Global', true);
+  }
 }
