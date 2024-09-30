@@ -1,11 +1,11 @@
 import * as codesmith from '@modern-js/codesmith';
 import * as codesmithApiApp from '@modern-js/codesmith-api-app';
-import * as codesmithApiGit from '@modern-js/codesmith-api-git';
-import * as codesmithApiNpm from '@modern-js/codesmith-api-npm';
 import * as codesmithApiEjs from '@modern-js/codesmith-api-ejs';
 import * as codesmithApiFs from '@modern-js/codesmith-api-fs';
+import * as codesmithApiGit from '@modern-js/codesmith-api-git';
 import * as codesmithApiHandlebars from '@modern-js/codesmith-api-handlebars';
 import * as codesmithApiJson from '@modern-js/codesmith-api-json';
+import * as codesmithApiNpm from '@modern-js/codesmith-api-npm';
 import * as codesmithFormily from '@modern-js/codesmith-formily';
 import * as codesmithUtils from '@modern-js/codesmith-utils';
 import * as pluginI18N from '@modern-js/plugin-i18n';
