@@ -281,8 +281,19 @@ check path: ${chalk.blue.underline(
     this.setbasePath(preBasePath);
     this.logger?.timing?.(`🕒 RunSubGenerator ${subGenerator}`, true);
   }
-
   public async prepareGenerators(generators: string[]) {
+    if ((global as any).CODESMITH_PREPARE_GLOBAL) {
+      return;
+    }
     await this.materialsManager.prepareGenerators(generators);
+    (global as any).CODESMITH_PREPARE_GLOBAL = true;
+  }
+
+  public async prepareGlobal() {
+    if ((global as any).CODESMITH_PREPARE_GLOBAL) {
+      return;
+    }
+    await this.materialsManager.prepareGlobal();
+    (global as any).CODESMITH_PREPARE_GLOBAL = true;
   }
 }
