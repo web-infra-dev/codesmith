@@ -1,4 +1,4 @@
-import { chalk } from '@modern-js/utils';
+import { chalk } from '@modern-js/codesmith-utils/chalk';
 import type { Answers } from 'inquirer';
 import type OriginChoices from 'inquirer/lib/objects/choices';
 import { pointer as pointerCharacter } from './pointer';

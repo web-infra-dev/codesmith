@@ -3,10 +3,9 @@ import type { Schema as FormilySchema } from '@formily/json-schema';
 import { type Validator, validate } from '@formily/validator';
 import {
   flattenDeep,
-  isArray,
   isFunction,
   isObject,
-} from '@modern-js/utils/lodash';
+} from '@modern-js/codesmith-utils/lodash';
 import type { Question as InquirerQuestion } from 'inquirer';
 
 export type Schema = Partial<
@@ -104,7 +103,7 @@ export function getQuestionFromSchema(
       when: !configValue[field],
     };
     if (items) {
-      if (isArray(defaultValue)) {
+      if (Array.isArray(defaultValue)) {
         return {
           ...result,
           type: 'checkbox',

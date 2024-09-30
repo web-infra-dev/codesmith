@@ -1,0 +1,135 @@
+{
+  "name": "@modern-js/codesmith-utils",
+  "description": "codesmith core implement",
+  "homepage": "https://modernjs.dev",
+  "bugs": "https://github.com/web-infra-dev/codesmith/issues",
+  "repository": "web-infra-dev/codesmith",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "framework",
+    "modern",
+    "modern.js"
+  ],
+  "version": "2.5.1",
+  "jsnext:source": "./src/index.ts",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm-node/index.js",
+  "exports": {
+    ".": {
+      "jsnext:source": "./src/index.ts",
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/cjs/index.js"
+    },
+    "./chalk": {
+      "jsnext:source": "./src/chalk.ts",
+      "import": "./dist/esm/chalk.js",
+      "default": "./dist/cjs/chalk.js"
+    },
+    "./execa": {
+      "jsnext:source": "./src/execa.ts",
+      "import": "./dist/esm/execa.js",
+      "default": "./dist/cjs/execa.js"
+    },
+    "./fs-extra": {
+      "jsnext:source": "./src/fs-extra.ts",
+      "import": "./dist/esm/fs-extra.js",
+      "default": "./dist/cjs/fs-extra.js"
+    },
+    "./glob": {
+      "jsnext:source": "./src/glob.ts",
+      "import": "./dist/esm/glob.js",
+      "default": "./dist/cjs/glob.js"
+    },
+    "./lodash": {
+      "jsnext:source": "./src/lodash.ts",
+      "import": "./dist/esm/lodash.js",
+      "default": "./dist/cjs/lodash.js"
+    },
+    "./ora": {
+      "jsnext:source": "./src/ora.ts",
+      "import": "./dist/esm/ora.js",
+      "default": "./dist/cjs/ora.js"
+    },
+    "./semver": {
+      "jsnext:source": "./src/semver.ts",
+      "import": "./dist/esm/semver.js",
+      "default": "./dist/cjs/semver.js"
+    },
+    "./npm": {
+      "jsnext:source": "./src/npm.ts",
+      "import": "./dist/esm/npm.js",
+      "default": "./dist/cjs/npm.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "chalk": [
+        "./dist/types/chalk.d.ts"
+      ],
+      "execa": [
+        "./dist/types/execa.d.ts"
+      ],
+      "fs-extra": [
+        "./dist/types/fs-extra.d.ts"
+      ],
+      "glob": [
+        "./dist/types/glob.d.ts"
+      ],
+      "lodash": [
+        "./dist/types/lodash.d.ts"
+      ],
+      "ora": [
+        "./dist/types/ora.d.ts"
+      ],
+      "semver": [
+        "./dist/types/semver.d.ts"
+      ],
+      "npm": [
+        "./dist/types/npm.d.ts"
+      ]
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "prepare": "pnpm build",
+    "prepublishOnly": "pnpm build -- --platform",
+    "new": "modern new",
+    "build": "modern build",
+    "test": "echo 'No tests'"
+  },
+  "dependencies": {
+    "@swc/helpers": "0.5.1",
+    "execa": "5.1.1",
+    "fs-extra": "10.0.1",
+    "semver": "7.6.0",
+    "lodash.merge": "4.6.2",
+    "lodash.isfunction": "3.0.9",
+    "lodash.isobject": "3.0.2",
+    "lodash.get": "4.4.2",
+    "lodash.isstring": "4.0.1",
+    "lodash.flattendeep": "4.4.0",
+    "ora": "5.4.1",
+    "chalk": "4.1.2",
+    "glob": "7.2.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "9.0.13",
+    "@types/glob": "7.2.0",
+    "@types/semver": "7.5.8",
+    "@types/lodash.flattendeep": "4.4.9",
+    "@types/lodash.isfunction": "3.0.9",
+    "@types/lodash.isobject": "3.0.9",
+    "@types/lodash.get": "4.4.9",
+    "@types/lodash.isstring": "4.0.9",
+    "@types/lodash.merge": "4.6.9",
+    "@types/node": "^14",
+    "typescript": "^5"
+  },
+  "sideEffects": false
+}

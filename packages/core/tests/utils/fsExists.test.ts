@@ -1,7 +1,7 @@
 import os from 'os';
 import path from 'path';
 import { fsExists } from '@/utils';
-import { fs } from '@modern-js/utils';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
 
 describe('fsExists function test', () => {
   beforeEach(() => {

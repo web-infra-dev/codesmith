@@ -72,4 +72,12 @@ export class CodeSmith {
     await this.core.runGenerator(generator, config);
     this.logger?.timing?.(`🕒 RunTask ${generator}`, true);
   }
+
+  public async prepareGenerators(generators: string[]) {
+    await this.materialsManager.prepareGenerators(generators);
+  }
+
+  public async prepareGlobal() {
+    await this.materialsManager.prepareGlobal();
+  }
 }

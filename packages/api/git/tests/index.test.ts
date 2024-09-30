@@ -7,7 +7,8 @@ import {
   initGitRepo,
   isInGitRepo,
 } from '@/utils';
-import { fs, execa } from '@modern-js/utils';
+import { execa } from '@modern-js/codesmith-utils/execa';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
 
 const cwd = path.join(os.tmpdir(), 'codesmith_test', Math.random().toString());
 

@@ -1,13 +1,61 @@
 import os from 'os';
 import { CATCHE_VALIDITY_PREIOD } from '@/constants';
 import type { Logger } from '@/logger';
-import { fs, semver } from '@modern-js/utils';
+import type { ILogger } from '@/logger/constants';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
+import { semver } from '@modern-js/codesmith-utils/semver';
 import axios from 'axios';
 import tar from 'tar';
 import { fsExists } from './fsExists';
 import { getNpmTarballUrl } from './getNpmTarballUrl';
 import { getNpmVersion } from './getNpmVersion';
 import { runInstall } from './packageManager';
+
+const GeneratorVersionMap = new Map<string, string>();
+
+export async function getGeneratorVersion(
+  pkgName: string,
+  pkgVersion = 'latest',
+  options: {
+    registryUrl?: string;
+    install?: boolean;
+    logger?: ILogger;
+  } = {},
+): Promise<string> {
+  const cacheKey = `${pkgName}@${pkgVersion}`;
+  const cachedVersion = GeneratorVersionMap.get(cacheKey);
+  if (cachedVersion) {
+    return cachedVersion;
+  }
+
+  const { registryUrl, logger } = options;
+  let version: string;
+
+  if (semver.valid(pkgVersion)) {
+    version = pkgVersion;
+  } else {
+    logger?.timing(`🕒 get ${pkgName} version`);
+    try {
+      version = await getNpmVersion(pkgName, {
+        registryUrl,
+        version: pkgVersion,
+      });
+    } catch (error: any) {
+      throw new Error(
+        `Failed to get version for package ${pkgName}@${pkgVersion}: ${error.message}`,
+      );
+    } finally {
+      logger?.timing(`🕒 get ${pkgName} version`, true);
+    }
+
+    if (!version) {
+      throw new Error(`Package ${pkgName}@${pkgVersion} not found in registry`);
+    }
+  }
+
+  GeneratorVersionMap.set(cacheKey, version);
+  return version;
+}
 
 async function isValidCache(cacheDir: string) {
   /* generator cache can use
