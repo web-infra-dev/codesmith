@@ -6,8 +6,8 @@ import { fs } from '@modern-js/codesmith-utils/fs-extra';
 import { semver } from '@modern-js/codesmith-utils/semver';
 import axios from 'axios';
 import tar from 'tar';
-import { getNpmTarballUrl } from './getNpmTarballUrl';
 import { fsExists } from './fsExists';
+import { getNpmTarballUrl } from './getNpmTarballUrl';
 import { getNpmVersion } from './getNpmVersion';
 import { runInstall } from './packageManager';
 
