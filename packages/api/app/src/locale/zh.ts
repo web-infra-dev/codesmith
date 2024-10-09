@@ -1,6 +1,6 @@
 export const ZH_LOCALE = {
   environment: {
-    node_version: '请升级 Node 版本至 LIS',
+    node_version: '请升级 Node 版本至 LTS',
     nvm_install: '检测到环境中未安装 nvm，请先安装 nvm',
     yarn_pnpm_npm: '检测到环境中未安装包管理工具，请先安装 yarn 或 pnpm 或 npm',
   },
