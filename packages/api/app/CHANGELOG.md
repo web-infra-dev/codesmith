@@ -1,5 +1,19 @@
 # @modern-js/codesmith-api-app
 
+## 2.5.2
+
+### Patch Changes
+
+- c24a5c9: fix: fix typo
+  fix: 修复错别字
+  - @modern-js/codesmith-api-ejs@2.5.2
+  - @modern-js/codesmith-api-fs@2.5.2
+  - @modern-js/codesmith-api-git@2.5.2
+  - @modern-js/codesmith-api-handlebars@2.5.2
+  - @modern-js/codesmith-api-npm@2.5.2
+  - @modern-js/codesmith@2.5.2
+  - @modern-js/codesmith-formily@2.5.2
+
 ## 2.5.1
 
 ### Patch Changes
