@@ -1,6 +1,7 @@
 export const EN_LOCALE = {
   environment: {
-    node_version: 'please upgrade node to lts version',
+    node_version:
+      'The version of Node.js is too low. Please upgrade to the LTS version: https://nodejs.org/',
     nvm_install: 'please install nvm first',
     yarn_pnpm_npm: 'please install yarn or pnpm or npm first',
   },
