@@ -74,10 +74,18 @@ export class CodeSmith {
   }
 
   public async prepareGenerators(generators: string[]) {
+    if ((global as any).CODESMITH_PREPARE_GENERATORS) {
+      return;
+    }
     await this.materialsManager.prepareGenerators(generators);
+    (global as any).CODESMITH_PREPARE_GENERATORS = true;
   }
 
   public async prepareGlobal() {
+    if ((global as any).CODESMITH_PREPARE_GLOBAL) {
+      return;
+    }
     await this.materialsManager.prepareGlobal();
+    (global as any).CODESMITH_PREPARE_GLOBAL = true;
   }
 }

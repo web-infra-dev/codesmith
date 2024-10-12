@@ -282,11 +282,11 @@ check path: ${chalk.blue.underline(
     this.logger?.timing?.(`🕒 RunSubGenerator ${subGenerator}`, true);
   }
   public async prepareGenerators(generators: string[]) {
-    if ((global as any).CODESMITH_PREPARE_GLOBAL) {
+    if ((global as any).CODESMITH_PREPARE_GENERATORS) {
       return;
     }
     await this.materialsManager.prepareGenerators(generators);
-    (global as any).CODESMITH_PREPARE_GLOBAL = true;
+    (global as any).CODESMITH_PREPARE_GENERATORS = true;
   }
 
   public async prepareGlobal() {
