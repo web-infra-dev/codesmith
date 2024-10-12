@@ -6,6 +6,12 @@ export default defineConfig({
     dts: false,
     format: 'umd',
     autoExternal: false,
+    alias: {
+      '@modern-js/utils/lodash': require.resolve(
+        '@modern-js/codesmith-utils/lodash',
+      ),
+    },
+    minify: 'terser',
   },
   plugins: [moduleTools()],
 });
