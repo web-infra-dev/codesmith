@@ -55,7 +55,7 @@ export class AppAPI {
   }
 
   public async checkEnvironment(nodeVersion?: string) {
-    if (semver.lt(process.versions.node, nodeVersion || '14.18.3')) {
+    if (semver.lt(process.versions.node, nodeVersion || '16.20.2')) {
       this.generatorCore.logger.warn(
         `🟡 ${i18n.t(localeKeys.environment.node_version)}`,
       );
