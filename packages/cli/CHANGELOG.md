@@ -1,5 +1,11 @@
 # @modern-js/codesmith-cli
 
+## 2.5.2
+
+### Patch Changes
+
+- @modern-js/codesmith@2.5.2
+
 ## 2.5.1
 
 ### Patch Changes
