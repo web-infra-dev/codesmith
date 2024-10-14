@@ -25,6 +25,8 @@ export class CodeSmith {
 
   logger: Logger;
 
+  readyGenerators = new Set<string>();
+
   constructor({ debug, time, logger, registryUrl, namespace }: ICreateOptions) {
     this.debug = debug || false;
     this.logger =
@@ -74,11 +76,15 @@ export class CodeSmith {
   }
 
   public async prepareGenerators(generators: string[]) {
-    if ((global as any).CODESMITH_PREPARE_GENERATORS) {
-      return;
-    }
-    await this.materialsManager.prepareGenerators(generators);
-    (global as any).CODESMITH_PREPARE_GENERATORS = true;
+    const generatorsToPrep = generators.filter(
+      generator => !this.readyGenerators.has(generator),
+    );
+
+    await this.materialsManager.prepareGenerators(generatorsToPrep);
+
+    generatorsToPrep.forEach(generator => {
+      this.readyGenerators.add(generator);
+    });
   }
 
   public async prepareGlobal() {
