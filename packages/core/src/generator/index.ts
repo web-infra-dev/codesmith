@@ -45,6 +45,8 @@ export class GeneratorCore {
   // event handles, to handle generator lifecycle
   event: EventEmitter;
 
+  readyGenerators = new Set<string>();
+
   constructor({ logger, materialsManager, outputPath }: ICreateOptions) {
     this.logger = logger;
     this.materialsManager = materialsManager;
@@ -282,11 +284,7 @@ check path: ${chalk.blue.underline(
     this.logger?.timing?.(`🕒 RunSubGenerator ${subGenerator}`, true);
   }
   public async prepareGenerators(generators: string[]) {
-    if ((global as any).CODESMITH_PREPARE_GENERATORS) {
-      return;
-    }
     await this.materialsManager.prepareGenerators(generators);
-    (global as any).CODESMITH_PREPARE_GENERATORS = true;
   }
 
   public async prepareGlobal() {

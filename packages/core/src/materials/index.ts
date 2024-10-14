@@ -17,6 +17,8 @@ export class MaterialsManager {
     [materialUri: string]: FsMaterial;
   };
 
+  readyGenerators = new Set<string>();
+
   constructor(logger?: Logger, registryUrl?: string) {
     this.logger = logger;
     this.registryUrl = registryUrl;
@@ -49,6 +51,9 @@ export class MaterialsManager {
     this.logger?.timing?.('🕒 Prepare Generators');
     await Promise.all(
       generators.map(async generator => {
+        if (this.readyGenerators.has(generator)) {
+          return Promise.resolve();
+        }
         const { name, version: pkgVersion } = getPackageInfo(generator);
         const version = await getGeneratorVersion(name, pkgVersion, {
           registryUrl: this.registryUrl,
@@ -59,6 +64,7 @@ export class MaterialsManager {
           return Promise.resolve();
         }
         await this.loadRemoteGenerator(materialKey);
+        this.readyGenerators.add(generator);
       }),
     );
     this.logger?.timing?.('🕒 Prepare Generators', true);
