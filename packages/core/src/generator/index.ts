@@ -45,8 +45,6 @@ export class GeneratorCore {
   // event handles, to handle generator lifecycle
   event: EventEmitter;
 
-  readyGenerators = new Set<string>();
-
   constructor({ logger, materialsManager, outputPath }: ICreateOptions) {
     this.logger = logger;
     this.materialsManager = materialsManager;
