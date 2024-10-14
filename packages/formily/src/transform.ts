@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import type { Schema as FormilySchema } from '@formily/json-schema';
 import { type Validator, validate } from '@formily/validator';
 import {
@@ -152,4 +151,3 @@ export function transformForm(
 ): Question[] {
   return getQuestionFromSchema(schema, configValue, validateMap, initValue);
 }
-/* eslint-enable @typescript-eslint/naming-convention */

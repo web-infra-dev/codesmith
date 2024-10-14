@@ -13,7 +13,7 @@
   ],
   "version": "2.5.2",
   "jsnext:source": "./src/index.ts",
-  "main": "./dist/cjs/index.js",
+  "main": "./dist/index.js",
   "bin": {
     "codesmith": "./bin/run.js"
   },

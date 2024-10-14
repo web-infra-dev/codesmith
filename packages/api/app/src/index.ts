@@ -15,7 +15,6 @@ import {
 } from '@modern-js/codesmith-formily';
 import { execa } from '@modern-js/codesmith-utils/execa';
 import { fs } from '@modern-js/codesmith-utils/fs-extra';
-/* eslint-disable max-lines */
 import { merge } from '@modern-js/codesmith-utils/lodash';
 import { semver } from '@modern-js/codesmith-utils/semver';
 import { parse, stringify } from 'comment-json';
