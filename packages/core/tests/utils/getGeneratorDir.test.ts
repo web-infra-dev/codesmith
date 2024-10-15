@@ -2,7 +2,7 @@ import * as os from 'os';
 import * as path from 'path';
 import { fsExists } from '@/utils';
 import { getGeneratorDir } from '@/utils/getGeneratorDir';
-import { fs } from '@modern-js/utils';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
 
 describe('getGeneratorDir function test', () => {
   it('normal', async () => {

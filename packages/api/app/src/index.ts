@@ -13,9 +13,10 @@ import {
   CLIReader as FormilyCLIReader,
   type Schema as FormilySchema,
 } from '@modern-js/codesmith-formily';
-/* eslint-disable max-lines */
-import { fs, execa, semver } from '@modern-js/utils';
-import { merge } from '@modern-js/utils/lodash';
+import { execa } from '@modern-js/codesmith-utils/execa';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
+import { merge } from '@modern-js/codesmith-utils/lodash';
+import { semver } from '@modern-js/codesmith-utils/semver';
 import { parse, stringify } from 'comment-json';
 import inquirer, { type Question } from 'inquirer';
 import { type I18n, i18n, localeKeys } from './locale';
@@ -84,6 +85,7 @@ export class AppAPI {
       ignoreScripts?: boolean;
     },
   ) {
+    this.generatorCore.logger?.timing?.('🕒 Run Install');
     const {
       config: { packageManager, noNeedInstall, noNeedCheckNvm },
     } = this.generatorContext;
@@ -125,6 +127,7 @@ export class AppAPI {
         })}`,
       );
     }
+    this.generatorCore.logger?.timing?.('🕒 Run Install', true);
   }
 
   // custom install func
@@ -132,6 +135,7 @@ export class AppAPI {
     commitMessage?: string,
     installFunc?: () => Promise<void>,
   ) {
+    this.generatorCore.logger?.timing?.('🕒 Run Git and Install');
     const {
       config: { isMonorepoSubProject = false, noNeedGit },
     } = this.generatorContext;
@@ -166,6 +170,7 @@ export class AppAPI {
       this.generatorCore.logger.debug('❗️ [Git Add and Commit Failed]:', e);
       this.generatorCore.logger.warn(`🟡 ${i18n.t(localeKeys.git.failed)}`);
     }
+    this.generatorCore.logger?.timing?.('🕒 Run Git and Install', true);
   }
 
   public async forgeTemplate(

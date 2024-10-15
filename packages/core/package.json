@@ -30,14 +30,14 @@
   },
   "dependencies": {
     "@swc/helpers": "0.5.1",
-    "@modern-js/utils": "^2.58.0",
     "axios": "^1.6.0",
+    "debug": "4.3.7",
     "tar": "^6.1.13",
-    "debug": "4.3.7"
+    "@modern-js/codesmith-utils": "workspace:*"
   },
   "devDependencies": {
-    "@modern-js/module-tools": "^2.58.0",
-    "@modern-js/plugin-testing": "^2.58.0",
+    "@modern-js/module-tools": "2.60.3",
+    "@modern-js/plugin-testing": "2.60.3",
     "@types/jest": "^26.0.24",
     "@types/node": "^14.18.42",
     "@types/tar": "^4.0.5",

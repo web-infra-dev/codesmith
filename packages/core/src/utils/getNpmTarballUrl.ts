@@ -1,5 +1,5 @@
 import { NPM_API_TIMEOUT } from '@/constants';
-import { execa } from '@modern-js/utils';
+import { execa } from '@modern-js/codesmith-utils/execa';
 import { timeoutPromise } from './timeoutPromise';
 
 interface Options {

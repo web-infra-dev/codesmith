@@ -72,4 +72,16 @@ export class CodeSmith {
     await this.core.runGenerator(generator, config);
     this.logger?.timing?.(`🕒 RunTask ${generator}`, true);
   }
+
+  public async prepareGenerators(generators: string[]) {
+    await this.materialsManager.prepareGenerators(generators);
+  }
+
+  public async prepareGlobal() {
+    if ((global as any).CODESMITH_PREPARE_GLOBAL) {
+      return;
+    }
+    await this.materialsManager.prepareGlobal();
+    (global as any).CODESMITH_PREPARE_GLOBAL = true;
+  }
 }

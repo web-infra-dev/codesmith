@@ -18,6 +18,8 @@ export async function genAction(generator: string, genOptions: LocalOptions) {
     registryUrl: registry,
   });
 
+  await smith.prepareGlobal();
+
   smith.logger.debug('💡 [Runtime Gen Action]');
   smith.logger.debug('💡 [Generator Name]:', generator);
   smith.logger.debug('💡 [Generator Pwd]:', pwd);

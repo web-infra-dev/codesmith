@@ -1,6 +1,11 @@
 import path from 'path';
 import type { Logger } from '@/logger';
-import { downloadPackage, getPackageInfo, nodeRequire } from '@/utils';
+import {
+  downloadPackage,
+  getGeneratorVersion,
+  getPackageInfo,
+  nodeRequire,
+} from '@/utils';
 import { FsMaterial } from './FsMaterial';
 
 export class MaterialsManager {
@@ -11,6 +16,8 @@ export class MaterialsManager {
   materialMap: {
     [materialUri: string]: FsMaterial;
   };
+
+  readyGenerators = new Set<string>();
 
   constructor(logger?: Logger, registryUrl?: string) {
     this.logger = logger;
@@ -38,5 +45,38 @@ export class MaterialsManager {
     const materialKey = `${pkgJson.name}@${pkgJson.version}`;
     this.materialMap[materialKey] = new FsMaterial(localPath);
     return Promise.resolve(this.materialMap[materialKey]);
+  }
+
+  async prepareGenerators(generators: string[]) {
+    this.logger?.timing?.('🕒 Prepare Generators');
+    await Promise.all(
+      generators.map(async generator => {
+        if (this.readyGenerators.has(generator)) {
+          return Promise.resolve();
+        }
+        const { name, version: pkgVersion } = getPackageInfo(generator);
+        const version = await getGeneratorVersion(name, pkgVersion, {
+          registryUrl: this.registryUrl,
+          logger: this.logger,
+        });
+        const materialKey = `${name}@${version}`;
+        if (this.materialMap[materialKey] || generator.startsWith('file:')) {
+          return Promise.resolve();
+        }
+        await this.loadRemoteGenerator(materialKey);
+        this.readyGenerators.add(generator);
+      }),
+    );
+    this.logger?.timing?.('🕒 Prepare Generators', true);
+  }
+
+  async prepareGlobal() {
+    this.logger?.timing?.('🕒 Prepare Global');
+    const globalPkgName = '@modern-js/codesmith-global';
+    const globalResource = await this.loadRemoteGenerator(
+      `${globalPkgName}@latest`,
+    );
+    require(globalResource.basePath);
+    this.logger?.timing?.('🕒 Prepare Global', true);
   }
 }

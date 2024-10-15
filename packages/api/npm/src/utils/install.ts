@@ -1,5 +1,9 @@
-import { execa } from '@modern-js/utils';
-import { canUseNpm, canUsePnpm, canUseYarn } from './env';
+import { type ExecaReturnValue, execa } from '@modern-js/codesmith-utils/execa';
+import {
+  canUseNpm,
+  canUsePnpm,
+  canUseYarn,
+} from '@modern-js/codesmith-utils/npm';
 
 export function execaWithStreamLog(
   command: string,
@@ -18,8 +22,8 @@ export function execaWithStreamLog(
 export async function runInstallWithNvm(
   command: string,
   options: Record<string, any>,
-) {
-  await execa(`~/.nvm/nvm-exec ${command}`, {
+): Promise<ExecaReturnValue> {
+  return await execa(`~/.nvm/nvm-exec ${command}`, {
     ...options,
     shell: true,
     stdin: 'inherit',
@@ -38,7 +42,7 @@ export async function npmInstall({
   registryUrl?: string;
   ignoreScripts?: boolean;
   useNvm?: boolean;
-}) {
+}): Promise<ExecaReturnValue> {
   const canUse = await canUseNpm();
   if (canUse) {
     const params = ['install'];
@@ -72,7 +76,7 @@ export async function yarnInstall({
   registryUrl?: string;
   ignoreScripts?: boolean;
   useNvm?: boolean;
-}) {
+}): Promise<ExecaReturnValue> {
   const canUse = await canUseYarn();
   if (canUse) {
     const params = ['install'];
@@ -103,7 +107,7 @@ export async function pnpmInstall({
   registryUrl?: string;
   ignoreScripts?: boolean;
   useNvm?: boolean;
-}) {
+}): Promise<ExecaReturnValue> {
   const canUse = await canUsePnpm();
   if (canUse) {
     const params = ['install'];

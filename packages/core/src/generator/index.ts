@@ -4,9 +4,11 @@ import type { Logger } from '@/logger';
 import type { ILogger } from '@/logger/constants';
 import type { MaterialsManager } from '@/materials';
 import { FsMaterial } from '@/materials/FsMaterial';
+import { getGeneratorVersion, getPackageInfo, nodeRequire } from '@/utils';
 import { getGeneratorDir } from '@/utils/getGeneratorDir';
-import { nodeRequire } from '@/utils/nodeRequire';
-import { fs, chalk, ora } from '@modern-js/utils';
+import { chalk } from '@modern-js/codesmith-utils/chalk';
+import { fs } from '@modern-js/codesmith-utils/fs-extra';
+import { ora } from '@modern-js/codesmith-utils/ora';
 import type { GeneratorContext, RuntimeCurrent } from './constants';
 
 interface ICreateOptions {
@@ -127,10 +129,16 @@ check path: ${chalk.blue.underline(
   private async loadRemoteGenerator(generator: string) {
     this.logger.debug('💡 [Load Remote Generator]:', generator);
     try {
+      const { name, version: pkgVersion } = getPackageInfo(generator);
+      const version = await getGeneratorVersion(name, pkgVersion, {
+        registryUrl: this.materialsManager.registryUrl,
+        logger: this.logger,
+      });
+      const materialKey = `${name}@${version}`;
       const generatorPkg =
-        await this.materialsManager.loadRemoteGenerator(generator);
+        this.materialsManager.materialMap[materialKey] ||
+        (await this.materialsManager.loadRemoteGenerator(generator));
       const pkgJson = nodeRequire(generatorPkg.get('package.json').filePath);
-      const materialKey = `${pkgJson.name}@${pkgJson.version}`;
       this.logger.debug(
         '🌟 [Load Remote Generator Success]:',
         generator,
@@ -272,5 +280,16 @@ check path: ${chalk.blue.underline(
     this.setOutputPath(preOutputPath);
     this.setbasePath(preBasePath);
     this.logger?.timing?.(`🕒 RunSubGenerator ${subGenerator}`, true);
+  }
+  public async prepareGenerators(generators: string[]) {
+    await this.materialsManager.prepareGenerators(generators);
+  }
+
+  public async prepareGlobal() {
+    if ((global as any).CODESMITH_PREPARE_GLOBAL) {
+      return;
+    }
+    await this.materialsManager.prepareGlobal();
+    (global as any).CODESMITH_PREPARE_GLOBAL = true;
   }
 }
