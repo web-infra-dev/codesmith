@@ -1,5 +1,17 @@
 # @modern-js/codesmith
 
+## 2.6.0
+
+### Minor Changes
+
+- 1973e40: feat: optimize generator download
+
+  feat: 优化生成器下载
+
+### Patch Changes
+
+- @modern-js/codesmith-utils@2.6.0
+
 ## 2.5.2
 
 ## 2.5.1
