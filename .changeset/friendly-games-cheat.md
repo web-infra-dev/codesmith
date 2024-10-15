@@ -1,7 +1,7 @@
 ---
-"@modern-js/codesmith-api-app": patch
-"@modern-js/codesmith": patch
-"@modern-js/codesmith-cli": patch
+"@modern-js/codesmith-api-app": minor
+"@modern-js/codesmith": minor
+"@modern-js/codesmith-cli": minor
 ---
 
 feat: optimize generator download
