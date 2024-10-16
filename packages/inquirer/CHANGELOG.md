@@ -1,5 +1,11 @@
 # @modern-js/inquirer-types
 
+## 2.6.2
+
+### Patch Changes
+
+- @modern-js/codesmith-utils@2.6.2
+
 ## 2.6.1
 
 ### Patch Changes
