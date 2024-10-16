@@ -1,5 +1,15 @@
 # @modern-js/codesmith
 
+## 2.6.1
+
+### Patch Changes
+
+- 1c3a0fd: feat: use request to get npm package tarball
+
+  feat: 通过请求获取 npm 包 tarball 地址
+
+  - @modern-js/codesmith-utils@2.6.1
+
 ## 2.6.0
 
 ### Minor Changes
