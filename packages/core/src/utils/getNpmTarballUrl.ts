@@ -1,5 +1,5 @@
 import { NPM_API_TIMEOUT } from '@/constants';
-import { execa } from '@modern-js/codesmith-utils/execa';
+import axios from 'axios';
 import { timeoutPromise } from './timeoutPromise';
 
 interface Options {
@@ -11,27 +11,15 @@ export async function getNpmTarballUrl(
   pkgVersion: string,
   options?: Options,
 ): Promise<string> {
-  const { registryUrl } = options || {};
-  const params = ['view', `${pkgName}@${pkgVersion}`, 'dist', '--json'];
+  const { registryUrl = 'https://registry.npmjs.org' } = options || {};
 
-  if (registryUrl) {
-    params.push('--registry');
-    params.push(registryUrl);
-  }
+  const url = `${registryUrl}/${pkgName}/${pkgVersion}`;
 
-  const getPkgInfoPromise = execa('npm', params);
-  const { stdout } = await timeoutPromise(
-    getPkgInfoPromise,
+  const response = await timeoutPromise(
+    axios.get(url),
     NPM_API_TIMEOUT,
     `Get npm tarball of '${pkgName}'`,
   );
 
-  try {
-    const pkgDistInfo = JSON.parse(stdout);
-    return pkgDistInfo.tarball;
-  } catch (e) {
-    throw new Error(
-      `Version \`${pkgVersion}\` for package \`${pkgName}\` could not be found`,
-    );
-  }
+  return response.data.dist.tarball;
 }
