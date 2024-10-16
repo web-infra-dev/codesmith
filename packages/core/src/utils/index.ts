@@ -5,3 +5,5 @@ export { timeoutPromise } from './timeoutPromise';
 export { downloadPackage, getGeneratorVersion } from './downloadPackage';
 export { getNpmVersion } from './getNpmVersion';
 export { getPackageInfo } from './getPackageInfo';
+export { getNpmRegistry } from './getNpmRegistry';
+export { getNpmPackageInfo } from './getNpmPackageInfo';

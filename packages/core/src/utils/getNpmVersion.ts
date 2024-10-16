@@ -1,6 +1,4 @@
-import { NPM_API_TIMEOUT } from '@/constants';
-import axios from 'axios';
-import { timeoutPromise } from './timeoutPromise';
+import { getNpmPackageInfo } from './getNpmPackageInfo';
 
 /**
  * get package version
@@ -18,16 +16,8 @@ export async function getNpmVersion(
   packageName: string,
   options?: Options,
 ): Promise<string> {
-  const { version = 'latest', registryUrl = 'https://registry.npmjs.org' } =
-    options || {};
+  const { version = 'latest' } = options || {};
+  const packageInfo = await getNpmPackageInfo(packageName, version, options);
 
-  const url = `${registryUrl}/${packageName}/${version}`;
-
-  const response = await timeoutPromise(
-    axios.get(url),
-    NPM_API_TIMEOUT,
-    `Get npm version of '${packageName}'`,
-  );
-
-  return response.data.version;
+  return packageInfo.version;
 }
