@@ -1,5 +1,13 @@
 # @modern-js/codesmith-formily
 
+## 2.6.3
+
+### Patch Changes
+
+- Updated dependencies [cd01abb]
+  - @modern-js/codesmith@2.6.3
+  - @modern-js/codesmith-utils@2.6.3
+
 ## 2.6.2
 
 ### Patch Changes
