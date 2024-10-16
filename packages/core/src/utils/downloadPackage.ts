@@ -57,12 +57,16 @@ export async function getGeneratorVersion(
   return version;
 }
 
-async function isValidCache(cacheDir: string) {
+async function isValidCache(cacheDir: string, pkgName: string) {
   /* generator cache can use
    * 1. .codesmith.completed exist
    * 2. cache time is within the validity period
+   * 3. 对于 @modern-js/codesmith-global 包，缓存一直有效
    */
   if (await fsExists(`${cacheDir}/.codesmith.completed`)) {
+    if (pkgName === '@modern-js/codesmith-global') {
+      return true;
+    }
     const preCacheTimeStr = await fs.readFile(
       `${cacheDir}/.codesmith.completed`,
       {
@@ -163,7 +167,7 @@ export async function downloadPackage(
   logger?.debug?.(
     `💡 [Download Generator Package]: ${pkgName}@${version} to ${targetDir}`,
   );
-  if ((await fsExists(targetDir)) && (await isValidCache(targetDir))) {
+  if ((await fsExists(targetDir)) && (await isValidCache(targetDir, pkgName))) {
     return targetDir;
   }
   await fs.remove(targetDir);
