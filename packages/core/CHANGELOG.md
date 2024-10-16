@@ -1,5 +1,15 @@
 # @modern-js/codesmith
 
+## 2.6.4
+
+### Patch Changes
+
+- ac3ad45: feat: op global package cache
+
+  feat: 优化 global 包缓存逻辑，在版本不变时，缓存一直有效
+
+  - @modern-js/codesmith-utils@2.6.4
+
 ## 2.6.3
 
 ### Patch Changes
