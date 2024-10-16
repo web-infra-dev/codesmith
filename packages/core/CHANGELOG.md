@@ -1,5 +1,15 @@
 # @modern-js/codesmith
 
+## 2.6.3
+
+### Patch Changes
+
+- cd01abb: fix: remove custom registry end /
+
+  fix: 移除自定义 registry 结尾 /
+
+  - @modern-js/codesmith-utils@2.6.3
+
 ## 2.6.2
 
 ### Patch Changes
