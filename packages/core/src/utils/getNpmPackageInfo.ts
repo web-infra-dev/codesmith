@@ -21,7 +21,7 @@ export async function getNpmPackageInfo(
   pkgVersion: string,
   options?: Options,
 ): Promise<PackageInfo> {
-  const packageName = `${pkgName}/${pkgVersion}`;
+  const packageName = `${pkgName}@${pkgVersion}`;
   const packageInfo = NpmPackageInfoCache.get(packageName);
   if (packageInfo) {
     return packageInfo;
@@ -36,7 +36,9 @@ export async function getNpmPackageInfo(
     `Get npm package info of '${pkgName}'`,
   );
 
-  NpmPackageInfoCache.set(packageName, response.data);
+  const { version } = response.data;
+
+  NpmPackageInfoCache.set(`${pkgName}@${version || pkgVersion}`, response.data);
 
   return response.data;
 }
