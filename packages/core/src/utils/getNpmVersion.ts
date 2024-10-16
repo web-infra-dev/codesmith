@@ -1,7 +1,3 @@
-import { NPM_API_TIMEOUT } from '@/constants';
-import axios from 'axios';
-import { timeoutPromise } from './timeoutPromise';
-import { getNpmRegistry } from './getNpmRegistry';
 import { getNpmPackageInfo } from './getNpmPackageInfo';
 
 /**
