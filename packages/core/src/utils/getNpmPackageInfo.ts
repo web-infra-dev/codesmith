@@ -28,7 +28,7 @@ export async function getNpmPackageInfo(
   }
   const { registryUrl = await getNpmRegistry() } = options || {};
 
-  const url = `${registryUrl}/${pkgName}/${pkgVersion}`;
+  const url = `${registryUrl.replace(/\/$/, '')}/${pkgName}/${pkgVersion}`;
 
   const response = await timeoutPromise(
     axios.get(url),
