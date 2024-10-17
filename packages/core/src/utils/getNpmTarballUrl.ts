@@ -1,7 +1,9 @@
+import type { ILogger } from '../logger/constants';
 import { getNpmPackageInfo } from './getNpmPackageInfo';
 
 interface Options {
   registryUrl?: string;
+  logger?: ILogger;
 }
 
 export async function getNpmTarballUrl(

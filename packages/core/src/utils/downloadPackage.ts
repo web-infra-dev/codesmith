@@ -39,6 +39,7 @@ export async function getGeneratorVersion(
       version = await getNpmVersion(pkgName, {
         registryUrl,
         version: pkgVersion,
+        logger,
       });
     } catch (error: any) {
       throw new Error(
@@ -155,6 +156,7 @@ export async function downloadPackage(
     version = await getNpmVersion(pkgName, {
       registryUrl,
       version: pkgVersion,
+      logger,
     });
     logger?.timing(`🕒 get ${pkgName} version`, true);
     if (version === undefined) {
@@ -177,6 +179,7 @@ export async function downloadPackage(
   // get package tarball
   const tarballPkg = await getNpmTarballUrl(pkgName, version, {
     registryUrl,
+    logger,
   });
   logger?.timing(`🕒 get ${pkgName}@${version} tarball url`, true);
 
