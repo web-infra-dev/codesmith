@@ -1,5 +1,15 @@
 # @modern-js/codesmith
 
+## 2.6.5
+
+### Patch Changes
+
+- 29343ff: feat: optimize get npm package info function, use npm command as fallback
+
+  feat: 优化获取 npm 包信息函数,使用 npm 命令兜底
+
+  - @modern-js/codesmith-utils@2.6.5
+
 ## 2.6.4
 
 ### Patch Changes
