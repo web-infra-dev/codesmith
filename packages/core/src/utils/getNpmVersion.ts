@@ -1,5 +1,5 @@
+import type { ILogger } from '../logger/constants';
 import { getNpmPackageInfo } from './getNpmPackageInfo';
-
 /**
  * get package version
  * @param {string} packageName
@@ -10,6 +10,7 @@ import { getNpmPackageInfo } from './getNpmPackageInfo';
 interface Options {
   registryUrl?: string;
   version?: string;
+  logger?: ILogger;
 }
 
 export async function getNpmVersion(
