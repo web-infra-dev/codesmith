@@ -8,9 +8,9 @@ import {
 } from '@/utils/install';
 import { fs } from '@modern-js/codesmith-utils/fs-extra';
 import {
+  canUseFnm,
   canUseNpm,
   canUseNvm,
-  canUseFnm,
   canUseYarn,
 } from '@modern-js/codesmith-utils/npm';
 

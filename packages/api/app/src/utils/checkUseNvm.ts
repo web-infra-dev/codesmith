@@ -3,8 +3,8 @@ import { type ILogger, fsExists } from '@modern-js/codesmith';
 import { execaWithStreamLog } from '@modern-js/codesmith-api-npm';
 import { execa } from '@modern-js/codesmith-utils/execa';
 import { fs } from '@modern-js/codesmith-utils/fs-extra';
+import { canUseFnm, canUseNvm } from '@modern-js/codesmith-utils/npm';
 import { semver } from '@modern-js/codesmith-utils/semver';
-import { canUseNvm, canUseFnm } from '@modern-js/codesmith-utils/npm';
 
 const NODE_MAJOR_VERSION_MAP: Record<string, number> = {
   'lts/*': 18,
