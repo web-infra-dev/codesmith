@@ -1,8 +1,9 @@
 import path from 'path';
 import { type ILogger, fsExists } from '@modern-js/codesmith';
-import { canUseNvm, execaWithStreamLog } from '@modern-js/codesmith-api-npm';
+import { execaWithStreamLog } from '@modern-js/codesmith-api-npm';
 import { execa } from '@modern-js/codesmith-utils/execa';
 import { fs } from '@modern-js/codesmith-utils/fs-extra';
+import { canUseFnm, canUseNvm } from '@modern-js/codesmith-utils/npm';
 import { semver } from '@modern-js/codesmith-utils/semver';
 
 const NODE_MAJOR_VERSION_MAP: Record<string, number> = {
@@ -40,8 +41,8 @@ export async function checkUseNvm(cwd: string, logger: ILogger) {
   if (expectNodeVersion === semver.major(currentNodeVersion)) {
     return false;
   }
-  // check nvm exist
-  if (!(await canUseNvm())) {
+  // check nvm or fnm exist
+  if (!((await canUseNvm()) || (await canUseFnm()))) {
     logger.warn(
       `🟡 [Check nvm Error]: Current node version is not expect, you should install ${expectNodeVersion}`,
     );

@@ -1,5 +1,6 @@
 export {
   canUseNvm,
+  canUseFnm,
   canUseNpm,
   canUseYarn,
   canUsePnpm,

@@ -12,6 +12,18 @@ export async function canUseNvm() {
   }
 }
 
+export async function canUseFnm() {
+  try {
+    await execa('fnm --version', {
+      env: process.env,
+      shell: true,
+    });
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 export async function canUseNpm() {
   try {
     await execa('npm', ['--version'], {
