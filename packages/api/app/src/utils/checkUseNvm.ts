@@ -42,7 +42,7 @@ export async function checkUseNvm(cwd: string, logger: ILogger) {
     return false;
   }
   // check nvm or fnm exist
-  if (!(await canUseNvm()) || !(await canUseFnm())) {
+  if (!((await canUseNvm()) || (await canUseFnm()))) {
     logger.warn(
       `🟡 [Check nvm Error]: Current node version is not expect, you should install ${expectNodeVersion}`,
     );
