@@ -10,12 +10,17 @@ import { fs } from '@modern-js/codesmith-utils/fs-extra';
 import {
   canUseNpm,
   canUseNvm,
+  canUseFnm,
   canUseYarn,
 } from '@modern-js/codesmith-utils/npm';
 
 describe('Env utils cases', () => {
   test('can use nvm', async () => {
     const result = await canUseNvm();
+    expect(typeof result === 'boolean').toBeTruthy();
+  });
+  test('can use fnm', async () => {
+    const result = await canUseFnm();
     expect(typeof result === 'boolean').toBeTruthy();
   });
   test('can use npm', async () => {
