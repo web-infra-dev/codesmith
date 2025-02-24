@@ -1,5 +1,20 @@
 # @modern-js/codesmith
 
+## 2.6.6
+
+### Patch Changes
+
+- 457e077: feat: support get version with command when registry not return version field
+
+  feat: 支持当从 registry 获取版本号失败时通过命令获取版本号
+
+- 29e8f3d: feat: support fnm
+
+  feat: 支持 fnm
+
+- Updated dependencies [29e8f3d]
+  - @modern-js/codesmith-utils@2.6.6
+
 ## 2.6.5
 
 ### Patch Changes
