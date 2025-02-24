@@ -78,6 +78,7 @@ export async function getNpmPackageInfo(
         `Get npm package info of '${pkgName}'`,
       )
     ).data;
+    // some registry not return version field, use command to compat
     if (!response.version) {
       response = await getNpmPackageInfoWithCommand(
         pkgName,
