@@ -32,7 +32,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install Pnpm
-        run: corepack enable
+        run: npm install -g --force corepack && corepack enable
 
       - name: install
         run: pnpm i --ignore-scripts
