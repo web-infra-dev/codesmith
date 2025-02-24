@@ -78,6 +78,13 @@ export async function getNpmPackageInfo(
         `Get npm package info of '${pkgName}'`,
       )
     ).data;
+    if (!response.version) {
+      response = await getNpmPackageInfoWithCommand(
+        pkgName,
+        pkgVersion,
+        options,
+      );
+    }
   } catch (e) {
     logger?.error(e);
     response = await getNpmPackageInfoWithCommand(pkgName, pkgVersion, options);
