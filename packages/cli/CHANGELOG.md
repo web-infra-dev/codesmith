@@ -1,5 +1,14 @@
 # @modern-js/codesmith-cli
 
+## 2.6.6
+
+### Patch Changes
+
+- Updated dependencies [457e077]
+- Updated dependencies [29e8f3d]
+  - @modern-js/codesmith@2.6.6
+  - @modern-js/codesmith-utils@2.6.6
+
 ## 2.6.5
 
 ### Patch Changes

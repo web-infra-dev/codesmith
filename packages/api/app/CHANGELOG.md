@@ -1,5 +1,24 @@
 # @modern-js/codesmith-api-app
 
+## 2.6.6
+
+### Patch Changes
+
+- 29e8f3d: feat: support fnm
+
+  feat: 支持 fnm
+
+- Updated dependencies [457e077]
+- Updated dependencies [29e8f3d]
+  - @modern-js/codesmith@2.6.6
+  - @modern-js/codesmith-api-npm@2.6.6
+  - @modern-js/codesmith-utils@2.6.6
+  - @modern-js/codesmith-api-ejs@2.6.6
+  - @modern-js/codesmith-api-fs@2.6.6
+  - @modern-js/codesmith-api-git@2.6.6
+  - @modern-js/codesmith-api-handlebars@2.6.6
+  - @modern-js/codesmith-formily@2.6.6
+
 ## 2.6.5
 
 ### Patch Changes
