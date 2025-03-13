@@ -6,3 +6,4 @@ packages:
   - 'packages/**'
   - 'packages/api/**'
   - 'packages/easy-form/**'
+  - 'scripts'
