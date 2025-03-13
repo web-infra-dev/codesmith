@@ -1,5 +1,15 @@
 # @modern-js/codesmith
 
+## 2.6.7
+
+### Patch Changes
+
+- 34932a0: fix: check cache add `package.json` file
+
+  fix: 校验缓存是否有效增加 `package.json` 文件
+
+  - @modern-js/codesmith-utils@2.6.7
+
 ## 2.6.6
 
 ### Patch Changes
