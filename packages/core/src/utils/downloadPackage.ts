@@ -60,11 +60,14 @@ export async function getGeneratorVersion(
 
 async function isValidCache(cacheDir: string, pkgName: string) {
   /* generator cache can use
-   * 1. .codesmith.completed exist
+   * 1. .codesmith.completed && package.json exist
    * 2. cache time is within the validity period
    * 3. 对于 @modern-js/codesmith-global 包，缓存一直有效
    */
-  if (await fsExists(`${cacheDir}/.codesmith.completed`)) {
+  if (
+    (await fsExists(`${cacheDir}/.codesmith.completed`)) &&
+    (await fsExists(`${cacheDir}/package.json`))
+  ) {
     if (pkgName === '@modern-js/codesmith-global') {
       return true;
     }
