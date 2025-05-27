@@ -1,5 +1,15 @@
 # @modern-js/codesmith
 
+## 2.6.8
+
+### Patch Changes
+
+- 91df137: feat: download package support use npm command
+
+  feat: 下载 npm 包支持使用 npm 命令
+
+  - @modern-js/codesmith-utils@2.6.8
+
 ## 2.6.7
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @modern-js/codesmith-api-app
 
+## 2.6.8
+
+### Patch Changes
+
+- Updated dependencies [91df137]
+  - @modern-js/codesmith@2.6.8
+  - @modern-js/codesmith-api-ejs@2.6.8
+  - @modern-js/codesmith-api-fs@2.6.8
+  - @modern-js/codesmith-api-git@2.6.8
+  - @modern-js/codesmith-api-handlebars@2.6.8
+  - @modern-js/codesmith-api-npm@2.6.8
+  - @modern-js/codesmith-formily@2.6.8
+  - @modern-js/codesmith-utils@2.6.8
+
 ## 2.6.7
 
 ### Patch Changes
