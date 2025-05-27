@@ -1,7 +1,9 @@
 import os from 'os';
+import path from 'path';
 import { CATCHE_VALIDITY_PREIOD } from '@/constants';
 import type { Logger } from '@/logger';
 import type { ILogger } from '@/logger/constants';
+import { execa } from '@modern-js/codesmith-utils/execa';
 import { fs } from '@modern-js/codesmith-utils/fs-extra';
 import { semver } from '@modern-js/codesmith-utils/semver';
 import axios from 'axios';
@@ -62,7 +64,7 @@ async function isValidCache(cacheDir: string, pkgName: string) {
   /* generator cache can use
    * 1. .codesmith.completed && package.json exist
    * 2. cache time is within the validity period
-   * 3. 对于 @modern-js/codesmith-global 包，缓存一直有效
+   * 3. For @modern-js/codesmith-global package, cache is always valid
    */
   if (
     (await fsExists(`${cacheDir}/.codesmith.completed`)) &&
@@ -91,48 +93,148 @@ async function isValidCache(cacheDir: string, pkgName: string) {
 async function downloadAndDecompressTargz(
   tarballPkg: string,
   targetDir: string,
+  options?: {
+    pkgName?: string;
+    pkgVersion?: string;
+    registryUrl?: string;
+    logger?: ILogger;
+  },
 ) {
-  const response = await axios({
-    method: 'get',
-    url: tarballPkg,
-    responseType: 'stream',
-    adapter: 'http',
-  });
-  if (response.status !== 200) {
-    throw new Error(
-      `download tar package get bad status code: ${response.status}`,
-    );
-  }
-  // create tmp file
-  const randomId = Math.floor(Math.random() * 10000);
-  const tempTgzFilePath = `${os.tmpdir()}/temp-${randomId}.tgz`;
+  const { pkgName, pkgVersion, registryUrl, logger } = options || {};
 
-  const dest = fs.createWriteStream(tempTgzFilePath);
+  try {
+    // First try to download using axios
+    const response = await axios({
+      method: 'get',
+      url: tarballPkg,
+      responseType: 'stream',
+      adapter: 'http',
+    });
 
-  await new Promise<void>((resolve, reject) => {
-    response.data.pipe(dest);
-    response.data.on('error', (err: any) => {
-      reject(err);
-    });
-    dest.on('finish', () => {
-      resolve();
-    });
-  });
-  await new Promise<void>((resolve, reject) => {
-    fs.createReadStream(tempTgzFilePath)
-      .pipe(
-        tar.x({
-          strip: 1,
-          C: `${targetDir}`,
-        }),
-      )
-      .on('finish', () => {
-        resolve();
-      })
-      .on('error', (err: any) => {
+    if (response.status !== 200) {
+      throw new Error(
+        `download tar package get bad status code: ${response.status}`,
+      );
+    }
+
+    // create tmp file
+    const randomId = Math.floor(Math.random() * 10000);
+    const tempTgzFilePath = `${os.tmpdir()}/temp-${randomId}.tgz`;
+
+    const dest = fs.createWriteStream(tempTgzFilePath);
+
+    await new Promise<void>((resolve, reject) => {
+      response.data.pipe(dest);
+      response.data.on('error', (err: any) => {
         reject(err);
       });
-  });
+      dest.on('finish', () => {
+        resolve();
+      });
+    });
+
+    await new Promise<void>((resolve, reject) => {
+      fs.createReadStream(tempTgzFilePath)
+        .pipe(
+          tar.x({
+            strip: 1,
+            C: `${targetDir}`,
+          }),
+        )
+        .on('finish', () => {
+          resolve();
+        })
+        .on('error', (err: any) => {
+          reject(err);
+        });
+    });
+
+    // Clean up temporary file
+    await fs.remove(tempTgzFilePath);
+  } catch (error: any) {
+    logger?.warn(
+      `Failed to download with axios: ${error.message}, trying npm pack as fallback`,
+    );
+
+    // If axios download fails, use npm pack as fallback
+    if (!pkgName || !pkgVersion) {
+      throw new Error(
+        'Package name and version are required for npm pack fallback',
+      );
+    }
+
+    await downloadWithNpmPack(pkgName, pkgVersion, targetDir, {
+      registryUrl,
+      logger,
+    });
+  }
+}
+
+async function downloadWithNpmPack(
+  pkgName: string,
+  pkgVersion: string,
+  targetDir: string,
+  options?: {
+    registryUrl?: string;
+    logger?: ILogger;
+  },
+) {
+  const { registryUrl, logger } = options || {};
+
+  // Create temporary directory for npm pack
+  const randomId = Math.floor(Math.random() * 10000);
+  const tempDir = `${os.tmpdir()}/npm-pack-${randomId}`;
+  await fs.mkdirp(tempDir);
+
+  try {
+    const params = ['pack', `${pkgName}@${pkgVersion}`];
+
+    if (registryUrl) {
+      params.push('--registry');
+      params.push(registryUrl);
+    }
+
+    logger?.debug(`Executing npm pack: npm ${params.join(' ')}`);
+
+    // Execute npm pack in temporary directory with environment variables to avoid workspace issues
+    const { stdout } = await execa('npm', params, {
+      cwd: tempDir,
+      env: {
+        ...process.env,
+        // Avoid npm workspace related issues
+        npm_config_workspaces: 'false',
+      },
+    });
+
+    // npm pack returns the filename
+    const tarballFileName = stdout.trim();
+    const tarballPath = path.join(tempDir, tarballFileName);
+
+    // Check if file exists
+    if (!(await fsExists(tarballPath))) {
+      throw new Error(`npm pack failed: tarball file ${tarballPath} not found`);
+    }
+
+    // Extract to target directory
+    await new Promise<void>((resolve, reject) => {
+      fs.createReadStream(tarballPath)
+        .pipe(
+          tar.x({
+            strip: 1,
+            C: targetDir,
+          }),
+        )
+        .on('finish', () => {
+          resolve();
+        })
+        .on('error', (err: any) => {
+          reject(err);
+        });
+    });
+  } finally {
+    // Clean up temporary directory
+    await fs.remove(tempDir);
+  }
 }
 
 /**
@@ -188,7 +290,12 @@ export async function downloadPackage(
 
   logger?.timing(`🕒 download ${pkgName}@${version} tarball`);
   // download tarball and compress it to target directory
-  await downloadAndDecompressTargz(tarballPkg, targetDir);
+  await downloadAndDecompressTargz(tarballPkg, targetDir, {
+    pkgName,
+    pkgVersion: version,
+    registryUrl,
+    logger,
+  });
   logger?.timing(`🕒 download ${pkgName}@${version} tarball`, true);
 
   if (install) {
