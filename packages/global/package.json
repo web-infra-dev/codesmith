@@ -16,8 +16,7 @@
   "main": "./dist/index.js",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
-    "access": "public",
-    "provenance": true
+    "access": "public"
   },
   "scripts": {
     "prepare": "pnpm build",
