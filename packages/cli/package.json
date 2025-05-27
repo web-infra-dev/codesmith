@@ -11,7 +11,7 @@
     "modern",
     "modern.js"
   ],
-  "version": "2.6.7",
+  "version": "2.6.8",
   "jsnext:source": "./src/index.ts",
   "main": "./dist/index.js",
   "bin": {
@@ -23,8 +23,7 @@
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
-    "access": "public",
-    "provenance": true
+    "access": "public"
   },
   "scripts": {
     "prepare": "pnpm build",

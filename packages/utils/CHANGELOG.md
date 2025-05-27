@@ -1,5 +1,7 @@
 # @modern-js/codesmith-utils
 
+## 2.6.8
+
 ## 2.6.7
 
 ## 2.6.6
