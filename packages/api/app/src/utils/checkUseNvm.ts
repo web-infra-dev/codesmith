@@ -16,6 +16,7 @@ const NODE_MAJOR_VERSION_MAP: Record<string, number> = {
   'lts/fermium': 14,
   'lts/gallium': 16,
   'lts/hydrogen': 18,
+  'lts/jod': 22,
 };
 
 export async function getNoteVersion() {
