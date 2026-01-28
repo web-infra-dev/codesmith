@@ -65,6 +65,7 @@
   },
   "pnpm": {
     "overrides": {
+      "esbuild": "0.25.5",
       "tough-cookie": "^6.0.0",
       "form-data": "^4.0.5",
       "ws": "^8.19.0",
