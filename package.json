@@ -82,7 +82,13 @@
       "hono": "^4.11.7",
       "semver": "^7.5.2",
       "cross-spawn": "^7.0.6",
-      "micromatch": "^4.0.8"
+      "micromatch": "^4.0.8",
+      "word-wrap": "^1.2.5",
+      "js-yaml": "^4.1.1",
+      "formidable": "^3.5.4",
+      "diff": "^8.0.3",
+      "tmp": "^0.2.5",
+      "brace-expansion": "^4.0.1"
     }
   }
 }
