@@ -7,7 +7,7 @@ import { execa } from '@modern-js/codesmith-utils/execa';
 import { fs } from '@modern-js/codesmith-utils/fs-extra';
 import { semver } from '@modern-js/codesmith-utils/semver';
 import axios from 'axios';
-import tar from 'tar';
+import * as tar from 'tar';
 import { fsExists } from './fsExists';
 import { getNpmTarballUrl } from './getNpmTarballUrl';
 import { getNpmVersion } from './getNpmVersion';
