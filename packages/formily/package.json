@@ -30,7 +30,7 @@
   "dependencies": {
     "@swc/helpers": "0.5.1",
     "@formily/json-schema": "^2.2.24",
-    "@formily/validator": "^2.2.24",
+    "@formily/validator": "^2.3.7",
     "@modern-js/codesmith-utils": "workspace:*",
     "inquirer": "^8.2.5"
   },
@@ -39,8 +39,8 @@
   },
   "devDependencies": {
     "@modern-js/codesmith": "workspace:*",
-    "@modern-js/module-tools": "2.60.3",
-    "@modern-js/plugin-testing": "2.60.3",
+    "@modern-js/module-tools": "2.70.3",
+    "@modern-js/plugin-testing": "2.70.3",
     "@types/inquirer": "^7.3.3",
     "@types/jest": "^26.0.24",
     "@types/node": "^14.18.42",
