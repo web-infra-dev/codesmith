@@ -11,7 +11,7 @@
     "modern",
     "modern.js"
   ],
-  "version": "2.6.8",
+  "version": "2.6.9",
   "jsnext:source": "./src/index.ts",
   "types": "./dist/types/index.d.ts",
   "main": "./dist/cjs/index.js",
@@ -36,8 +36,8 @@
     "@modern-js/codesmith-utils": "workspace:*"
   },
   "devDependencies": {
-    "@modern-js/module-tools": "2.60.3",
-    "@modern-js/plugin-testing": "2.60.3",
+    "@modern-js/module-tools": "2.70.3",
+    "@modern-js/plugin-testing": "2.70.3",
     "@types/inquirer": "^7.3.3",
     "@types/jest": "^26.0.24",
     "@types/lodash": "^4.14.192",

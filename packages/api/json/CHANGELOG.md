@@ -1,5 +1,12 @@
 # @modern-js/codesmith-api-json
 
+## 2.6.9
+
+### Patch Changes
+
+- Updated dependencies [f3b1a86bae76abff43b16eb0e715ff96e636ec18]
+  - @modern-js/codesmith@2.6.9
+
 ## 2.6.8
 
 ### Patch Changes

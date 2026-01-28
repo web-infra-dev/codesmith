@@ -62,5 +62,34 @@
     "@biomejs/biome": "1.8.3",
     "@modern-js/monorepo-tools": "2.70.3",
     "@modern-js/tsconfig": "2.70.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "0.25.5",
+      "tough-cookie": "^6.0.0",
+      "form-data": "^4.0.5",
+      "ws": "^8.19.0",
+      "qs": "^6.14.1",
+      "path-to-regexp": "^8.3.0",
+      "validator": "^13.15.26",
+      "braces": "^3.0.3",
+      "lodash": "^4.17.23",
+      "serialize-javascript": "^7.0.2",
+      "react-router": "^7.13.0",
+      "@remix-run/router": "^1.23.2",
+      "@babel/runtime": "^7.28.6",
+      "@babel/helpers": "^7.28.6",
+      "@adobe/css-tools": "^4.4.4",
+      "hono": "^4.11.7",
+      "semver": "^7.5.2",
+      "cross-spawn": "^7.0.6",
+      "micromatch": "^4.0.8",
+      "word-wrap": "^1.2.5",
+      "js-yaml": "^4.1.1",
+      "formidable": "^3.5.4",
+      "diff": "^8.0.3",
+      "tmp": "^0.2.5",
+      "brace-expansion": "^4.0.1"
+    }
   }
 }
